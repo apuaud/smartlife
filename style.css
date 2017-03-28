@@ -1,0 +1,172 @@
+html,body
+{
+overflow:hidden;
+padding: 0px;
+margin: 0px;
+}
+
+div, img
+{
+	margin:0px;
+	padding: 0px;
+}
+
+#barreAccueil
+{
+	z-index: 5;
+	border-collapse: collapse;
+	width: 100%;
+	position: fixed;
+}
+
+#closeForm
+{
+	float: right;
+}
+#formulaire
+{
+
+	position: fixed;
+	color: white;
+	z-index: 6;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition:2s;
+}
+
+#ligneServices td
+{
+	background-color: transparent;
+	height: 2px;
+	transition:0.5s;
+}
+#login
+{
+	margin-top: 12%;
+}
+#logo
+{
+	height: 60px;
+}
+
+#logo2
+{
+	height: 150px;
+}
+
+#logo2 .getBig
+{
+	height: 200px;
+}
+
+#logo2:hover
+{
+	cursor: pointer;
+}
+
+
+.slogan
+{
+	text-align: center;
+	width: 100%;
+	font-size: 50px;
+	bottom: 10px;
+	color: white;
+	position:absolute;
+	z-index: 7;
+}
+
+#logoContainer
+{
+	top:7px;
+	text-align: center;
+	height: 40px;
+	position:fixed;
+	z-index: 7;
+	width: 100%;
+}
+.container .caption {
+    position: absolute;
+    top: 80px;
+    left: 0;
+}
+
+#login
+{
+	bottom: 0px;
+}
+
+#login td
+{
+	background-color: transparent;
+}
+
+.description
+{
+margin-bottom: 15px;
+}
+.container
+{
+	overflow: hidden;
+}
+td
+{
+	color: white;
+	width: 20%;
+	height: 60px;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	font-size: 25px;
+	cursor:pointer;
+}
+
+
+
+.margin0
+{
+	margin: 0;
+}
+
+.menuItem
+{
+	cursor:pointer; /* apparence du curseur */
+	transition: 1s;
+}
+
+.menuItem:hover{
+	color: black;
+	background-color: white;
+}
+
+#pageAccueil
+{
+	position: absolute;
+}
+
+.imgBackground
+{
+	width: 100%;
+	position:relative;
+}
+
+
+
+.zoom{
+	transition: all 45s ease;
+	-moz-transition: all 45s ease;
+	-ms-transition: all 45s ease;
+	-webkit-transition: all 45s ease;
+	-o-transition: all 45s ease;
+  transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+}
+
+.relative
+{
+	position: relative;
+}
