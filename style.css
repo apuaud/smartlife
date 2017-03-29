@@ -122,6 +122,7 @@ input:focus
 
 .slogan
 {
+	font-family:Adam,serif;
 	text-align: center;
 	width: 100%;
 	font-size: 50px;
@@ -222,4 +223,13 @@ td
 .relative
 {
 	position: relative;
+}
+
+@font-face
+{
+	font-family: 'Adam';
+	src:url('fonts/Adam.otf') format('otf'),
+		url('fonts/Adam.svg') format('svg'),
+		url('fonts/Adam.ttf') format('truetype'),
+		url('fonts/Adam.woff') format('woff');
 }
