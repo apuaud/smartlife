@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SmartLife</title>
+		<link rel="stylesheet" type="text/css" href="style.css"  />
+	</head>
+	<body class="margin0" onload="onLoadFunction()">
+		<div id="formulaire">
+			<table id="login" align="center">
+				<tr>
+					<td id="firstNameInputFalse"></td>
+					<td id="itemFirstNames" >
+						<input id="firstNameInput" type="text" name="firstName" placeholder="First name" size="13"/>
+						<input id="lastNameInput" type="text" name="lastName" placeholder="Last name" size="12"/>
+					</td>
+					<td id="lastNameInputFalse"></td>
+				</tr>
+				<tr>
+					<td id = "idInputFalse"></td>
+					<td id="itemID">
+						<input id="idInput" type="text" name="id" placeholder="ID" size="20"/>
+						<input id="emailInput" type="text" name="email" placeholder="Email" size="20" />
+					</td>
+					<td id="emailInputFalse"></td>
+				</tr>
+				<tr>
+					<td id = "passwordInputFalse"></td>
+					<td id="itemPassword">
+						<input id="passwordInput" type="password" name="pw" placeholder="Password" size="20" />
+						<input id="passwordConfirmInput" type="password" name="pw2" placeholder="Confirm password" size="20" />
+					</td>
+					<td id = "passwordConfirmInputFalse"></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td id='itemRegister'><button onclick="verifyInputs()">Register</button></a></td>
+					<td></td>
+				</tr>
+
+			</table>
+		</div>
+
+		<div class="container" id="accueil" >
+			<p class = "slogan">Your Home | Your Future</p>
+			<p id="logoContainer"><img align="middle"id="logo2" src="img/logo_sansFond.png"></p>
+
+			<img class ="imgBackground"src="img/leveSoleilTest.jpg" style="position:relative; z-index=4;">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+	var divFormulaire=document.getElementById('formulaire');
+	var firstNameInput=document.getElementById('firstNameInput');
+	var lignesFormulaire = document.getElementsByTagName('tr');
+	var colonne;
+	var colonneWidth;
+	var tableauFormulaire=document.getElementById('login');
+	var inputsInTd;
+
+	formulaire.style.display="block";
+	firstNameInput.focus();
+
+	for (var numLigne = 0 ; numLigne < lignesFormulaire.length ; numLigne++)
+	{
+		colonne=lignesFormulaire[numLigne].getElementsByTagName('td')[1];
+		colonneWidth=570;
+		colonne.style.width=colonneWidth+"px";
+		inputsInTd = lignesFormulaire[numLigne].getElementsByTagName('td')[1].getElementsByTagName('input');
+		for (var input = 0 ; input <  inputsInTd.length ; input++)
+		{
+			inputsInTd[input].style.width=colonneWidth/inputsInTd.length-10+"px";
+		}
+	}
+
+	var inputs=document.getElementsByTagName('input');
+	var inputsCorrect = new Array(false, false, false, false, false, false);
+	var input;
+
+
+
+	(function()
+	{
+		for(var i = 0 ; i < inputs.length ; i ++)
+		{
+			inputs[i].addEventListener('focusout', function(e){check(e.target.id, i)});
+			inputs[i].addEventListener('focus', function(e){displayFalseCell(e.target.id.i)});
+		}
+
+
+	})();
+
+	function check(id, i)
+	{
+		input = document.getElementById(id);
+		inputValue= input.value;
+		celluleFalse = document.getElementById(id+"False");
+
+		if (id=='firstNameInput' || id=='lastNameInput')
+		{
+			if(/^[a-zA-Z -]+$/.test(inputValue))
+			{
+				celluleFalse.style.backgroundColor="transparent";
+				inputsCorrect[i]=true;
+			}
+			else
+			{
+				celluleFalse.style.backgroundColor="red";
+				inputsCorrect[i]=false;
+			}
+		}
+
+		else if (id=="idInput")
+		{
+			if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(inputValue))
+			{
+				inputsCorrect[i]=true;
+				celluleFalse.style.backgroundColor="transparent";
+			}
+			else {
+				celluleFalse.style.backgroundColor="red";
+				inputsCorrect[i]=false;
+			}
+		}
+
+		else if(id=='emailInput')
+		{
+			if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(inputValue))
+			{
+				inputsCorrect[i]=true;
+				celluleFalse.style.backgroundColor="transparent";
+			}
+			else {
+				celluleFalse.style.backgroundColor="red";
+				inputsCorrect[i]=false;
+			}
+		}
+
+		else if(id=="passwordInput")
+		{
+			if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(inputValue))
+			{
+				inputsCorrect[i]=true;
+				celluleFalse.style.backgroundColor="transparent";
+			}
+			else
+			{
+				celluleFalse.style.backgroundColor="red";
+				inputsCorrect[i]=false;
+			}
+			if(inputValue!=document.getElementById('passwordConfirmInput').value)
+			{
+				inputsCorrect[i+1]=false;
+			}
+		}
+
+		else if (id=="passwordConfirmInput")
+		{
+			if(inputValue==document.getElementById('passwordInput').value)
+			{
+				inputsCorrect[i]=true;
+				celluleFalse.style.backgroundColor="transparent";
+			}
+			else
+			{
+				celluleFalse.style.backgroundColor="red";
+				inputsCorrect[i]=false;
+			}
+		}
+	}
+
+	function verifyInputs()
+	{
+		var submit = true;
+		for(var i = 0 ; i < inputsCorrect.length ; i++)
+		{
+			alert(inputs[i].value);
+			if(inputsCorrect[i]==false)
+			{
+				submit=false;
+			}
+		}
+	}
+	</script>
+</html>

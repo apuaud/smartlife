@@ -42,6 +42,9 @@ input
 	color:white;
 	font-size: 30px;
 	border-bottom: solid white;
+	margin: 0;
+	padding: 0;
+
 }
 
 input:focus
@@ -150,6 +153,7 @@ input:focus
 #login
 {
 	bottom: 0px;
+
 }
 
 #login td
@@ -184,7 +188,6 @@ td
 
 .menuItem
 {
-	font-family: CenturyGothic,serif;
 	cursor:pointer; /* apparence du curseur */
 	transition: 1s;
 }
@@ -233,13 +236,4 @@ td
 		url('fonts/Adam.svg') format('svg'),
 		url('fonts/Adam.ttf') format('truetype'),
 		url('fonts/Adam.woff') format('woff');
-}
-
-@font-face
-{
-	font-family: 'CenturyGothic';
-	src:url('fonts/CenturyGothic.otf') format('otf'),
-		url('fonts/CenturyGothic.svg') format('svg'),
-		url('fonts/CenturyGothic.ttf') format('truetype'),
-		url('fonts/CenturyGothic.woff') format('woff');
 }
