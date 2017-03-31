@@ -78,49 +78,61 @@
 	var inputsCorrect = new Array(false, false, false, false, false, false);
 	var input;
 
-
-
 	(function()
 	{
 		for(var i = 0 ; i < inputs.length ; i ++)
 		{
-			inputs[i].addEventListener('focusout', function(e){check(e.target.id, i)});
-			inputs[i].addEventListener('focus', function(e){displayFalseCell(e.target.id.i)});
+			inputs[i].addEventListener('focusout', function(e){check(e.target.id)});
 		}
 
 
 	})();
 
-	function check(id, i)
+	function check(id)
 	{
 		input = document.getElementById(id);
 		inputValue= input.value;
 		celluleFalse = document.getElementById(id+"False");
 
-		if (id=='firstNameInput' || id=='lastNameInput')
+		if (id=='firstNameInput')
 		{
+
 			if(/^[a-zA-Z -]+$/.test(inputValue))
 			{
 				celluleFalse.style.backgroundColor="transparent";
-				inputsCorrect[i]=true;
+				inputsCorrect[0]=true;
 			}
 			else
 			{
 				celluleFalse.style.backgroundColor="red";
-				inputsCorrect[i]=false;
+				inputsCorrect[0]=false;
 			}
 		}
 
+		else if (id=='lastNameInput')
+		{
+
+			if(/^[a-zA-Z -]+$/.test(inputValue))
+			{
+				celluleFalse.style.backgroundColor="transparent";
+				inputsCorrect[1]=true;
+			}
+			else
+			{
+				celluleFalse.style.backgroundColor="red";
+				inputsCorrect[1]=false;
+			}
+		}
 		else if (id=="idInput")
 		{
 			if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(inputValue))
 			{
-				inputsCorrect[i]=true;
+				inputsCorrect[2]=true;
 				celluleFalse.style.backgroundColor="transparent";
 			}
 			else {
 				celluleFalse.style.backgroundColor="red";
-				inputsCorrect[i]=false;
+				inputsCorrect[2]=false;
 			}
 		}
 
@@ -128,12 +140,12 @@
 		{
 			if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(inputValue))
 			{
-				inputsCorrect[i]=true;
+				inputsCorrect[3]=true;
 				celluleFalse.style.backgroundColor="transparent";
 			}
 			else {
 				celluleFalse.style.backgroundColor="red";
-				inputsCorrect[i]=false;
+				inputsCorrect[3]=false;
 			}
 		}
 
@@ -141,17 +153,17 @@
 		{
 			if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(inputValue))
 			{
-				inputsCorrect[i]=true;
+				inputsCorrect[4]=true;
 				celluleFalse.style.backgroundColor="transparent";
 			}
 			else
 			{
 				celluleFalse.style.backgroundColor="red";
-				inputsCorrect[i]=false;
+				inputsCorrect[4]=false;
 			}
 			if(inputValue!=document.getElementById('passwordConfirmInput').value)
 			{
-				inputsCorrect[i+1]=false;
+				inputsCorrect[5]=false;
 			}
 		}
 
@@ -159,13 +171,13 @@
 		{
 			if(inputValue==document.getElementById('passwordInput').value)
 			{
-				inputsCorrect[i]=true;
+				inputsCorrect[5]=true;
 				celluleFalse.style.backgroundColor="transparent";
 			}
 			else
 			{
 				celluleFalse.style.backgroundColor="red";
-				inputsCorrect[i]=false;
+				inputsCorrect[5]=false;
 			}
 		}
 	}
@@ -175,12 +187,13 @@
 		var submit = true;
 		for(var i = 0 ; i < inputsCorrect.length ; i++)
 		{
-			alert(inputs[i].value);
+
 			if(inputsCorrect[i]==false)
 			{
 				submit=false;
 			}
 		}
+		alert(submit);
 	}
 	</script>
 </html>
