@@ -7,8 +7,8 @@
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
-			<form action="inscription.php" method="post">
-			<table id="login" align="center">
+			<form action="inscription.php" method="post" onsubmit="return verifyInputs();">
+			<table id="login" align="center" >
 				<tr>
 					<td id="firstNameInputFalse"><p align="right" class="border-right"> First name must contains only letters, spaces and dashes</p></td>
 					<td id="itemFirstNames" >
@@ -42,6 +42,7 @@
 
 			</table>
 			</form>
+
 		</div>
 
 		<div class="container" id="accueil" >
@@ -64,6 +65,10 @@
 
 	formulaire.style.display="block";
 	firstNameInput.focus();
+
+
+
+
 
 	for (var numLigne = 0 ; numLigne < lignesFormulaire.length ; numLigne++)
 	{
@@ -211,11 +216,11 @@
 			{
 				submit=false;
 				displayCorrection(celluleFalse);
-				blink(cellulesFalse[i]);
 			}
 		}
-		alert(submit);
+		return submit;
 	}
+
 
 	function displayCorrection(cellule)
 	{
