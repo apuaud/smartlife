@@ -200,6 +200,7 @@ margin-bottom: 15px;
 {
 	overflow: hidden;
 }
+
 td
 {
 	color: white;
@@ -208,10 +209,7 @@ td
 	background-color: rgba(0, 0, 0, 0.5);
 	text-align: center;
 	font-size: 25px;
-
 }
-
-
 
 .margin0
 {
