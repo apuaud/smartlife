@@ -12,6 +12,7 @@ setcookie('langue', 'en', time() + 365*24*3600, null, null, false, true);
 	<body class="margin0" onload="onLoadFunction()">
 		<?php include_once("analyticstracking.php") ?>
 		<div id="formulaire">
+			<form action="connexion.php" method="post">
 			<table id="login" align="center">
 				<tr>
 					<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" /></td>
@@ -23,7 +24,7 @@ setcookie('langue', 'en', time() + 365*24*3600, null, null, false, true);
 					<td id="itemPassword"><input id="passwordInput" type="password" name="motdepasse" placeholder="Password" size="30" /></td>
 				</tr>
 				<tr>
-					<td id='buttonConnexion'><button class="buttonsubmit">Connexion</button></td>
+					<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
 				</tr>
 				<tr>
 					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Password forgotten ?</a></td>
@@ -33,6 +34,7 @@ setcookie('langue', 'en', time() + 365*24*3600, null, null, false, true);
 					<td id='itemRegister'><button class="buttonsubmit" onclick="window.location.href='register.html'">Register</button></a></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 		<p class="langueselect">
 			<a href="languefr.php">
