@@ -1,7 +1,8 @@
 <?php
 session_start();
-$_SESSION['langue'] = 'en';
+setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -9,6 +10,7 @@ $_SESSION['langue'] = 'en';
 		<link rel="stylesheet" type="text/css" href="style.css"  />
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
+		<?php include_once("analyticstracking.php") ?>
 		<div id="formulaire">
 			<table id="login" align="center">
 				<tr>
@@ -24,15 +26,26 @@ $_SESSION['langue'] = 'en';
 					<td id='buttonConnexion'><button class="buttonsubmit">Connexion</button></td>
 				</tr>
 				<tr>
-					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Password forgotten ?</a></td>
+					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Mot de passe oublié ?</a></td>
 				</tr>
 
 				<tr>
-					<td id='itemRegister'><button class="buttonsubmit" onclick="window.location.href='register.html'">Register</button></a></td>
+					<td id='itemRegister'><button class="buttonsubmit" onclick="window.location.href='register.html'">S'inscrire</button></a></td>
 				</tr>
 			</table>
 		</div>
-		<p class="langueselect"><a href="languefr.php"><button class="buttonlangue" name="fr"><img src="http://www.oneturf.fr/images/fr.gif" alt="fr" style="height:15px;max-width:auto;" /></a></button></form> | <a href="langueen.php"><button class="buttonlangue" name="en"><img src="http://www.oneturf.fr/images/gb.gif" alt="en" style="height:15px;max-width:auto;" /></a></button></form></p>
+		<p class="langueselect">
+			<a href="languefr.php">
+				<button class="buttonlangue" name="fr">
+					<img src="http://www.oneturf.fr/images/fr.gif" alt="fr" style="height:15px;max-width:auto;" />
+			</a>
+				</button> | 
+			<a href="langueen.php">
+				<button class="buttonlangue" name="en">
+					<img src="http://www.oneturf.fr/images/gb.gif" alt="en" style="height:15px;max-width:auto;" />
+				</button>
+			</a>
+		</p>
 		<div class="container" id="accueil" >
 			<p class = "slogan">Your Home | Your Future</p>
 			<p id="logoContainer"><img align="middle"id="logo2" src="img/accueil_logo.png"></p>
@@ -41,11 +54,11 @@ $_SESSION['langue'] = 'en';
 
 			<table id = "barreAccueil" class="caption">
 				<tr>
-					<td id="itemAccueil" class="menuItem">Home</td>
-					<td id="itemPresentation" class="menuItem">Services</td>
+					<td id="itemAccueil" class="menuItem">Accueil</td>
+					<td id="itemPresentation" class="menuItem">Présentation</td>
 					<td id='itemLogo' ></td>
-					<td id='itemAccount'class="menuItem" onclick="displayFormulaire()">Account</td>
-					<td id='itemAide'class="menuItem"><a href="/app/contact.php" style="text-decoration:none;color:inherit;">Help</a></td>
+					<td id='itemAccount'class="menuItem" onclick="displayFormulaire()">Espace personnel</td>
+					<td id='itemAide'class="menuItem"><a href="/app/contact.php" style="text-decoration:none;color:inherit;">Support</a></td>
 				</tr>
 				<tr id="ligneServices">
 					<td></td>

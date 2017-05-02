@@ -1,7 +1,8 @@
 <?php
 session_start();
-$_SESSION['langue'] = 'en';
+setcookie('langue', 'en', time() + 365*24*3600, null, null, false, true);
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -9,6 +10,7 @@ $_SESSION['langue'] = 'en';
 		<link rel="stylesheet" type="text/css" href="style.css"  />
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
+		<?php include_once("analyticstracking.php") ?>
 		<div id="formulaire">
 			<table id="login" align="center">
 				<tr>
@@ -32,7 +34,18 @@ $_SESSION['langue'] = 'en';
 				</tr>
 			</table>
 		</div>
-		<p class="langueselect"><a href="languefr.php"><button class="buttonlangue" name="fr"><img src="http://www.oneturf.fr/images/fr.gif" alt="fr" style="height:15px;max-width:auto;" /></a></button></form> | <a href="langueen.php"><button class="buttonlangue" name="en"><img src="http://www.oneturf.fr/images/gb.gif" alt="en" style="height:15px;max-width:auto;" /></a></button></form></p>
+		<p class="langueselect">
+			<a href="languefr.php">
+				<button class="buttonlangue" name="fr">
+					<img src="http://www.oneturf.fr/images/fr.gif" alt="fr" style="height:15px;max-width:auto;" />
+			</a>
+				</button> | 
+			<a href="langueen.php">
+				<button class="buttonlangue" name="en">
+					<img src="http://www.oneturf.fr/images/gb.gif" alt="en" style="height:15px;max-width:auto;" />
+				</button>
+			</a>
+		</p>
 		<div class="container" id="accueil" >
 			<p class = "slogan">Your Home | Your Future</p>
 			<p id="logoContainer"><img align="middle"id="logo2" src="img/accueil_logo.png"></p>

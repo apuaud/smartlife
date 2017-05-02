@@ -12,10 +12,10 @@ try {
 
 if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['id']) AND isset($_POST['email']) AND isset($_POST['pw']))
 {
-	$nom = $_POST['firstName'];
-	$prenom = $_POST['lastName'];
-	$pseudo = $_POST['id'];
-	$email = $_POST['email'];
+	$nom = htmlspecialchars($_POST['firstName']);
+	$prenom = htmlspecialchars($_POST['lastName']);
+	$pseudo = htmlspecialchars($_POST['id']);
+	$email = htmlspecialchars($_POST['email']);
 	$password = $_POST['pw'];
 	$isAdmin = 0;
 	$req = $dbh->prepare('INSERT INTO users(prenom, nom, pseudo, email, password, isAdmin) VALUES(:prenom, :nom, :pseudo, :email, :password, :isAdmin)');
@@ -24,7 +24,7 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 		'nom' => $nom,
 		'pseudo' => $pseudo,
 		'email' => $email,
-		'password' => md5($password),
+		'password' => sha1($password),
 		'isAdmin' => $isAdmin
 		));
 

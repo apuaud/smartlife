@@ -4,15 +4,15 @@ if (isset($_COOKIE['langue']))
 {
 	if($_COOKIE['langue']=='fr') //Détermination de la langue enregistrée en cookie
 	{
-		include("contact_fr.php");
+		include("home_fr.php");
 	}
 	else
 	{
-		include("contact_en.php");
+		include("home_en.php");
 	}
 }
 else
 {
-	include("contact_fr.php"); //Langue par défaut
+	include("home_fr.php"); //Langue par défaut
 }
 ?>
