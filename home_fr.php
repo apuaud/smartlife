@@ -75,16 +75,27 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 		<div class="container " id="presentation">
 			<p class = "slogan">Your Home | Your Future</p>
 			<img class ="imgBackground"  src="img/presentation1.jpg">
-
+			<p class="titre-description1">Rendez votre maison intelligente</p>
+			<p class="texte-description1">Avez-vous déjà eu des difficultés pour gérer votre maison de A à Z ? <br /><br />
+				Avez-vous déjà oublié de vérifier que les volets soient bien fermés ou les lumières bien éteintes ? 
+				Grâce à SmartLife, profitez de nombreuses améliorations pour votre maison : 
+				chauffage intelligent, volets télécommandés, sécurité, et bien d’autres. 
+				Choisir une maison intelligente c’est choisir la simplicité.</p>
 		</div>
 
 
 		<div class="container" id="presentation2">
 			<img class ="imgBackground" src="img/presentation2MindFuckRogne.png">
+			<p class="titre-description2">Optimisez votre consommation énergétique</p> 
+			<p class="texte-description2">Grâce aux nouvelles technologies, 
+				il vous est possible de programmer les appareils de votre logement.</p>
 		</div>
 
 		<div class="container" id="presentation3">
 			<img class ="imgBackground" src="img/presentation3.jpg">
+			<p class="titre-description3">Contrôlez votre maison à distance</p>
+			<p class="texte-description3">Avec Smartlife vous serez averti en cas d’oubli 
+				et vous pourrez contrôler à distance vos objets connectés.</p>
 		</div>
 
 

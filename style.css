@@ -276,6 +276,97 @@ td
 	left:92%;
 }
 
+.titre-description1
+{
+	font-size: 3em;
+	text-align: right;
+	margin-left: 38%;
+	margin-right: 98%;
+	font-family:"CenturyGothic",serif;
+	width: 60%;
+	top:128%;
+	color: white;
+	position: absolute;
+	z-index: 7;
+}
+
+.texte-description1
+{
+	font-size: 1.2em;
+	text-align: justify;
+	font-family:"CenturyGothic",serif;
+	margin-left: 42%;
+	margin-right: 87%;
+	width: 52%;
+	top:150%;
+	color: white;
+	position: absolute;
+	z-index: 7;
+	line-height: 1.5;
+}
+
+.titre-description2
+{
+	font-size: 3em;
+	text-align: left;
+	margin-left: 2%;
+	margin-right: 80%;
+	font-family:"CenturyGothic",serif;
+	width: 81%;
+	top:228%;
+	color: white;
+	position: absolute;
+	z-index: 7;
+	background-color: rgba(0,0,0,0.55);
+
+}
+
+.texte-description2
+{
+	font-size: 1.2em;
+	text-align: justify;
+	font-family:"CenturyGothic",serif;
+	margin-left: 2%;
+	margin-right: 80%;
+	width: 70%;
+	top:250%;
+	color: white;
+	position: absolute;
+	z-index: 7;
+	line-height: 1.5;
+	background-color: rgba(0,0,0,0.55);
+}
+
+.titre-description3
+{
+	font-size: 3em;
+	text-align: left;
+	margin-left: 37%;
+	font-family:"CenturyGothic",serif;
+	width: 100%;
+	top:335%;
+	color: rgb(0,0,0);
+	position: absolute;
+	z-index: 7;
+
+}
+
+.texte-description3
+{
+	font-size: 1.2em;
+	text-align: justify;
+	font-family:"CenturyGothic",serif;
+	margin-left: 48%;
+	margin-right: 98%;
+	width: 50%;
+	top:360%;
+	color: rgb(0,0,0);
+	position: absolute;
+	z-index: 7;
+	line-height: 1.5;
+}
+
+
 @font-face
 {
 	font-family: 'Adam';
