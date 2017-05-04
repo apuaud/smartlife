@@ -27,14 +27,13 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
 				</tr>
 				<tr>
-					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Mot de passe oublié ?</a></td>
+					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Mot de passe oublié ?</td>
 				</tr>
-
+				</form>
 				<tr>
-					<td id='itemRegister'><button class="buttonsubmit" onclick="window.location.href='register.html'">S'inscrire</button></a></td>
+					<td id='itemRegister'><a href="register.php">S'inscrire</a></td>
 				</tr>
 			</table>
-			</form>
 		</div>
 		<p class="langueselect">
 			<a href="languefr.php">

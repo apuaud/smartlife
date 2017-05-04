@@ -1,21 +1,13 @@
 <?php
 session_start();
-$dsn = 'mysql:dbname=u111859621_slife;host=mysql.hostinger.fr';
-$user = 'u111859621_admin';
-$password = 'ISEP2019';
-
-try {
-    $dbh = new PDO($dsn, $user, $password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo 'Échec lors de la connexion : ' . $e->getMessage();
-}
+include('db_connect.php');
 
 $pseudo = $_POST['login'];
 $mdpinsere = sha1($_POST['motdepasse']);
-$req = $dbh->prepare("SELECT password,type,nom,prenom FROM users WHERE pseudo like :pseudo ");
+$req = $dbh->prepare("SELECT id,password,type,nom,prenom FROM users WHERE pseudo like :pseudo ");
 if($req->execute(array(':pseudo' => $pseudo)) && $row = $req->fetch())
 {
+	$id = $row['id'];
     $mdp = $row['password'];
     $type = $row['type'];
     $nom = $row['nom'];
@@ -24,6 +16,7 @@ if($req->execute(array(':pseudo' => $pseudo)) && $row = $req->fetch())
 
 if($type >= 1 && $mdpinsere==$mdp)
 {
+	$_SESSION['id'] = $id;
 	$_SESSION['pseudo'] = $pseudo;
 	$_SESSION['type'] = $type;
 	$_SESSION['nom'] = $nom;

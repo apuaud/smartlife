@@ -1,4 +1,4 @@
 <?php
 session_start();
-echo 'Coucou ' . $_SESSION['pseudo'];
 ?>
+<p>Ajouter une <a href="add_house.php">nouvelle maison</a></p>
