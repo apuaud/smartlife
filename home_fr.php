@@ -40,7 +40,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 				<button class="buttonlangue" name="fr">
 					<img src="http://www.oneturf.fr/images/fr.gif" alt="fr" style="height:15px;max-width:auto;" />
 			</a>
-				</button> | 
+				</button> |
 			<a href="langueen.php">
 				<button class="buttonlangue" name="en">
 					<img src="http://www.oneturf.fr/images/gb.gif" alt="en" style="height:15px;max-width:auto;" />
@@ -48,7 +48,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 			</a>
 		</p>
 		<div class="container" id="accueil" >
-			<p class = "slogan">Your Home | Your Future</p>
+			<p class = "slogan">Your Home, Your Future</p>
 			<p id="logoContainer"><img align="middle"id="logo2" src="img/accueil_logo.png"></p>
 
 			<img class ="imgBackground"src="img/accueil.png" style="position:relative; z-index=4;">
@@ -72,287 +72,40 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 		</div>
 
 		<div class="container " id="presentation">
-			<p class = "slogan">Your Home | Your Future</p>
+			<div class="sloganDescription">
+				<p class="sloganDescriptionP">Prenez le contrôle de votre logement en connectant vos volets, <br/>
+																			vos lumières et ajoutez plein d'autres fonctionnalités !</p>
+			</div>
+			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Rendez votre maison intelligente</p>
 			<img class ="imgBackground"  src="img/presentation1.jpg">
-			<p class="titre-description1">Rendez votre maison intelligente</p>
-			<p class="texte-description1">Avez-vous déjà eu des difficultés pour gérer votre maison de A à Z ? <br /><br />
-				Avez-vous déjà oublié de vérifier que les volets soient bien fermés ou les lumières bien éteintes ? 
-				Grâce à SmartLife, profitez de nombreuses améliorations pour votre maison : 
-				chauffage intelligent, volets télécommandés, sécurité, et bien d’autres. 
-				Choisir une maison intelligente c’est choisir la simplicité.</p>
 		</div>
 
 
 		<div class="container" id="presentation2">
+			<div class="sloganDescription">
+				<p class="sloganDescriptionP">Connectez vous à votre logement quand vous voulez, <br/>
+																			d'où vous voulez, et à partir de n'importe quel appareil !</p>
+			</div>
+			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Contrôlez votre maison à distance</p>
 			<img class ="imgBackground" src="img/presentation2MindFuckRogne.png">
-			<p class="titre-description2">Optimisez votre consommation énergétique</p> 
-			<p class="texte-description2">Grâce aux nouvelles technologies, 
-				il vous est possible de programmer les appareils de votre logement.</p>
 		</div>
 
 		<div class="container" id="presentation3">
+			<div class="sloganDescription">
+				<p class="sloganDescriptionP">Ne soyez plus surpris du montant inscrit au bas de vos factures d'eau et d'électricité,<br/>
+																			soyez avertit en temps réel de votre consommation et ne gaspillez plus d'énergie !</p>
+			</div>
+			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Optimisez votre consommation énergétique</p>
 			<img class ="imgBackground" src="img/presentation3.jpg">
-			<p class="titre-description3">Contrôlez votre maison à distance</p>
-			<p class="texte-description3">Avec Smartlife vous serez averti en cas d’oubli 
-				et vous pourrez contrôler à distance vos objets connectés.</p>
+
 		</div>
 
 
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
 		</script>
-		<script>
+		<script type="text/javascript" src="firstPage.js"></script>
 
-			var imgs = document.getElementsByClassName("imgBackground");
-			var scroll=true;
-			var imgId;
-			var lastImgId;
-			var levelServices = document.getElementById("levelServices");
-			var formulaire = document.getElementById('formulaire');
-			var ligneServices=document.getElementById('ligneServices').getElementsByTagName('td');
-
-			function onLoadFunction()
-			{
-				for(var i = 0 ; i < imgs.length ; i ++)
-				{
-					imgs[i].classList.remove('zoom');
-				}
-				imgs[0].classList.add('zoom');
-				imgId=0;
-				lastImgId=0;
-				ligneServices[0].style.backgroundColor="white";
-				$('html, body').animate(
-				{
-						scrollTop: $("#accueil").offset().top
-				},1);
-				return;
-			}
-
-
-			function zoom(imgNum)
-			{
-				setTimeout(function()
-				{
-					for(var i= 0 ; i < imgs.length ; i++)
-					{
-						if(imgNum==i)
-						{
-							imgs[i].classList.add('zoom');
-						}
-						else
-						{
-							imgs[i].classList.remove('zoom');
-						}
-					}
-				},500);
-
-			}
-
-			function changeToWhite(imgId)
-			{
-
-				for(var i = 0 ; i < ligneServices.length ; i++)
-				{
-					if(i==imgId)
-					{
-						ligneServices[i].style.backgroundColor="white";
-					}
-					else
-					{
-						ligneServices[i].style.backgroundColor="transparent";
-					}
-				}
-
-			}
-			$(document).ready(function ()
-			{
-          $("#itemPresentation").click(function ()
-          {
-          	changeToWhite(1);
-          	zoom(1);
-						imgId=1;
-              $('html, body').animate(
-              {
-                  scrollTop: $("#presentation").offset().top
-              }, 500);
-              setTimeout(function(){imgId=1;},500);
-          });
-          $("#logo2").click(function ()
-          {
-          	zoom(0);
-          	changeToWhite(0);
-						imgId=0;
-              $('html, body').animate(
-              {
-                  scrollTop: $("#accueil").offset().top
-              }, 500);
-              setTimeout(function(){imgId=0;},500);
-          });
-
-          $("#itemAccueil").click(function ()
-          {
-          	zoom(0);
-          	changeToWhite(0);
-						imgId=0;
-          	levelServices.style.backgroundColor='transparent';
-              $('html, body').animate(
-              {
-                  scrollTop: $("#accueil").offset().top
-              }, 500);
-              setTimeout(function(){imgId=0;},500);
-          });
-
-          $("#itemLogo").click(function ()
-          {
-          	zoom(0);
-          	changeToWhite(0);
-						imgId=0;
-              $('html, body').animate(
-              {
-                  scrollTop: $("#accueil").offset().top
-              }, 500);
-              setTimeout(function(){imgId=0;},500);
-          });
-
-          $("#itemAccount").click(function ()
-          {
-						lastImgId=imgId;
-          	changeToWhite(3);
-              setTimeout(function(){imgId=0;},500);
-          });
-      });
-
-			var scrollToId;
-			var lastTime=0;
-
-      var body = document.getElementsByTagName('body')[0];
-
-      window.addEventListener("wheel",function(e){myFunction(e)});
-
-
-     	function myFunction(e)
-      {
-				if(scroll==true)
-				{
-					var now = new Date().getTime();
-	      	if(now-lastTime<1000)
-	      	{
-	      		return;
-	      	}
-	      	else
-	      	{
-	      		lastTime=now;
-	      		if(imgId==0)
-	        	{
-	        		if(e.deltaY>0)
-	        		{
-
-	        			zoom(1);
-	        			changeToWhite(1);
-								imgId=1;
-	        			scrollToId="#presentation";
-	        			setTimeout(function(){imgId=1;},500);
-	        		}
-							else {
-								return;
-							}
-	        	}
-	        	else if(imgId==1)
-	        	{
-
-	        		if(e.deltaY>0)
-	        		{
-	        			zoom(2);
-	        			changeToWhite(1);
-								imgId=2;
-	        			scrollToId="#presentation2";
-	        			setTimeout(function(){imgId=2;},500);
-	        		}
-	        		else
-	        		{
-	        			zoom(0);
-	        			changeToWhite(0);
-	        			scrollToId="#accueil";
-								imgId=0;
-	        			setTimeout(function(){imgId=0;},500);
-	        		}
-	        	}
-	        	else if(imgId==2)
-	        	{
-	        		if(e.deltaY>0)
-	        		{
-	        			zoom(3);
-								imgId=3;
-	        			changeToWhite(1);
-	        			scrollToId="#presentation3";
-	        			setTimeout(function(){imgId=3;},500);
-	        		}
-	        		else
-	        		{
-	        			zoom(1);
-								imgId=1;
-	        			changeToWhite(1);
-	        			scrollToId="#presentation";
-	        			setTimeout(function(){imgId=1;},500);
-	        		}
-	        	}
-	        	else
-	        	{
-	        		if(e.deltaY<0)
-	        		{
-	        			zoom(2);
-								imgId=2;
-	        			changeToWhite(1);
-	        			scrollToId="#presentation2";
-	        			setTimeout(function(){imgId=2;},500);
-	        		}
-
-	        	}
-	        	$('html, body').animate(
-	              {
-	                  scrollTop: $(scrollToId).offset().top
-	              }, 500);
-	      	}
-	      }
-				else {
-					return;
-				}
-			}
-
-
-      function displayFormulaire()
-      {
-				scroll=false;
-      	formulaire.style.display="block";
-				document.getElementById('idInput').focus();
-      }
-      function hideFormulaire()
-      {
-				scroll=true;
-				imgId=lastImgId;
-      	formulaire.style.display="none";
-				idInput.value="";
-				passwordInput.value="";
-				if(lastImgId==0)
-				{
-					changeToWhite(0);
-				}
-				else
-				{
-					changeToWhite(1);
-				}
-      }
-
-			$(document).keyup(function(e)
-			{
-			     if (e.keyCode == 27)
-					 {
-						 hideFormulaire();
-					 }
-			});
-
-
-		</script>
 
 	</body>
 </html>
