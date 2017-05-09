@@ -12,6 +12,20 @@ div, img
 	position: relative;
 }
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgba(255, 255, 255, 0.8);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: white;
+   opacity:  0.8;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: white;
+   opacity:  0.8;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgba(255, 255, 255, 0.8);
+}
 
 .buttonsubmit
 {
@@ -77,7 +91,9 @@ input:focus
 {
 	transition: all 0.5s;
 	cursor: pointer;
+	width:30px;
 }
+
 #cross:hover
 {
 	transform: scale(5);
@@ -86,6 +102,7 @@ input:focus
 
 #closeForm
 {
+	text-align: right;
 	float: right;
 }
 
@@ -149,14 +166,16 @@ input:focus
 	background-color: rgba(255,255, 255, 0.5);
 	transition: 0.5s;
 	padding-bottom: 5px;
-	animation: blinker 4s ease infinite;
+	animation: zoom 4s ease infinite;
 }
 
-@keyframes blinker {
+@keyframes zoom
+{
 	35% { transform: scale(1.0);}
   50% { transform: scale(1.05);}
 	65% { transform: scale(1.0);}
 }
+
 .slogan:hover
 {
 	background-color: transparent;
@@ -164,12 +183,7 @@ input:focus
 	border-top: solid;
 	border-bottom: solid;
 	border-width: thin;
-}
-
-@keyframes SLOGAN{
-    0%{opacity: 1;}
-    50%{opacity: 0;}
-    100%{opacity: 1;}
+	animation-play-state: paused;
 }
 
 .sloganDescription
@@ -179,20 +193,34 @@ input:focus
 	color: white;
 	z-index: 8;
 	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
 	transition:2s;
-	text-align: center;
 	display: none;
+  vertical-align: middle;
+}
+
+.sloganDescriptionGuillemet
+{
+	width: 70px;
+}
+
+.sloganDescriptionInnerContainer
+{
+	vertical-align: middle;
+	display: table-cell;
 }
 
 .sloganDescriptionP
 {
-	width: 100%;
-	align-self: center;
-	position: absolute;
-	font-size: 30px;
-	margin-top: 200px;
+	font-family: CenturyGothic,serif;
+	text-align: center;
+	font-size: 50px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 #logoContainer

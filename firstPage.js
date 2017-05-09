@@ -14,7 +14,7 @@ window.onresize = function(event)
 }
 function displayDescription(slogan)
 {
-  slogan.parentNode.getElementsByClassName('sloganDescription')[0].style.display="block";
+  slogan.parentNode.getElementsByClassName('sloganDescription')[0].style.display="table";
 }
 
 function hideDescription(slogan)

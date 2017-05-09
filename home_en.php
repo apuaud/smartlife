@@ -12,7 +12,7 @@
 			<form action="connexion.php" method="post">
 			<table id="login" align="center">
 				<tr>
-					<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" /></td>
+					<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer"  /></td>
 				</tr>
 				<tr>
 					<td id="itemID" ><input id="idInput" type="text" name="login" placeholder="ID" size="30"/></td>
@@ -72,8 +72,12 @@
 
 		<div class="container " id="presentation">
 			<div class="sloganDescription">
-				<p class="sloganDescriptionP">Take control of your home by connecting the shutters,<br/>
-																			the lights, and by adding plenty of other features !</p>
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Take control of your home by connecting the shutters,
+																				the lights, and by adding plenty of other features !</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
+				</div>
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Get a smart house</p>
 			<img class ="imgBackground"  src="img/presentation1.jpg">
@@ -81,8 +85,12 @@
 
 		<div class="container" id="presentation2">
 			<div class="sloganDescription">
-				<p class="sloganDescriptionP">Get a connexion from every where you want, whenever you want<br/>
-																			and on each of your devices !</p>
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Get a connexion from every where you want, whenever you want
+																				and on each of your devices !</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
+				</div>
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Be connected from everywhere</p>
 			<img class ="imgBackground" src="img/presentation2MindFuckRogne.png">
@@ -90,8 +98,12 @@
 
 		<div class="container" id="presentation3">
 			<div class="sloganDescription">
-				<p class="sloganDescriptionP">Don't ever be surprised anymore when reveiving your elecrticity and watrer bills,<br/>
-																			be aware of your consommation in real time and don't ever waste energy !</p>
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Don't ever be surprised anymore when reveiving your elecrticity and water bills,
+																				be aware of your consumption in real time and don't ever waste energy !</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
+				</div>
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Get full control on your energy</p>
 			<img class ="imgBackground" src="img/presentation3.jpg">
