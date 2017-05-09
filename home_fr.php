@@ -97,10 +97,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Optimisez votre consommation énergétique</p>
 			<img class ="imgBackground" src="img/presentation3.jpg">
-
 		</div>
-
-
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
 		</script>

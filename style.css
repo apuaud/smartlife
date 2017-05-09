@@ -149,8 +149,14 @@ input:focus
 	background-color: rgba(255,255, 255, 0.5);
 	transition: 0.5s;
 	padding-bottom: 5px;
+	animation: blinker 4s ease infinite;
 }
 
+@keyframes blinker {
+	35% { transform: scale(1.0);}
+  50% { transform: scale(1.05);}
+	65% { transform: scale(1.0);}
+}
 .slogan:hover
 {
 	background-color: transparent;
@@ -158,6 +164,12 @@ input:focus
 	border-top: solid;
 	border-bottom: solid;
 	border-width: thin;
+}
+
+@keyframes SLOGAN{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
 }
 
 .sloganDescription
