@@ -1,14 +1,15 @@
 @font-face
 {
-	font-family: 'Century';
-	src: url(Fonts/CenturyGothic.woff);
-
+	font-family: 'CenturyGothic';
+	src:url('fonts/CenturyGothic.otf') format('otf'),
+		url('fonts/CenturyGothic.svg') format('svg'),
+		url('fonts/CenturyGothic.ttf') format('truetype'),
+		url('fonts/CenturyGothic.woff') format('woff');
 }
-
 
 /* ------------DEBUT DU HEADER--------------*/
 
-header
+.headersite
 {
 	border-radius: 10px 10px;
 	padding: 30px;
@@ -35,7 +36,7 @@ img
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	font-family: 'Century'
+	font-family: 'CenturyGothic'
 
 
 }
@@ -68,7 +69,7 @@ img
 	border-left: 1px grey solid;
 	padding: 20px;	
 	height: 10px;
-	font-family: 'Century'
+	font-family: 'CenturyGothic'
 }
 
 .ongletHeader:hover
@@ -104,7 +105,7 @@ font-size: 70%;
 	color: red;
 	text-align: center;
 	background color: rgba(0,0,0,0.5);
-	font-family: 'Century';
+	font-family: 'CenturyGothic';
 }
 
 .deconnexion:hover
