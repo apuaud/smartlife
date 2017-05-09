@@ -1,0 +1,118 @@
+@font-face
+{
+	font-family: 'CenturyGothic';
+	src:url('fonts/CenturyGothic.otf') format('otf'),
+		url('fonts/CenturyGothic.svg') format('svg'),
+		url('fonts/CenturyGothic.ttf') format('truetype'),
+		url('fonts/CenturyGothic.woff') format('woff');
+}
+
+/* ------------DEBUT DU HEADER--------------*/
+
+.headersite
+{
+	border-radius: 10px 10px;
+	padding: 30px;
+	background-color:  rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: space-between;
+	height: 150px;
+	width: 100%;
+	padding: 2px;
+}
+
+img
+{
+	width: 150px;
+	height: auto;
+	float: left;
+	position: relative;
+	margin-right: 30px;
+
+}
+
+.ContenuHeader
+{
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	font-family: 'CenturyGothic'
+
+
+}
+
+.titreEspace
+{
+	font-size: 30pt;
+	height: 50%;
+	margin: 0px;
+	padding: 0px;
+	margin-right: 50px;
+}
+
+.MenuHeader
+{
+	margin-top: 20px;
+ 	display: flex;
+ 	justify-content: space-around;
+ 	margin-right: 0px;
+
+}
+
+.tableHeader
+{
+	border-collapse: collapse;
+}
+
+.ongletHeader
+{
+	border-left: 1px grey solid;
+	padding: 20px;	
+	height: 10px;
+	font-family: 'CenturyGothic'
+}
+
+.ongletHeader:hover
+{
+	background-color: white;
+	transition: 0.5s;
+}
+
+.ongletCoHeader
+{
+display: flex;
+align-items: center;
+border: 2px green solid;
+border-radius: 10px 10px;
+background-color: rgba(0,255,0,0.1);
+padding: 10px;
+height: 50%;
+}
+
+.titreConnecté
+{
+color: white;
+font-size: 70%;
+}
+
+.deconnexion
+{
+	border: none;
+	height: 40px;
+	border-radius: 100px 100px;
+	margin-left: 15px;
+	margin-right: 5px;
+	color: red;
+	text-align: center;
+	background color: rgba(0,0,0,0.5);
+	font-family: 'CenturyGothic';
+}
+
+.deconnexion:hover
+{
+	transition: 0.5s;
+	transform: scale(1.2);
+	box-shadow: 0 0 65px white inset, 0 0 20px red inset, 0 0 15px black;
+}
+
+/* ------------FIN DU HEADER--------------*/
