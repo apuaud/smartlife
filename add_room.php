@@ -8,7 +8,8 @@
 	</head>
 	<body class="guillaumebody">
 		<header class="myheader">
-			<?php include("TestHeader.php"); ?>
+			<?php include("TestHeader.php"); 
+			include_once("analyticstracking.php"); ?>
 		</header>
 	<h1> Ajout d'une nouvelle pièce </h1>
 	<form action="ajouter_piece.php" method="post" />

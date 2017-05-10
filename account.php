@@ -4,15 +4,14 @@ include("db_connect.php");
 ?>
 <!DOCTYPE html>
 	<html>
-
 		<head>
-
 			<meta charset="utf-8"/>
 			<link rel="stylesheet" href="styleespaceperso.css"/>
 			<title>Mon espace personnel</title>
 		</head>
 		<body class="manonbody">
-		<?php include("TestHeader.php") ?>
+		<?php include("TestHeader.php");
+		include_once("analyticstracking.php"); ?>
 
 
 			<table class="listepiece manontable">

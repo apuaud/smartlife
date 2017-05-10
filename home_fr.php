@@ -10,7 +10,6 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 		<link rel="stylesheet" type="text/css" href="style.css"  />
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
-		<?php include_once("analyticstracking.php") ?>
 		<div id="formulaire">
 			<form action="connexion.php" method="post">
 			<table id="login" align="center">

@@ -7,7 +7,6 @@
 		<link rel="stylesheet" type="text/css" href="style.css"  />
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
-		<?php include_once("analyticstracking.php") ?>
 		<div id="formulaire">
 			<form action="connexion.php" method="post">
 			<table id="login" align="center">

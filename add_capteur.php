@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('db_connect.php');
-
+include_once("analyticstracking.php");
 
 if(isset($_POST['typecapteur']) AND isset($_POST['numeroserie']))
 {

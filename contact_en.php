@@ -29,7 +29,6 @@ setcookie('langue', 'en', time() + 365*24*3600, null, null, false, true);
 	</style>
 </head>
 <body>
-<?php include_once("analyticstracking.php") ?>
 <div class="container" id="accueil" >
 	<!--<p id = "slogan">Your Home | Your Future</p>-->
 	<p id="logoContainer"><img align="middle"id="logo2" src="http://image.noelshack.com/fichiers/2017/13/1490602674-accueil-logo.png"></p>	
