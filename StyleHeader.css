@@ -36,7 +36,7 @@ img
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	font-family: 'CenturyGothic'
+	font-family: 'CenturyGothic';
 
 
 }
@@ -47,7 +47,8 @@ img
 	height: 50%;
 	margin: 0px;
 	padding: 0px;
-	margin-right: 50px;
+	margin-right: 200px;
+	text-align: center;
 }
 
 .MenuHeader
@@ -69,7 +70,7 @@ img
 	border-left: 1px grey solid;
 	padding: 20px;	
 	height: 10px;
-	font-family: 'CenturyGothic'
+	font-family: 'CenturyGothic';
 }
 
 .ongletHeader:hover
@@ -89,7 +90,7 @@ padding: 10px;
 height: 50%;
 }
 
-.titreConnecté
+.titreConnecte
 {
 color: white;
 font-size: 70%;
@@ -113,6 +114,18 @@ font-size: 70%;
 	transition: 0.5s;
 	transform: scale(1.2);
 	box-shadow: 0 0 65px white inset, 0 0 20px red inset, 0 0 15px black;
+}
+
+.lienheader
+{
+	color: black;
+	text-decoration: none;
+}
+
+.lienheader:visited
+{
+	text-decoration: none;
+	color: black;
 }
 
 /* ------------FIN DU HEADER--------------*/

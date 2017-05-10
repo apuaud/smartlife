@@ -250,6 +250,7 @@ function displayFormulaire()
   formulaire.style.display="block";
   document.getElementById('idInput').focus();
 }
+
 function hideFormulaire()
 {
   scroll=true;

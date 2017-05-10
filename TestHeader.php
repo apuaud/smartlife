@@ -14,9 +14,9 @@ include("db_connect.php");
 				 <section class="MenuHeader"> 
 					<table>
 						<tr class="tableHeader"> 
-							<td class="ongletHeader"> Accueil</td>
-							<td class="ongletHeader"> Présentation</td>
-							<td class="ongletHeader"> Support</td>
+							<td class="ongletHeader"> <a class="lienheader" href="index.php">Accueil</a></td>
+							<td class="ongletHeader"> <a class="lienheader" href="index.php">Présentation</a></td>
+							<td class="ongletHeader"> <a class="lienheader" href="contact.php">Support</a></td>
 						</tr>
 					</table>
 					<section class="ongletCoHeader"> 

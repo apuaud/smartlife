@@ -12,13 +12,7 @@ include("db_connect.php");
 			<title>Mon espace personnel</title>
 		</head>
 		<body class="manonbody">
-		<header>
-		<table class="manontable" align="center">
-		<tr>
-			<td class="manon"><p class="textbox2">Votre espace personnel</p></td>
-		</tr>
-		</table>
-		</header>
+		<?php include("TestHeader.php") ?>
 
 
 			<table class="listepiece manontable">
@@ -40,6 +34,37 @@ include("db_connect.php");
 				</tr>
 			</table>
 			<?php $reponse->closeCursor(); ?>
+
+		<?php if(isset($_GET['maison'])){
+			echo "<table class='manon'><tr>";
+				$reponse = $dbh->query('SELECT piece.nom
+					FROM logement,piece
+					WHERE logement.id=\'' . $_GET['maison'] . '\'
+					AND piece.id_logement=logement.id');
+
+				while($donnees = $reponse->fetch())
+				{
+					echo "<td class='manon'><div class='textbox dropdown'>
+					<span>". $donnees['nom'] ."</span>
+					<div class='texbox dropdown-content'>
+				<ul>
+					<div class='liste'><li>Température</li>
+					<li>Luminosité</li>
+					<li>Volets</li>
+					<li>Humidité</li></div>
+					<li class='plus'>+</li>
+				</ul>
+					</div>
+					</div>
+					</td>";
+				}
+				echo "<td class='manon'><div class='textbox'>
+					<span><a href='add_room.php'>+</a></span>
+					</td></tr></table>";
+			} ?>
+				
+
+<!--
 			<table class="manon">
 				<tr>
 					<td class="manon"><div class="textbox dropdown">
@@ -87,6 +112,7 @@ include("db_connect.php");
 					</div>
 					</td>
 				</tr>
-		</table>		
+		</table>
+-->
 	</body>
 </html>
