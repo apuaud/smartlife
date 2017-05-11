@@ -8,41 +8,76 @@
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
 			<form action="inscription.php" method="post" onsubmit="return verifyInputs();">
-			<table id="login" align="center" >
-				<tr>
-					<td id="firstNameInputFalse"><p align="right" class="border-right"> Votre prénom ne peut contenir que des lettres, espaces et tirets</p></td>
-					<td id="itemFirstNames" >
-						<input id="firstNameInput" type="text" name="firstName" placeholder="Prénom" size="13"/>
-						<input id="lastNameInput" type="text" name="lastName" placeholder="Nom" size="12"/>
-					</td>
-					<td id="lastNameInputFalse"><p align="left" class="border-left"> Votre nom ne peut contenir que des lettres, espaces et tirets</p></td>
-				</tr>
-				<tr>
-					<td id = "idInputFalse"><p align="right" class="border-right">Votre pseudo ne peut contenir que des lettres, chiffres et tirets</p></td>
-					<td id="itemID">
-						<input id="idInput" type="text" name="id" placeholder="Pseudo" size="20"/>
-						<input id="emailInput" type="text" name="email" placeholder="Email" size="20" />
-					</td>
-					<td id="emailInputFalse"><p align="left" class="border-left">Votre email n'est pas valide</p></td>
-				</tr>
-				<tr>
-					<td id = "passwordInputFalse"><p align="right" class="border-right">Votre mot de passe doit contenir au moins 8 caractères dont 1 majuscule, 1 minuscule et 1 chiffre</p></td>
-					<td id="itemPassword">
-						<input id="passwordInput" type="password" name="pw" placeholder="Mot de passe" size="20" />
-						<input id="passwordConfirmInput" type="password" name="pw2" placeholder="Recopier le MDP" size="20" />
-					</td>
-					<td id = "passwordConfirmInputFalse"><p align="left" class="border-left">Must be the same as password</p></td>
-				</tr>
+
+			<table class="registrationTable" align="center">
 
 				<tr>
-					<td></td>
-					<td id='itemRegister'><button onclick="verifyInputs()">Register</button></a></td>
-					<td></td>
+					<td id="firstNameTd" align="right" >
+						<div class="messageCorrection">
+							Le prénom ne doit contenir que lettres, espaces et tirets
+						</div>
+						<div class="iconeErrorDiv">
+							<div class="iconeError" >!</div>
+						</div>
+						<input  type="text" name="firstName" placeholder="Prénom"/></td>
 				</tr>
+				<tr>
+					<td id="lastNameTd" align="right">
+						<div class="messageCorrection">
+								Le nom ne doit contenir que lettres, espaces et tirets
+						</div>
+						<div class="iconeErrorDiv">
+							<div class="iconeError" >!</div>
+						</div>
+						<input  type="text" name="lastName" placeholder="Nom"/></td>
+				</tr>
+				<tr>
+					<td id="idTd" align="right">
+						<div class="messageCorrection">
+							L'identifiant ne doit contenir que lettres, espaces et tirets
+						</div>
+						<div class="iconeErrorDiv">
+							<div class="iconeError" >!</div>
+						</div>
+						<input  type="text" name="id" placeholder="Identifiant"/></td>
+				</tr>
+				<tr>
+					<td id="emailTd" align="right">
+						<div class="messageCorrection">
+							L'email doit être valide
+						</div>
+						<div class="iconeErrorDiv">
+							<div class="iconeError" >!</div>
+						</div>
+						<input  type="text" name="email" placeholder="Email"/></td>
+				</tr>
+				<tr>
+					<td id="passwordTd" align="right">
+						<div class="messageCorrection">
+							Le mot de passe doit contenir au moins 1 maj, 1 min, 1 chiffre et 8 caractères
+						</div>
+						<div class="iconeErrorDiv">
+							<div class="iconeError" >!</div>
+						</div>
+						<input  type="password" name="pw" placeholder="Mot de passe" /></td>
+				</tr>
+				<tr>
+					<td id="passwordConfirmTd" align="right">
+						<div class="messageCorrection">
+							Doit être identique au mot de passe ci-dessus
+						</div>
+						<div class="iconeErrorDiv">
+							<div class="iconeError" >!</div>
+						</div>
+						<input type="password" name="pw2" placeholder="Confirmation mot de passe"/></td>
+				</tr>
+				<tr>
+					<td id='buttonConnexion' style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>
+				</tr>
+
 
 			</table>
 			</form>
-
 		</div>
 
 		<div class="container" id="accueil" >
@@ -54,5 +89,8 @@
 	</body>
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
 	<script type="text/javascript" src="register.js"></script>
 </html>
