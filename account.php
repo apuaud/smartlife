@@ -10,7 +10,15 @@ include("db_connect.php");
 			<title>Mon espace personnel</title>
 		</head>
 		<body class="manonbody">
-		<?php include("TestHeader.php");
+		<?php 
+		if($_SESSION['type']==1)
+		{
+			include("TestHeader.php");
+		}
+		if($_SESSION['type']==2)
+		{
+			include("HeaderAdmin.php");
+		}
 		include_once("analyticstracking.php"); ?>
 
 

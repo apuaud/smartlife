@@ -23,7 +23,7 @@
 					<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
 				</tr>
 				<tr>
-					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Password forgotten ?</a></td>
+					<td id='itemLostPassword'  align="center"><a href="lostpassword.php" style="color:white" >Password forgotten ?</a></td>
 				</tr>
 
 				<tr>

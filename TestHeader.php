@@ -17,12 +17,15 @@ include("db_connect.php");
 							<td class="ongletHeader"> <a class="lienheader" href="index.php">Accueil</a></td>
 							<td class="ongletHeader"> <a class="lienheader" href="index.php">Présentation</a></td>
 							<td class="ongletHeader"> <a class="lienheader" href="contact.php">Support</a></td>
+							<td class="ongletHeader"> <a class="lienheader" href="contact.php">Paramètres</a></td>
 						</tr>
 					</table>
 					<section class="ongletCoHeader"> 
 						<p class="titreConnecte"> <?php echo 'Vous êtes connecté en tant que <br />' . $_SESSION['prenom'] . 
 						' ' . $_SESSION['nom'] . ' (' . $_SESSION['pseudo'] .')'; ?> </p>
+					<form action="logout.php">
 						<button class="deconnexion" type="submit"> Se déconnecter </button>
+					</form>
 					</section>	
 				</section>
 					<p class = "titreEspace"> Votre espace personnel </p>

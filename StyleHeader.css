@@ -75,25 +75,25 @@ img
 
 .ongletHeader:hover
 {
-	background-color: white;
+	background-color: rgba(0,0,0,0.5);;
 	transition: 0.5s;
 }
 
 .ongletCoHeader
 {
-display: flex;
-align-items: center;
-border: 2px green solid;
-border-radius: 10px 10px;
-background-color: rgba(0,255,0,0.1);
-padding: 10px;
-height: 50%;
+	display: flex;
+	align-items: center;
+	border: 2px green solid;
+	border-radius: 10px 10px;
+	background-color: rgba(0,255,0,0.1);
+	padding: 10px;
+	height: 50%;
 }
 
 .titreConnecte
 {
-color: white;
-font-size: 70%;
+	color: white;
+	font-size: 70%;
 }
 
 .deconnexion
@@ -118,14 +118,14 @@ font-size: 70%;
 
 .lienheader
 {
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 
 .lienheader:visited
 {
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 
 /* ------------FIN DU HEADER--------------*/

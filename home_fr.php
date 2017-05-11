@@ -26,7 +26,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
 				</tr>
 				<tr>
-					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Mot de passe oublié ?</td>
+					<td id='itemLostPassword'  align="center"><a href="lostpassword.php" style="color:white" >Mot de passe oublié ?</td>
 				</tr>
 				</form>
 				<tr>
