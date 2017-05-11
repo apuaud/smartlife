@@ -12,6 +12,7 @@ window.onresize = function(event)
 {
   resizeSloganText();
 }
+
 function displayDescription(slogan)
 {
   slogan.parentNode.getElementsByClassName('sloganDescription')[0].style.display="table";
@@ -243,16 +244,31 @@ function myFunction(e)
   }
 }
 
+function stopSlogansAnimations()
+{
+  for (var slogan = 0 ; slogan < slogans.length ; slogan++)
+  {
+    slogans[slogan].style.animation="none";
+  }
+}
+function startSlogansAnimations()
+{
+  for (var slogan = 0 ; slogan < slogans.length ; slogan++)
+  {
+    slogans[slogan].style.animation="zoom 4s ease infinite";
+  }
+}
 
 function displayFormulaire()
 {
   scroll=false;
   formulaire.style.display="block";
   document.getElementById('idInput').focus();
+  stopSlogansAnimations();
 }
-
 function hideFormulaire()
 {
+  startSlogansAnimations();
   scroll=true;
   imgId=lastImgId;
   formulaire.style.display="none";

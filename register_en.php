@@ -8,39 +8,75 @@
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
 			<form action="inscription.php" method="post" onsubmit="return verifyInputs();">
-			<table id="login" align="center" >
-				<tr>
-					<td id="firstNameInputFalse"><p align="right" class="border-right"> First name must contains only letters, spaces and dashes</p></td>
-					<td id="itemFirstNames" >
-						<input id="firstNameInput" type="text" name="firstName" placeholder="First name" size="13"/>
-						<input id="lastNameInput" type="text" name="lastName" placeholder="Last name" size="12"/>
-					</td>
-					<td id="lastNameInputFalse"><p align="left" class="border-left"> Last name must contains only letters, spaces and dashes</p></td>
-				</tr>
-				<tr>
-					<td id = "idInputFalse"><p align="right" class="border-right">ID must contains only letters, numbers and dashes</p></td>
-					<td id="itemID">
-						<input id="idInput" type="text" name="id" placeholder="ID" size="20"/>
-						<input id="emailInput" type="text" name="email" placeholder="Email" size="20" />
-					</td>
-					<td id="emailInputFalse"><p align="left" class="border-left">Email must be valid</p></td>
-				</tr>
-				<tr>
-					<td id = "passwordInputFalse"><p align="right" class="border-right">PW must contains at least 1 uppercase, 1 lowercase, 1 digit and 8 characters</p></td>
-					<td id="itemPassword">
-						<input id="passwordInput" type="password" name="pw" placeholder="Password" size="20" />
-						<input id="passwordConfirmInput" type="password" name="pw2" placeholder="Confirm password" size="20" />
-					</td>
-					<td id = "passwordConfirmInputFalse"><p align="left" class="border-left">Must be the same as password</p></td>
-				</tr>
+				<table class="registrationTable" align="center">
 
-				<tr>
-					<td></td>
-					<td id='itemRegister'><button onclick="verifyInputs()">Register</button></a></td>
-					<td></td>
-				</tr>
+					<tr>
+						<td id="firstNameTd" align="right" >
+							<div class="messageCorrection">
 
-			</table>
+								First name must contains only letters, spaces and dashes
+							</div>
+							<div class="iconeErrorDiv">
+								<div class="iconeError" >!</div>
+							</div>
+							<input  type="text" name="firstName" placeholder="First name"/></td>
+					</tr>
+					<tr>
+						<td id="lastNameTd" align="right">
+							<div class="messageCorrection">
+									Last name must contains only letters, spaces and dashes
+							</div>
+							<div class="iconeErrorDiv">
+								<div class="iconeError" >!</div>
+							</div>
+							<input  type="text" name="lastName" placeholder="Last name"/></td>
+					</tr>
+					<tr>
+						<td id="idTd" align="right">
+							<div class="messageCorrection">
+								ID must contains only letters, numbers and dashes
+							</div>
+							<div class="iconeErrorDiv">
+								<div class="iconeError" >!</div>
+							</div>
+							<input  type="text" name="id" placeholder="ID"/></td>
+					</tr>
+					<tr>
+						<td id="emailTd" align="right">
+							<div class="messageCorrection">
+								Email must be valid
+							</div>
+							<div class="iconeErrorDiv">
+								<div class="iconeError" >!</div>
+							</div>
+							<input  type="text" name="email" placeholder="Email"/></td>
+					</tr>
+					<tr>
+						<td id="passwordTd" align="right">
+							<div class="messageCorrection">
+								PW must contains at least 1 uppercase, 1 lowercase, 1 digit and 8 characters
+							</div>
+							<div class="iconeErrorDiv">
+								<div class="iconeError" >!</div>
+							</div>
+							<input  type="password" name="pw" placeholder="Password" /></td>
+					</tr>
+					<tr>
+						<td id="passwordConfirmTd" align="right">
+							<div class="messageCorrection">
+								Must be the same as password
+							</div>
+							<div class="iconeErrorDiv">
+								<div class="iconeError" >!</div>
+							</div>
+							<input type="password" name="pw2" placeholder="Confirm password"/></td>
+					</tr>
+					<tr>
+						<td id='buttonConnexion' style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>
+					</tr>
+
+
+				</table>
 			</form>
 
 		</div>

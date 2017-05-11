@@ -1,146 +1,130 @@
-var divFormulaire=document.getElementById('formulaire');
-var firstNameInput=document.getElementById('firstNameInput');
-var lignesFormulaire = document.getElementsByTagName('tr');
-var colonne;
-var colonneWidth;
 var tableauFormulaire=document.getElementById('login');
-var inputsInTd;
+var slogans = document.getElementsByClassName('slogan');
+var formulaire = document.getElementById('formulaire');
 
-formulaire.style.display="block";
-firstNameInput.focus();
+var firstNameInput = new function(){
+  this.name = 'firstNameInput';
+  this.td =  document.getElementById('firstNameTd');
+  this.input = this.td.getElementsByTagName('input')[0];
+  this.errorMessageDiv = this.td.getElementsByClassName('messageCorrection')[0];
+  this.errorIcone = this.td.getElementsByClassName('iconeError')[0];
+  this.errorIconeDiv = this.td.getElementsByClassName('iconeErrorDiv')[0];
+  this.regEx = /^[a-zA-Z -]+$/;
+  this.correct = false;
+}
 
-for (var numLigne = 0 ; numLigne < lignesFormulaire.length ; numLigne++)
+
+var lastNameInput = new function(){
+  this.name= "lastNameInput";
+  this.td = document.getElementById('lastNameTd');
+  this.input = this.td.getElementsByTagName('input')[0];
+  this.errorMessageDiv = this.td.getElementsByClassName('messageCorrection')[0];
+  this.errorIcone = this.td.getElementsByClassName('iconeError')[0];
+  this.errorIconeDiv = this.td.getElementsByClassName('iconeErrorDiv')[0];
+  this.regEx = /^[a-zA-Z -]+$/;
+  this.correct = false;
+}
+
+var idInput = new function(){
+  this.name="idInput";
+  this.td = document.getElementById('idTd');
+  this.input = this.td.getElementsByTagName('input')[0];
+  this.errorMessageDiv = this.td.getElementsByClassName('messageCorrection')[0];
+  this.errorIcone = this.td.getElementsByClassName('iconeError')[0];
+  this.errorIconeDiv = this.td.getElementsByClassName('iconeErrorDiv')[0];
+  this.regEx = /^[0-9a-zA-Z_-]+$/;
+  this.correct = false;
+}
+
+var emailInput = new function(){
+  this.name = "emailInput";
+  this.td = document.getElementById('emailTd');
+  this.input = this.td.getElementsByTagName('input')[0];
+  this.errorMessageDiv = this.td.getElementsByClassName('messageCorrection')[0];
+  this.errorIcone = this.td.getElementsByClassName('iconeError')[0];
+  this.errorIconeDiv = this.td.getElementsByClassName('iconeErrorDiv')[0];
+  this.regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  this.correct = false;
+}
+
+var passwordInput = new function(){
+  this.name = "passwordInput";
+  this.td = document.getElementById('passwordTd');
+  this.input = this.td.getElementsByTagName('input')[0];
+  this.errorMessageDiv = this.td.getElementsByClassName('messageCorrection')[0];
+  this.errorIcone = this.td.getElementsByClassName('iconeError')[0];
+  this.errorIconeDiv = this.td.getElementsByClassName('iconeErrorDiv')[0];
+  this.regEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+  this.correct = false;
+}
+
+var passwordConfirmInput = new function(){
+  this.name = "passwordConfirmInput";
+  this.td = document.getElementById('passwordConfirmTd');
+  this.input = this.td.getElementsByTagName('input')[0];
+  this.errorMessageDiv = this.td.getElementsByClassName('messageCorrection')[0];
+  this.errorIcone = this.td.getElementsByClassName('iconeError')[0];
+  this.errorIconeDiv = this.td.getElementsByClassName('iconeErrorDiv')[0];
+  this.regEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+  this.correct = false;
+}
+
+var inputs = [
+  firstNameInput,
+  lastNameInput,
+  idInput,
+  emailInput,
+  passwordInput,
+  passwordConfirmInput
+]
+
+function stopSlogansAnimations()
 {
-  colonne=lignesFormulaire[numLigne].getElementsByTagName('td')[1];
-  colonneWidth=570;
-  colonne.style.width=colonneWidth+"px";
-  inputsInTd = lignesFormulaire[numLigne].getElementsByTagName('td')[1].getElementsByTagName('input');
-  for (var input = 0 ; input <  inputsInTd.length ; input++)
+  for (var slogan = 0 ; slogan < slogans.length ; slogan++)
   {
-    inputsInTd[input].style.width=colonneWidth/inputsInTd.length-10+"px";
+    slogans[slogan].style.animation="none";
   }
 }
 
-var inputs=document.getElementsByTagName('input');
-var inputsCorrect = new Array(false, false, false, false, false, false);
-var input;
-var cellulesFalse = new Array("firstNameInputFalse",
-                              "lastNameInputFalse",
-                              "idInputFalse",
-                              "emailInputFalse",
-                              "passwordInputFalse",
-                              "passwordConfirmInputFalse");
-displayCorrection(document.getElementById("firstNameInputFalse"));
-
 (function()
 {
+  formulaire.style.display="block";
+  firstNameInput['input'].focus();
+  stopSlogansAnimations();
+
   for(var i = 0 ; i < inputs.length ; i ++)
   {
-    inputs[i].addEventListener('focusout', function(e){check(e.target.id)});
-    inputs[i].addEventListener('focusin', function(e){displayCorrection(document.getElementById(e.target.id+"False"))});
+    (function(i) {
+      var input=inputs[i];
+      input['input'].addEventListener('focusout', function(){checkInput(input);}, false);
+      input['errorIcone'].addEventListener('mouseover', function(){display(input['errorMessageDiv']);},false);
+      input['errorIconeDiv'].addEventListener('mouseover', function(){input['input'].select();},false);
+      input['errorIcone'].addEventListener('mouseout', function(){
+        hide(input['errorMessageDiv']);
+        input['input'].select();
+        },false);
+    }(i));
   }
-
 
 })();
 
-function check(id)
+function checkInput(input)
 {
-
-  input = document.getElementById(id);
-  inputValue= input.value;
-  celluleFalse = document.getElementById(id+"False");
-
-  if (id=='firstNameInput')
+  if(input['name']=="passwordConfirmInput")
   {
-
-    if(/^[a-zA-Z -]+$/.test(inputValue))
-    {
-      hideCorrection(celluleFalse);
-      inputsCorrect[0]=true;
-    }
-    else
-    {
-
-      displayCorrection(celluleFalse);
-      blink(id+"False");
-      inputsCorrect[0]=false;
-    }
+    comparePasswordAndPasswordConfirm();
   }
-
-  else if (id=='lastNameInput')
+  else if(input['regEx'].test(input['input'].value))
   {
-
-    if(/^[a-zA-Z -]+$/.test(inputValue))
-    {
-      hideCorrection(celluleFalse);
-      inputsCorrect[1]=true;
-    }
-    else
-    {
-      displayCorrection(celluleFalse);
-      blink(id+"False");
-      inputsCorrect[1]=false;
-    }
+    input['correct'] = true;
+    hide(input['errorIconeDiv']);
   }
-  else if (id=="idInput")
+  else
   {
-    if(/^[0-9a-zA-Z_-]+$/.test(inputValue))
+    input['correct'] = false;
+    if(input['input'].value!="")
     {
-      hideCorrection(celluleFalse);
-      inputsCorrect[2]=true;
-    }
-    else {
-      displayCorrection(celluleFalse);
-      blink(id+"False");
-      inputsCorrect[2]=false;
-    }
-  }
-
-  else if(id=='emailInput')
-  {
-    if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(inputValue))
-    {
-      hideCorrection(celluleFalse);
-      inputsCorrect[3]=true;
-    }
-    else {
-      displayCorrection(celluleFalse);
-      blink(id+"False");
-      inputsCorrect[3]=false;
-    }
-  }
-
-  else if(id=="passwordInput")
-  {
-    if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(inputValue))
-    {
-      hideCorrection(celluleFalse);
-      inputsCorrect[4]=true;
-    }
-    else
-    {
-      displayCorrection(celluleFalse);
-      blink(id+"False");
-      inputsCorrect[4]=false;
-    }
-    if(inputValue!=document.getElementById('passwordConfirmInput').value)
-    {
-      inputsCorrect[5]=false;
-    }
-  }
-
-  else if (id=="passwordConfirmInput")
-  {
-    if(inputValue==document.getElementById('passwordInput').value)
-    {
-      hideCorrection(celluleFalse);
-      inputsCorrect[5]=true;
-    }
-    else
-    {
-      displayCorrection(celluleFalse);
-      blink(id+"False");
-      inputsCorrect[5]=false;
+      display(input['errorIconeDiv']);
     }
   }
 }
@@ -148,31 +132,56 @@ function check(id)
 function verifyInputs()
 {
   var submit = true;
-  for(var i = 0 ; i < inputsCorrect.length ; i++)
+  var inputPassword;
+  var inputPasswordConfirm;
+
+  for(var i = 0 ; i < inputs.length ; i++)
   {
-    celluleFalse = document.getElementById(cellulesFalse[i]);
-    if(inputsCorrect[i]==false)
+    if(inputs[i]['correct']==false)
     {
       submit=false;
-      displayCorrection(celluleFalse);
+      display(inputs[i]['errorIconeDiv']);
     }
+  }
+  if(!submit)
+  {
+    alert('Nous ne pouvons pas donner suite à votre inscription, au moins un des champs n\'est pas correctement rempli.');
   }
   return submit;
 }
 
-
-function displayCorrection(cellule)
+function display(object)
 {
-  cellule.getElementsByTagName('p')[0].style.display="block";
+  object.style.display="block";
 }
 
-function hideCorrection(cellule)
+function hide(object)
 {
-  cellule.getElementsByTagName('p')[0].style.display="none";
+  object.style.display="none";
 }
 
-function blink(id)
+function comparePasswordAndPasswordConfirm()
 {
- $(document.getElementById(id).getElementsByTagName('p')[0]).animate({opacity:0.2},1000).animate({opacity:1}, 1000).animate({opacity:1}, 1000);
- blink(id);
+  for(var i = 0 ; i < inputs.length ; i++)
+  {
+    var inputPassword;
+    var inputPasswordConfirm;
+    if(inputs[i]['name']=="passwordInput")
+    {
+      inputPassword = inputs[i];
+    }
+    if(inputs[i]['name']=="passwordConfirmInput")
+    {
+      inputPasswordConfirm = inputs[i];
+    }
+  }
+  if(inputPassword['input'].value != inputPasswordConfirm['input'].value || inputPasswordConfirm['input'].value=="")
+  {
+    inputPasswordConfirm['correct']=false;
+    display(inputPasswordConfirm['errorIconeDiv']);
+  }
+  else {
+    inputPasswordConfirm['correct']=true;
+    hide(inputPasswordConfirm['errorIconeDiv']);
+  }
 }
