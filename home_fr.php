@@ -30,7 +30,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 				</tr>
 				</form>
 				<tr>
-					<td id='itemRegister'><a href="register.php">S'inscrire</a></td>
+					<td id='itemRegister' style="text-align:center"><div class="buttonsubmit" onclick="callRegistration()">Inscription</div></td>
 				</tr>
 			</table>
 		</div>
@@ -58,7 +58,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					<td id="itemPresentation" class="menuItem">Présentation</td>
 					<td id='itemLogo' ></td>
 					<td id='itemAccount'class="menuItem" onclick="displayFormulaire()">Espace personnel</td>
-					<td id='itemAide'class="menuItem"><a href="/app/contact.php" style="text-decoration:none;color:inherit;">Support</a></td>
+					<td id='itemAide'class="menuItem">Support</td>
 				</tr>
 				<tr id="ligneServices">
 					<td></td>
@@ -113,7 +113,6 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
 		</script>
 		<script type="text/javascript" src="firstPage.js"></script>
-
 
 	</body>
 </html>

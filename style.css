@@ -27,8 +27,11 @@ div, img
    color: rgba(255, 255, 255, 0.8);
 }
 
+
+
 .buttonsubmit
 {
+	margin: auto;
 	background-color: transparent;
 	color:white;
 	font-size: 20px;
@@ -54,14 +57,14 @@ div, img
 	border-radius: 5px;
 }
 
-button:hover
+.buttonsubmit:hover
 {
 	cursor: pointer;
 	background-color: white;
 	color:black;
 }
 
-button:focus
+.buttonsubmit:focus
 {
 	outline: none;
 }
@@ -247,14 +250,17 @@ input:focus
 	background-color: rgba(255,255, 255, 0.5);
 	transition: 0.5s;
 	padding-bottom: 5px;
-	animation: zoom 4s ease infinite;
 }
 
+.zoomAnimation
+{
+	animation: zoom 4s ease infinite;
+}
 @keyframes zoom
 {
-	35% { transform: scale(1.0);}
-  50% { transform: scale(1.05);}
-	65% { transform: scale(1.0);}
+	0% { transform: scale(1.0);}
+  15% { transform: scale(1.05);}
+	30% { transform: scale(1.0);}
 }
 
 .slogan:hover

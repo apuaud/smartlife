@@ -1,3 +1,7 @@
+<?php
+session_start();
+setcookie('langue', 'en', time() + 365*24*3600, null, null, false, true);
+?>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +31,7 @@
 				</tr>
 
 				<tr>
-					<td id='itemRegister'><button class="buttonsubmit" onclick="window.location.href='register.html'">Register</button></a></td>
+					<td id='itemRegister' style="text-align:center"><div class="buttonsubmit" onclick="callRegistration()">Inscription</div></td>
 				</tr>
 			</table>
 			</form>
@@ -65,7 +69,7 @@
 					<td></td>
 				</tr>
 			</table>
-			<p class = "slogan">Your Home, Your Future</p>
+			<p class = "slogan zoomAnimation">Your Home, Your Future</p>
 
 		</div>
 
@@ -78,7 +82,7 @@
 					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
 				</div>
 			</div>
-			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Get a smart house</p>
+			<p class = "slogan zoomAnimation" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Get a smart house</p>
 			<img class ="imgBackground"  src="img/presentation1.jpg">
 		</div>
 
@@ -91,7 +95,7 @@
 					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
 				</div>
 			</div>
-			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Be connected from everywhere</p>
+			<p class = "slogan zoomAnimation" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Be connected from everywhere</p>
 			<img class ="imgBackground" src="img/presentation2MindFuckRogne.png">
 		</div>
 
@@ -104,7 +108,7 @@
 					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
 				</div>
 			</div>
-			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Get full control on your energy</p>
+			<p class = "slogan zoomAnimation" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Get full control on your energy</p>
 			<img class ="imgBackground" src="img/presentation3.jpg">
 		</div>
 
