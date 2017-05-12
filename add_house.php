@@ -3,12 +3,13 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="StyleAccount.css" />
+		<link rel="stylesheet" href="Styles/StyleAccount.css" />
 		<title>Ajout d'une nouvelle maison</title>
 	</head>
 	<body class="guillaumebody">
 		<header class="myheader">
-			<?php include("TestHeader.php"); ?>
+			<?php include("TestHeader.php");
+			include_once("analyticstracking.php"); ?>
 		</header>
 	<h1> Ajouter une nouvelle maison </h1>
 	<form class="formulairemaison" action="ajouter_maison.php" method="post" />

@@ -7,7 +7,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 <head>
 	<meta charset="utf-8" />
 	<title>Contact</title>
-	<link rel="stylesheet" type="text/css" href="style.css"  />
+	<link rel="stylesheet" type="text/css" href="Styles/style.css"  />
 	<style>
 	body
 	{
@@ -29,7 +29,6 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 	</style>
 </head>
 <body>
-<?php include_once("analyticstracking.php") ?>
 <div class="container" id="accueil" >	
 <p id="logoContainer"><img align="middle"id="logo2" src="http://image.noelshack.com/fichiers/2017/13/1490602674-accueil-logo.png"></p>		
 	<table id = "barreAccueil" class="caption" style="position:fixed ">

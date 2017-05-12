@@ -3,11 +3,12 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="StyleAccount.css" />
+        <link rel="stylesheet" href="Styles/StyleAccount.css" />
         <title>Ajout d'un capteur</title>
     </head>
 
-    <?php include("TestHeader.php"); ?>
+    <?php include("TestHeader.php");
+    include_once("analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
     <form action="ajouter_capteur.php" method="post">

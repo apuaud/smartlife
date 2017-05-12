@@ -6,15 +6,11 @@ var levelServices = document.getElementById("levelServices");
 var formulaire = document.getElementById('formulaire');
 var ligneServices=document.getElementById('ligneServices').getElementsByTagName('td');
 var sloganDescriptionPs = document.getElementsByClassName('sloganDescriptionP');
-var slogans = document.getElementsByClassName('slogan');
 
-window.onresize = function(event)
-{
-  resizeSloganText();
-}
+
 function displayDescription(slogan)
 {
-  slogan.parentNode.getElementsByClassName('sloganDescription')[0].style.display="block";
+  slogan.parentNode.getElementsByClassName('sloganDescription')[0].style.display="table";
 }
 
 function hideDescription(slogan)
@@ -22,21 +18,9 @@ function hideDescription(slogan)
   slogan.parentNode.getElementsByClassName('sloganDescription')[0].style.display="none";
 }
 
-function resizeSloganText()
-{
-  if($(window).width()<1200)
-  {
-    for(var sloganNum = 0 ; sloganNum < slogans.length ; sloganNum++)
-    {
-      slogans[sloganNum].style.fontSize = 50*$(window).width()/1200 +'px';
-    }
-  }
-}
 
 function onLoadFunction()
 {
-  resizeSloganText();
-
   for(var i = 0 ; i < imgs.length ; i ++)
   {
     imgs[i].classList.remove('zoom');
@@ -157,6 +141,8 @@ window.addEventListener("wheel",function(e){myFunction(e)});
 
 function myFunction(e)
 {
+  restartSlogansAnimation();
+
   if(scroll==true)
   {
     var now = new Date().getTime();
@@ -243,15 +229,33 @@ function myFunction(e)
   }
 }
 
+function stopSlogansAnimations()
+{
+  $( ".slogan" ).addClass('zoomAnimation');
+
+}
+function startSlogansAnimations()
+{
+  $( ".slogan" ).remove('zoomAnimation');
+}
+
+function restartSlogansAnimation()
+{
+   $( ".slogan" ).removeClass('zoomAnimation');
+   $( ".slogan" ).removeClass('zoomAnimation');
+   setTimeout("$( \".slogan\" ).addClass('zoomAnimation');",100);
+}
 
 function displayFormulaire()
 {
   scroll=false;
   formulaire.style.display="block";
   document.getElementById('idInput').focus();
+  stopSlogansAnimations();
 }
 function hideFormulaire()
 {
+  startSlogansAnimations();
   scroll=true;
   imgId=lastImgId;
   formulaire.style.display="none";
@@ -274,3 +278,8 @@ $(document).keyup(function(e)
        hideFormulaire();
      }
 });
+
+function callRegistration()
+{
+  window.location="register.php";
+}

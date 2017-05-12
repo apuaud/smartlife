@@ -7,10 +7,9 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 	<head>
 		<meta charset="utf-8">
 		<title>SmartLife</title>
-		<link rel="stylesheet" type="text/css" href="style.css"  />
+		<link rel="stylesheet" type="text/css" href="Styles/style.css"  />
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
-		<?php include_once("analyticstracking.php") ?>
 		<div id="formulaire">
 			<form action="connexion.php" method="post">
 			<table id="login" align="center">
@@ -27,21 +26,21 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
 				</tr>
 				<tr>
-					<td id='itemLostPassword'  align="center"><a href="#" style="color:white" >Mot de passe oublié ?</td>
+					<td id='itemLostPassword'  align="center"><a href="lostpassword.php" style="color:white" >Mot de passe oublié ?</td>
 				</tr>
 				</form>
 				<tr>
-					<td id='itemRegister'><a href="register.php">S'inscrire</a></td>
+					<td id='itemRegister' style="text-align:center"><div class="buttonsubmit" onclick="callRegistration()">Inscription</div></td>
 				</tr>
 			</table>
 		</div>
 		<p class="langueselect">
-			<a href="languefr.php">
+			<a href="Vue/Index/languefr.php">
 				<button class="buttonlangue" name="fr">
 					<img src="http://www.oneturf.fr/images/fr.gif" alt="fr" style="height:15px;max-width:auto;" />
 			</a>
 				</button> |
-			<a href="langueen.php">
+			<a href="Vue/Index/langueen.php">
 				<button class="buttonlangue" name="en">
 					<img src="http://www.oneturf.fr/images/gb.gif" alt="en" style="height:15px;max-width:auto;" />
 				</button>
@@ -59,7 +58,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					<td id="itemPresentation" class="menuItem">Présentation</td>
 					<td id='itemLogo' ></td>
 					<td id='itemAccount'class="menuItem" onclick="displayFormulaire()">Espace personnel</td>
-					<td id='itemAide'class="menuItem"><a href="/app/contact.php" style="text-decoration:none;color:inherit;">Support</a></td>
+					<td id='itemAide'class="menuItem">Support</td>
 				</tr>
 				<tr id="ligneServices">
 					<td></td>
@@ -73,8 +72,12 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 
 		<div class="container " id="presentation">
 			<div class="sloganDescription">
-				<p class="sloganDescriptionP">Prenez le contrôle de votre logement en connectant vos volets, <br/>
-																			vos lumières et ajoutez plein d'autres fonctionnalités !</p>
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Prenez le contrôle de votre logement en connectant vos volets,
+																				vos lumières et en a plein d'autres fonctionnalités !</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
+				</div>
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Rendez votre maison intelligente</p>
 			<img class ="imgBackground"  src="img/presentation1.jpg">
@@ -83,8 +86,12 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 
 		<div class="container" id="presentation2">
 			<div class="sloganDescription">
-				<p class="sloganDescriptionP">Connectez vous à votre logement quand vous voulez, <br/>
-																			d'où vous voulez, et à partir de n'importe quel appareil !</p>
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Connectez vous à votre logement quand vous voulez,
+																				d'où vous voulez, et à partir de n'importe quel appareil !</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
+				</div>
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Contrôlez votre maison à distance</p>
 			<img class ="imgBackground" src="img/presentation2MindFuckRogne.png">
@@ -92,20 +99,20 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 
 		<div class="container" id="presentation3">
 			<div class="sloganDescription">
-				<p class="sloganDescriptionP">Ne soyez plus surpris du montant inscrit au bas de vos factures d'eau et d'électricité,<br/>
-																			soyez avertit en temps réel de votre consommation et ne gaspillez plus d'énergie !</p>
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Ne soyez plus surpris du montant inscrit au bas de vos factures d'eau et d'électricité,
+																				soyez avertit en temps réel de votre consommation et ne gaspillez plus d'énergie !</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="img/guillemetsBas.png"></p>
+				</div>
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Optimisez votre consommation énergétique</p>
 			<img class ="imgBackground" src="img/presentation3.jpg">
-
 		</div>
-
-
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
 		</script>
-		<script type="text/javascript" src="firstPage.js"></script>
-
+		<script type="text/javascript" src="Vue/Index/firstPage.js"></script>
 
 	</body>
 </html>

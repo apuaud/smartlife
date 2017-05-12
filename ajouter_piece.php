@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('db_connect.php');
+include('Modele/modele.php');
 
 if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['etage']))
 {
@@ -9,15 +10,7 @@ if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['
 	$superficie = htmlspecialchars($_POST["superficie"]);
 
 
-	$req = $dbh->prepare('INSERT INTO piece(nom, etage, superficie, id_logement)
-		VALUES(:nom, :etage, :superficie, :id_logement)');
-	$req->execute(array(
-		'nom' => $piece,
-    	'etage' => $etage,
-		'superficie' => $superficie,
-		'id_logement' => 2
-		));
-	echo "<script>alert('Pièce ajoutée !');document.location.href='http://www.puaud.eu/app/account.php';</script>";
+	ajouterPiece($piece,$etage,$superficie,$dbh);
 }
 
 else

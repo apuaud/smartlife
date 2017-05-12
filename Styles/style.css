@@ -12,18 +12,40 @@ div, img
 	position: relative;
 }
 
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+:-moz-placeholder {
+   color: white;
+   opacity:  0.8;
+}
+::-moz-placeholder {
+   color: white;
+   opacity:  0.8;
+}
+:-ms-input-placeholder {
+   color: rgba(255, 255, 255, 0.8);
+}
+
+
 
 .buttonsubmit
 {
+	margin: auto;
 	background-color: transparent;
 	color:white;
-	border: none;
-	font-size: 15px;
-	width: 200px;
+	font-size: 20px;
+	width: 300px;
 	transition: 0.5s;
 	border-width: 1px;
 	border-radius: 5px;
-	border: solid white;
+	border: solid white thin;
+	transition: 0.5s;
+}
+
+.buttonsubmit:hover
+{
+	transform: scale(1.1);
 }
 
 .buttonlangue
@@ -35,29 +57,74 @@ div, img
 	border-radius: 5px;
 }
 
-button:hover
+.buttonsubmit:hover
 {
 	cursor: pointer;
 	background-color: white;
 	color:black;
 }
 
-button:focus
+.buttonsubmit:focus
 {
 	outline: none;
 }
+
+.falseDescription
+{
+	background-color: rgba(255, 255, 255, 0.8);
+	border-width: 1px;
+	border-radius: 5px;
+	border: solid white thin;
+}
+
 input
 {
 	background-color: transparent;
 	border: none;
-	color:white;
+	color: white;
 	font-size: 30px;
-	border-bottom: solid white;
+	border-bottom: solid white thin;
 	margin: 0;
 	padding: 0;
-
+	height: 35px;
+	z-index: 10;
 }
 
+.iconeError
+{
+	text-align: center;
+	margin-top : 15px;
+	background-color: transparent;
+	color:red;
+	font-size: 20px;
+	width: 25px;
+	height: 25px;
+	transition: 0.5s;
+	border-width: 1px;
+	border-radius: 5px;
+	border: solid red thin;
+	transition: 0.2s;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.iconeError:hover
+{
+	transform: scale(1.1);
+}
+
+.iconeErrorDiv
+{
+	display: none;
+	z-index: 1;
+	width:400px;
+	position:absolute;
+	margin-top: -12px;
+	margin-right: 0px;
+	height: 60px;
+	color: black;
+	border-radius: 3px;
+}
 input:focus
 {
 	outline: none;
@@ -73,19 +140,27 @@ input:focus
 	left: 0;
 }
 
+#barreAccueil td
+{
+	text-align: center;
+}
 #cross
 {
 	transition: all 0.5s;
 	cursor: pointer;
+	width:30px;
+	position:relative;
+	margin-right: -350px;
 }
+
 #cross:hover
 {
-	transform: scale(5);
-	transform: rotate(180deg);
+	transform: scale(1.5);
 }
 
 #closeForm
 {
+	text-align: right;
 	float: right;
 }
 
@@ -112,10 +187,7 @@ input:focus
 	height: 2px;
 	transition:0.5s;
 }
-#login
-{
-	margin-top: 200px;
-}
+
 #logo
 {
 	height: 60px;
@@ -136,6 +208,35 @@ input:focus
 	cursor: pointer;
 }
 
+.messageCorrection
+{
+	text-align: center;
+	position:absolute;
+	margin-top: -12px;
+	background-color:rgba(255,255,255,0.9);
+	width:360px;
+	height: 60px;
+	color: black;
+	border-radius: 5px;
+	display: none;
+	font-size: 20px;
+	padding-top: 10px;
+}
+
+
+
+.iconeCorrection
+{
+	position:absolute;
+	margin-top: -12px;
+	margin-right: 0px;
+	background-color:white;
+	width:40px;
+	height: 60px;
+	color: black;
+	border-radius: 3px;
+}
+
 .slogan
 {
 	font-family: CenturyGothic,serif;
@@ -151,8 +252,20 @@ input:focus
 	padding-bottom: 5px;
 }
 
+.zoomAnimation
+{
+	animation: zoom 4s ease infinite;
+}
+@keyframes zoom
+{
+	0% { transform: scale(1.0);}
+  15% { transform: scale(1.05);}
+	30% { transform: scale(1.0);}
+}
+
 .slogan:hover
 {
+	animation-play-state: paused;
 	background-color: transparent;
 	color:white;
 	border-top: solid;
@@ -167,20 +280,34 @@ input:focus
 	color: white;
 	z-index: 8;
 	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
 	transition:2s;
-	text-align: center;
 	display: none;
+  vertical-align: middle;
+}
+
+.sloganDescriptionGuillemet
+{
+	width: 70px;
+}
+
+.sloganDescriptionInnerContainer
+{
+	vertical-align: middle;
+	display: table-cell;
 }
 
 .sloganDescriptionP
 {
-	width: 100%;
-	align-self: center;
-	position: absolute;
-	font-size: 30px;
-	margin-top: 200px;
+	font-family: CenturyGothic,serif;
+	text-align: center;
+	font-size: 50px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 #logoContainer
@@ -196,10 +323,12 @@ input:focus
 #login
 {
 	bottom: 0px;
+	margin-top: 200px;
 }
 
 #login td
 {
+	text-align: center;
 	background-color: transparent;
 	margin: 0;
 	padding: 0;
@@ -219,6 +348,38 @@ input:focus
 	font-family: "Arial";
 }
 
+.registrationTable
+{
+	bottom: 0px;
+	margin-top: 200px;
+}
+
+.registrationTable td
+{
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	width: 400px;
+}
+
+.registrationTable input
+{
+	width: 100%;
+	z-index: 10;
+}
+
+.registrationTable p
+{
+	min-height: inherit;
+	display: none;
+	font-weight: lighter;
+	font-size: 20px;
+	margin: 0;
+	padding:0;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-family: "Arial";
+}
 
 .border-left
 {
@@ -246,7 +407,6 @@ td
 	width: 20%;
 	height: 60px;
 	background-color: rgba(0, 0, 0, 0.5);
-	text-align: center;
 	font-size: 25px;
 }
 
@@ -308,17 +468,17 @@ td
 @font-face
 {
 	font-family: 'Adam';
-	src:url('fonts/Adam.otf') format('otf'),
-		url('fonts/Adam.svg') format('svg'),
-		url('fonts/Adam.ttf') format('truetype'),
-		url('fonts/Adam.woff') format('woff');
+	src:url('../fonts/Adam.otf') format('otf'),
+		url('../fonts/Adam.svg') format('svg'),
+		url('../fonts/Adam.ttf') format('truetype'),
+		url('../fonts/Adam.woff') format('woff');
 }
 
 @font-face
 {
 	font-family: 'CenturyGothic';
-	src:url('fonts/CenturyGothic.otf') format('otf'),
-		url('fonts/CenturyGothic.svg') format('svg'),
-		url('fonts/CenturyGothic.ttf') format('truetype'),
-		url('fonts/CenturyGothic.woff') format('woff');
+	src:url('../fonts/CenturyGothic.otf') format('otf'),
+		url('../fonts/CenturyGothic.svg') format('svg'),
+		url('../fonts/CenturyGothic.ttf') format('truetype'),
+		url('../fonts/CenturyGothic.woff') format('woff');
 }

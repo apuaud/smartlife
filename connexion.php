@@ -1,32 +1,31 @@
 <?php
 session_start();
 include('db_connect.php');
+include('Modele/modele.php');
 
 $pseudo = $_POST['login'];
 $mdpinsere = sha1($_POST['motdepasse']);
-$req = $dbh->prepare("SELECT id,password,type,nom,prenom FROM users WHERE pseudo like :pseudo ");
-if($req->execute(array(':pseudo' => $pseudo)) && $row = $req->fetch())
-{
-	$id = $row['id'];
-    $mdp = $row['password'];
-    $type = $row['type'];
-    $nom = $row['nom'];
-    $prenom = $row['prenom'];
-}
 
+$row=connexion($pseudo,$dbh);
+
+// Si le compte est activé et le mot de passe correct
 if($type >= 1 && $mdpinsere==$mdp)
 {
-	$_SESSION['id'] = $id;
+	$_SESSION['id'] = $row['id'];
 	$_SESSION['pseudo'] = $pseudo;
-	$_SESSION['type'] = $type;
-	$_SESSION['nom'] = $nom;
-	$_SESSION['prenom'] = $prenom;
+	$_SESSION['type'] = $row['type'];
+	$_SESSION['nom'] = $row['nom'];
+	$_SESSION['prenom'] = $row['prenom'];
 	header('Location: http://puaud.eu/app/account.php');
 }
+
+// Si le compte n'est pas activé
 else if($type == 0 && $mdpinsere==$mdp)
 {
 	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='http://www.puaud.eu/app/';</script>";
 }
+
+// Si le mot de passe est incorrect
 else if($mdpinsere != $mdp)
 {
 	echo "<script>alert('Mot de passe incorrect');</script>";

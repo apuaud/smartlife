@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('db_connect.php');
+include('Modele/modele.php');
 
 
 if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['codepostal']) AND isset($_POST['ville']) 
@@ -14,28 +15,9 @@ if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['co
 	$superficie = htmlspecialchars($_POST["superficie"]);
 	$nbhab = htmlspecialchars($_POST["nbhab"]);
 
-	$req = $dbh->prepare('INSERT INTO logement(nom, adresse, ville, codePostal, pays, superficie, nombreHabitants) 
-		VALUES(:nom, :adresse, :ville, :codepostal, :pays, :superficie, :nbhab)');
-	$req->execute(array(
-		'nom' => $maison,
-		'adresse' => $adresse,
-		'ville' => $ville,
-		'codepostal' => $codepostal,
-		'pays' => $pays,
-		'superficie' => $superficie,
-		'nbhab' => $nbhab
-		));
+	ajouterMaison($maison,$adresse,$ville,$codepostal,$pays,$superficie,$nbhab,$dbh);
 
-	$reponse = $dbh->query('SELECT MAX(id) AS idlogement FROM logement');
-	$donnees = $reponse->fetch();
-	$reponse->closeCursor();
-
-	$req = $dbh->prepare('INSERT INTO users_logement(id_user,id_logement) 
-		VALUES(:id_user,:id_logement)');
-	$req->execute(array(
-		'id_user' => $_SESSION['id'],
-		'id_logement' => $donnees['idlogement']
-		));
+	lienUtilisateurLogement($_SESSION['id']);
 
 	echo "<script>alert('Maison ajoutée !');document.location.href='http://www.puaud.eu/app/account.php';</script>";
 }
