@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('http://puaud.eu/app/db_connect.php');
+include('http://puaud.eu/app/Modele/modele.php');
 
 if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['etage']))
 {

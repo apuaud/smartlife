@@ -57,16 +57,16 @@ function envoiMailConfirmation($email,$dbh)
 	$headers  = 'MIME-Version: 1.0' . "\n";
 	$headers .= "From: noreply@puaud.eu";
 	$message = 'Bienvenue sur SmartLife,
- 
+
 Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
 ou le copier/coller dans votre navigateur internet.
- 
+
 http://puaud.eu/app/activation.php?log='.urlencode($pseudo).'&cle='.urlencode($cle).'
- 
+
 ---------------
 Ceci est un mail automatique, Merci de ne pas y répondre.';
- 
-// Envoi du mail de confirmation 
+
+// Envoi du mail de confirmation
 	mail($destinataire, $sujet, $message, $headers);
 }
 
@@ -75,6 +75,7 @@ function getCle($pseudo,$dbh)
 	// Récupération de la clé correspondant au $pseudo dans la base de données
 	$stmt = $dbh->prepare("SELECT cle,type FROM users WHERE pseudo like :pseudo ");
 	if($stmt->execute(array(':pseudo' => $pseudo)) && $row = $stmt->fetch())
+	{
 	  {
 	    $clebdd = $row['cle'];	// Récupération de la clé
 	    $actif = $row['type']; // $actif contiendra alors 0 ou 1
@@ -88,16 +89,16 @@ function activationCompte($row,$pseudo,$cle,$dbh)
 // On teste la valeur de la variable $actif récupéré dans la BDD
 if($row['type'] >= 1) // Si le compte est déjà actif on prévient
   {
-     echo "<script>alert('Votre compte est déjà actif !');document.location.href='http://www.puaud.eu/app/';</script>";
+     echo "<script>alert('Votre compte est déjà actif !');document.location.href='http://puaud.eu/app/';</script>";
   }
 else // Si ce n'est pas le cas on passe aux comparaisons
   {
-     if($cle == $row['cle']) // On compare nos deux clés	
+     if($cle == $row['cle']) // On compare nos deux clés
        {
-          // Si elles correspondent on active le compte !	
+          // Si elles correspondent on active le compte !
           echo "<script>alert('Votre compte a bien été activé !');
-          document.location.href='http://www.puaud.eu/app/';</script>";
- 
+          document.location.href='http://puaud.eu/app/';</script>";
+
           // La requête qui va passer notre champ actif de 0 à 1
           $stmt = $dbh->prepare("UPDATE users SET type = 1 WHERE pseudo like :pseudo ");
           $stmt->bindParam(':pseudo', $pseudo);
@@ -106,20 +107,20 @@ else // Si ce n'est pas le cas on passe aux comparaisons
      else // Si les deux clés sont différentes on provoque une erreur...
        {
           echo "<script>alert('Erreur lors de l'activation, merci de nous contacter');
-          document.location.href='http://www.puaud.eu/app/';</script>";
+          document.location.href='http://puaud.eu/app/';</script>";
        }
   }
 }
 
 function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 {
-	$reponse = $dbh->query('SELECT id 
+	$reponse = $dbh->query('SELECT id
 		FROM type_appareil
 		WHERE numeroModele =\'' . $typecapteur . '\'');
 	$donnees = $reponse->fetch();
 	$reponse->closeCursor();
 
-	$req = $dbh->prepare('INSERT INTO capteur(id_type_appareil, numeroSerie, id_piece) 
+	$req = $dbh->prepare('INSERT INTO capteur(id_type_appareil, numeroSerie, id_piece)
 		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
 	$req->execute(array(
 		'id_type_appareil' => $typecapteur,
@@ -130,7 +131,7 @@ function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 
 function ajouterMaison($maison,$adresse,$ville,$codepostal,$pays,$superficie,$nbhab,$dbh)
 {
-	$req = $dbh->prepare('INSERT INTO logement(nom, adresse, ville, codePostal, pays, superficie, nombreHabitants) 
+	$req = $dbh->prepare('INSERT INTO logement(nom, adresse, ville, codePostal, pays, superficie, nombreHabitants)
 		VALUES(:nom, :adresse, :ville, :codepostal, :pays, :superficie, :nbhab)');
 	$req->execute(array(
 		'nom' => $maison,
@@ -149,7 +150,7 @@ function lienUtilisateurLogement($id,$dbh)
 	$donnees = $reponse->fetch();
 	$reponse->closeCursor();
 
-	$req = $dbh->prepare('INSERT INTO users_logement(id_user,id_logement) 
+	$req = $dbh->prepare('INSERT INTO users_logement(id_user,id_logement)
 		VALUES(:id_user,:id_logement)');
 	$req->execute(array(
 		'id_user' => $_SESSION['id'],
@@ -167,7 +168,7 @@ function ajouterPiece($piece,$etage,$superficie,$dbh)
 		'superficie' => $superficie,
 		'id_logement' => 2
 		));
-	echo "<script>alert('Pièce ajoutée !');document.location.href='http://www.puaud.eu/app/account.php';</script>";
+	echo "<script>alert('Pièce ajoutée !');document.location.href='http://puaud.eu/app/account.php';</script>";
 }
 
 function motDePasseOublie($email,$dbh)
@@ -196,16 +197,16 @@ function motDePasseOublie($email,$dbh)
 		$headers  = 'MIME-Version: 1.0' . "\n";
 		$headers .= "From: noreply@puaud.eu";
 		$message = 'Bonjour,
- 
+
 Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous
 ou le copier/coller dans votre navigateur internet.
- 
+
 http://puaud.eu/app/reinitialiser.php?log='.urlencode($donnees2['pseudo']).'&cle='.urlencode($cle).'
- 
+
 ---------------
 Ceci est un mail automatique, merci de ne pas y répondre.';
 		mail($destinataire, $sujet, $message, $headers);
-		echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://www.puaud.eu/app/';</script>";
+		echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://puaud.eu/app/';</script>";
 }
 
 function reinitialisationMDP($pseudo,$dbh)
@@ -218,10 +219,10 @@ function reinitialisationMDP($pseudo,$dbh)
 function changementMDP($pw,$pseudo,$dbh)
 {
 	$stmt = $dbh->prepare("UPDATE users SET password=:password WHERE pseudo like :pseudo");
-	$stmt->bindParam(':password', sha1($pw);
-	$stmt->bindParam(':pseudo', htmlspecialchars($pseudo);
+	$stmt->bindParam(':password', sha1($pw));
+	$stmt->bindParam(':pseudo', htmlspecialchars($pseudo));
 	$stmt->execute();
-	echo "<script>alert('Mot de passe modifié !' );document.location.href='http://www.puaud.eu/app/';</script>";
+	echo "<script>alert('Mot de passe modifié !' );document.location.href='http://puaud.eu/app/';</script>";
 }
 
 function connexion($pseudo,$dbh)
@@ -237,5 +238,4 @@ function connexion($pseudo,$dbh)
 	}
 	return $row;
 }
-
 ?>

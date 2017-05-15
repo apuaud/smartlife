@@ -1,19 +1,19 @@
 <?php
 session_start();
-include_once("analyticstracking.php");
+include_once("http://puaud.eu/app/analyticstracking.php");
 if (isset($_COOKIE['langue']))
 {
 	if($_COOKIE['langue']=='fr') //Détermination de la langue enregistrée en cookie
 	{
-		include("Vue/Contact/contact_fr.php");
+		include("http://puaud.eu/app/Vue/Contact/contact_fr.php");
 	}
 	else
 	{
-		include("Vue/Contact/contact_en.php");
+		include("http://puaud.eu/app/Vue/Contact/contact_en.php");
 	}
 }
 else
 {
-	include("Vue/Contact/contact_fr.php"); //Langue par défaut
+	include("http://puaud.eu/app/Vue/Contact/contact_fr.php"); //Langue par défaut
 }
 ?>

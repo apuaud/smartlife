@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('http://puaud.eu/app/db_connect.php');
+include('http://puaud.eu/app/Modele/modele.php');
 
 // On vérifie que tous les champs sont bien remplis
 if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['id']) AND isset($_POST['email']) AND isset($_POST['pw']))
@@ -22,7 +22,7 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 	envoiMailConfirmation($email,$dbh);
 
 	echo "<script>alert('Votre inscription est désormais en attente, veuillez cliquer sur le mail de confirmation !');
-	document.location.href='http://www.puaud.eu/app/';</script>";
+	document.location.href='http://puaud.eu/app/';</script>";
 }
 else
 {

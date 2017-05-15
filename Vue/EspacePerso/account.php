@@ -1,16 +1,16 @@
 <?php
 session_start();
-include("db_connect.php");
+include("http://puaud.eu/app/db_connect.php");
 ?>
 <!DOCTYPE html>
 	<html>
 		<head>
 			<meta charset="utf-8"/>
-			<link rel="stylesheet" href="Styles/styleespaceperso.css"/>
+			<link rel="stylesheet" href="http://puaud.eu/app/Styles/styleespaceperso.css"/>
 			<title>Mon espace personnel</title>
 		</head>
 		<body class="manonbody">
-		<?php 
+		<?php
 		if($_SESSION['type']==1)
 		{
 			include("TestHeader.php");
@@ -26,18 +26,18 @@ include("db_connect.php");
 				<tr>
 				<?php
 				$reponse = $dbh->query('SELECT logement.id,nom
-					FROM logement,users_logement 
+					FROM logement,users_logement
 					WHERE users_logement.id_user=\'' . $_SESSION['id'] . '\'
 					AND logement.id=users_logement.id_logement');
 
 				while($donnees = $reponse->fetch())
 				{
-					echo "<td class='manon'><div class='textbox'><span><a href='account.php?maison=" 
+					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/app/Vue/EspacePerso/account.php?maison="
 					. $donnees['id'] . "'>" . $donnees['nom'] . "</a></span></div></td>";
 				} ?>
 					<td class="manon"><div class="textbox">
-					<span><a href="add_house.php">+</a></span>
-					</td>	
+						<span><a href="http://puaud.eu/app/action.php?action=goToAjoutMaison">+</a></span>
+					</td>
 				</tr>
 			</table>
 			<?php $reponse->closeCursor(); ?>
@@ -66,10 +66,10 @@ include("db_connect.php");
 					</td>";
 				}
 				echo "<td class='manon'><div class='textbox'>
-					<span><a href='add_room.php'>+</a></span>
+					<span><a href='http://puaud.eu/app/action.php?action=goToAjoutPiece'>+</a></span>
 					</td></tr></table>";
 			} ?>
-				
+
 
 <!--
 			<table class="manon">
@@ -115,7 +115,7 @@ include("db_connect.php");
 					</div>
 					</td>
 					<td class="manon"><div class="textbox dropdown">
-					<span><a href="add_room.php">+</a></span>
+					<span><a href="http://puaud.eu/app/add_room.php">+</a></span>
 					</div>
 					</td>
 				</tr>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('http://puaud.eu/app/db_connect.php');
+include('http://puaud.eu/app/Modele/modele.php');
 
 $pseudo = $_POST['login'];
 $mdpinsere = sha1($_POST['motdepasse']);
@@ -22,7 +22,7 @@ if($type >= 1 && $mdpinsere==$mdp)
 // Si le compte n'est pas activé
 else if($type == 0 && $mdpinsere==$mdp)
 {
-	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='http://www.puaud.eu/app/';</script>";
+	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='http://puaud.eu/app/';</script>";
 }
 
 // Si le mot de passe est incorrect

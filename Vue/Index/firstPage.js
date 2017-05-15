@@ -281,5 +281,5 @@ $(document).keyup(function(e)
 
 function callRegistration()
 {
-  window.location="register.php";
+  window.location="http://puaud.eu/app/Controleur/action.php?action=goToInscription";
 }

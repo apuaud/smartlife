@@ -1,10 +1,10 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('http://puaud.eu/app/db_connect.php');
+include('http://puaud.eu/app/Modele/modele.php');
 
 
-if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['codepostal']) AND isset($_POST['ville']) 
+if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['codepostal']) AND isset($_POST['ville'])
 	AND isset($_POST['pays']) AND isset($_POST['superficie']) AND isset($_POST['nbhab']) AND isset($_SESSION['id']))
 {
 	$maison = htmlspecialchars($_POST["nom-maison"]);
@@ -19,7 +19,7 @@ if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['co
 
 	lienUtilisateurLogement($_SESSION['id']);
 
-	echo "<script>alert('Maison ajoutée !');document.location.href='http://www.puaud.eu/app/account.php';</script>";
+	echo "<script>alert('Maison ajoutée !');document.location.href='http://puaud.eu/app/account.php';</script>";
 }
 
 else

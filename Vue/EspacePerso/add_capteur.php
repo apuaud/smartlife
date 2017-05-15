@@ -3,15 +3,15 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="Styles/StyleAccount.css" />
+        <link rel="stylesheet" href="http://puaud.eu/app/Styles/StyleAccount.css" />
         <title>Ajout d'un capteur</title>
     </head>
 
-    <?php include("TestHeader.php");
-    include_once("analyticstracking.php"); ?>
+    <?php include("http://puaud.eu/app/TestHeader.php");
+    include_once("http://puaud.eu/app/analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
-    <form action="ajouter_capteur.php" method="post">
+    <form action="http://puaud.eu/app/Controleur/action.php?action=validerAjoutCapteur" method="post">
 		<p class = "Formulaire">
 		<SELECT name="typecapteur">
             <?php
@@ -20,14 +20,14 @@
                 while($donnees = $reponse->fetch())
                 {
                     echo "<OPTION value=" . $donnees['numeroModele']. ">" . $donnees['nom'] . " (" . $donnees['numeroModele'] . ")";
-                } 
+                }
                 $reponse->closeCursor();
             ?>
         </SELECT>
 		</p>
 		<p class = "Formulaire">
 		<input class="zonetexte"type="text" name="numeroserie" placeholder="Numéro de série" size=70/>
-		</p>	
+		</p>
 		<button class="valider" type="submit"> Valider </button>
     </form>
 	</body>
