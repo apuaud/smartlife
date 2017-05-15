@@ -1,7 +1,7 @@
 <?php
 session_start();
-$doc_root = $_SERVER['DOCUMENT_ROOT'];include('$doc_root/app/db_connect.php');
-$doc_root = $_SERVER['DOCUMENT_ROOT'];include('$doc_root/app/Modele/modele.php');
+include('http://puaud.eu/app/db_connect.php');
+include('http://puaud.eu/app/Modele/modele.php');
 
 if(isset($_GET['log']) AND isset($_GET['cle']))
 {
@@ -9,7 +9,7 @@ if(isset($_GET['log']) AND isset($_GET['cle']))
 
 	if($donnees['cle'] == $_GET['cle'])
 	{
-		$doc_root = $_SERVER['DOCUMENT_ROOT'];include('$doc_root/app/reinitialiserform.php');
+		include('http://puaud.eu/app/reinitialiserform.php');
 	}
 	else
 	{

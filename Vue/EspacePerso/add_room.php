@@ -8,7 +8,7 @@
 	</head>
 	<body class="guillaumebody">
 		<header class="myheader">
-			<?php $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/TestHeader.php");
+			<?php include("http://puaud.eu/app/TestHeader.php");
 			$doc_root = $_SERVER['DOCUMENT_ROOT'];include_once("$doc_root/app/analyticstracking.php"); ?>
 		</header>
 	<h1> Ajout d'une nouvelle pièce </h1>

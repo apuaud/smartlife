@@ -6,63 +6,63 @@ if(ISSET($_GET['action']))
   switch($action)
   {
     case "connexion" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/connexion.php");
+      include("http://puaud.eu/app/connexion.php");
       break;
 
     case "goToOublieMotDePasse" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/lostpassword.php");
+      include("http://puaud.eu/app/lostpassword.php");
       break;
 
     case "goToInscription" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/register.php");
+      include("http://puaud.eu/app/register.php");
       break;
 
     case "validerInscription" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/inscription.php");
+      include("http://puaud.eu/app/inscription.php");
       break;
 
     case "goToLanguefr" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/Index/languefr.php");
+      include("http://puaud.eu/app/Vue/Index/languefr.php");
       break;
 
     case "goToLangueen" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/Index/langueen.php");
+      include("http://puaud.eu/app/Vue/Index/langueen.php");
       break;
 
     case "goToSupport" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/Support/support.php");
+      include("http://puaud.eu/app/Vue/Support/support.php");
       break;
 
     case "goToAjoutMaison" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/EsapcePerso/add_house.php");
+      include("http://puaud.eu/app/Vue/EsapcePerso/add_house.php");
       break;
 
     case "validerAjoutMaison" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/ajouter_maison.php");
+      include("http://puaud.eu/app/ajouter_maison.php");
       break;
 
     case "goToAjoutPiece" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/EspacePerso/add_room.php");
+      include("http://puaud.eu/app/Vue/EspacePerso/add_room.php");
       break;
 
     case "validerAjoutPiece" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/ajouter_piece.php");
+      include("http://puaud.eu/app/ajouter_piece.php");
       break;
 
     case "goToAjoutCapteur" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/EspacePerso/add_capteur.php");
+      include("http://puaud.eu/app/Vue/EspacePerso/add_capteur.php");
       break;
 
     case "validerAjoutCapteur" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/ajouter_capteur.php");
+      include("http://puaud.eu/app/ajouter_capteur.php");
       break;
 
     case "goToParametre" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/parametre.php");
+      include("http://puaud.eu/app/parametre.php");
       break;
 
     case "sendMail" :
-      $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/mail.php");
+      include("http://puaud.eu/app/mail.php");
       break;
   }
 ?>
