@@ -208,6 +208,7 @@ Ceci est un mail automatique, merci de ne pas y répondre.';
 		mail($destinataire, $sujet, $message, $headers);
 		echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://puaud.eu/app/';</script>";
 }
+}
 
 function reinitialisationMDP($pseudo,$dbh)
 {
@@ -238,4 +239,5 @@ function connexion($pseudo,$dbh)
 	}
 	return $row;
 }
+
 ?>

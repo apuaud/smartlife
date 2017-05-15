@@ -9,7 +9,7 @@ $mdpinsere = sha1($_POST['motdepasse']);
 $row=connexion($pseudo,$dbh);
 
 // Si le compte est activé et le mot de passe correct
-if($type >= 1 && $mdpinsere==$mdp)
+if($row['type'] >= 1 && $mdpinsere==$row['password'])
 {
 	$_SESSION['id'] = $row['id'];
 	$_SESSION['pseudo'] = $pseudo;
@@ -20,13 +20,13 @@ if($type >= 1 && $mdpinsere==$mdp)
 }
 
 // Si le compte n'est pas activé
-else if($type == 0 && $mdpinsere==$mdp)
+else if($row['type'] == 0 && $mdpinsere==$row['password'])
 {
 	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='http://puaud.eu/app/';</script>";
 }
 
 // Si le mot de passe est incorrect
-else if($mdpinsere != $mdp)
+else if($mdpinsere != $row['password'])
 {
 	echo "<script>alert('Mot de passe incorrect');</script>";
 }
