@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('http://puaud.eu/app/db_connect.php');
-include('http://puaud.eu/app/Modele/modele.php');
+$doc_root = $_SERVER['DOCUMENT_ROOT'];include('$doc_root/app/db_connect.php');
+$doc_root = $_SERVER['DOCUMENT_ROOT'];include('$doc_root/app/Modele/modele.php');
 
 // On vérifie que tous les champs sont bien remplis
 if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['id']) AND isset($_POST['email']) AND isset($_POST['pw']))
