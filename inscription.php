@@ -13,13 +13,13 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 	$password = $_POST['pw'];
 	$type = 0;
 
-	verifierDoubleCompte($pseudo,$dbh);
+	verifierDoubleCompte($pseudo,$email,$dbh);
 
 	ajouterUtilisateur($prenom,$nom,$pseudo,$email,$password,$dbh);
 
-	cleAleatoire($pseudo,$dbh);
+	$cle=cleAleatoire($pseudo,$dbh);
 
-	envoiMailConfirmation($email,$dbh);
+	envoiMailConfirmation($pseudo,$cle,$email,$dbh);
 
 	echo "<script>alert('Votre inscription est désormais en attente, veuillez cliquer sur le mail de confirmation !');
 	document.location.href='http://puaud.eu/app/';</script>";

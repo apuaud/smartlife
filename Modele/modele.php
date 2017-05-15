@@ -1,6 +1,6 @@
 <?php
 
-function verifierDoubleCompte($pseudo,$dbh)
+function verifierDoubleCompte($pseudo,$email,$dbh)
 {
 
 // On vérifie que personne détient déjà un compte avec ce pseudo
@@ -47,9 +47,10 @@ function cleAleatoire($pseudo,$dbh)
 	$stmt->bindParam(':cle', $cle);
 	$stmt->bindParam(':pseudo', $pseudo);
 	$stmt->execute();
+	return $cle;
 }
 
-function envoiMailConfirmation($email,$dbh)
+function envoiMailConfirmation($pseudo,$cle,$email,$dbh)
 {
 // Préparation du mail de confirmation
 	$destinataire = $email;
