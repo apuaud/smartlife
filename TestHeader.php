@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("http://puaud.eu/app/db_connect.php");
+$doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/db_connect.php");
 ?>
 <!DOCTYPE html>
 <html>

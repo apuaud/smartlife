@@ -7,7 +7,7 @@
         <title>Ajout d'un capteur</title>
     </head>
 
-    <?php include("http://puaud.eu/app/TestHeader.php");
+    <?php $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/TestHeader.php");
     include_once("http://puaud.eu/app/analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>

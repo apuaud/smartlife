@@ -8,7 +8,7 @@
 	</head>
 	<body class="guillaumebody">
 		<header class="myheader">
-			<?php include("http://puaud.eu/app/TestHeader.php");
+			<?php $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/TestHeader.php");
 			include_once("http://puaud.eu/app/analyticstracking.php"); ?>
 		</header>
 	<h1> Ajouter une nouvelle maison </h1>

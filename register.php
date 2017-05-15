@@ -5,15 +5,15 @@ if (isset($_COOKIE['langue']))
 {
 	if($_COOKIE['langue']=='fr') //Détermination de la langue enregistrée en cookie
 	{
-		include("http://puaud.eu/app/Vue/Register/register_fr.php");
+		$doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/Register/register_fr.php");
 	}
 	else
 	{
-		include("http://puaud.eu/app/Vue/Register/register_en.php");
+		$doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/Register/register_en.php");
 	}
 }
 else
 {
-	include("http://puaud.eu/app/Vue/Register/register_fr.php"); //Langue par défaut
+	$doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/Vue/Register/register_fr.php"); //Langue par défaut
 }
 ?>
