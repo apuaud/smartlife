@@ -32,11 +32,11 @@ include("db_connect.php");
 
 				while($donnees = $reponse->fetch())
 				{
-					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/app/Vue/EspacePerso/account.php?maison="
+					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/app/account.php?maison="
 					. $donnees['id'] . "'>" . $donnees['nom'] . "</a></span></div></td>";
 				} ?>
 					<td class="manon"><div class="textbox">
-						<span><a href="http://puaud.eu/app/action.php?action=goToAjoutMaison">+</a></span>
+						<span><a href="http://puaud.eu/app/Controleur/action.php?action=goToAjoutMaison">+</a></span>
 					</td>
 				</tr>
 			</table>
@@ -66,7 +66,7 @@ include("db_connect.php");
 					</td>";
 				}
 				echo "<td class='manon'><div class='textbox'>
-					<span><a href='http://puaud.eu/app/action.php?action=goToAjoutPiece'>+</a></span>
+					<span><a href='http://puaud.eu/app/Controleur/action.php?action=goToAjoutPiece'>+</a></span>
 					</td></tr></table>";
 			} ?>
 

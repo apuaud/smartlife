@@ -34,27 +34,27 @@ if(ISSET($_GET['action']))
       break;
 
     case "goToAjoutMaison" :
-      include("Vue/EsapcePerso/add_house.php");
+      include("../Vue/EspacePerso/add_house.php");
       break;
 
     case "validerAjoutMaison" :
-      include("ajouter_maison.php");
+      include("../ajouter_maison.php");
       break;
 
     case "goToAjoutPiece" :
-      include("Vue/EspacePerso/add_room.php");
+      include("../Vue/EspacePerso/add_room.php");
       break;
 
     case "validerAjoutPiece" :
-      include("ajouter_piece.php");
+      include("../ajouter_piece.php");
       break;
 
     case "goToAjoutCapteur" :
-      include("Vue/EspacePerso/add_capteur.php");
+      include("../Vue/EspacePerso/add_capteur.php");
       break;
 
     case "validerAjoutCapteur" :
-      include("ajouter_capteur.php");
+      include("../ajouter_capteur.php");
       break;
 
     case "goToParametre" :

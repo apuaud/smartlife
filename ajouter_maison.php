@@ -17,7 +17,7 @@ if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['co
 
 	ajouterMaison($maison,$adresse,$ville,$codepostal,$pays,$superficie,$nbhab,$dbh);
 
-	lienUtilisateurLogement($_SESSION['id']);
+	lienUtilisateurLogement($_SESSION['id'],$dbh);
 
 	echo "<script>alert('Maison ajoutée !');document.location.href='http://puaud.eu/app/account.php';</script>";
 }
