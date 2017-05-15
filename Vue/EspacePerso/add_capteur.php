@@ -7,8 +7,8 @@
         <title>Ajout d'un capteur</title>
     </head>
 
-    <?php include("http://puaud.eu/app/TestHeader.php");
-    include_once("http://puaud.eu/app/analyticstracking.php"); ?>
+    <?php include("TestHeader.php");
+    include("analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
     <form action="http://puaud.eu/app/Controleur/action.php?action=validerAjoutCapteur" method="post">

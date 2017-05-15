@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("http://puaud.eu/app/db_connect.php");
+include("db_connect.php");
 ?>
 <!DOCTYPE html>
 <html>

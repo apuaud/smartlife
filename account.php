@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("http://puaud.eu/app/db_connect.php");
+include("db_connect.php");
 ?>
 <!DOCTYPE html>
 	<html>
@@ -13,11 +13,11 @@ include("http://puaud.eu/app/db_connect.php");
 		<?php
 		if($_SESSION['type']==1)
 		{
-			include("TestHeader.php");
+			include("Vue/EspacePerso/TestHeader.php");
 		}
 		if($_SESSION['type']==2)
 		{
-			include("HeaderAdmin.php");
+			include("Vue/EspacePerso/HeaderAdmin.php");
 		}
 		include_once("analyticstracking.php"); ?>
 

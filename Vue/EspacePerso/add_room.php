@@ -8,8 +8,8 @@
 	</head>
 	<body class="guillaumebody">
 		<header class="myheader">
-			<?php include("http://puaud.eu/app/TestHeader.php");
-			include_once("http://puaud.eu/app/analyticstracking.php"); ?>
+			<?php include("TestHeader.php");
+			include("analyticstracking.php"); ?>
 		</header>
 	<h1> Ajout d'une nouvelle pièce </h1>
 	<form action="http://puaud.eu/app//Controleur/action.php?action=validerAjoutPiece" method="post" />

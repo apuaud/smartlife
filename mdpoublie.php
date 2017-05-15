@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('http://puaud.eu/app/db_connect.php');
-include('http://puaud.eu/app/Modele/modele.php');
+include('db_connect.php');
+include('Modele/modele.php');
 
 if(isset($_POST['email']))
 {

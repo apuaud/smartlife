@@ -1,8 +1,8 @@
 <?php
 session_start();
-include('http://puaud.eu/app/db_connect.php');
-include('http://puaud.eu/app/Modele/modele.php');
-include_once("http://puaud.eu/app/analyticstracking.php");
+include('db_connect.php');
+include('Modele/modele.php');
+include("analyticstracking.php");
 
 if(isset($_POST['typecapteur']) AND isset($_POST['numeroserie']))
 {
