@@ -8,7 +8,7 @@
     </head>
 
     <?php $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/TestHeader.php");
-    include_once("http://puaud.eu/app/analyticstracking.php"); ?>
+    $doc_root = $_SERVER['DOCUMENT_ROOT'];include_once("$doc_root/app/analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
     <form action="http://puaud.eu/app/Controleur/action.php?action=validerAjoutCapteur" method="post">

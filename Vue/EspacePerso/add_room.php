@@ -9,7 +9,7 @@
 	<body class="guillaumebody">
 		<header class="myheader">
 			<?php $doc_root = $_SERVER['DOCUMENT_ROOT'];include("$doc_root/app/TestHeader.php");
-			include_once("http://puaud.eu/app/analyticstracking.php"); ?>
+			$doc_root = $_SERVER['DOCUMENT_ROOT'];include_once("$doc_root/app/analyticstracking.php"); ?>
 		</header>
 	<h1> Ajout d'une nouvelle pièce </h1>
 	<form action="http://puaud.eu/app//Controleur/action.php?action=validerAjoutPiece" method="post" />

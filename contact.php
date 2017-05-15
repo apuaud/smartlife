@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("http://puaud.eu/app/analyticstracking.php");
+$doc_root = $_SERVER['DOCUMENT_ROOT'];include_once("$doc_root/app/analyticstracking.php");
 if (isset($_COOKIE['langue']))
 {
 	if($_COOKIE['langue']=='fr') //Détermination de la langue enregistrée en cookie
