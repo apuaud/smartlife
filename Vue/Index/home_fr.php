@@ -1,6 +1,18 @@
 <?php
 session_start();
 setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
+
+if(isset($_SESSION['id']))
+{
+	$functionCalledOnAccountClick = "callAccount()";
+}
+else
+{
+	$functionCalledOnAccountClick ="displayFormulaire()";
+}
+$functionCalledOnAccountClick = "callAccount()";
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +69,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					<td id="itemAccueil" class="menuItem">Accueil</td>
 					<td id="itemPresentation" class="menuItem">Présentation</td>
 					<td id='itemLogo' ></td>
-					<td id='itemAccount'class="menuItem" onclick="displayFormulaire()">Espace personnel</td>
+					<td id='itemAccount'class="menuItem" onclick=<?php echo $functionCalledOnAccountClick ?>>Espace personnel</td>
 					<td id='itemAide'class="menuItem"><a href="http://puaud.eu/appmvc/Controleur/action.php?action=goToSupport" style="text-decoration:none;color:inherit;">Support</a></td>
 				</tr>
 				<tr id="ligneServices">
