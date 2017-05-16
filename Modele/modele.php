@@ -130,7 +130,7 @@ function lienUtilisateurLogement($id,$dbh)
 		));
 }
 
-function ajouterPiece($piece,$etage,$superficie,$dbh)
+function ajouterPiece($piece,$etage,$superficie,$maison,$dbh)
 {
 	$req = $dbh->prepare('INSERT INTO piece(nom, etage, superficie, id_logement)
 		VALUES(:nom, :etage, :superficie, :id_logement)');
@@ -138,7 +138,7 @@ function ajouterPiece($piece,$etage,$superficie,$dbh)
 		'nom' => $piece,
     	'etage' => $etage,
 		'superficie' => $superficie,
-		'id_logement' => 2
+		'id_logement' => $maison
 		));
 }
 
