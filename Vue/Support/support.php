@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="http://localhost:8888/SmartLife/Styles/support.css" />
+        <link rel="stylesheet" href="http://puaud.eu/app/Styles/support.css" />
         <title>FAQ</title>
     </head>
     <body>
@@ -19,7 +19,7 @@
 
 
 
-    	<?php include ("http://localhost:8888/SmartLife/Vue/Support/header.php") ?>
+    	<?php include ("http://puaud.eu/app/Vue/Support/header.php") ?>
 
 		<div>
 
@@ -34,7 +34,7 @@
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
 		</script>
-		<script type="text/javascript" src="http://localhost:8888/SmartLife/Vue/Index/firstPage.js"></script>
+		<script type="text/javascript" src="http://puaud.eu/app/Vue/Index/firstPage.js"></script>
     <script type="text/javascript">
     	var contactDiv = document.getElementsByClassName('contactDiv')[0];
     	var slogans = document.getElementsByClassName('slogan');

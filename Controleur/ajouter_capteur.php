@@ -14,5 +14,5 @@ if(isset($_POST['typecapteur']) AND isset($_POST['numeroserie']))
 else
 {
 	echo "<script>alert("Erreur dans le remplissage du formulaire");
-          document.location.href='http://localhost:8888/SmartLife/Vue/EspacePerso/account.php';</script>";
+          document.location.href='http://puaud.eu/app/Vue/EspacePerso/account.php';</script>";
 }
