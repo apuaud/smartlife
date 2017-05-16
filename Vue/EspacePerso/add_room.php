@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="http://puaud.eu/app/Styles/StyleAccount.css" />
+		<link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleAccount.css" />
 		<title>Ajout d'une nouvelle maison</title>
 	</head>
 	<body class="guillaumebody">
@@ -12,7 +12,7 @@
 			include("../analyticstracking.php"); ?>
 		</header>
 	<h1> Ajout d'une nouvelle pièce </h1>
-	<form action="http://puaud.eu/app//Controleur/action.php?action=validerAjoutPiece" method="post" />
+	<form action="http://puaud.eu/appmvc//Controleur/action.php?action=validerAjoutPiece" method="post" />
 		<p class = "Formulaire">
 		<input class="zonetexte" type="text" name="nom-piece" placeholder="Nom de la pièce" size=70 />
 		</p>

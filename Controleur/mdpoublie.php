@@ -8,7 +8,7 @@ if(isset($_POST['email']))
 	$email = htmlspecialchars($_POST['email']);
 
 	motDePasseOublie($email,$dbh);
-	echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://puaud.eu/app/';</script>";
+	echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://puaud.eu/appmvc/';</script>";
 }
 else
 {
