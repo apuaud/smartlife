@@ -16,7 +16,7 @@ if($row['type'] >= 1 && $mdpinsere==$row['password'])
 	$_SESSION['type'] = $row['type'];
 	$_SESSION['nom'] = $row['nom'];
 	$_SESSION['prenom'] = $row['prenom'];
-	header('Location: http://puaud.eu/app/SmartLife/Vue/EspacePerso/account.php');
+	header('Location: http://puaud.eu/app/Vue/EspacePerso/account.php');
 }
 
 // Si le compte n'est pas activé

@@ -66,7 +66,7 @@ include("../../db_connect.php");
 					</td>";
 				}
 				echo "<td class='manon'><div class='textbox'>
-					<span><a href='http://puaud.eu/app/Controleur/action.php?action=goToAjoutPiece?maison=" . $_GET['id'] . "'>+</a></span>
+					<span><a href='http://puaud.eu/app/Controleur/action.php?action=goToAjoutPiece?maison=" . $_GET['maison'] . "'>+</a></span>
 					</td></tr></table>";
 			} ?>
 
