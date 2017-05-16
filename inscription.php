@@ -13,9 +13,21 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 	$password = $_POST['pw'];
 	$type = 0;
 
-	verifierDoubleCompte($pseudo,$email,$dbh);
+	$nbPseudo = verifierDoubleCompte($pseudo,$email,$dbh);
 
-	ajouterUtilisateur($prenom,$nom,$pseudo,$email,$password,$dbh);
+	if($nbPseudo>=1)
+	{
+		echo "<script>alert('Ce pseudo ne peut pas être utilisé !');history.back();</script>";
+		exit;
+	}
+	
+	$nbEmail = ajouterUtilisateur($prenom,$nom,$pseudo,$email,$password,$dbh);
+
+	if($nbEmail>=1)
+	{
+		echo "<script>alert('Cet email a déjà un compte associé !');history.back();</script>";
+		exit;
+	}
 
 	$cle=cleAleatoire($pseudo,$dbh);
 

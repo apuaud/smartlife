@@ -7,21 +7,13 @@ function verifierDoubleCompte($pseudo,$email,$dbh)
 	$reponse = $dbh->query('SELECT COUNT(*) AS nbPseudo FROM users WHERE pseudo=\'' . $pseudo . '\'');
 	$donnees = $reponse->fetch();
 	$reponse->closeCursor();
-	if($donnees['nbPseudo']>=1)
-	{
-		echo "<script>alert('Ce pseudo ne peut pas être utilisé !');history.back();</script>";
-		exit;
-	}
+	return $donnees['nbPseudo'];
 
 // On fait le même test avec l'adresse email
 	$reponse = $dbh->query('SELECT COUNT(*) AS nbEmail FROM users WHERE email=\'' . $email . '\'');
 	$donnees = $reponse->fetch();
 	$reponse->closeCursor();
-	if($donnees['nbEmail']>=1)
-	{
-		echo "<script>alert('Cet email a déjà un compte associé !');history.back();</script>";
-		exit;
-	}
+	return $donnees['nbEmail'];
 }
 
 function ajouterUtilisateur($prenom,$nom,$pseudo,$email,$password,$dbh)
@@ -77,41 +69,20 @@ function getCle($pseudo,$dbh)
 	$stmt = $dbh->prepare("SELECT cle,type FROM users WHERE pseudo like :pseudo ");
 	if($stmt->execute(array(':pseudo' => $pseudo)) && $row = $stmt->fetch())
 	{
-	  {
 	    $clebdd = $row['cle'];	// Récupération de la clé
 	    $actif = $row['type']; // $actif contiendra alors 0 ou 1
-	  }
 	}
 	return $row;
 }
 
-function activationCompte($row,$pseudo,$cle,$dbh)
+function activationCompte($pseudo,$dbh)
 {
-// On teste la valeur de la variable $actif récupéré dans la BDD
-if($row['type'] >= 1) // Si le compte est déjà actif on prévient
-  {
-     echo "<script>alert('Votre compte est déjà actif !');document.location.href='http://puaud.eu/app/';</script>";
-  }
-else // Si ce n'est pas le cas on passe aux comparaisons
-  {
-     if($cle == $row['cle']) // On compare nos deux clés
-       {
-          // Si elles correspondent on active le compte !
-          echo "<script>alert('Votre compte a bien été activé !');
-          document.location.href='http://puaud.eu/app/';</script>";
-
-          // La requête qui va passer notre champ actif de 0 à 1
-          $stmt = $dbh->prepare("UPDATE users SET type = 1 WHERE pseudo like :pseudo ");
-          $stmt->bindParam(':pseudo', $pseudo);
-          $stmt->execute();
-       }
-     else // Si les deux clés sont différentes on provoque une erreur...
-       {
-          echo "<script>alert('Erreur lors de l'activation, merci de nous contacter');
-          document.location.href='http://puaud.eu/app/';</script>";
-       }
-  }
+    // La requête qui va passer notre champ actif de 0 à 1
+    $stmt = $dbh->prepare("UPDATE users SET type = 1 WHERE pseudo like :pseudo ");
+    $stmt->bindParam(':pseudo', $pseudo);
+    $stmt->execute();
 }
+
 
 function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 {
@@ -169,7 +140,6 @@ function ajouterPiece($piece,$etage,$superficie,$dbh)
 		'superficie' => $superficie,
 		'id_logement' => 2
 		));
-	echo "<script>alert('Pièce ajoutée !');document.location.href='http://puaud.eu/app/account.php';</script>";
 }
 
 function motDePasseOublie($email,$dbh)
@@ -207,8 +177,7 @@ http://puaud.eu/app/reinitialiser.php?log='.urlencode($donnees2['pseudo']).'&cle
 ---------------
 Ceci est un mail automatique, merci de ne pas y répondre.';
 		mail($destinataire, $sujet, $message, $headers);
-		echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://puaud.eu/app/';</script>";
-}
+	}
 }
 
 function reinitialisationMDP($pseudo,$dbh)
@@ -224,7 +193,7 @@ function changementMDP($pw,$pseudo,$dbh)
 	$stmt->bindParam(':password', sha1($pw));
 	$stmt->bindParam(':pseudo', htmlspecialchars($pseudo));
 	$stmt->execute();
-	echo "<script>alert('Mot de passe modifié !' );document.location.href='http://puaud.eu/app/';</script>";
+	
 }
 
 function connexion($pseudo,$dbh)

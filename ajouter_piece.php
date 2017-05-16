@@ -11,6 +11,7 @@ if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['
 
 
 	ajouterPiece($piece,$etage,$superficie,$dbh);
+	echo "<script>alert('Pièce ajoutée !');document.location.href='http://puaud.eu/app/account.php';</script>";
 }
 
 else
