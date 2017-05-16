@@ -1,0 +1,40 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://localhost:8888/SmartLife/Styles/StyleAccount.css" />
+		<title>Ajout d'une nouvelle maison</title>
+	</head>
+	<body class="guillaumebody">
+		<header class="myheader">
+			<?php include("TestHeader.php");
+			include("../analyticstracking.php"); ?>
+		</header>
+	<h1> Ajouter une nouvelle maison </h1>
+	<form class="formulairemaison" action="http://localhost:8888/SmartLife/Controleur/action.php?device=Desktop&action=validerAjoutMaison" method="post" />
+		<p class = "Formulaire">
+		<input class="zonetexte" type="text" name="nom-maison" placeholder="Nom de la maison" size=70 />
+		</p>
+		<p class = "Formulaire">
+		<input class="zonetexte" type="text" name="adresse" placeholder="Adresse" size=70 />
+		</p>
+		<p class = "Formulaire">
+		<input class="zonetexte" type="text" name="codepostal" placeholder="Code postal" size=70 />
+		</p>
+		<p class = "Formulaire">
+		<input class="zonetexte" type="text" name="ville" placeholder="Ville" size=70 />
+		</p>
+		<p class = "Formulaire">
+		<input class="zonetexte" type="text" name="pays" placeholder="Pays" size=70 />
+		</p>
+		<p class = "Formulaire">
+		<input class="zonetexte" type="text" name="superficie" placeholder="Superficie" size=70 />
+		</p>
+		<p class = "Formulaire">
+		<input class="zonetexte" type="text" name="nbhab" placeholder="Nombre d'habitants" size=70 />
+		</p>
+		<button type="submit"> Valider </button>
+	</form>
+	</body>
+</html>

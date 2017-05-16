@@ -1,0 +1,242 @@
+@font-face
+{
+	font-family: 'Century';
+	src: url();
+}
+
+@font-face
+{
+	font-family: 'Adam';
+	src:url('fonts/Adam.otf') format('otf'),
+		url('fonts/Adam.svg') format('svg'),
+		url('fonts/Adam.ttf') format('truetype'),
+		url('fonts/Adam.woff') format('woff');
+}
+
+@font-face
+{
+	font-family: 'CenturyGothic';
+	src:url('fonts/CenturyGothic.otf') format('otf'),
+		url('fonts/CenturyGothic.svg') format('svg'),
+		url('fonts/CenturyGothic.ttf') format('truetype'),
+		url('fonts/CenturyGothic.woff') format('woff');
+}
+
+/*header
+{
+	border : 3px solid black;
+	border-radius: 10px 10px;
+	padding: 30px;
+	background-color:  rgba(0,0,0,0.3);
+	width: 96%;
+
+
+}*/
+
+body
+{
+	background-image: url("../img/faq.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-size: 20px;
+	color: white;
+
+}
+
+#logoContainer
+{
+	top:7px;
+	text-align: center;
+	height: 40px;
+	position:fixed;
+	z-index: 10;
+	width: 100%;
+}
+
+
+/*div, img
+{
+	margin:0px;
+	padding: 0px;
+	position: relative;
+
+}*/
+
+.imgBackground
+{
+	width: 100%;
+	position:relative;
+	/*z-index: 1;*/
+	height: 100%;
+}
+
+.container
+{
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+}
+
+#barreAccueil
+{
+	z-index: 5;
+	border-collapse: collapse;
+	width: 100%;
+	position: fixed;
+	top: 80px;
+	left: 0;
+}
+
+.menuItem
+{
+	font-family: CenturyGothic,serif;
+	cursor:pointer; /* apparence du curseur */
+	transition: 1s;
+}
+
+.menuItem:hover{
+	color: black;
+	background-color: white;
+}
+
+td
+{
+	color: white;
+	width: 20%;
+	height: 60px;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	font-size: 25px;
+}
+
+
+#ligneServices td
+{
+	background-color: transparent;
+	height: 2px;
+	transition:0.5s;
+}
+
+#logo
+{
+	height: 60px;
+}
+
+#logo2
+{
+	height: 150px;
+}
+
+#logo2 .getBig
+{
+	height: 200px;
+}
+
+#logo2:hover
+{
+	cursor: pointer;
+}
+
+.slogan
+{
+	font-family: CenturyGothic,serif;
+	text-align:center;
+	width: 100%;
+	font-size: 50px;
+	bottom: 0px;
+	position:absolute;
+	z-index: 8;
+	color:black;
+	background-color: rgba(255,255, 255, 0.5);
+	transition: 0.5s;
+	padding-bottom: 5px;
+	animation: zoom 4s ease infinite;
+}
+
+@keyframes zoom
+{
+	35% {transform: scale(1.0);}
+	50% {transform: scale(1.05);}
+	65% {transform: scale(1.0);}
+}
+
+.slogan:hover
+{
+	animation-play-state: paused;
+	background-color: rgba(0,0,0,0.5);
+	color:white;
+	border-top: solid;
+	border-bottom: solid;
+	border-width: thin;
+}
+
+.sloganDescription
+{
+  justify-content: center;
+	position: absolute;
+	color: white;
+	z-index: 8;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition:2s;
+	text-align: center;
+	display: none;
+	font-family: CenturyGothic,serif;
+	font-size: 40px;
+}
+
+.sloganDescriptionP
+{
+	width: 100%;
+	align-self: center;
+	position: absolute;
+	font-size: 40px;
+	margin-top: 200px;
+}
+
+
+.FAQ
+{
+	font-size: 70px;
+	background-color: rgba(0,0,0,0.5);
+	margin-left: 60px;
+	padding-right: 0px;
+	padding-left: 0px;
+	border-radius: 5px 5px;
+}
+
+.reponse
+{
+	font-size: 40px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+
+
+.question
+{
+
+	animation: none;
+	transform: scale(1.05);
+	font-size: 50px;
+	font-family: CenturyGothic,serif;
+
+}
+
+#cross
+{
+	transition: all 0.5s;
+	cursor: pointer;
+}
+#cross:hover
+{
+	transform: scale(5);
+	transform: rotate(180deg);
+}
+
+#closeForm
+{
+	float: right;
+}
