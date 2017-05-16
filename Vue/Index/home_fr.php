@@ -10,7 +10,6 @@ else
 {
 	$functionCalledOnAccountClick ="displayFormulaire()";
 }
-$functionCalledOnAccountClick = "callAccount()";
 
 
 ?>

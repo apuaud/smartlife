@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="http://localhost:8888/SmartLife/Styles/support.css" />
+        <link rel="stylesheet" href="../Styles/support.css" />
         <title>FAQ</title>
     </head>
     <body>
@@ -41,7 +41,7 @@
 
 
 
-    	<?php include ("http://localhost:8888/SmartLife/Vue/Support/header.php") ?>
+    	<?php include ("../Vue/Support/header.php") ?>
 
   		<div>
 
