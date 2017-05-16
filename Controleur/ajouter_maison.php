@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('../db_connect.php');
+include('../Modele/modele.php');
 
 
 if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['codepostal']) AND isset($_POST['ville'])
@@ -19,7 +19,7 @@ if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['co
 
 	lienUtilisateurLogement($_SESSION['id'],$dbh);
 
-	echo "<script>alert('Maison ajoutée !');document.location.href='http://puaud.eu/app/Vue/EspacePerso/account.php';</script>";
+	echo "<script>alert('Maison ajoutée !');document.location.href='http://localhost:8888/SmartLife/Vue/EspacePerso/account.php';</script>";
 }
 
 else

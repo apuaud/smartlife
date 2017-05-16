@@ -7,7 +7,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 <head>
 	<meta charset="utf-8" />
 	<title>Contact</title>
-	<link rel="stylesheet" type="text/css" href="http://puaud.eu/app/Styles/style.css"  />
+	<link rel="stylesheet" type="text/css" href="http://localhost:8888/SmartLife/Styles/style.css"  />
 	<style>
 	body
 	{
@@ -33,11 +33,11 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 <p id="logoContainer"><img align="middle"id="logo2" src="http://image.noelshack.com/fichiers/2017/13/1490602674-accueil-logo.png"></p>
 	<table id = "barreAccueil" class="caption" style="position:fixed ">
 		<tr>
-			<td id="itemAccueil" class="menuItem"><a href="http://puaud.eu/app/" style="text-decoration:none;color:inherit;">Accueil</a></td>
+			<td id="itemAccueil" class="menuItem"><a href="http://localhost:8888/SmartLife/" style="text-decoration:none;color:inherit;">Accueil</a></td>
 			<td id="itemPresentation" class="menuItem">Présentation</td>
 			<td id='itemLogo' ></td>
 			<td id='itemAccount'class="menuItem" onclick="displayFormulaire()">Espace personnel</td>
-			<td id='itemAide'class="menuItem" ><a href="http://puaud.eu/app/contact.php" style="text-decoration:none;color:inherit;">Support</a></td>
+			<td id='itemAide'class="menuItem" ><a href="http://localhost:8888/SmartLife/Controleur/contact.php" style="text-decoration:none;color:inherit;">Support</a></td>
 		</tr>
 		<tr id="ligneServices">
 			<td></td>
@@ -48,7 +48,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 		</tr>
 	</table>
 <div id="form" style="z-index=7">
-<form action="http://puaud.eu/app/Controleur/action.php?action=sendMail" method="post">
+<form action="http://localhost:8888/SmartLife/Controleur/action.php?action=sendMail" method="post">
 <table id="login" align="center">
 	<tr>
 		<td id="itemEmail" class="menuMail"><input type="text" name="email" placeholder="Votre email" size="41"/></td>

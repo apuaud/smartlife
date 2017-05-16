@@ -11,7 +11,7 @@ if (isset($_POST['email']) AND isset($_POST['subject']) AND isset($_POST['messag
 {
 	if (mail($destinataire, $objet, $message, $headers)) // Envoi du message
 	{
-		echo "<script>alert('Votre email a correctement été envoyé');document.location.href='http://puaud.eu/app/';</script>";
+		echo "<script>alert('Votre email a correctement été envoyé');document.location.href='http://localhost:8888/SmartLife/';</script>";
 	}
 	else // Non envoyé
 	{

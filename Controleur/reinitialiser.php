@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('../db_connect.php');
+include('../Modele/modele.php');
 
 if(isset($_GET['log']) AND isset($_GET['cle']))
 {

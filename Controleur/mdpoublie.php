@@ -1,14 +1,14 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('../db_connect.php');
+include('../Modele/modele.php');
 
 if(isset($_POST['email']))
 {
 	$email = htmlspecialchars($_POST['email']);
 
 	motDePasseOublie($email,$dbh);
-	echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://puaud.eu/app/';</script>";
+	echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://localhost:8888/SmartLife/';</script>";
 }
 else
 {

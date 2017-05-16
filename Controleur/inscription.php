@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('../db_connect.php');
+include('../Modele/modele.php');
 
 // On vérifie que tous les champs sont bien remplis
 if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['id']) AND isset($_POST['email']) AND isset($_POST['pw']))
@@ -20,7 +20,7 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 		echo "<script>alert('Ce pseudo ne peut pas être utilisé !');history.back();</script>";
 		exit;
 	}
-	
+
 	$nbEmail = ajouterUtilisateur($prenom,$nom,$pseudo,$email,$password,$dbh);
 
 	if($nbEmail>=1)
@@ -34,7 +34,7 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 	envoiMailConfirmation($pseudo,$cle,$email,$dbh);
 
 	echo "<script>alert('Votre inscription est désormais en attente, veuillez cliquer sur le mail de confirmation !');
-	document.location.href='http://puaud.eu/app/';</script>";
+	document.location.href='http://localhost:8888/SmartLife/';</script>";
 }
 else
 {

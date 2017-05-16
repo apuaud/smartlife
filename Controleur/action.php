@@ -6,19 +6,19 @@ if(ISSET($_GET['action']))
   switch($action)
   {
     case "connexion" :
-      include("../connexion.php");
+      include("connexion.php");
       break;
 
     case "goToOublieMotDePasse" :
-      include("../lostpassword.php");
+      include("../Vue/ModDePasseOublie.php");
       break;
 
     case "goToInscription" :
-      include("../register.php");
+      include("register.php");
       break;
 
     case "validerInscription" :
-      include("../inscription.php");
+      include("inscription.php");
       break;
 
     case "goToLanguefr" :
@@ -38,7 +38,7 @@ if(ISSET($_GET['action']))
       break;
 
     case "validerAjoutMaison" :
-      include("../ajouter_maison.php");
+      include("ajouter_maison.php");
       break;
 
     case "goToAjoutPiece" :
@@ -46,7 +46,7 @@ if(ISSET($_GET['action']))
       break;
 
     case "validerAjoutPiece" :
-      include("../ajouter_piece.php");
+      include("ajouter_piece.php");
       break;
 
     case "goToAjoutCapteur" :
@@ -54,7 +54,7 @@ if(ISSET($_GET['action']))
       break;
 
     case "validerAjoutCapteur" :
-      include("../ajouter_capteur.php");
+      include("ajouter_capteur.php");
       break;
 
     case "goToParametre" :

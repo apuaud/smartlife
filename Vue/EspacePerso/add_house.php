@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="http://puaud.eu/app/Styles/StyleAccount.css" />
+		<link rel="stylesheet" href="http://localhost:8888/SmartLife/Styles/StyleAccount.css" />
 		<title>Ajout d'une nouvelle maison</title>
 	</head>
 	<body class="guillaumebody">
@@ -12,7 +12,7 @@
 			include("../analyticstracking.php"); ?>
 		</header>
 	<h1> Ajouter une nouvelle maison </h1>
-	<form class="formulairemaison" action="http://puaud.eu/app/Controleur/action.php?action=validerAjoutMaison" method="post" />
+	<form class="formulairemaison" action="http://localhost:8888/SmartLife/Controleur/action.php?action=validerAjoutMaison" method="post" />
 		<p class = "Formulaire">
 		<input class="zonetexte" type="text" name="nom-maison" placeholder="Nom de la maison" size=70 />
 		</p>

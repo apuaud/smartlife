@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('db_connect.php');
+include('../db_connect.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,11 +8,11 @@ include('db_connect.php');
 	<head>
 		<meta charset="utf-8">
 		<title>Mettre à jour votre mot de passe</title>
-		<link rel="stylesheet" type="text/css" href="http://puaud.eu/app/Styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="http://localhost:8888/SmartLife/Styles/style.css" />
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
-			<form action="http://puaud.eu/app/changemdp.php" method="post" onsubmit="return verifyInputs();">
+			<form action="http://localhost:8888/SmartLife/Controleur/changemdp.php" method="post" onsubmit="return verifyInputs();">
 			<table id="login" align="center" >
 				<tr>
 					<td id="firstNameInputFalse"><p align="right" class="border-right"></p></td>
@@ -37,13 +37,13 @@ include('db_connect.php');
 
 		<div class="container" id="accueil" >
 			<p class = "slogan">Your Home | Your Future</p>
-			<p id="logoContainer"><img align="middle"id="logo2" src="http://puaud.eu/app/img/logo_sansFond.png"></p>
+			<p id="logoContainer"><img align="middle"id="logo2" src="http://localhost:8888/SmartLife/img/logo_sansFond.png"></p>
 
-			<img class ="imgBackground"src="http://puaud.eu/app/img/leveSoleilTest.jpg" style="position:relative; z-index=4;">
+			<img class ="imgBackground"src="http://localhost:8888/SmartLife/img/leveSoleilTest.jpg" style="position:relative; z-index=4;">
 		</div>
 	</body>
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="http://puaud.eu/app/Vue/Register/register.js"></script>
+	<script type="text/javascript" src="http://localhost:8888/SmartLife/Vue/Register/register.js"></script>
 	<script type="text/javascript">document.getElementById('formulaire').style.display="block";</script>
 </html>
