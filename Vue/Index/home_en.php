@@ -1,6 +1,5 @@
 <?php
 session_start();
-setcookie('langue', 'en', time() + 365*24*3600, null, null, false, true);
 
 if(isset($_SESSION['id']))
 {
