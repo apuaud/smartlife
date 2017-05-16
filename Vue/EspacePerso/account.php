@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("db_connect.php");
+include("../../db_connect.php");
 ?>
 <!DOCTYPE html>
 	<html>
@@ -13,13 +13,13 @@ include("db_connect.php");
 		<?php
 		if($_SESSION['type']==1)
 		{
-			include("Vue/EspacePerso/TestHeader.php");
+			include("TestHeader.php");
 		}
 		if($_SESSION['type']==2)
 		{
-			include("Vue/EspacePerso/HeaderAdmin.php");
+			include("HeaderAdmin.php");
 		}
-		include_once("analyticstracking.php"); ?>
+		include_once("../../analyticstracking.php"); ?>
 
 
 			<table class="listepiece manontable">
@@ -32,7 +32,7 @@ include("db_connect.php");
 
 				while($donnees = $reponse->fetch())
 				{
-					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/app/account.php?maison="
+					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/app/Vue/EspacePerso/account.php?maison="
 					. $donnees['id'] . "'>" . $donnees['nom'] . "</a></span></div></td>";
 				} ?>
 					<td class="manon"><div class="textbox">
