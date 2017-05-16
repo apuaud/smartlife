@@ -22,17 +22,6 @@
 		url('fonts/CenturyGothic.woff') format('woff');
 }
 
-/*header
-{
-	border : 3px solid black;
-	border-radius: 10px 10px;
-	padding: 30px;
-	background-color:  rgba(0,0,0,0.3);
-	width: 96%;
-
-
-}*/
-
 body
 {
 	background-image: url("http://puaud.eu/appmvc/img/faq.jpg");
@@ -43,7 +32,9 @@ body
 	color: white;
 	width: 100%;
 	height: 100%;
-
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
 }
 
 #logoContainer
@@ -113,6 +104,7 @@ td
 }
 
 
+
 #ligneServices td
 {
 	background-color: transparent;
@@ -138,6 +130,49 @@ td
 #logo2:hover
 {
 	cursor: pointer;
+}
+
+.buttonsubmit
+{
+	margin: auto;
+	background-color: transparent;
+	color:white;
+	font-size: 20px;
+	width: 300px;
+	transition: 0.5s;
+	border-width: 1px;
+	border-radius: 5px;
+	border: solid white thin;
+	transition: 0.5s;
+}
+
+.buttonsubmit:hover
+{
+	transform: scale(1.1);
+}
+.buttonsubmit:hover
+{
+	cursor: pointer;
+	background-color: white;
+	color:black;
+}
+
+input
+{
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-size: 30px;
+	border-bottom: solid white thin;
+	margin: 0;
+	padding: 0;
+	height: 35px;
+	z-index: 10;
+	width: 440px;
+}
+input:focus
+{
+	outline: none;
 }
 
 .slogan
@@ -182,11 +217,13 @@ td
 	color: white;
 	z-index: 8;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.8);
 	transition:2s;
 	display: none;
   vertical-align: middle;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -195,6 +232,7 @@ td
 	vertical-align: middle;
 	display: table-cell;
 }
+
 .sloganDescriptionP
 {
 	font-family: CenturyGothic,serif;
@@ -225,7 +263,20 @@ td
 }
 
 
+.textarea
+{
+	border-color: white;
+	background-color: transparent;
+  -moz-box-shadow: 1px 1px 12px white;
+  -webkit-box-shadow: 1px 1px 12px white;
+  box-shadow: 1px 1px 12px white;
+	color:white;
+}
 
+.textarea:focus
+{
+	outline: none;
+}
 .question
 {
 	cursor: pointer;

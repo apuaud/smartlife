@@ -1,3 +1,13 @@
+<?php
+
+if(isset($_SESSION['id']))
+{
+	$functionCalledOnAccountClick = "callAccount()";
+}
+else
+{
+	$functionCalledOnAccountClick ="displayFormulaire()";
+} ?>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -55,18 +65,31 @@
 				</div>
 			</div>
 
-
-
-
-
-
-
-
-
+      <div class="sloganDescription">
+				<div class="sloganDescriptionInnerContainer">
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 6)"/>
+          <form action="http://puaud.eu/appmvc/Controleur/action.php?action=sendMail" method="post">
+            <table id="login" align="center">
+            	<tr>
+            		<td id="itemEmail" class="menuMail"><input type="text" name="email" placeholder="Votre email" size="41"/></td>
+            	</tr>
+            	<tr>
+            		<td id="itemSubject" class="menuMail"><input type="text" name="subject" placeholder="Sujet de votre email" size="41"/></td>
+            	</tr>
+            	<tr>
+            		<td id="itemPassword" class="menuMail"><textarea class="textarea"name="message" rows="10" cols="70" placeholder="Ecrivez votre message ici"></textarea></td>
+            	</tr>
+            	<tr>
+                <td id='buttonConnexion'><button class="buttonsubmit" type="submit">Envoyer</button></td>
+            	</tr>
+            </table>
+          </form>
+				</div>
+			</div>
     	<?php include ("../Vue/Support/header.php") ?>
 
   		<div style="margin:0;padding:0;cursor:pointer;">
-      	<p class = "slogan"><b>NOUS CONTACTER</b></p>
+      	<p class = "slogan" onclick="displayDescriptionNum(this,6)"><b>Nous contacter</b></p>
   		</div>
 
 

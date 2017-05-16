@@ -47,7 +47,12 @@ div, img
 {
 	transform: scale(1.1);
 }
-
+.buttonsubmit:hover
+{
+	cursor: pointer;
+	background-color: white;
+	color:black;
+}
 .buttonlangue
 {
 	background-color: transparent;
@@ -89,7 +94,10 @@ input
 	height: 35px;
 	z-index: 10;
 }
-
+input:focus
+{
+	outline: none;
+}
 .iconeError
 {
 	text-align: center;
@@ -125,10 +133,7 @@ input
 	color: black;
 	border-radius: 3px;
 }
-input:focus
-{
-	outline: none;
-}
+
 
 #barreAccueil
 {
