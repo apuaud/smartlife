@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>SmartLife_Mobile</title>
-		<link rel="stylesheet" type="text/css" href="http://localhost:8888/SmartLife/Styles/Mobile_style.css"  />
+		<link rel="stylesheet" type="text/css" href="http://puaud.eu/app/Styles/Mobile_style.css"  />
 	</head>
 	<body>
 
@@ -11,7 +11,7 @@
 			<table class="barreTable">
 				<tr>
 					<td>
-						<img width="200px"align="middle"src="http://localhost:8888/SmartLife/img/accueil_logo.png">
+						<img width="200px"align="middle"src="http://puaud.eu/app/img/accueil_logo.png">
 					</td>
 				</tr>
 			</table>

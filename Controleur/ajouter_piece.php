@@ -12,7 +12,7 @@ if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['
 	$maison = htmlspecialchars($_GET['maison']);
 
 	ajouterPiece($piece,$etage,$superficie,$maison,$dbh);
-	echo "<script>alert('Pièce ajoutée !');document.location.href='http://localhost:8888/SmartLife/Vue/" . $device . "/EspacePerso/account.php';</script>";
+	echo "<script>alert('Pièce ajoutée !');document.location.href='http://puaud.eu/app/Vue/" . $device . "/EspacePerso/account.php';</script>";
 
 else
 {

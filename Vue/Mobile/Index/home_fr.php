@@ -7,7 +7,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 	<head>
 		<meta charset="utf-8">
 		<title>SmartLife_Mobile</title>
-		<link rel="stylesheet" type="text/css" href="http://localhost:8888/SmartLife/Styles/Mobile_style.css"  />
+		<link rel="stylesheet" type="text/css" href="http://puaud.eu/app/Styles/Mobile_style.css"  />
 	</head>
 	<body>
 
@@ -15,7 +15,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 		<div class=container id="formulaire">
 			<div class="formulaireDiv">
 				<table class="descriptionTable" id="formulaireTab">
-					<form action="http://localhost:8888/SmartLife/Controleur/action.php?device=Mobile&action=connexion" method="post">
+					<form action="http://puaud.eu/app/Controleur/action.php?device=Mobile&action=connexion" method="post">
 					<tr>
 						<td id="closeForm" style="text-align:right; padding-right:100px;" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="40px" /></td>
 					</tr>
@@ -33,7 +33,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					</tr>
 					</form>
 					<tr>
-						<td id='itemRegister'><button class="buttonsubmit" onclick="window.location.href='http://localhost:8888/SmartLife/Vue/Mobile/Register/register_fr.php'">Register</button></td>
+						<td id='itemRegister'><button class="buttonsubmit" onclick="window.location.href='http://puaud.eu/app/Vue/Mobile/Register/register_fr.php'">Register</button></td>
 					</tr>
 				</table>
 				</form>
@@ -45,13 +45,13 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 			<table class="barreTable">
 				<tr>
 					<td onclick="callContactPage()">
-						<img class="logo" align="middle"src="http://localhost:8888/SmartLife/img/email.png">
+						<img class="logo" align="middle"src="http://puaud.eu/app/img/email.png">
 					</td>
 					<td>
-						<img class="logo" align="middle"src="http://localhost:8888/SmartLife/img/accueil_logo.png">
+						<img class="logo" align="middle"src="http://puaud.eu/app/img/accueil_logo.png">
 					</td>
 					<td onclick="displayFormulaire()">
-						<img class="logo" align="middle"src="http://localhost:8888/SmartLife/img/profile.png">
+						<img class="logo" align="middle"src="http://puaud.eu/app/img/profile.png">
 					</td>
 				</tr>
 			</table>
@@ -85,7 +85,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 				<table class="descriptionTable">
 					<tr>
 						<td style="text-align:left">
-							<img align="middle"src="http://localhost:8888/SmartLife/img/guillemetsHaut.png" style="width:50px">
+							<img align="middle"src="http://puaud.eu/app/img/guillemetsHaut.png" style="width:50px">
 						</td>
 					</tr>
 					<tr>
@@ -96,7 +96,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					</tr>
 					<tr>
 						<td style="text-align:right">
-							<img align="middle"src="http://localhost:8888/SmartLife/img/guillemetsBas.png" style="width:50px">
+							<img align="middle"src="http://puaud.eu/app/img/guillemetsBas.png" style="width:50px">
 						</td>
 					</tr>
 				</table>
@@ -112,7 +112,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 				<table class="descriptionTable">
 					<tr>
 						<td style="text-align:left">
-							<img align="middle"src="http://localhost:8888/SmartLife/img/guillemetsHaut.png" style="width:50px">
+							<img align="middle"src="http://puaud.eu/app/img/guillemetsHaut.png" style="width:50px">
 						</td>
 					</tr>
 					<tr>
@@ -123,7 +123,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					</tr>
 					<tr>
 						<td style="text-align:right">
-							<img align="middle"src="http://localhost:8888/SmartLife/img/guillemetsBas.png" style="width:50px">
+							<img align="middle"src="http://puaud.eu/app/img/guillemetsBas.png" style="width:50px">
 						</td>
 					</tr>
 				</table>
@@ -138,7 +138,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 				<table class="descriptionTable">
 					<tr>
 						<td style="text-align:left">
-							<img align="middle"src="http://localhost:8888/SmartLife/img/guillemetsHaut.png" style="width:50px">
+							<img align="middle"src="http://puaud.eu/app/img/guillemetsHaut.png" style="width:50px">
 						</td>
 					</tr>
 					<tr>
@@ -149,7 +149,7 @@ setcookie('langue', 'fr', time() + 365*24*3600, null, null, false, true);
 					</tr>
 					<tr>
 						<td style="text-align:right">
-							<img align="middle"src="http://localhost:8888/SmartLife/img/guillemetsBas.png" style="width:50px">
+							<img align="middle"src="http://puaud.eu/app/img/guillemetsBas.png" style="width:50px">
 						</td>
 					</tr>
 				</table>

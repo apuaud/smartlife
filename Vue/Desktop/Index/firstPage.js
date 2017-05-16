@@ -281,5 +281,5 @@ $(document).keyup(function(e)
 
 function callRegistration()
 {
-  window.location="http://localhost:8888/SmartLife/Controleur/action.php?device=Desktop&action=goToInscription";
+  window.location="http://puaud.eu/app/Controleur/action.php?device=Desktop&action=goToInscription";
 }

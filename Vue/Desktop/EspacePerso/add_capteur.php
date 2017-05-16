@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="http://localhost:8888/SmartLife/Styles/StyleAccount.css" />
+        <link rel="stylesheet" href="http://puaud.eu/app/Styles/StyleAccount.css" />
         <title>Ajout d'un capteur</title>
     </head>
 
@@ -11,7 +11,7 @@
     include("analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
-    <form action="http://localhost:8888/SmartLife/Controleur/action.php?device=Desktop&action=validerAjoutCapteur" method="post">
+    <form action="http://puaud.eu/app/Controleur/action.php?device=Desktop&action=validerAjoutCapteur" method="post">
 		<p class = "Formulaire">
 		<SELECT name="typecapteur">
             <?php

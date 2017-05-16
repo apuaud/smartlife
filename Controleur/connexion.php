@@ -17,13 +17,13 @@ if($row['type'] >= 1 && $mdpinsere==$row['password'])
 	$_SESSION['type'] = $row['type'];
 	$_SESSION['nom'] = $row['nom'];
 	$_SESSION['prenom'] = $row['prenom'];
-	header('Location: http://localhost:8888/SmartLife/Vue/" . $device . "/EspacePerso/account.php');
+	header('Location: http://puaud.eu/app/Vue/" . $device . "/EspacePerso/account.php');
 }
 
 // Si le compte n'est pas activé
 else if($row['type'] == 0 && $mdpinsere==$row['password'])
 {
-	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='http://localhost:8888/SmartLife/';</script>";
+	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='http://puaud.eu/app/';</script>";
 }
 
 // Si le mot de passe est incorrect

@@ -6,7 +6,7 @@ include("../../db_connect.php");
 	<html>
 		<head>
 			<meta charset="utf-8"/>
-			<link rel="stylesheet" href="http://localhost:8888/SmartLife/Styles/styleespaceperso.css"/>
+			<link rel="stylesheet" href="http://puaud.eu/app/Styles/styleespaceperso.css"/>
 			<title>Mon espace personnel</title>
 		</head>
 		<body class="manonbody">
@@ -32,11 +32,11 @@ include("../../db_connect.php");
 
 				while($donnees = $reponse->fetch())
 				{
-					echo "<td class='manon'><div class='textbox'><span><a href='http://localhost:8888/SmartLife/Vue/EspacePerso/account.php?maison="
+					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/app/Vue/EspacePerso/account.php?maison="
 					. $donnees['id'] . "'>" . $donnees['nom'] . "</a></span></div></td>";
 				} ?>
 					<td class="manon"><div class="textbox">
-						<span><a href="http://localhost:8888/SmartLife/Controleur/action.php?device=Mobile&action=goToAjoutMaison">+</a></span>
+						<span><a href="http://puaud.eu/app/Controleur/action.php?device=Mobile&action=goToAjoutMaison">+</a></span>
 					</td>
 				</tr>
 			</table>
@@ -66,7 +66,7 @@ include("../../db_connect.php");
 					</td>";
 				}
 				echo "<td class='manon'><div class='textbox'>
-					<span><a href='http://localhost:8888/SmartLife/Controleur/action.php?device=Mobile&action=goToAjoutPiece?maison=" . $_GET['maison'] . "'>+</a></span>
+					<span><a href='http://puaud.eu/app/Controleur/action.php?device=Mobile&action=goToAjoutPiece?maison=" . $_GET['maison'] . "'>+</a></span>
 					</td></tr></table>";
 			} ?>
 
@@ -115,7 +115,7 @@ include("../../db_connect.php");
 					</div>
 					</td>
 					<td class="manon"><div class="textbox dropdown">
-					<span><a href="http://localhost:8888/SmartLife/add_room.php">+</a></span>
+					<span><a href="http://puaud.eu/app/add_room.php">+</a></span>
 					</div>
 					</td>
 				</tr>

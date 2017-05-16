@@ -24,23 +24,25 @@
 
 /*header
 {
-	border : 3px solid black;
+	border : 3px solid black; 
 	border-radius: 10px 10px;
 	padding: 30px;
 	background-color:  rgba(0,0,0,0.3);
 	width: 96%;
-
+	
 
 }*/
 
 body
 {
-	background-image: url("../img/faq.jpg");
+	background-image: url("img/faq.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	font-size: 20px;
 	color: white;
+	width: 100%;
+	height: 100%;
 
 }
 
@@ -143,7 +145,7 @@ td
 	font-family: CenturyGothic,serif;
 	text-align:center;
 	width: 100%;
-	font-size: 50px;
+	font-size: 40px;
 	bottom: 0px;
 	position:absolute;
 	z-index: 8;
@@ -169,31 +171,39 @@ td
 	border-top: solid;
 	border-bottom: solid;
 	border-width: thin;
+	width: 100%;
+
 }
 
 .sloganDescription
 {
   justify-content: center;
-	position: absolute;
+	position: fixed;
 	color: white;
 	z-index: 8;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	transition:2s;
 	text-align: center;
 	display: none;
 	font-family: CenturyGothic,serif;
 	font-size: 40px;
+	margin-left: 0px;
+	left: 0px;
+	padding-top: 0px;
+	transform: scale(1.05);
 }
 
 .sloganDescriptionP
 {
 	width: 100%;
 	align-self: center;
-	position: absolute;
+	position: fixed;
 	font-size: 40px;
 	margin-top: 200px;
+	background-color: rgba(0,0,0,0.9);
+
 }
 
 
@@ -217,11 +227,16 @@ td
 
 .question
 {
-
+	
 	animation: none;
 	transform: scale(1.05);
 	font-size: 50px;
 	font-family: CenturyGothic,serif;
+
+
+	width: 100%;
+
+
 
 }
 
@@ -229,6 +244,8 @@ td
 {
 	transition: all 0.5s;
 	cursor: pointer;
+	width:30px;
+	position:relative;
 }
 #cross:hover
 {
@@ -240,3 +257,4 @@ td
 {
 	float: right;
 }
+
