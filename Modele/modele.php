@@ -83,6 +83,25 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
 	mail($destinataire, $sujet, $message, $headers);
 }
 
+function envoiMailConfirmationSecondaire($pseudo,$email,$dbh)
+{
+// Préparation du mail de confirmation
+	$destinataire = $email;
+	$sujet = "Nouveau compte sur SmartLife";
+	$headers  = 'MIME-Version: 1.0' . "\n";
+	$headers .= "From: noreply@puaud.eu";
+	$message = "Bienvenue sur SmartLife, ". $pseudo ."
+
+Un nouveau compte secondaire a été créé avec votre adresse email !
+Vous pouvez désormais vous connecter.
+
+---------------
+Ceci est un mail automatique, Merci de ne pas y répondre.";
+
+// Envoi du mail de confirmation
+	mail($destinataire, $sujet, $message, $headers);
+}
+
 function getCle($pseudo,$dbh)
 {
 	// Récupération de la clé correspondant au $pseudo dans la base de données
