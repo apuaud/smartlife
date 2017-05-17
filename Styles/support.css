@@ -22,7 +22,6 @@
 		url('fonts/CenturyGothic.woff') format('woff');
 }
 
-
 body
 {
 	background-image: url("http://puaud.eu/appmvc/img/faq.jpg");
@@ -47,15 +46,6 @@ body
 	z-index: 10;
 	width: 100%;
 }
-
-
-/*div, img
-{
-	margin:0px;
-	padding: 0px;
-	position: relative;
-
-}*/
 
 .imgBackground
 {
@@ -102,8 +92,6 @@ td
 	text-align: center;
 	font-size: 25px;
 }
-
-
 
 #ligneServices td
 {
@@ -170,6 +158,7 @@ input
 	z-index: 10;
 	width: 440px;
 }
+
 input:focus
 {
 	outline: none;
@@ -285,12 +274,7 @@ input:focus
 	transform: scale(1.05);
 	font-size: 50px;
 	font-family: CenturyGothic,serif;
-
-
 	width: 100%;
-
-
-
 }
 
 #cross
