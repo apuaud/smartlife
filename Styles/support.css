@@ -22,6 +22,7 @@
 		url('fonts/CenturyGothic.woff') format('woff');
 }
 
+
 body
 {
 	background-image: url("http://puaud.eu/appmvc/img/faq.jpg");
@@ -98,7 +99,6 @@ td
 	color: white;
 	width: 20%;
 	height: 60px;
-	background-color: rgba(0, 0, 0, 0.5);
 	text-align: center;
 	font-size: 25px;
 }

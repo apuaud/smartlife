@@ -14,13 +14,13 @@ else
         <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/support.css" />
         <title>FAQ</title>
     </head>
-    <body>
-      <b class="question slogan" style="bottom: 530px;" onclick="displayDescriptionNum(this, 0)">Comment créer un compte smartlife ?</b>
-    	<b class="question slogan" style="bottom: 450px;" onclick="displayDescriptionNum(this, 1)">Comment me connecter à mon compte ?</b>
-    	<b class="question slogan" style="bottom: 370px;" onclick="displayDescriptionNum(this, 2)">Comment modifier mes informations personnelles ?  </b>
-    	<b class="question slogan" style="bottom: 290px;" onclick="displayDescriptionNum(this, 3)">Comment ajouter une maison à mon compte ?</b>
-    	<b class="question slogan" style="bottom: 210px;" onclick="displayDescriptionNum(this, 4)"> Comment configurer une pièce à ma maison ?</b>
-    	<b class="question slogan" style="bottom: 130px;" onclick="displayDescriptionNum(this, 5)"> Comment configurer un capteur à une pièce ?  </b>
+    <body onload="onLoadFunction()" onresize="setFontSize()">
+      <b class="question slogan" onclick="displayDescriptionNum(this, 0)">Comment créer un compte smartlife ?</b>
+    	<b class="question slogan" onclick="displayDescriptionNum(this, 1)">Comment me connecter à mon compte ?</b>
+    	<b class="question slogan" onclick="displayDescriptionNum(this, 2)">Comment modifier mes informations personnelles ?  </b>
+    	<b class="question slogan" onclick="displayDescriptionNum(this, 3)">Comment ajouter une maison à mon compte ?</b>
+    	<b class="question slogan" onclick="displayDescriptionNum(this, 4)"> Comment configurer une pièce à ma maison ?</b>
+    	<b class="question slogan" onclick="displayDescriptionNum(this, 5)"> Comment configurer un capteur à une pièce ?  </b>
 
 
       <div class="sloganDescription">
@@ -86,46 +86,15 @@ else
           </form>
 				</div>
 			</div>
+
     	<?php include ("../Vue/Support/header.php") ?>
 
   		<div style="margin:0;padding:0;cursor:pointer;">
       	<p class = "slogan" onclick="displayDescriptionNum(this,6)"><b>Nous contacter</b></p>
   		</div>
 
-
       </body>
 
-  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
-  		</script>
-  		<script type="text/javascript" src="firstPage.js"></script>
-      <script type="text/javascript">
-      	var contactDiv = document.getElementsByClassName('contactDiv')[0];
-      	var slogans = document.getElementsByClassName('slogan');
-
-      	function stopSlogansAnimations()
-  		{
-  		  for (var slogan = 0 ; slogan < slogans.length ; slogan++)
-  		  {
-  		    slogans[slogan].style.animation="none";
-  		  }
-  		}
-
-  		slogans[0].addEventListener("click", function(){displayContactDiv()});
-
-  		function displayContactDiv()
-  		{
-  			contactDiv.style.display = "block";
-  		}
-
-  		function hideDescriptionNum(slogan, num)
-  		{
-  			slogan.parentNode.parentNode.parentNode.style.display="none";
-  		}
-
-  		function displayDescriptionNum(slogan, num)
-  		{
-  		  document.getElementsByClassName('sloganDescription')[num].style.display="table";
-
-  		}
-      </script>
+  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="http://puaud.eu/appmvc/Vue/Support/support.js"></script>
 </html>

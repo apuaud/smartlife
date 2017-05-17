@@ -81,7 +81,6 @@
 		</div>
 
 		<div class="container" id="accueil" >
-			<p class = "slogan">Your Home | Your Future</p>
 			<p id="logoContainer"><img align="middle"id="logo2" src="http://puaud.eu/appmvc/img/logo_sansFond.png"></p>
 
 			<img class ="imgBackground"src="http://puaud.eu/appmvc/img/leveSoleilTest.jpg" style="position:relative; z-index=4;">
