@@ -1,6 +1,6 @@
 <?php
 
-function verifierDoubleCompte($pseudo,$email,$dbh)
+function verifierDoubleComptePseudo($pseudo,$dbh)
 {
 
 // On vérifie que personne détient déjà un compte avec ce pseudo
@@ -8,7 +8,10 @@ function verifierDoubleCompte($pseudo,$email,$dbh)
 	$donnees = $reponse->fetch();
 	$reponse->closeCursor();
 	return $donnees['nbPseudo'];
+}
 
+function verifierDoubleCompteEmail($email,$dbh)
+{
 // On fait le même test avec l'adresse email
 	$reponse = $dbh->query('SELECT COUNT(*) AS nbEmail FROM users WHERE email=\'' . $email . '\'');
 	$donnees = $reponse->fetch();
@@ -28,6 +31,23 @@ function ajouterUtilisateur($prenom,$nom,$pseudo,$email,$password,$dbh)
 		'email' => $email,
 		'password' => sha1($password),
 		'type' => 0
+		));
+}
+
+function ajouterUtilisateurSecondaire($prenom,$nom,$pseudo,$email,$password,$type,$cptPrincipal,$dbh)
+{
+
+// On ajoute l'utilisateur dans la BDD
+	$req = $dbh->prepare('INSERT INTO users(prenom, nom, pseudo, email, password, type, id_comptePrincipal) 
+		VALUES(:prenom, :nom, :pseudo, :email, :password, :type, :id_comptePrincipal)');
+	$req->execute(array(
+		'prenom' => $prenom,
+		'nom' => $nom,
+		'pseudo' => $pseudo,
+		'email' => $email,
+		'password' => sha1($password),
+		'type' => $type,
+		'id_comptePrincipal' => $cptPrincipal
 		));
 }
 

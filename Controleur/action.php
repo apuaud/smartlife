@@ -64,5 +64,9 @@ if(ISSET($_GET['action']))
     case "sendMail" :
       include("mail.php");
       break;
+
+    case "validerAjoutTypeAppareil" :
+      include("../ajouter_typeappareil.php");
+      break;
   }
 ?>
