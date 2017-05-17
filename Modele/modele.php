@@ -249,4 +249,30 @@ function connexion($pseudo,$dbh)
 	return $row;
 }
 
+function promouvoir($id,$dbh)
+{
+	$req = $dbh->prepare('UPDATE users SET type=:type WHERE id like :id');
+	$req->execute(array(
+		'type' => 2,
+    	'id' => $id
+		));
+}
+
+function depromouvoir($id,$dbh)
+{
+	$req = $dbh->prepare('UPDATE users SET type=:type WHERE id like :id');
+	$req->execute(array(
+		'type' => 1,
+    	'id' => $id
+		));
+}
+
+function supprimer($id,$dbh)
+{
+	$req = $dbh->prepare('DELETE FROM users WHERE id like :id');
+	$req->execute(array(
+    	'id' => $id
+		));
+}
+
 ?>

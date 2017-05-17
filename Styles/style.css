@@ -473,17 +473,17 @@ td
 @font-face
 {
 	font-family: 'Adam';
-	src:url('fonts/Adam.otf') format('otf'),
-		url('fonts/Adam.svg') format('svg'),
-		url('fonts/Adam.ttf') format('truetype'),
-		url('fonts/Adam.woff') format('woff');
+	src:url('../fonts/Adam.otf') format('otf'),
+		url('../fonts/Adam.svg') format('svg'),
+		url('../fonts/Adam.ttf') format('truetype'),
+		url('../fonts/Adam.woff') format('woff');
 }
 
 @font-face
 {
 	font-family: 'CenturyGothic';
-	src:url('fonts/CenturyGothic.otf') format('otf'),
-		url('fonts/CenturyGothic.svg') format('svg'),
-		url('fonts/CenturyGothic.ttf') format('truetype'),
-		url('fonts/CenturyGothic.woff') format('woff');
+	src:url('../fonts/CenturyGothic.otf') format('otf'),
+		url('../fonts/CenturyGothic.svg') format('svg'),
+		url('../fonts/CenturyGothic.ttf') format('truetype'),
+		url('../fonts/CenturyGothic.woff') format('woff');
 }

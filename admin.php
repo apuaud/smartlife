@@ -1,14 +1,14 @@
 <?php
 session_start();
 include('db_connect.php');
-include("Vue/EspacePerso/TestHeader.php");
+include("Vue/EspacePerso/HeaderAdmin.php");
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="Styles/StyleAdmin.css" />
-        <title>Administrateur</title>
+        <title>Administration</title>
         <body class="AdminBody">	
         </body>
     </head>
@@ -25,7 +25,7 @@ $reponse = $dbh->query('SELECT id,pseudo,nom,prenom,email,type
 					<td><strong>Nom</strong></td>
 					<td><strong>Email</strong></td>
 					<td><strong>Compte</strong></td>
-					<td><strong>Adm.</strong></td>
+					<td><strong>Admin</strong></td>
 					<td><strong>Supp.</strong></td>
 					</tr>";
 while($donnees = $reponse->fetch())
@@ -38,10 +38,11 @@ while($donnees = $reponse->fetch())
 					<td>". $donnees['email'] ."</td>";
 					if($donnees['type']==2){echo "<td>Admin</td>";}else if($donnees['type']==0)
 					{echo "<td>Inactif</td>";}else if($donnees['type']==1){echo "<td>Actif</td>";}else{echo "<td>Secondaire</td>";}
-					echo "<td style='text-align:center'><img src='img/fleche_haut.png' 
-					alt='Promouvoir' width=20px height=auto /></td>
-					<td style='text-align:center'><img src='img/croix.png' 
-					alt='Supprimer' width=20px height=auto /></td>
+					echo "<td style='text-align:center'><a href='Controleur/promouvoir.php?id=".$donnees['id']."'><img src='img/fleche_haut.png' 
+					alt='Promouvoir' width=20px height=auto /></a><a href='Controleur/depromouvoir.php?id=".$donnees['id']."'><img src='img/fleche_bas.png' 
+					alt='Promouvoir' width=20px height=auto /></a></td>
+					<td style='text-align:center'><a href='Controleur/supprimer_compte.php?id='".$donnees['id']."'><img src='img/croix.png' 
+					alt='Supprimer' width=20px height=auto /></a></td>
 					</tr>";
 				}
 				echo "</table>";

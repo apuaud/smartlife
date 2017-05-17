@@ -23,8 +23,8 @@ session_start();
         <input class="zonetexte" type="text" name="id" placeholder="Pseudo">
         <input class="zonetexte" type="text" name="pw" placeholder="Mot de passe">
         <input class="zonetexte" type="text" name="pw2" placeholder="Confirmer MDP">
-        <input type="radio" name="type" value=2>Voir l'état des capteurs<br>
-        <input type="radio" name="type" value=3>Voir l'état des capteurs + ajouter pièces et maisons<br>
+        <input type="radio" name="type" value=3>Voir l'état des capteurs<br>
+        <input type="radio" name="type" value=4>Voir l'état des capteurs + ajouter pièces et maisons<br>
     	<button class="oui" type="submit"> Valider </button>
     </form>
     </div>

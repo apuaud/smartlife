@@ -1,10 +1,18 @@
+@font-face
+{
+	font-family: 'CenturyGothic';
+	src:url('../fonts/CenturyGothic.otf') format('otf'),
+		url('../fonts/CenturyGothic.svg') format('svg'),
+		url('../fonts/CenturyGothic.ttf') format('truetype'),
+		url('../fonts/CenturyGothic.woff') format('woff');
+}
+
 .AdminBody
 {
 	background-image: url("../img/table.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	
 }
 
 .table1
@@ -12,6 +20,7 @@
 	color: white;
 	text-align: center;
 	margin: auto;
+	font-family: 'CenturyGothic';
 	
 }
 .table2
@@ -19,6 +28,7 @@
 	color: white;
 	text-align: center;
 	margin: auto;
+	font-family: 'CenturyGothic';
 }
 .titre1
 {
