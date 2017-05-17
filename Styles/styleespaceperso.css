@@ -9,8 +9,9 @@
 {
 	border-collapse: separate;
 	word-wrap: break-word;
+	width: 100vh;
+	overflow hidden;
 }
-
 
 
 .textbox
@@ -19,13 +20,13 @@
 	text-align: center;
 	position:relative;
 	border-radius: 10px 20px;
-	margin: 30px;	
+	margin: 30px;
 	background-color: rgba(0,0,0,0.7);
 	padding: 50px;
 	text-align:center;
 	max-height: 135px;
 	max-width: 180px;
-	
+
 }
 
 .textbox2
@@ -47,7 +48,6 @@
 	cursor:pointer;
 }
 
-
 body
 {
 
@@ -55,7 +55,16 @@ body
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	color: white;	
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+.scroll-hori
+{
+	overflow-x: auto;
+  white-space: nowrap;
+	width: 100%;
 }
 
 .titre
@@ -74,32 +83,124 @@ body
     text-align: center;
 }
 
-.dropdown-content 
+.minilogo
+{
+	width: 20px;
+	height: 20px;
+	margin-right:14px;
+}
+
+
+.buttonsubmit
+{
+	margin: auto;
+	background-color: transparent;
+	color:white;
+	font-size: 20px;
+	width: 300px;
+	transition: 0.5s;
+	border-width: 1px;
+	border-radius: 5px;
+	border: solid white thin;
+	transition: 0.5s;
+}
+
+.buttonsubmit:hover
+{
+	transform: scale(1.1);
+}
+.buttonsubmit:hover
+{
+	cursor: pointer;
+	background-color: white;
+	color:black;
+}
+.dropdown-content
 {
     display: none;
     position: absolute;
     background-color: rgba(255,255,255,0.5);
-    min-width: 80px;
+    width: 180px;
+		height: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding-left:0px ;
-    padding-right: 0px;
+		margin-left: -75px;
+		margin-top: -90px;
+		padding: 5px;
     z-index: 1;
-    
 }
 
-.dropdown:hover .dropdown-content 
+.dropdown:hover .dropdown-content
 {
     display: block;
-    
+}
+#formulaire
+{
+	position: fixed;
+	color: white;
+	z-index: 6;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	transition:2s;
+}
+input[type=checkbox]
+{
+	width: 30px;
+}
+#login
+{
+	bottom: 0px;
+	margin-top: 200px;
 }
 
+#login td
+{
+	background-color: transparent;
+	margin: 0;
+	padding: 10px;
+	width: 150px;
+}
+
+#closeForm
+{
+	text-align: right;
+	float: right;
+}
+#cross
+{
+	transition: all 0.5s;
+	cursor: pointer;
+	width:30px;
+	position:relative;
+	margin-right: -350px;
+}
+
+#cross:hover
+{
+	transform: scale(1.5);
+}
+
+input
+{
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+	height: 35px;
+	z-index: 10;
+	width: 60px;
+}
+input:focus
+{
+	outline: none;
+}
 
 ul
 {
 	list-style-type: none;
-
-
-	
 }
 
 .plus
@@ -108,11 +209,36 @@ ul
 
 
 }
-.liste
+.liste-left
+{
+	text-align: right;
+	margin-left: -44px;
+	margin-top: -20px;
+	padding: 5px;
+	padding-right: 10px;
+	width: 80%;
+	border-right: solid thin;
+	display: inline-block;
+
+}
+.liste-right
 {
 	text-align: left;
-}
+	padding: 5px;
+	margin-top: -30px;
+	width: 20%;
+	display: inline-block;
 
+}
+.nomCapteur
+{
+	font-size: 30px;
+	margin-right: 10px;
+	width: 150px;
+	padding-right: 10px;
+	text-align: right;
+
+}
 a
 {
 	text-decoration: none;

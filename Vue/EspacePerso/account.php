@@ -10,6 +10,38 @@ include("../../db_connect.php");
 			<title>Mon espace personnel</title>
 		</head>
 		<body class="manonbody">
+
+			<div id="formulaire">
+				<form action="http://puaud.eu/appmvc/Controleur/action.php?action=connexion" method="post">
+				<table id="login" align="center">
+					<tr>
+						<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer"  /></td>
+					</tr>
+					<tr>
+						<td class="nomCapteur">Température</td>
+						<td><input type="number" name="login" placeholder="30" size="30"/></td>
+					</tr>
+					<tr>
+						<td class="nomCapteur">Luminosité</td>
+						<td><input type="number" name="login" placeholder="30" size="30"/></td>
+					</tr>
+					<tr>
+						<td class="nomCapteur">Volets</td>
+						<td><input type="checkbox" name="login" placeholder="30" size="30"/></td>
+					</tr>
+					<tr>
+						<td class="nomCapteur">Humidité</td>
+						<td><input type="number" name="login" placeholder="30" size="30"/></td>
+					</tr>
+					<tr>
+						<td><button class="buttonsubmit" type="submit">Envoyer</button></td>
+						<td><button class="buttonsubmit" type="submit">Ajouter Capteur</button></td>
+
+					</tr>
+
+				</table>
+				</form>
+			</div>	
 		<?php
 		if($_SESSION['type']==1)
 		{
@@ -20,9 +52,9 @@ include("../../db_connect.php");
 			include("HeaderAdmin.php");
 		}
 		include_once("../../analyticstracking.php"); ?>
-
-
-			<table class="listepiece manontable">
+		
+		<div class='scroll-hori'>
+			<table class="listepiece">
 				<tr>
 				<?php
 				$reponse = $dbh->query('SELECT logement.id,nom
@@ -40,28 +72,44 @@ include("../../db_connect.php");
 					</td>
 				</tr>
 			</table>
+		</div>
 			<?php $reponse->closeCursor(); ?>
 
 		<?php if(isset($_GET['maison'])){
-			echo "<table class='manon'><tr>";
-				$reponse = $dbh->query('SELECT piece.nom
+			echo "<div class='scroll-hori'><table class='listepiece'><tr>";
+				$reponse = $dbh->query('SELECT piece.nom,piece.id
 					FROM logement,piece
 					WHERE logement.id=\'' . $_GET['maison'] . '\'
 					AND piece.id_logement=logement.id');
 
 				while($donnees = $reponse->fetch())
 				{
-					echo "<td class='manon'><div class='textbox dropdown'>
+					$reponse2 = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel
+					FROM type_appareil,capteur
+					WHERE capteur.id_piece=\'' . $donnees['id'] . '\'
+					AND capteur.id_type_appareil=type_appareil.id');
+
+					echo "<td><div class='textbox dropdown'>
 					<span>". $donnees['nom'] ."</span>
-					<div class='texbox dropdown-content'>
-				<ul>
-					<div class='liste'><li>Température</li>
-					<li>Luminosité</li>
-					<li>Volets</li>
-					<li>Humidité</li></div>
-					<li class='plus'>+</li>
-				</ul>
-					</div>
+					<div class='dropdown-content'><ul>
+							<div class='liste-left'>";
+
+					$reponse3 = $dbh->query('SELECT capteur.etatActuel
+					FROM type_appareil,capteur
+					WHERE capteur.id_piece=\'' . $donnees['id'] . '\'
+					AND capteur.id_type_appareil=type_appareil.id');
+
+					while($donnees2 = $reponse2->fetch())
+					{
+						echo "<li>".$donnees2['nom']."</li>";
+					}
+					echo "</div><div class='liste-right'>";
+					while($donnees3 = $reponse3->fetch())
+					{
+						echo "<li>" . $donnees3['etatActuel'] . "</li>";
+					}
+					echo "</div><li style='text-align:right;'><img class='minilogo' src='http://puaud.eu/appmvc/img/reglage.png' onclick='displaySetCaptors()'></li>
+						</ul></div>
 					</div>
 					</td>";
 				}
@@ -121,5 +169,19 @@ include("../../db_connect.php");
 				</tr>
 		</table>
 -->
+
+			<script>
+				var formulaire = document.getElementById('formulaire');
+
+				function displaySetCaptors()
+				{
+					formulaire.style.display="block";
+				}
+
+				function hideFormulaire()
+				{
+					formulaire.style.display="none";
+				}
+			</script>
 	</body>
 </html>
