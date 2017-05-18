@@ -19,7 +19,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="firstName" placeholder="Prénom" required /></td>
+						<input required  type="text" name="firstName" placeholder="Prénom"/></td>
 				</tr>
 				<tr>
 					<td id="lastNameTd" align="right">
@@ -29,17 +29,17 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="lastName" placeholder="Nom" required /></td>
+						<input required  type="text" name="lastName" placeholder="Nom"/></td>
 				</tr>
 				<tr>
 					<td id="idTd" align="right">
 						<div class="messageCorrection">
-							L'identifiant ne doit contenir que lettres, espaces et tirets
+							L'identifiant ne doit contenir que lettres, espaces, tirets et chiffres
 						</div>
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="id" placeholder="Identifiant" required /></td>
+						<input required  type="text" name="id" placeholder="Identifiant"/></td>
 				</tr>
 				<tr>
 					<td id="emailTd" align="right">
@@ -49,7 +49,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="email" placeholder="Email" required /></td>
+						<input required  type="text" name="email" placeholder="Email"/></td>
 				</tr>
 				<tr>
 					<td id="passwordTd" align="right">
@@ -59,7 +59,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="password" name="pw" placeholder="Mot de passe" required /></td>
+						<input required  type="password" name="pw" placeholder="Mot de passe" /></td>
 				</tr>
 				<tr>
 					<td id="passwordConfirmTd" align="right">
@@ -69,7 +69,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input type="password" name="pw2" placeholder="Confirmation mot de passe" required /></td>
+						<input required type="password" name="pw2" placeholder="Confirmation mot de passe"/></td>
 				</tr>
 				<tr>
 					<td id='buttonConnexion' style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>

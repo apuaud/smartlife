@@ -30,7 +30,7 @@ if(ISSET($_GET['action']))
       break;
 
     case "goToSupport" :
-      include("../Vue/Support/support.php");
+      include("support.php");
       break;
 
     case "goToAjoutMaison" :
@@ -57,16 +57,16 @@ if(ISSET($_GET['action']))
       include("ajouter_capteur.php");
       break;
 
-    case "goToParametre" :
-      include("parametre.php");
-      break;
-
     case "sendMail" :
       include("mail.php");
       break;
 
     case "validerAjoutTypeAppareil" :
       include("../ajouter_typeappareil.php");
+      break;
+
+    case "goToParametre" :
+      include("../Vue/Parametre/parametre.php");
       break;
   }
 ?>

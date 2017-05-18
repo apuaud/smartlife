@@ -3,6 +3,8 @@ var questions = document.getElementsByClassName('question');
 var questionBottomSpace = 130;
 var spaceBetweenQuestions = 80;
 var spaceBetweenHeaderAndFooter = $(window).height()-66-80-40-50;
+var formulaire = document.getElementById('formulaire');
+
 
 function onLoadFunction()
 {
@@ -42,4 +44,26 @@ function setFontSize()
   {
     sloganDescriptionPs[sloganNum].style.fontSize = 50*$(window).width()/1440 + "px";
   }
+}
+
+function callRegistration()
+{
+  window.location="http://puaud.eu/appmvc/Controleur/action.php?action=goToInscription";
+}
+
+function callAccount()
+{
+  window.location="http://puaud.eu/appmvc/Vue/EspacePerso/account.php";
+}
+
+function displayFormulaire()
+{
+  formulaire.style.display="block";
+  document.getElementById('idInput').focus();
+  stopSlogansAnimations();
+}
+
+function hideFormulaire()
+{
+  formulaire.style.display="none";
 }

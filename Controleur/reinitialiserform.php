@@ -17,15 +17,15 @@ include('../db_connect.php');
 				<tr>
 					<td id="firstNameInputFalse"><p align="right" class="border-right"></p></td>
 					<td id="itemFirstNames" >
-						<input id="firstNameInput" type="password" name="pw" placeholder="Mot de passe" size="20" required />
-						<input id="lastNameInput" type="password" name="pw2" placeholder="Confirmer MDP" size="20" required />
+						<input required id="firstNameInput" type="password" name="pw" placeholder="Mot de passe" size="20"/>
+						<input required id="lastNameInput" type="password" name="pw2" placeholder="Confirmer MDP" size="20"/>
 					</td>
 					<td id="lastNameInputFalse"><p align="left" class="border-left"></p></td>
 				</tr>
 				<tr>
 					<td></td>
-					<input type="hidden" name="log" value=<?php echo "'" . $_GET['log'] . "'" ?>>
-					<input type="hidden" name="cle" value=<?php echo "'" . $_GET['cle'] . "'" ?>>
+					<input required type="hidden" name="log" value=<?php echo "'" . $_GET['log'] . "'" ?>>
+					<input required type="hidden" name="cle" value=<?php echo "'" . $_GET['cle'] . "'" ?>>
 					<td id='itemRegister'><button onclick="">Mettre à jour votre mot de passe</button></a></td>
 					<td></td>
 				</tr>

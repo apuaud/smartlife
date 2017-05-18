@@ -16,7 +16,7 @@ session_start();
 				<tr>
 					<td id="firstNameInputFalse"><p align="right" class="border-right"></p></td>
 					<td id="itemFirstNames" >
-						<input id="firstNameInput" type="text" name="email" placeholder="Votre email" size="20" required />
+						<input required id="firstNameInput" type="text" name="email" placeholder="Votre email" size="20"/>
 					</td>
 				</tr>
 				<tr>

@@ -16,8 +16,8 @@ include("db_connect.php");
 						<tr class="tableHeader">
 							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/index.php">Accueil</a></td>
 							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/index.php">Présentation</a></td>
-							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/contact.php">Support</a></td>
-							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/contact.php">Paramètres</a></td>
+							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToSupport">Support</a></td>
+							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre">Paramètres</a></td>
 						</tr>
 					</table>
 					<section class="ongletCoHeader">

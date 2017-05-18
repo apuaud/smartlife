@@ -19,19 +19,19 @@ include("../../db_connect.php");
 					</tr>
 					<tr>
 						<td class="nomCapteur">Température</td>
-						<td><input type="number" name="login" placeholder="30" size="30"/></td>
+						<td><input required type="number" name="login" placeholder="30" size="30"/></td>
 					</tr>
 					<tr>
 						<td class="nomCapteur">Luminosité</td>
-						<td><input type="number" name="login" placeholder="30" size="30"/></td>
+						<td><input required type="number" name="login" placeholder="30" size="30"/></td>
 					</tr>
 					<tr>
 						<td class="nomCapteur">Volets</td>
-						<td><input type="checkbox" name="login" placeholder="30" size="30"/></td>
+						<td><input required type="checkbox" name="login" placeholder="30" size="30"/></td>
 					</tr>
 					<tr>
 						<td class="nomCapteur">Humidité</td>
-						<td><input type="number" name="login" placeholder="30" size="30"/></td>
+						<td><input required type="number" name="login" placeholder="30" size="30"/></td>
 					</tr>
 					<tr>
 						<td><button class="buttonsubmit" type="submit">Envoyer</button></td>

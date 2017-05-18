@@ -8,10 +8,10 @@
     </head>
 
     <?php include("TestHeader.php");
-    include("../analyticstracking.php"); ?>
+    include("analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
-    <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutCapteur" method="post">
+    <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutCapteur" method="post" onsubmit="return verifyInputs();">
 		<p class = "Formulaire">
 		<SELECT name="typecapteur">
             <?php
@@ -26,10 +26,11 @@
         </SELECT>
 		</p>
 		<p class = "Formulaire">
-		<input class="zonetexte"type="text" name="numeroserie" placeholder="Numéro de série" size=70 required />
+		<input required class="zonetexte"type="text" name="numeroserie" placeholder="Numéro de série" size=70/>
 		</p>
 		<button class="valider" type="submit"> Valider </button>
     </form>
 	</body>
-    </body>
+  <script type="text/javascript" src="http://puaud.eu/appmvc/Vue/EspacePerso/checkInputsFields.js"></script>
+
 </html>

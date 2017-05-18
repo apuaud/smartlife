@@ -67,8 +67,8 @@ echo "</table>";
 </div>
  <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutTypeAppareil" method="post">
  	<div align="center">
-	<label class=PSG for="Type de capteur"> Type de capteur :</label><input class="form" type="text" name="type" size=40 /><br />
-	<label class=PSG for="Numéro de modèle"> Numéro de modèle:</label><input class="form" type="text" name="numeromodele" size=40 /><br />
+	<label class=PSG for="Type de capteur"> Type de capteur :</label><input required class="form" type="text" name="type" size=40 /><br />
+	<label class=PSG for="Numéro de modèle"> Numéro de modèle:</label><input required class="form" type="text" name="numeromodele" size=40 /><br />
 	<button class="add" type="submit">Ajouter</button>
 	</div>
 </form>

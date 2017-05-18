@@ -14,6 +14,31 @@ else
         <title>FAQ</title>
     </head>
     <body onload="onLoadFunction()" onresize="setFontSize()">
+			<div id="formulaire">
+				<form action="http://puaud.eu/appmvc/Controleur/action.php?action=connexion" method="post">
+				<table class="login" align="center">
+					<tr>
+						<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer"  /></td>
+					</tr>
+					<tr>
+						<td id="itemID" ><input required id="idInput" type="text" name="login" placeholder="ID" size="30"/></td>
+					</tr>
+					<tr>
+						<td id="itemPassword"><input required id="passwordInput" type="password" name="motdepasse" placeholder="Password" size="30" /></td>
+					</tr>
+					<tr>
+						<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
+					</tr>
+					<tr>
+						<td id='itemLostPassword'  align="center"><a href="http://puaud.eu/appmvc/Controleur/action.php?action=goToOublieMotDePasse" style="color:white" >Mot de passe oublié ?</td>
+					</tr>
+
+					<tr>
+						<td id='itemRegister' style="text-align:center"><div class="buttonsubmit" onclick="callRegistration()">Inscription</div></td>
+					</tr>
+				</table>
+				</form>
+			</div>
       <b class="question slogan" onclick="displayDescriptionNum(this, 0)">How do I create an account ?</b>
     	<b class="question slogan" onclick="displayDescriptionNum(this, 1)">How do I login ?</b>
     	<b class="question slogan" onclick="displayDescriptionNum(this, 2)">How do I change my personal information ?  </b>
@@ -70,10 +95,10 @@ else
           <form action="http://puaud.eu/appmvc/Controleur/action.php?action=sendMail" method="post">
             <table id="login" align="center">
             	<tr>
-            		<td id="itemEmail" class="menuMail"><input type="text" name="email" placeholder="Votre email" size="41"/></td>
+            		<td id="itemEmail" class="menuMail"><input required type="text" name="email" placeholder="Votre email" size="41"/></td>
             	</tr>
             	<tr>
-            		<td id="itemSubject" class="menuMail"><input type="text" name="subject" placeholder="Sujet de votre email" size="41"/></td>
+            		<td id="itemSubject" class="menuMail"><input required type="text" name="subject" placeholder="Sujet de votre email" size="41"/></td>
             	</tr>
             	<tr>
             		<td id="itemPassword" class="menuMail"><textarea class="textarea"name="message" rows="10" cols="70" placeholder="Ecrivez votre message ici"></textarea></td>

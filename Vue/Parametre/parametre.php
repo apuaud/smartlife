@@ -15,28 +15,28 @@ session_start();
             <form action="inscription_secondaire.php" method="post">
               <table class="tableForm" align="center">
                 <tr>
-                  <td><input  type="text" name="email" placeholder="Email" required ></td>
+                  <td><input required  type="text" name="email" placeholder="Email"></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="lastName" placeholder="Prénom" required ></td>
+                  <td><input required  type="text" name="lastName" placeholder="Prénom"></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="firstName" placeholder="Nom" required ></td>
+                  <td><input required  type="text" name="firstName" placeholder="Nom"></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="id" placeholder="Pseudo" required ></td>
+                  <td><input required  type="text" name="id" placeholder="Pseudo"></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="pw" placeholder="Mot de passe" required ></td>
+                  <td><input required  type="text" name="pw" placeholder="Mot de passe"></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="pw2" placeholder="Confirmer MDP" required ></td>
+                  <td><input required  type="text" name="pw2" placeholder="Confirmer MDP"></td>
                 </tr>
                 <tr>
-                  <td>Lecture  <input type="radio" name="type" value=3></td>
+                  <td>Lecture  <input required type="radio" name="type" value=3></td>
                 </tr>
                 <tr>
-                  <td>Edition  <input type="radio" name="type" value=4></td>
+                  <td>Edition  <input required type="radio" name="type" value=4></td>
                 </tr>
                 <tr>
                   <td><button class="buttonsubmit" type="submit"> Valider </button></td>
@@ -52,15 +52,15 @@ session_start();
             <form action="inscription_secondaire.php" method="post">
                <table class="tableForm" align="center">
                 <tr>
-                  <td><input  type="text" name="ancien pseudo" placeholder="Ancien pseudo">
+                  <td><input required  type="text" name="ancien pseudo" placeholder="Ancien pseudo">
                   </td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="nouveau pseudo" placeholder="Nouveau pseudo">
+                  <td><input required  type="text" name="nouveau pseudo" placeholder="Nouveau pseudo">
                   </td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="confirmer votre pseudo" placeholder="Confirmer pseudo">
+                  <td><input required  type="text" name="confirmer votre pseudo" placeholder="Confirmer pseudo">
                   </td>
                 </tr>
                 <tr>
@@ -78,15 +78,15 @@ session_start();
             <form action="inscription_secondaire.php" method="post">
                <table class="tableForm" align="center">
                 <tr>
-                  <td><input  type="text" name="ancien mot de passe" placeholder="Ancien mot de passe">
+                  <td><input required  type="text" name="ancien mot de passe" placeholder="Ancien mot de passe">
                   </td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="aouveau mot de passe" placeholder="Nouveau mot de passe">
+                  <td><input required  type="text" name="aouveau mot de passe" placeholder="Nouveau mot de passe">
                   </td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="aonfirmer votre mot de passe" placeholder="Confirmer votre mdp">
+                  <td><input required  type="text" name="aonfirmer votre mot de passe" placeholder="Confirmer votre mdp">
                   </td>
                 </td>
                 <tr>
@@ -127,7 +127,7 @@ session_start();
             </form>
         </div>
       </div>
-      <?php include("Vue/EspacePerso/TestHeader.php") ?>
+      <?php include("../EspacePerso/TestHeader.php") ?>
     	<h1>
     		Paramètres
     	</h1>

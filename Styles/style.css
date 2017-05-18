@@ -27,8 +27,6 @@ div, img
    color: rgba(255, 255, 255, 0.8);
 }
 
-
-
 .buttonsubmit
 {
 	margin: auto;
@@ -201,11 +199,7 @@ input:focus
 #logo2
 {
 	height: 150px;
-}
-
-#logo2 .getBig
-{
-	height: 200px;
+	transition: 0.5s;
 }
 
 #logo2:hover

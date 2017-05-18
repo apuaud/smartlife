@@ -12,7 +12,42 @@
 		url('fonts/Adam.ttf') format('truetype'),
 		url('fonts/Adam.woff') format('woff');
 }
+#formulaire
+{
+	position: fixed;
+	color: white;
+	z-index: 20;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	transition:2s;
+}
+#closeForm
+{
+	text-align: right;
+	float: right;
+}
 
+#itemAide
+{
+	background-color: white;
+	color: black;
+}
+.login
+{
+	bottom: 0px;
+	margin-top: 200px;
+}
+
+.login td
+{
+	text-align: center;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	width: 400px;
+}
 @font-face
 {
 	font-family: 'CenturyGothic';
@@ -43,7 +78,7 @@ body
 	text-align: center;
 	height: 40px;
 	position:fixed;
-	z-index: 10;
+	z-index: 21;
 	width: 100%;
 }
 
@@ -271,12 +306,17 @@ input:focus
 	cursor: pointer;
 	position: fixed;
 	animation: none;
-	transform: scale(1.05);
 	font-size: 50px;
 	font-family: CenturyGothic,serif;
 	width: 100%;
+	transition: 0.5s;
 }
 
+.question:hover
+{
+	transform: scale(1.05);
+
+}
 #cross
 {
 	transition: all 0.5s;
@@ -286,8 +326,7 @@ input:focus
 }
 #cross:hover
 {
-	transform: scale(5);
-	transform: rotate(180deg);
+	transform: scale(1.5);
 }
 
 #closeForm
