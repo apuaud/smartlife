@@ -19,7 +19,7 @@
 							<div class="iconeErrorDiv">
 								<div class="iconeError" >!</div>
 							</div>
-							<input  type="text" name="firstName" placeholder="First name"/></td>
+							<input  type="text" name="firstName" placeholder="First name" required /></td>
 					</tr>
 					<tr>
 						<td id="lastNameTd" align="right">
@@ -29,7 +29,7 @@
 							<div class="iconeErrorDiv">
 								<div class="iconeError" >!</div>
 							</div>
-							<input  type="text" name="lastName" placeholder="Last name"/></td>
+							<input  type="text" name="lastName" placeholder="Last name" required /></td>
 					</tr>
 					<tr>
 						<td id="idTd" align="right">
@@ -39,7 +39,7 @@
 							<div class="iconeErrorDiv">
 								<div class="iconeError" >!</div>
 							</div>
-							<input  type="text" name="id" placeholder="ID"/></td>
+							<input  type="text" name="id" placeholder="ID" required /></td>
 					</tr>
 					<tr>
 						<td id="emailTd" align="right">
@@ -49,7 +49,7 @@
 							<div class="iconeErrorDiv">
 								<div class="iconeError" >!</div>
 							</div>
-							<input  type="text" name="email" placeholder="Email"/></td>
+							<input  type="text" name="email" placeholder="Email" required /></td>
 					</tr>
 					<tr>
 						<td id="passwordTd" align="right">
@@ -59,7 +59,7 @@
 							<div class="iconeErrorDiv">
 								<div class="iconeError" >!</div>
 							</div>
-							<input  type="password" name="pw" placeholder="Password" /></td>
+							<input  type="password" name="pw" placeholder="Password" required /></td>
 					</tr>
 					<tr>
 						<td id="passwordConfirmTd" align="right">
@@ -69,7 +69,7 @@
 							<div class="iconeErrorDiv">
 								<div class="iconeError" >!</div>
 							</div>
-							<input type="password" name="pw2" placeholder="Confirm password"/></td>
+							<input type="password" name="pw2" placeholder="Confirm password" required /></td>
 					</tr>
 					<tr>
 						<td id='buttonConnexion' style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>

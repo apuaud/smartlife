@@ -17,8 +17,8 @@ include('../db_connect.php');
 				<tr>
 					<td id="firstNameInputFalse"><p align="right" class="border-right"></p></td>
 					<td id="itemFirstNames" >
-						<input id="firstNameInput" type="password" name="pw" placeholder="Mot de passe" size="20"/>
-						<input id="lastNameInput" type="password" name="pw2" placeholder="Confirmer MDP" size="20"/>
+						<input id="firstNameInput" type="password" name="pw" placeholder="Mot de passe" size="20" required />
+						<input id="lastNameInput" type="password" name="pw2" placeholder="Confirmer MDP" size="20" required />
 					</td>
 					<td id="lastNameInputFalse"><p align="left" class="border-left"></p></td>
 				</tr>

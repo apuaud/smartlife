@@ -8,7 +8,7 @@
     </head>
 
     <?php include("TestHeader.php");
-    include("analyticstracking.php"); ?>
+    include("../analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
     <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutCapteur" method="post">
@@ -26,7 +26,7 @@
         </SELECT>
 		</p>
 		<p class = "Formulaire">
-		<input class="zonetexte"type="text" name="numeroserie" placeholder="Numéro de série" size=70/>
+		<input class="zonetexte"type="text" name="numeroserie" placeholder="Numéro de série" size=70 required />
 		</p>
 		<button class="valider" type="submit"> Valider </button>
     </form>

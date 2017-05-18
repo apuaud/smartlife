@@ -19,7 +19,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="firstName" placeholder="Prénom"/></td>
+						<input  type="text" name="firstName" placeholder="Prénom" required /></td>
 				</tr>
 				<tr>
 					<td id="lastNameTd" align="right">
@@ -29,7 +29,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="lastName" placeholder="Nom"/></td>
+						<input  type="text" name="lastName" placeholder="Nom" required /></td>
 				</tr>
 				<tr>
 					<td id="idTd" align="right">
@@ -39,7 +39,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="id" placeholder="Identifiant"/></td>
+						<input  type="text" name="id" placeholder="Identifiant" required /></td>
 				</tr>
 				<tr>
 					<td id="emailTd" align="right">
@@ -49,7 +49,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="text" name="email" placeholder="Email"/></td>
+						<input  type="text" name="email" placeholder="Email" required /></td>
 				</tr>
 				<tr>
 					<td id="passwordTd" align="right">
@@ -59,7 +59,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input  type="password" name="pw" placeholder="Mot de passe" /></td>
+						<input  type="password" name="pw" placeholder="Mot de passe" required /></td>
 				</tr>
 				<tr>
 					<td id="passwordConfirmTd" align="right">
@@ -69,7 +69,7 @@
 						<div class="iconeErrorDiv">
 							<div class="iconeError" >!</div>
 						</div>
-						<input type="password" name="pw2" placeholder="Confirmation mot de passe"/></td>
+						<input type="password" name="pw2" placeholder="Confirmation mot de passe" required /></td>
 				</tr>
 				<tr>
 					<td id='buttonConnexion' style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>

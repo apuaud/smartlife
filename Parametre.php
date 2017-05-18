@@ -15,22 +15,22 @@ session_start();
             <form action="inscription_secondaire.php" method="post">
               <table class="tableForm" align="center">
                 <tr>
-                  <td><input  type="text" name="email" placeholder="Email"></td>
+                  <td><input  type="text" name="email" placeholder="Email" required ></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="lastName" placeholder="Prénom"></td>
+                  <td><input  type="text" name="lastName" placeholder="Prénom" required ></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="firstName" placeholder="Nom"></td>
+                  <td><input  type="text" name="firstName" placeholder="Nom" required ></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="id" placeholder="Pseudo"></td>
+                  <td><input  type="text" name="id" placeholder="Pseudo" required ></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="pw" placeholder="Mot de passe"></td>
+                  <td><input  type="text" name="pw" placeholder="Mot de passe" required ></td>
                 </tr>
                 <tr>
-                  <td><input  type="text" name="pw2" placeholder="Confirmer MDP"></td>
+                  <td><input  type="text" name="pw2" placeholder="Confirmer MDP" required ></td>
                 </tr>
                 <tr>
                   <td>Lecture  <input type="radio" name="type" value=3></td>
