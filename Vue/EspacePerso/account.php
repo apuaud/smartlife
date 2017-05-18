@@ -41,7 +41,7 @@ include("../../db_connect.php");
 
 				</table>
 				</form>
-			</div>	
+			</div>
 		<?php
 		if($_SESSION['type']==1)
 		{
@@ -52,8 +52,10 @@ include("../../db_connect.php");
 			include("HeaderAdmin.php");
 		}
 		include_once("../../analyticstracking.php"); ?>
-		
-		<div class='scroll-hori'>
+
+		<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>+</a></span>
+		</div>
+		<div class='scroll-hori spaceForPlus'>
 			<table class="listepiece">
 				<tr>
 				<?php
@@ -67,16 +69,15 @@ include("../../db_connect.php");
 					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
 					. $donnees['id'] . "'>" . $donnees['nom'] . "</a></span></div></td>";
 				} ?>
-					<td class="manon"><div class="textbox">
-						<span><a href="http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison">+</a></span>
-					</td>
 				</tr>
 			</table>
 		</div>
 			<?php $reponse->closeCursor(); ?>
 
 		<?php if(isset($_GET['maison'])){
-			echo "<div class='scroll-hori'><table class='listepiece'><tr>";
+			echo "<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
+						</div>
+						<div class='scroll-hori spaceForPlus'><table class='listepiece'><tr>";
 				$reponse = $dbh->query('SELECT piece.nom,piece.id
 					FROM logement,piece
 					WHERE logement.id=\'' . $_GET['maison'] . '\'
