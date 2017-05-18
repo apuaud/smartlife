@@ -127,7 +127,7 @@ session_start();
             </form>
         </div>
       </div>
-      <?php include("../EspacePerso/TestHeader.php") ?>
+      <?php include("../../EspacePerso/TestHeader.php") ?>
     	<h1>
     		Paramètres
     	</h1>

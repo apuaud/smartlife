@@ -45,11 +45,11 @@ include("../../db_connect.php");
 		<?php
 		if($_SESSION['type']==1)
 		{
-			include("TestHeader.php");
+			include("../../TestHeader.php");
 		}
 		if($_SESSION['type']==2)
 		{
-			include("HeaderAdmin.php");
+			include("../../HeaderAdmin.php");
 		}
 		include_once("../../analyticstracking.php"); ?>
 

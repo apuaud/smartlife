@@ -8,8 +8,8 @@
 	</head>
 	<body class="guillaumebody">
 		<header class="myheader">
-			<?php include("TestHeader.php");
-			include("../analyticstracking.php"); ?>
+			<?php include("../../TestHeader.php");
+			include("../../analyticstracking.php"); ?>
 		</header>
 	<h1> Ajouter une nouvelle maison </h1>
 	<form class="formulairemaison" action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutMaison" method="post" onsubmit="return verifyInputs();"/>
