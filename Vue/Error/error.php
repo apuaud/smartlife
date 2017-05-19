@@ -17,6 +17,9 @@
                   case "notConnected" :
                     echo "Vous n'êtes pas connecté";
                     break;
+
+                  case "notYourHouse" :
+                    echo "Cette maison n'est pas à vous !";
                 }
                 ?>
               </td>

@@ -277,13 +277,13 @@ function supprimer($id,$dbh)
 
 function verifierAppartenanceMaisonUtilisateur($idUtilisateur, $idMaison, $dbh)
 {
-	$req = $dbh->prepare('SELECT id_logement FROM users_logement WHERE id LIKE :id');
+	$req = $dbh->prepare('SELECT id_logement FROM users_logement WHERE id_user LIKE :id');
 	$req->execute(array(
     	'id' => $idUtilisateur
 		));
-	while($req = $reponse->fetch())
+	while($reponse = $req->fetch())
 	{
-		if($req['id_logement'] == $idMaison)
+		if($reponse['id_logement'] == $idMaison)
 		{
 			return true;
 		}

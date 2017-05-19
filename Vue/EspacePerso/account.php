@@ -129,7 +129,11 @@ include("../../Modele/modele.php");
 				echo "<td class='manon'><div class='textbox'>
 					<span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
 					</td></tr></table>";
-			} ?>
+			}
+		else if(isset($_GET['maison']) && !$houseBelongsToUser)
+		{
+			header('Location: http://puaud.eu/appmvc/Vue/Error/error.php?error=notYourHouse');
+		} ?>
 
 
 <!--
