@@ -38,7 +38,7 @@ function ajouterUtilisateurSecondaire($prenom,$nom,$pseudo,$email,$password,$typ
 {
 
 // On ajoute l'utilisateur dans la BDD
-	$req = $dbh->prepare('INSERT INTO users(prenom, nom, pseudo, email, password, type, id_comptePrincipal) 
+	$req = $dbh->prepare('INSERT INTO users(prenom, nom, pseudo, email, password, type, id_comptePrincipal)
 		VALUES(:prenom, :nom, :pseudo, :email, :password, :type, :id_comptePrincipal)');
 	$req->execute(array(
 		'prenom' => $prenom,
@@ -273,6 +273,22 @@ function supprimer($id,$dbh)
 	$req->execute(array(
     	'id' => $id
 		));
+}
+
+function verifierAppartenanceMaisonUtilisateur($idUtilisateur, $idMaison, $dbh)
+{
+	$req = $dbh->prepare('SELECT id_logement FROM users_logement WHERE id LIKE :id');
+	$req->execute(array(
+    	'id' => $idUtilisateur
+		));
+	while($req = $reponse->fetch())
+	{
+		if($req['id_logement'] == $idMaison)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 ?>

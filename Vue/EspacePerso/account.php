@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("../../db_connect.php");
+include("../../Modele/modele.php");
+
 ?>
 <!DOCTYPE html>
 	<html>
@@ -82,7 +84,9 @@ include("../../db_connect.php");
 		</div>
 			<?php $reponse->closeCursor(); ?>
 
-		<?php if(isset($_GET['maison'])){
+		<?php
+		$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
+		if(isset($_GET['maison']) && $houseBelongsToUser){
 			echo "<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
 						</div>
 						<div class='scroll-hori spaceForPlus'><table class='listepiece'><tr>";
