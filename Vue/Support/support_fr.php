@@ -113,7 +113,7 @@ else
 				</div>
 			</div>
 
-    	<?php include("../../Vue/Support/header.php") ?>
+    	<?php include("../Vue/Support/header.php") ?>
 
   		<div style="margin:0;padding:0;cursor:pointer;">
       	<p class = "slogan" onclick="displayDescriptionNum(this,6)"><b>Nous contacter</b></p>

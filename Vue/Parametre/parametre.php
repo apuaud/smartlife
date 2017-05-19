@@ -127,7 +127,22 @@ session_start();
             </form>
         </div>
       </div>
-      <?php include("../../EspacePerso/TestHeader.php") ?>
+      <?php
+      if(isset($_SESSION['id']))
+  		{
+  			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
+  			{
+  				include("../TestHeader.php");
+  			}
+  			else if($_SESSION['type']==2)
+  			{
+  				include("../HeaderAdmin.php");
+  			}
+  		}
+  		if(!isset($_SESSION['id']) || $_SESSION['type']==0)
+  		{
+  			header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
+  		} ?>
     	<h1>
     		Paramètres
     	</h1>

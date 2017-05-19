@@ -43,14 +43,22 @@ include("../../db_connect.php");
 				</form>
 			</div>
 		<?php
-		if($_SESSION['type']==1)
+		if(isset($_SESSION['id']))
 		{
-			include("../../TestHeader.php");
+			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
+			{
+				include("TestHeader.php");
+			}
+			else if($_SESSION['type']==2)
+			{
+				include("HeaderAdmin.php");
+			}
 		}
-		if($_SESSION['type']==2)
+		if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 		{
-			include("../../HeaderAdmin.php");
+			header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
 		}
+
 		include_once("../../analyticstracking.php"); ?>
 
 		<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>+</a></span>

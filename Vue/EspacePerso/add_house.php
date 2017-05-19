@@ -8,7 +8,22 @@
 	</head>
 	<body class="guillaumebody">
 		<header class="myheader">
-			<?php include("../../TestHeader.php");
+			<?php
+			if(isset($_SESSION['id']))
+			{
+				if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
+				{
+					include("../Vue/EspacePerso/TestHeader.php");
+				}
+				else if($_SESSION['type']==2)
+				{
+					include("../Vue/EspacePerso/HeaderAdmin.php");
+				}
+			}
+			if(!isset($_SESSION['id']) || $_SESSION['type']==0)
+			{
+				header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
+			}
 			include("../../analyticstracking.php"); ?>
 		</header>
 	<h1> Ajouter une nouvelle maison </h1>

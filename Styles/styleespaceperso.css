@@ -64,7 +64,7 @@ body
 .fixed
 {
 	position: fixed;
-	width: 2%;
+	width:2%;
 }
 .scroll-hori
 {
@@ -73,11 +73,6 @@ body
 	width: 88%;
 }
 
-.scroll-verti
-{
-	overflow-y:scroll;
-  white-space: nowrap;
-}
 .spaceForPlus
 {
 	margin-left: 175px;
