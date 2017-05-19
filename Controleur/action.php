@@ -62,7 +62,7 @@ if(ISSET($_GET['action']))
       break;
 
     case "validerAjoutTypeAppareil" :
-      include("../ajouter_typeappareil.php");
+      include("ajouter_typeappareil.php");
       break;
 
     case "goToParametre" :

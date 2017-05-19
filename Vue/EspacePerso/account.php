@@ -135,58 +135,6 @@ include("../../Modele/modele.php");
 			header('Location: http://puaud.eu/appmvc/Vue/Error/error.php?error=notYourHouse');
 		} ?>
 
-
-<!--
-			<table class="manon">
-				<tr>
-					<td class="manon"><div class="textbox dropdown">
-					<span>Salon</span>
-					<div class="texbox dropdown-content">
-				<ul>
-					<div class="liste"><li>Température</li>
-					<li>Luminosité</li>
-					<li>Volets</li>
-					<li>Humidité</li></div>
-					<li class="plus">+</li>
-				</ul>
-					</div>
-					</div>
-					</td>
-
-					<td class="manon"><div class="textbox dropdown">
-					<span>Cuisine</span>
-					<div class="texbox dropdown-content">
-				<ul>
-					<div class="liste"><li>Température</li>
-					<li>Luminosité</li>
-					<li>Volets</li>
-					<li>Humidité</li></div>
-					<li class="plus">+</li>
-					</div>
-					</div>
-					</td>
-				</ul>
-					<td class="manon"><div class="textbox dropdown">
-					<span>Chambres</span>
-					<div class="texbox dropdown-content">
-				<ul>
-					<div class="liste"><li>Température</li>
-					<li>Luminosité</li>
-					<li>Volets</li>
-					<li>Humidité</li></div>
-					<li class="plus">+</li>
-				</ul>
-					</div>
-					</div>
-					</td>
-					<td class="manon"><div class="textbox dropdown">
-					<span><a href="http://puaud.eu/appmvc/add_room.php">+</a></span>
-					</div>
-					</td>
-				</tr>
-		</table>
--->
-
 			<script>
 				var formulaire = document.getElementById('formulaire');
 

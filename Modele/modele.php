@@ -291,4 +291,28 @@ function verifierAppartenanceMaisonUtilisateur($idUtilisateur, $idMaison, $dbh)
 	return false;
 }
 
+function recupererLesUtilisateurs($dbh)
+{
+	$reponse = $dbh->query('SELECT id,pseudo,nom,prenom,email,type
+							FROM users
+							LIMIT 0 , 50');
+	return $reponse;
+}
+
+function recupererLesCapteurs($dbh)
+{
+	$reponse = $dbh->query('SELECT nom,numeroModele
+							FROM type_appareil
+							LIMIT 0 , 50');
+	return $reponse;
+}
+
+function ajouterTypeAppareil($type, $numeroModele, $dbh)
+{
+	$req = $dbh->prepare('INSERT INTO type_appareil(nom,numeroModele) VALUES(:nom, :numeroModele)');
+	$req->execute(array(
+		'nom' => $type,
+		'numeroModele' => $numeroModele
+		));
+}
 ?>

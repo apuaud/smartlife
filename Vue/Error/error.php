@@ -20,6 +20,11 @@
 
                   case "notYourHouse" :
                     echo "Cette maison n'est pas à vous !";
+										break;
+
+									case "notAdmin" :
+										echo "Vous n'êtes pas administrateur, vous ne pouvez pas accéder à cette page.";
+										break;
                 }
                 ?>
               </td>
