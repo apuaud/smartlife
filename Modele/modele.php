@@ -315,4 +315,41 @@ function ajouterTypeAppareil($type, $numeroModele, $dbh)
 		'numeroModele' => $numeroModele
 		));
 }
+
+function recupererLesMaisonsDeLUtilisateur($idUtilisateur, $dbh)
+{
+	$reponse = $dbh->query('SELECT logement.id,nom
+		FROM logement,users_logement
+		WHERE users_logement.id_user=\'' . $idUtilisateur . '\'
+		AND logement.id=users_logement.id_logement');
+	return $reponse;
+}
+
+function recupererLesPiecesDeLaMaison($idMaison, $dbh)
+{
+	$reponse = $dbh->query('SELECT piece.nom,piece.id
+		FROM logement,piece
+		WHERE logement.id=\'' . $idMaison . '\'
+		AND piece.id_logement=logement.id');
+	return $reponse;
+}
+
+function recupererLesCapteursDeLaPiece($idPiece, $dbh)
+{
+	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input
+	FROM type_appareil,capteur
+	WHERE capteur.id_piece=\'' . $idPiece . '\'
+	AND capteur.id_type_appareil=type_appareil.id');
+
+	return $reponse;
+}
+
+function recupererLEtatDesCapteursDeLaPiece($idPiece, $dbh)
+{
+	$reponse3 = $dbh->query('SELECT capteur.etatActuel
+	FROM type_appareil,capteur
+	WHERE capteur.id_piece=\'' . $idPiece . '\'
+	AND capteur.id_type_appareil=type_appareil.id');
+	return $reponse3;
+}
 ?>

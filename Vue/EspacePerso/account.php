@@ -13,8 +13,38 @@ include("../../Modele/modele.php");
 		</head>
 		<body class="manonbody">
 
+			<?php
+			$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
+			$roomBelongsToHouse =true;
+			if(isset($_GET['maison']) && isset($_GET['piece']) && $houseBelongsToUser && $roomBelongsToHouse)
+			{
+				$reponse0 = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
+				echo "<div id='formulaire'>
+					<form action='http://puaud.eu/appmvc/Controleur/action.php?action=mettreAJourCapteurs' method='post'>
+					<table id='login' align='center'>
+						<tr>
+							<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+						</tr>";
+
+						while($donnee = $reponse0 -> fetch())
+						{
+							echo "<tr>
+								<td class='nomCapteur'>" . $donnee['nom'] . "</td>
+								<td><input required type='" . $donnee['type_input'] ."' name='" . $donnee['nom'] . "' value = '" . $donnee['etatActuel'] ."' placeholder='30' size='30'/></td>
+							</tr>";
+						}
+
+						echo"<tr>
+							<td><button class='buttonsubmit' type='submit'>Envoyer</button></td>
+							<td><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur'>Ajouter Capteur</button></td>
+						</tr>
+					</table>
+					</form>
+				</div>";
+			}
+			?>
 			<div id="formulaire">
-				<form action="http://puaud.eu/appmvc/Controleur/action.php?action=connexion" method="post">
+				<form action="http://puaud.eu/appmvc/Controleur/action.php?action=mettreAJourCapteurs" method="post">
 				<table id="login" align="center">
 					<tr>
 						<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer"  /></td>
@@ -37,8 +67,7 @@ include("../../Modele/modele.php");
 					</tr>
 					<tr>
 						<td><button class="buttonsubmit" type="submit">Envoyer</button></td>
-						<td><button class="buttonsubmit" type="submit">Ajouter Capteur</button></td>
-
+						<td><button class="buttonsubmit" type="submit" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur">Ajouter Capteur</button></td>
 					</tr>
 
 				</table>
@@ -69,10 +98,7 @@ include("../../Modele/modele.php");
 			<table class="listepiece">
 				<tr>
 				<?php
-				$reponse = $dbh->query('SELECT logement.id,nom
-					FROM logement,users_logement
-					WHERE users_logement.id_user=\'' . $_SESSION['id'] . '\'
-					AND logement.id=users_logement.id_logement');
+				$reponse = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
 
 				while($donnees = $reponse->fetch())
 				{
@@ -90,27 +116,19 @@ include("../../Modele/modele.php");
 			echo "<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
 						</div>
 						<div class='scroll-hori spaceForPlus'><table class='listepiece'><tr>";
-				$reponse = $dbh->query('SELECT piece.nom,piece.id
-					FROM logement,piece
-					WHERE logement.id=\'' . $_GET['maison'] . '\'
-					AND piece.id_logement=logement.id');
+				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh):
 
 				while($donnees = $reponse->fetch())
 				{
-					$reponse2 = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel
-					FROM type_appareil,capteur
-					WHERE capteur.id_piece=\'' . $donnees['id'] . '\'
-					AND capteur.id_type_appareil=type_appareil.id');
+
+					$reponse2 = recupererLesCapteursDeLaPiece($donnees['id'], $dbh);
 
 					echo "<td><div class='textbox dropdown'>
-					<span>". $donnees['nom'] ."</span>
+					<span><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison=". $_GET['maison'] ."&piece=" . $donnees['id'] . "'>" . $donnees['nom'] ."</a></span>
 					<div class='dropdown-content'><ul>
 							<div class='liste-left'>";
 
-					$reponse3 = $dbh->query('SELECT capteur.etatActuel
-					FROM type_appareil,capteur
-					WHERE capteur.id_piece=\'' . $donnees['id'] . '\'
-					AND capteur.id_type_appareil=type_appareil.id');
+					$reponse3 = recupererLEtatDesCapteursDeLaPiece($donnees['id'], $dbh);
 
 					while($donnees2 = $reponse2->fetch())
 					{
@@ -126,9 +144,6 @@ include("../../Modele/modele.php");
 					</div>
 					</td>";
 				}
-				echo "<td class='manon'><div class='textbox'>
-					<span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
-					</td></tr></table>";
 			}
 		else if(isset($_GET['maison']) && !$houseBelongsToUser)
 		{
@@ -137,11 +152,6 @@ include("../../Modele/modele.php");
 
 			<script>
 				var formulaire = document.getElementById('formulaire');
-
-				function displaySetCaptors()
-				{
-					formulaire.style.display="block";
-				}
 
 				function hideFormulaire()
 				{

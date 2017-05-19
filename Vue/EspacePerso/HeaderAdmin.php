@@ -17,7 +17,7 @@ include("../../db_connect.php");
 							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/index.php">Accueil</a></td>
 							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToSupport">Support</a></td>
 							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre">Paramètres</a></td>
-							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Vue/EspacePerso/Admin/admin.php">Administration</a></td>
+							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Vue/Admin/admin.php">Administration</a></td>
 						</tr>
 					</table>
 					<section class="ongletCoHeader">
