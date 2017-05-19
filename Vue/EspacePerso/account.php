@@ -43,36 +43,6 @@ include("../../Modele/modele.php");
 				</div>";
 			}
 			?>
-			<div id="formulaire">
-				<form action="http://puaud.eu/appmvc/Controleur/action.php?action=mettreAJourCapteurs" method="post">
-				<table id="login" align="center">
-					<tr>
-						<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer"  /></td>
-					</tr>
-					<tr>
-						<td class="nomCapteur">Température</td>
-						<td><input required type="number" name="login" placeholder="30" size="30"/></td>
-					</tr>
-					<tr>
-						<td class="nomCapteur">Luminosité</td>
-						<td><input required type="number" name="login" placeholder="30" size="30"/></td>
-					</tr>
-					<tr>
-						<td class="nomCapteur">Volets</td>
-						<td><input required type="checkbox" name="login" placeholder="30" size="30"/></td>
-					</tr>
-					<tr>
-						<td class="nomCapteur">Humidité</td>
-						<td><input required type="number" name="login" placeholder="30" size="30"/></td>
-					</tr>
-					<tr>
-						<td><button class="buttonsubmit" type="submit">Envoyer</button></td>
-						<td><button class="buttonsubmit" type="submit" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur">Ajouter Capteur</button></td>
-					</tr>
-
-				</table>
-				</form>
-			</div>
 		<?php
 		if(isset($_SESSION['id']))
 		{
@@ -116,7 +86,7 @@ include("../../Modele/modele.php");
 			echo "<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
 						</div>
 						<div class='scroll-hori spaceForPlus'><table class='listepiece'><tr>";
-				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh):
+				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh);
 
 				while($donnees = $reponse->fetch())
 				{
@@ -124,7 +94,7 @@ include("../../Modele/modele.php");
 					$reponse2 = recupererLesCapteursDeLaPiece($donnees['id'], $dbh);
 
 					echo "<td><div class='textbox dropdown'>
-					<span><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison=". $_GET['maison'] ."&piece=" . $donnees['id'] . "'>" . $donnees['nom'] ."</a></span>
+					<span>" . $donnees['nom'] ."</span>
 					<div class='dropdown-content'><ul>
 							<div class='liste-left'>";
 
@@ -139,7 +109,8 @@ include("../../Modele/modele.php");
 					{
 						echo "<li>" . $donnees3['etatActuel'] . "</li>";
 					}
-					echo "</div><li style='text-align:right;'><img class='minilogo' src='http://puaud.eu/appmvc/img/reglage.png' onclick='displaySetCaptors()'></li>
+					echo "</div><li style='text-align:right;'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison=". $_GET['maison'] ."&piece=" . $donnees['id'] . "'>
+					<img class='minilogo' src='http://puaud.eu/appmvc/img/reglage.png' onclick='displaySetCaptors()'></a></li>
 						</ul></div>
 					</div>
 					</td>";

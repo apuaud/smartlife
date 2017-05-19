@@ -2,9 +2,9 @@
 session_start();
 include('../../db_connect.php');
 include("../EspacePerso/HeaderAdmin.php");
-include("../../Modele/modele.php")
+include("../../Modele/modele.php");
 
-if(!$_SESSION['type']==2)
+if($_SESSION['type']!=2)
 {
   header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notAdmin");
 }
@@ -17,12 +17,12 @@ if(!$_SESSION['type']==2)
         <meta charset="utf-8" />
         <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleAdmin.css" />
         <title>Administration</title>
+    </head>
         <body class="AdminBody">
         </body>
-    </head>
 </html>
-<?php
 
+<?php
 					echo "<table class='table1' border=1>
 					<tr>
 					<td><strong>ID</strong></td>
