@@ -58,20 +58,26 @@ body
 	color: white;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .fixed
 {
 	position: fixed;
+	width: 2%;
 }
 .scroll-hori
 {
 	overflow-x: auto;
   white-space: nowrap;
-	width: 100%;
+	width: 88%;
 }
 
+.scroll-verti
+{
+	overflow-y:scroll;
+  white-space: nowrap;
+}
 .spaceForPlus
 {
 	margin-left: 175px;
