@@ -68,5 +68,9 @@ if(ISSET($_GET['action']))
     case "goToParametre" :
       include("../Vue/Parametre/parametre.php");
       break;
+
+    case "updateCaptors" :
+      include("mettre_a_jour_capteurs.php");
+      break;
   }
 ?>

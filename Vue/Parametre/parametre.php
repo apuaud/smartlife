@@ -132,11 +132,11 @@ session_start();
   		{
   			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
   			{
-  				include("../TestHeader.php");
+  				include("../Vue/EspacePerso/TestHeader.php");
   			}
   			else if($_SESSION['type']==2)
   			{
-  				include("../HeaderAdmin.php");
+  				include("../Vue/EspacePerso/HeaderAdmin.php");
   			}
   		}
   		if(!isset($_SESSION['id']) || $_SESSION['type']==0)

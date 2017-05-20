@@ -20,7 +20,7 @@ include("../../Modele/modele.php");
 			{
 				$reponse0 = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
 				echo "<div id='formulaire'>
-					<form action='http://puaud.eu/appmvc/Controleur/action.php?action=mettreAJourCapteurs' method='post'>
+					<form action='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "' method='post'>
 					<table id='login' align='center'>
 						<tr>
 							<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
@@ -29,14 +29,21 @@ include("../../Modele/modele.php");
 						while($donnee = $reponse0 -> fetch())
 						{
 							echo "<tr>
-								<td class='nomCapteur'>" . $donnee['nom'] . "</td>
-								<td><input required type='" . $donnee['type_input'] ."' name='" . $donnee['nom'] . "' value = '" . $donnee['etatActuel'] ."' placeholder='30' size='30'/></td>
+								<td class='nomCapteur'>" . $donnee['nom'] . "</td>";
+							if($donnee['type_input']==0)
+							{
+								echo "<td>" . $donnee['etatActuel'] . "</td>";
+							}
+							else
+							{
+								echo "<td><input required type='" . $donnee['type_input'] ."' name='" . $donnee['nom'] . "' value = '" . $donnee['etatActuel'] ."' placeholder='30' size='30'/></td>
 							</tr>";
+							}
 						}
 
 						echo"<tr>
-							<td><button class='buttonsubmit' type='submit'>Envoyer</button></td>
-							<td><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur'>Ajouter Capteur</button></td>
+							<td><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Envoyer</button></td>
+							<td><button class='buttonsubmit' href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Ajouter Capteur</button></td>
 						</tr>
 					</table>
 					</form>

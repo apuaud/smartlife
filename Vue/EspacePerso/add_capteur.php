@@ -26,7 +26,7 @@
     include("../../analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
-    <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutCapteur" method="post" onsubmit="return verifyInputs();">
+    <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutCapteur <?php echo"&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison']?>" method="post" onsubmit="return verifyInputs();">
 		<p class = "Formulaire">
 		<SELECT name="typecapteur">
             <?php

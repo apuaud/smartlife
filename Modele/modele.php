@@ -336,11 +336,21 @@ function recupererLesPiecesDeLaMaison($idMaison, $dbh)
 
 function recupererLesCapteursDeLaPiece($idPiece, $dbh)
 {
-	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input
+	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input, capteur.id
 	FROM type_appareil,capteur
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
 	AND capteur.id_type_appareil=type_appareil.id');
 
+	return $reponse;
+}
+
+function recupererLesEffecteursDeLaPiece($idPiece, $dbh)
+{
+	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input, capteur.id
+	FROM type_appareil,capteur
+	WHERE capteur.id_piece=\'' . $idPiece . '\'
+	AND capteur.id_type_appareil=type_appareil.id
+	AND type_appareil.type_input!=0');
 	return $reponse;
 }
 
@@ -351,5 +361,20 @@ function recupererLEtatDesCapteursDeLaPiece($idPiece, $dbh)
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
 	AND capteur.id_type_appareil=type_appareil.id');
 	return $reponse3;
+}
+
+function mettreAJourLesEffecteursDeLaPiece($idPiece, $dbh)
+{
+	$listeCapteursDeLaPiece = recupererLesEffecteursDeLaPiece($idPiece, $dbh);
+	while ($capteur = $listeCapteursDeLaPiece->fetch())
+	{
+		$req = $dbh->prepare('UPDATE capteur
+													SET etatActuel=:etatActuel
+													WHERE capteur.id_piece=\'' . $idPiece . '\'
+													AND capteur.id = \'' . $capteur['id'] . '\'');
+		$req->execute(array(
+			'etatActuel' => $_POST[$capteur['nom']]
+			));
+	}
 }
 ?>
