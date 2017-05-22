@@ -1,10 +1,10 @@
 <?php
 session_start();
-include('db_connect.php');
-include('Modele/modele.php');
+include('../db_connect.php');
+include('../Modele/modele.php');
 
 // On vérifie que tous les champs sont bien remplis
-if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['id']) 
+if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['id'])
 	AND isset($_POST['email']) AND isset($_POST['pw']) AND isset($_POST['type']))
 {
 	$nom = htmlspecialchars($_POST['firstName']);

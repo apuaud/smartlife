@@ -10,7 +10,7 @@ if(ISSET($_GET['action']))
       break;
 
     case "goToOublieMotDePasse" :
-      include("../Vue/ModDePasseOublie.php");
+      include("../Vue/MotDePasseOublie/lostpassword.php");
       break;
 
     case "goToInscription" :
@@ -71,6 +71,22 @@ if(ISSET($_GET['action']))
 
     case "updateCaptors" :
       include("mettre_a_jour_capteurs.php");
+      break;
+
+    case "ajouterCompteSecondaire":
+      include("inscription_secondaire.php");
+      break;
+
+    case "modifierPseudo":
+      include("modifier_pseudo.php");
+      break;
+
+    case "modifierMDP":
+      include("modifier_mdp.php");
+      break;
+
+    case "depromouvoir":
+      include("depromouvoir.php");
       break;
   }
 ?>

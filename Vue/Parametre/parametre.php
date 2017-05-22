@@ -12,7 +12,7 @@ session_start();
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="inscription_secondaire.php" method="post">
+            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=ajouterCompteSecondaire" method="post">
               <table class="tableForm" align="center">
                 <tr>
                   <td><input required  type="text" name="email" placeholder="Email"></td>
@@ -49,18 +49,18 @@ session_start();
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="inscription_secondaire.php" method="post">
+            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=modifierPseudo" method="post">
                <table class="tableForm" align="center">
                 <tr>
-                  <td><input required  type="text" name="ancien pseudo" placeholder="Ancien pseudo">
+                  <td><input required  type="text" name="ancienPseudo" placeholder="Ancien pseudo">
                   </td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="nouveau pseudo" placeholder="Nouveau pseudo">
+                  <td><input required  type="text" name="nouveauPseudo" placeholder="Nouveau pseudo">
                   </td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="confirmer votre pseudo" placeholder="Confirmer pseudo">
+                  <td><input required  type="text" name="confirmerPseudo" placeholder="Confirmer pseudo">
                   </td>
                 </tr>
                 <tr>
@@ -75,18 +75,18 @@ session_start();
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="inscription_secondaire.php" method="post">
+            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=modifierMDP" method="post">
                <table class="tableForm" align="center">
                 <tr>
-                  <td><input required  type="text" name="ancien mot de passe" placeholder="Ancien mot de passe">
+                  <td><input required  type="text" name="ancienMotDePasse" placeholder="Ancien mot de passe">
                   </td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="aouveau mot de passe" placeholder="Nouveau mot de passe">
+                  <td><input required  type="text" name="nouveauMotDePasse" placeholder="Nouveau mot de passe">
                   </td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="aonfirmer votre mot de passe" placeholder="Confirmer votre mdp">
+                  <td><input required  type="text" name="confirmerMotDePasse" placeholder="Confirmer votre mdp">
                   </td>
                 </td>
                 <tr>

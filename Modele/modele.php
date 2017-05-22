@@ -377,4 +377,22 @@ function mettreAJourLesEffecteursDeLaPiece($idPiece, $dbh)
 			));
 	}
 }
+
+function modifierPseudo($idUtilisateur, $nouveauPseudo, $dbh)
+{
+	$req = $dbh->prepare('UPDATE users SET pseudo=:pseudo WHERE id like :id');
+	$req->execute(array(
+		'pseudo' => $nouveauPseudo,
+    	'id' => $idUtilisateur
+		));
+}
+
+function modifierMDP($idUtilisateur, $nouveauMDP, $dbh)
+{
+	$req = $dbh->prepare('UPDATE users SET password=:password WHERE id like :id');
+	$req->execute(array(
+		'password' => $nouveauMDP,
+    	'id' => $idUtilisateur
+		));
+}
 ?>
