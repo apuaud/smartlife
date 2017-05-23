@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include("../db_connect.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,18 +24,18 @@
     {
       header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
     }
-    include("../../analyticstracking.php"); ?>
+    include("../analyticstracking.php"); ?>
     <body class="guillaumebody">
     <h1> Ajouter un nouveau capteur </h1>
-    <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutCapteur <?php echo"&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison']?>" method="post" onsubmit="return verifyInputs();">
+    <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutCapteur<?php echo"&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison']?>" method="post" onsubmit="return verifyInputs();">
 		<p class = "Formulaire">
-		<SELECT name="typecapteur">
+		<SELECT name="nomcapteur">
             <?php
-                $reponse = $dbh->query('SELECT ALL nom,numeroModele
+                $reponse = $dbh->query('SELECT ALL nom,numeroModele,type_input
                     FROM type_appareil');
                 while($donnees = $reponse->fetch())
                 {
-                    echo "<OPTION value=" . $donnees['numeroModele']. ">" . $donnees['nom'] . " (" . $donnees['numeroModele'] . ")";
+                    echo "<OPTION value=" . $donnees['nom']. ">" . $donnees['nom'] . " (" . $donnees['numeroModele'] . ")";
                 }
                 $reponse->closeCursor();
             ?>

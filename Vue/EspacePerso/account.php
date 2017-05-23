@@ -18,7 +18,9 @@ include("../../Modele/modele.php");
 			$roomBelongsToHouse =true;
 			if(isset($_GET['maison']) && isset($_GET['piece']) && $houseBelongsToUser && $roomBelongsToHouse)
 			{
-				$reponse0 = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
+				$listeCapteurPiece = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
+				$listeEffecteurPiece = recupererLesEffecteursDeLaPiece($_GET['piece'], $dbh);
+
 				echo "<div id='formulaire'>
 					<form action='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "' method='post'>
 					<table id='login' align='center'>
@@ -26,24 +28,26 @@ include("../../Modele/modele.php");
 							<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
 						</tr>";
 
-						while($donnee = $reponse0 -> fetch())
+						while($capteur = $listeCapteurPiece -> fetch())
 						{
 							echo "<tr>
-								<td class='nomCapteur'>" . $donnee['nom'] . "</td>";
-							if($donnee['type_input']==0)
-							{
-								echo "<td>" . $donnee['etatActuel'] . "</td>";
-							}
-							else
-							{
-								echo "<td><input required type='" . $donnee['type_input'] ."' name='" . $donnee['nom'] . "' value = '" . $donnee['etatActuel'] ."' placeholder='30' size='30'/></td>
+								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
+		
+							echo "<td>" . $capteur['etatActuel'] . "</td>";
+	
+						}
+
+						while($effecteur = $listeEffecteurPiece -> fetch())
+						{
+							echo "<tr>
+								<td class='nomCapteur'>" . $effecteur['nom'] . "</td>";
+							echo "<td><input required type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/></td>
 							</tr>";
-							}
 						}
 
 						echo"<tr>
 							<td><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Envoyer</button></td>
-							<td><button class='buttonsubmit' href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Ajouter Capteur</button></td>
+							<td><div class='buttonsubmit'><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Ajouter Capteur</a></div></td>
 						</tr>
 					</table>
 					</form>

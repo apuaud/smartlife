@@ -4,15 +4,24 @@ include('../db_connect.php');
 include('../Modele/modele.php');
 include("../analyticstracking.php");
 
-if(isset($_POST['typecapteur']) AND isset($_POST['numeroserie']))
+if(isset($_POST['nomcapteur']) AND isset($_POST['numeroserie']))
 {
-	$typecapteur = htmlspecialchars($_POST["typecapteur"]);
+	$nomcapteur = htmlspecialchars($_POST["nomcapteur"]);
 	$numeroserie = htmlspecialchars($_POST["numeroserie"]);
 
-	ajouterCapteur($typecapteur,$numeroserie,$_GET['piece'],$dbh);
+
+
+	if($typeinput == 0)
+	{
+		ajouterCapteur($typeinput,$numeroserie,$_GET['piece'],$dbh);
+	}
+	else
+	{
+		ajouterEffecteur($typeinput,$numeroserie,$_GET['piece'],$dbh);
+	}
 }
 else
 {
-	echo "<script>alert("Erreur dans le remplissage du formulaire");
+	echo "<script>alert('Erreur dans le remplissage du formulaire');
           document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php';</script>";
 }

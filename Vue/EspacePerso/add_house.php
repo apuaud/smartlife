@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include("../db_connect.php");?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +25,7 @@
 			{
 				header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
 			}
-			include("../../analyticstracking.php"); ?>
+			include("../analyticstracking.php"); ?>
 		</header>
 	<h1> Ajouter une nouvelle maison </h1>
 	<form class="formulairemaison" action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutMaison" method="post" onsubmit="return verifyInputs();"/>
