@@ -57,7 +57,14 @@ else
 			</a>
 		</p>
 		<div class="container" id="accueil" >
-			<p class = "slogan">Your Home, Your Future</p>
+			<div class="sloganDescription">
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="http://puaud.eu/appmvc/img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Découvrez-en plus en descendant la page !</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="http://puaud.eu/appmvc/img/guillemetsBas.png"></p>
+				</div>
+			</div>
+			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Your Home, Your Future</p>
 			<p id="logoContainer"><img align="middle"id="logo2" src="http://puaud.eu/appmvc/img/accueil_logo.png"></p>
 
 			<img class ="imgBackground"src="http://puaud.eu/appmvc/img/accueil.png" style="position:relative; z-index=4;">

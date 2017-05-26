@@ -78,9 +78,15 @@ else
 					<td></td>
 				</tr>
 			</table>
-			<p class = "slogan zoomAnimation">Your Home, Your Future</p>
-
-		</div>
+			</div>
+			<p class = "slogan zoomAnimation" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Your Home, Your Future</p>
+<div class="sloganDescription">
+				<div class="sloganDescriptionInnerContainer">
+					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="http://puaud.eu/appmvc/img/guillemetsHaut.png"></p>
+					<p class="sloganDescriptionP">Discover more by scrolling down!</p>
+					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="http://puaud.eu/appmvc/img/guillemetsBas.png"></p>
+				</div>
+			</div>
 
 		<div class="container " id="presentation">
 			<div class="sloganDescription">

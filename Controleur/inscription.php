@@ -21,7 +21,7 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 		exit;
 	}
 
-	$nbEmail = verifierDoubleCompteEmail($email,$dbh)
+	$nbEmail = verifierDoubleCompteEmail($email,$dbh);
 
 	if($nbEmail>=1)
 	{

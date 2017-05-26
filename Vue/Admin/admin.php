@@ -47,10 +47,10 @@ while($donnees = $reponse->fetch())
 					<td>". $donnees['email'] ."</td>";
 					if($donnees['type']==2){echo "<td>Admin</td>";}else if($donnees['type']==0)
 					{echo "<td>Inactif</td>";}else if($donnees['type']==1){echo "<td>Actif</td>";}else{echo "<td>Secondaire</td>";}
-					echo "<td style='text-align:center'><a href='Controleur/promouvoir.php?id=".$donnees['id']."'><img src='img/fleche_haut.png'
-					alt='Promouvoir' width=20px height=auto /></a><a href='http://puaud.eu/appmvc/Controleur/action.php?action=depromouvoir&id=".$donnees['id']."'><img src='img/fleche_bas.png'
+					echo "<td style='text-align:center'><a href='http://puaud.eu/appmvc/Controleur/promouvoir.php?id=".$donnees['id']."'><img src='../../img/fleche_haut.png'
+					alt='Promouvoir' width=20px height=auto /></a><a href='http://puaud.eu/appmvc/Controleur/action.php?action=depromouvoir&id=".$donnees['id']."'><img src='../../img/fleche_bas.png'
 					alt='Promouvoir' width=20px height=auto /></a></td>
-					<td style='text-align:center'><a href='Controleur/supprimer_compte.php?id=".$donnees['id']."'><img src='img/croix.png'
+					<td style='text-align:center'><a href='http://puaud.eu/appmvc/Controleur/supprimer_compte.php?id=".$donnees['id']."'><img src='../../img/croix.png'
 					alt='Supprimer' width=20px height=auto /></a></td>
 					</tr>";
 				}
