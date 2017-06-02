@@ -1,5 +1,7 @@
-<?php session_start();
-include("../db_connect.php"); ?>
+<?php
+session_start();
+include("../db_connect.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,5 +50,4 @@ include("../db_connect.php"); ?>
     </form>
 	</body>
   <script type="text/javascript" src="http://puaud.eu/appmvc/Vue/EspacePerso/checkInputsFields.js"></script>
-
 </html>

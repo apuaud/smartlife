@@ -22,13 +22,13 @@
                     echo "Vous n'êtes pas connecté";
                     break;
 									case "notAdmin" :
-										echo "Vous n'avez pas les droits"
+										echo "Vous n'avez pas les droits";
 										break;
-									case "notYourHouse"
-										echo "Cette maison ne vous appartient pas"
+									case "notYourHouse":
+										echo "Cette maison ne vous appartient pas";
 										break;
-									case "notYourRoom"
-										echo "Cette pièce ne vous appartient pas"
+									case "notYourRoom":
+										echo "Cette pièce ne vous appartient pas";
 										break;
                 }
                 ?>

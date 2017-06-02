@@ -1,6 +1,8 @@
 <?php
-echo "<script>alert('yo')</script>";
+session_start();
+include("../db_connect.php");
 ?>
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -10,11 +12,9 @@ echo "<script>alert('yo')</script>";
 		</head>
 
 		<body class="manonbody">
-
 			<?php
-
-			// $houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
-			//$roomBelongsToHouse =true;
+			$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
+			$roomBelongsToHouse =true;
 			if(isset($_GET['maison']) && isset($_GET['piece']) && $houseBelongsToUser && $roomBelongsToHouse)
 			{
 				$listeCapteurPiece = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
@@ -53,11 +53,11 @@ echo "<script>alert('yo')</script>";
 					</form>
 				</div>";
 			}
-			else if (isset($_GET['maison'] && $houseBelongsToUser==false)
+			else if (isset($_GET['maison']) && $houseBelongsToUser==false)
 			{
 				echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notYourHouse';</script>";
 			}
-			else if (isset($_GET['maison'] && $roomBelongsToHouse==false)
+			else if (isset($_GET['maison']) && $roomBelongsToHouse==false)
 			{
 				echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notYourRoom';</script>";
 			}
