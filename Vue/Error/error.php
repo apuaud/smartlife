@@ -2,12 +2,16 @@
 	<html>
 		<head>
 			<meta charset="utf-8"/>
+      <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleError.css" />
 			<title>Mon espace personnel</title>
 		</head>
-		  <body>
-        <div>
-  				<table align="center">
+		  <body class=erreur>
+        <div class= TableauErreur>
+  				<table align= center>
             <tr>
+            <td>
+             <img class= flotte src="http://puaud.eu/appmvc/img/alert2.png">
+            </td>
               <td>
                 Nous sommes désolés mais vous ne pouvez pas accéder à cette page pour la raison suivante : <br/>
                 <?php
@@ -17,13 +21,14 @@
                   case "notConnected" :
                     echo "Vous n'êtes pas connecté";
                     break;
-
-                  case "notYourHouse" :
-                    echo "Cette maison n'est pas à vous !";
-										break;
-
 									case "notAdmin" :
-										echo "Vous n'êtes pas administrateur, vous ne pouvez pas accéder à cette page.";
+										echo "Vous n'avez pas les droits"
+										break;
+									case "notYourHouse"
+										echo "Cette maison ne vous appartient pas"
+										break;
+									case "notYourRoom"
+										echo "Cette pièce ne vous appartient pas"
 										break;
                 }
                 ?>

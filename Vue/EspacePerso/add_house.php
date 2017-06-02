@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
 include("../db_connect.php");?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@ include("../db_connect.php");?>
 			}
 			if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 			{
-				header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
+				echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
 			}
 			include("../analyticstracking.php"); ?>
 		</header>

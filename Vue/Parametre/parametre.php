@@ -1,6 +1,10 @@
 <?php
-session_start();
-include('../db_connect.php');
+//session_start();
+//include('../db_connect.php');
+if(!isset($_SESSION['id']) || $_SESSION['type']==0)
+  {
+    echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
+  }
 ?>
 <!DOCTYPE html>
 <html>

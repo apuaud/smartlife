@@ -88,5 +88,9 @@ if(ISSET($_GET['action']))
     case "depromouvoir":
       include("depromouvoir.php");
       break;
+
+    case "error":
+      include("../Vue/Error/error.php");
+      break;
   }
 ?>

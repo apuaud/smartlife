@@ -1,0 +1,24 @@
+.TableauErreur
+{
+	width: 100%;
+	background-color: rgba(255, 0, 0,0.5);
+	margin-top: 2%;
+	border-top: 4px black solid;
+	border-bottom: 4px black solid; 
+	border-left: 1px black solid;
+	border-right: 1px black solid;
+	text-align: center;
+}
+
+.erreur
+{
+	margin: auto;
+ 	width: 1200px;
+ 	text-align: center;
+}
+.flotte
+{
+	float: left;
+	width: 50%;
+
+}

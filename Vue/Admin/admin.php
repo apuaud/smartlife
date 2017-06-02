@@ -6,7 +6,7 @@ include("../../Modele/modele.php");
 
 if($_SESSION['type']!=2)
 {
-  header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notAdmin");
+  header("Location:http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notAdmin");
 }
 
 ?>

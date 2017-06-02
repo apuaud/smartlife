@@ -1,8 +1,5 @@
 <?php
-session_start();
-include("../../db_connect.php");
-include("../../Modele/modele.php");
-
+echo "<script>alert('yo')</script>";
 ?>
 <!DOCTYPE html>
 	<html>
@@ -11,11 +8,13 @@ include("../../Modele/modele.php");
 			<link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/styleespaceperso.css"/>
 			<title>Mon espace personnel</title>
 		</head>
+
 		<body class="manonbody">
 
 			<?php
-			$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
-			$roomBelongsToHouse =true;
+
+			// $houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
+			//$roomBelongsToHouse =true;
 			if(isset($_GET['maison']) && isset($_GET['piece']) && $houseBelongsToUser && $roomBelongsToHouse)
 			{
 				$listeCapteurPiece = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
@@ -32,10 +31,11 @@ include("../../Modele/modele.php");
 						{
 							echo "<tr>
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
-		
+
 							echo "<td>" . $capteur['etatActuel'] . "</td>";
-	
+
 						}
+
 
 						while($effecteur = $listeEffecteurPiece -> fetch())
 						{
@@ -53,8 +53,17 @@ include("../../Modele/modele.php");
 					</form>
 				</div>";
 			}
+			else if (isset($_GET['maison'] && $houseBelongsToUser==false)
+			{
+				echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notYourHouse';</script>";
+			}
+			else if (isset($_GET['maison'] && $roomBelongsToHouse==false)
+			{
+				echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notYourRoom';</script>";
+			}
 			?>
 		<?php
+
 		if(isset($_SESSION['id']))
 		{
 			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
@@ -66,9 +75,10 @@ include("../../Modele/modele.php");
 				include("HeaderAdmin.php");
 			}
 		}
+
 		if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 		{
-			header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
+			echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
 		}
 
 		include_once("../../analyticstracking.php"); ?>
