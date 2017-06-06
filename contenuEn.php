@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <div class="container" id="accueil" >
 		<p id="logoContainer"><img align="middle"id="logo2" src="http://puaud.eu/appmvc/img/accueil_logo.png"></p>
 
@@ -61,3 +62,7 @@
 	<p class = "slogan zoomAnimation" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Get full control on your energy</p>
 	<img class ="imgBackground" src="http://puaud.eu/appmvc/img/presentation3.jpg">
 </div>
+
+<?php $contenuEn = ob_get_clean(); 
+	include('gabaritEn.php');
+?>

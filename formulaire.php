@@ -1,4 +1,4 @@
-
+<?php ob_clean() ?>
 <div id="formulaire">
 			<form action="http://puaud.eu/appmvc/Controleur/action.php?action=connexion" method="post">
 			<table id="login" align="center">
@@ -23,3 +23,6 @@
 				</tr>
 			</table>
 		</div>
+<?php $contenuEn = ob_get_clean() 
+	include('gabaritFr.php')
+?>

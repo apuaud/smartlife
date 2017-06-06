@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <form action="http://puaud.eu/appmvc/Controleur/action.php?action=connexion" method="post">
 	<table id="login" align="center">
 		<tr>
@@ -22,3 +23,7 @@
 		</tr>
 	</table>
 </form>
+
+<?php $formulaireEn = ob_get_clean(); 
+	include('gabaritEn.php');
+?>
