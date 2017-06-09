@@ -148,23 +148,6 @@ function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 		));
 }
 
-function ajouterEffecteur($typeeffecteur,$numeroserie,$piece,$dbh)
-{
-	$reponse = $dbh->query('SELECT id
-		FROM type_appareil
-		WHERE numeroModele =\'' . $typeeffecteur . '\'');
-	$donnees = $reponse->fetch();
-	$reponse->closeCursor();
-
-	$req = $dbh->prepare('INSERT INTO effecteur(id_type_appareil, numeroSerie, id_piece)
-		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
-	$req->execute(array(
-		'id_type_appareil' => $typeeffecteur,
-		'numeroSerie' => $numeroserie,
-		'id_piece' => $piece
-		));
-}
-
 function ajouterMaison($maison,$adresse,$ville,$codepostal,$pays,$superficie,$nbhab,$dbh)
 {
 	$req = $dbh->prepare('INSERT INTO logement(nom, adresse, ville, codePostal, pays, superficie, nombreHabitants)
@@ -364,17 +347,19 @@ function recupererLesCapteursDeLaPiece($idPiece, $dbh)
 	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input, capteur.id
 	FROM type_appareil,capteur
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
-	AND capteur.id_type_appareil=type_appareil.id');
+	AND capteur.id_type_appareil=type_appareil.id
+	AND type_input.id_type_appareil = "0"');
 
 	return $reponse;
 }
 
 function recupererLesEffecteursDeLaPiece($idPiece, $dbh)
 {
-	$reponse = $dbh->query('SELECT type_appareil.nom, effecteur.etatActuel, type_appareil.type_input, effecteur.id
-	FROM type_appareil,effecteur
-	WHERE effecteur.id_piece=\'' . $idPiece . '\'
-	AND effecteur.id_type_appareil=type_appareil.id');
+	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input, capteur.id
+	FROM type_appareil,capteur
+	WHERE capteur.id_piece=\'' . $idPiece . '\'
+	AND capteur.id_type_appareil=type_appareil.id
+	AND type_appareil.type_input <> "0"');
 	return $reponse;
 }
 
@@ -392,10 +377,10 @@ function mettreAJourLesEffecteursDeLaPiece($idPiece, $dbh)
 	$listeEffecteursDeLaPiece = recupererLesEffecteursDeLaPiece($idPiece, $dbh);
 	while ($effecteur = $listeEffecteursDeLaPiece->fetch())
 	{
-		$req = $dbh->prepare('UPDATE effecteur
+		$req = $dbh->prepare('UPDATE capteur
 								SET etatActuel=:etatActuel
-								WHERE effecteur.id_piece=\'' . $idPiece . '\'
-								AND effecteur.id = \'' . $effecteur['id'] . '\'');
+								WHERE capteur.id_piece=\'' . $idPiece . '\'
+								AND capteur.id = \'' . $effecteur['id'] . '\'');
 		$req->execute(array(
 			'etatActuel' => $_POST[$effecteur['nom']]
 			));

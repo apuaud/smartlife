@@ -9,16 +9,7 @@ if(isset($_POST['nomcapteur']) AND isset($_POST['numeroserie']))
 	$nomcapteur = htmlspecialchars($_POST["nomcapteur"]);
 	$numeroserie = htmlspecialchars($_POST["numeroserie"]);
 
-
-
-	if($typeinput == 0)
-	{
-		ajouterCapteur($typeinput,$numeroserie,$_GET['piece'],$dbh);
-	}
-	else
-	{
-		ajouterEffecteur($typeinput,$numeroserie,$_GET['piece'],$dbh);
-	}
+	ajouterCapteur($typeinput,$numeroserie,$_GET['piece'],$dbh);
 }
 else
 {
