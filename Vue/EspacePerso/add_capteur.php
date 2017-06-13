@@ -33,11 +33,11 @@ include("../db_connect.php");
 		<p class = "Formulaire">
 		<SELECT name="nomcapteur">
             <?php
-                $reponse = $dbh->query('SELECT ALL nom,numeroModele,type_input
+                $reponse = $dbh->query('SELECT ALL id,nom,numeroModele,type_input
                     FROM type_appareil');
                 while($donnees = $reponse->fetch())
                 {
-                    echo "<OPTION value=" . $donnees['nom']. ">" . $donnees['nom'] . " (" . $donnees['numeroModele'] . ")";
+                    echo "<OPTION value=" . $donnees['id']. ">" . $donnees['nom'] . " (" . $donnees['numeroModele'] . ")";
                 }
                 $reponse->closeCursor();
             ?>

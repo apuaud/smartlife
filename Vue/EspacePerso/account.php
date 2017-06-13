@@ -1,6 +1,7 @@
 <?php
 session_start();
-include("../db_connect.php");
+include("../../db_connect.php");
+include('../../Modele/modele.php');
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,6 @@ include("../db_connect.php");
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
 
 							echo "<td>" . $capteur['etatActuel'] . "</td>";
-
 						}
 
 
@@ -41,8 +41,25 @@ include("../db_connect.php");
 						{
 							echo "<tr>
 								<td class='nomCapteur'>" . $effecteur['nom'] . "</td>";
-							echo "<td><input required type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/></td>
+								if($effecteur['type_input'] == "number")
+								{
+									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/></td>
 							</tr>";
+								}
+								else
+								{
+									if($effecteur['etatActuel']=='true')
+									{
+										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' checked = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/></td>
+											</tr>";
+									}
+									else
+									{
+										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' placeholder='30' size='30'/></td>
+											</tr>";
+									}
+								}
+							
 						}
 
 						echo"<tr>

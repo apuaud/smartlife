@@ -114,6 +114,7 @@ body
 	border-radius: 5px;
 	border: solid white thin;
 	transition: 0.5s;
+	text-align: center;
 }
 
 .buttonsubmit:hover

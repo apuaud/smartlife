@@ -9,7 +9,8 @@ if(isset($_POST['nomcapteur']) AND isset($_POST['numeroserie']))
 	$nomcapteur = htmlspecialchars($_POST["nomcapteur"]);
 	$numeroserie = htmlspecialchars($_POST["numeroserie"]);
 
-	ajouterCapteur($typeinput,$numeroserie,$_GET['piece'],$dbh);
+	ajouterCapteur($nomcapteur,$numeroserie,$_GET['piece'],$dbh);
+	echo "<script>document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php'</script>";
 }
 else
 {

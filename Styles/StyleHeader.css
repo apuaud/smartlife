@@ -103,17 +103,18 @@
 	border-radius: 100px 100px;
 	margin-left: 15px;
 	margin-right: 5px;
-	color: red;
+	color: white;
 	text-align: center;
-	background color: rgba(0,0,0,0.5);
+	background-color: rgba(255,0,0,0.5);
 	font-family: 'CenturyGothic';
 }
 
 .deconnexion:hover
 {
 	transition: 0.5s;
-	transform: scale(1.2);
-	box-shadow: 0 0 65px white inset, 0 0 20px red inset, 0 0 15px black;
+	transform: scale(1.1);
+	border: 5px;
+	border-color: black;
 }
 
 .lienheader

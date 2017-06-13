@@ -133,12 +133,6 @@ function verifierTypeInput($nomcapteur,$dbh)
 
 function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 {
-	$reponse = $dbh->query('SELECT id
-		FROM type_appareil
-		WHERE numeroModele =\'' . $typecapteur . '\'');
-	$donnees = $reponse->fetch();
-	$reponse->closeCursor();
-
 	$req = $dbh->prepare('INSERT INTO capteur(id_type_appareil, numeroSerie, id_piece)
 		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
 	$req->execute(array(
@@ -315,12 +309,13 @@ function recupererLesCapteurs($dbh)
 	return $reponse;
 }
 
-function ajouterTypeAppareil($type, $numeroModele, $dbh)
+function ajouterTypeAppareil($type, $numeroModele, $typeinput, $dbh)
 {
-	$req = $dbh->prepare('INSERT INTO type_appareil(nom,numeroModele) VALUES(:nom, :numeroModele)');
+	$req = $dbh->prepare('INSERT INTO type_appareil(nom,numeroModele,type_input) VALUES(:nom, :numeroModele, :type_input)');
 	$req->execute(array(
 		'nom' => $type,
-		'numeroModele' => $numeroModele
+		'numeroModele' => $numeroModele,
+		'type_input' => $typeinput
 		));
 }
 
@@ -348,7 +343,7 @@ function recupererLesCapteursDeLaPiece($idPiece, $dbh)
 	FROM type_appareil,capteur
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
 	AND capteur.id_type_appareil=type_appareil.id
-	AND type_input.id_type_appareil = "0"');
+	AND type_appareil.type_input = "0"');
 
 	return $reponse;
 }
@@ -368,11 +363,12 @@ function recupererLEtatDesCapteursDeLaPiece($idPiece, $dbh)
 	$reponse3 = $dbh->query('SELECT capteur.etatActuel
 	FROM type_appareil,capteur
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
-	AND capteur.id_type_appareil=type_appareil.id');
+	AND capteur.id_type_appareil=type_appareil.id
+	AND type_appareil.type_input = "0"');
 	return $reponse3;
 }
 
-function mettreAJourLesEffecteursDeLaPiece($idPiece, $dbh)
+function mettreAJourLesEffecteursDeLaPiece($idPiece, $nouvelleListeEffecteur, $dbh)
 {
 	$listeEffecteursDeLaPiece = recupererLesEffecteursDeLaPiece($idPiece, $dbh);
 	while ($effecteur = $listeEffecteursDeLaPiece->fetch())
@@ -381,9 +377,29 @@ function mettreAJourLesEffecteursDeLaPiece($idPiece, $dbh)
 								SET etatActuel=:etatActuel
 								WHERE capteur.id_piece=\'' . $idPiece . '\'
 								AND capteur.id = \'' . $effecteur['id'] . '\'');
-		$req->execute(array(
-			'etatActuel' => $_POST[$effecteur['nom']]
+		if($effecteur['nom']=='Volets')
+		{
+			if(isset($nouvelleListeEffecteur['Volets']))
+			{
+				$req->execute(array(
+			'etatActuel' => 'true'
 			));
+			}
+			else
+			{
+				$req->execute(array(
+			'etatActuel' => 'false'
+			));
+			}
+		} 
+		else
+		{
+			
+		$req->execute(array(
+			'etatActuel' => $nouvelleListeEffecteur[$effecteur['nom']]
+			));
+		}
+		
 	}
 }
 
