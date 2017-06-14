@@ -113,14 +113,14 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                    <td>
                      <SELECT name="idMaison">
                          <?php
-                             $reponse = $dbh->query('SELECT logement_id, user_id, logement.id, nom
+                             $reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom
                                  FROM users_logement, logement
-                                 WHERE user_id = \''.$_SESSION['id'] .'\'
-                                 AND logement_id=logement.id');
+                                 WHERE id_user = \''.$_SESSION['id'] .'\'
+                                 AND users_logement.id_logement=logement.id');
 
                              while($donnees = $reponse->fetch())
                              {
-                                 echo "<OPTION value=" . $donnees['logement_id']. ">" . $donnees['nom'];
+                                 echo "<OPTION value=" . $donnees['id_logement']. ">" . $donnees['nom'];
                              }
                              $reponse->closeCursor();
                          ?>
@@ -132,7 +132,6 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                      <button class="buttonsubmit" type="submit"> Supprimer </button>
                   </td>
                 </tr>
-
               </table>
             </form>
         </div>

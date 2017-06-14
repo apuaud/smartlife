@@ -449,9 +449,9 @@ function modifierMDP($idUtilisateur, $nouveauMDP, $dbh)
 
 function supprimerMaison($idMaison,$dbh)
 {
-	$req = $dbh->prepare('DELETE FROM logement WHERE idMaison like :idMaison');
+	$req = $dbh->prepare('DELETE FROM logement WHERE id like :id');
 	$req->execute(array(
-    	'idMaison' => $idMaison
+    	'id' => $idMaison
 		));
 }
 ?>
