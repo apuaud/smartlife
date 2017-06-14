@@ -412,6 +412,14 @@ function modifierPseudo($idUtilisateur, $nouveauPseudo, $dbh)
 		));
 }
 
+function verifierMDPactuel($idUtilisateur, $dbh)
+{
+	$reponse = $dbh->query('SELECT users.password
+	FROM users
+	WHERE users.id=\'' . $idUtilisateur . '\'');
+	return $reponse;
+}
+
 function modifierMDP($idUtilisateur, $nouveauMDP, $dbh)
 {
 	$req = $dbh->prepare('UPDATE users SET password=:password WHERE id like :id');

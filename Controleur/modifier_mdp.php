@@ -7,11 +7,22 @@ include('../Modele/modele.php');
 if (isset($_POST['ancienMotDePasse']) AND isset($_POST['nouveauMotDePasse']))
 {
 	$idUtilisateur = htmlspecialchars($_SESSION['id']);
-	$newPassword = htmlspecialchars($_POST['nouveauMotDePasse']);
+	$newPassword = $_POST['nouveauMotDePasse'];
+	$mdpInsere = sha1($_POST['ancienMotDePasse']);
 
-  modifierMDP($idUtilisateur, $newPassword, $dbh);
-	echo "<script>alert('Votre mot de passe a bien été modifié.');
-	document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre';</script>";
+	$mdpBDD = verifierMDPactuel($idUtilisateur, $dbh);
+
+	if($mdpBDD == $mdpInsere)
+	{
+		modifierMDP($idUtilisateur, $newPassword, $dbh);
+		echo "<script>alert('Votre mot de passe a bien été modifié.');
+		document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre';</script>";
+	}
+	else
+	{
+		echo "<script>alert('Le mot de passe actuel est incorrect.');
+		history.back();</script>";
+	}
 }
 else
 {
