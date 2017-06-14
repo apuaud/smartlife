@@ -117,11 +117,15 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="inscription_secondaire.php" method="post">
+            <form action="suppression.php" method="post">
                <table class="tableForm" align="center">
                 <tr>
-                  <td>Toute suppression est définitive </button>
+                  <td>
+                    <div style="color:red"> Toute suppression est définitive</div>
                   </td>
+                </tr>
+                <tr>
+                  <td><input required  type="text" name="motDePasse" placeholder="Mot de passe actuel"></td>
                 </tr>
                 <tr>
                   <td>

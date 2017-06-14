@@ -101,7 +101,6 @@ body
 	margin-right:14px;
 }
 
-
 .buttonsubmit
 {
 	margin: auto;
@@ -243,13 +242,24 @@ ul
 }
 .nomCapteur
 {
-	font-size: 30px;
+	font-size: 50px;
 	margin-right: 10px;
 	width: 150px;
 	padding-right: 10px;
 	text-align: right;
 
 }
+
+.nomEtat
+{
+	font-size: 30px;
+	margin-right: 10px;
+	width: 150px;
+	padding-right: 10px;
+	text-align: left;
+
+}
+
 a
 {
 	text-decoration: none;

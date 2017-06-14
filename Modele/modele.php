@@ -133,10 +133,28 @@ function verifierTypeInput($nomcapteur,$dbh)
 
 function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 {
-	$req = $dbh->prepare('INSERT INTO capteur(id_type_appareil, numeroSerie, id_piece)
-		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
+	$req = $dbh->prepare('INSERT INTO capteur(id_type_appareil, numeroSerie, id_piece, etatActuel)
+		VALUES(:id_type_appareil, :numeroSerie, :id_piece, :etatActuel)');
 	$req->execute(array(
 		'id_type_appareil' => $typecapteur,
+		'numeroSerie' => $numeroserie,
+		'id_piece' => $piece,
+		'etatActuel' => '0'
+		));
+}
+
+function ajouterEffecteur($typeeffecteur,$numeroserie,$piece,$dbh)
+{
+	$reponse = $dbh->query('SELECT id
+		FROM type_appareil
+		WHERE numeroModele =\'' . $typeeffecteur . '\'');
+	$donnees = $reponse->fetch();
+	$reponse->closeCursor();
+
+	$req = $dbh->prepare('INSERT INTO effecteur(id_type_appareil, numeroSerie, id_piece)
+		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
+	$req->execute(array(
+		'id_type_appareil' => $typeeffecteur,
 		'numeroSerie' => $numeroserie,
 		'id_piece' => $piece
 		));

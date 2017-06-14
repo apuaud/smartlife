@@ -20,7 +20,7 @@ if (isset($_POST['ancienMotDePasse']) AND isset($_POST['nouveauMotDePasse']))
 	}
 	else
 	{
-		echo "<script>alert('Le mot de passe actuel est incorrect.');
+		echo "<script>alert('Le mot de passe actuel inséré est incorrect.');
 		history.back();</script>";
 	}
 }

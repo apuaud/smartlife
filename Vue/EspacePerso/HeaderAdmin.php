@@ -27,6 +27,6 @@ session_start();
 					</form>
 					</section>
 				</section>
-					<p class = "titreEspace"> Votre espace personnel </p>
+					<p class = "titreEspace" style="color:white"> Votre espace personnel </p>
 			</section>
 		</header>

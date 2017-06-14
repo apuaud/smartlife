@@ -30,10 +30,11 @@ include('../../Modele/modele.php');
 
 						while($capteur = $listeCapteurPiece -> fetch())
 						{
+							if($capteur['nom']=="Température"){$unite=" °C";}else if($capteur['nom']=="Humidité"){$unite=" %";}else{$unite="";}
 							echo "<tr>
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
 
-							echo "<td>" . $capteur['etatActuel'] . "</td>";
+							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "<span style='font-size:30px'>". $unite ."</td>";
 						}
 
 
@@ -41,9 +42,14 @@ include('../../Modele/modele.php');
 						{
 							echo "<tr>
 								<td class='nomCapteur'>" . $effecteur['nom'] . "</td>";
-								if($effecteur['type_input'] == "number")
+								if($effecteur['type_input'] == "number" AND $effecteur['nom'] == "Climatiseur")
 								{
-									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/></td>
+									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='15' max='30' placeholder='30' size='30'/><span style='font-size:30px'>°C</span></td>
+							</tr>";
+								}
+								else if($effecteur['type_input'] == "number")
+								{
+									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='0' max='100' placeholder='30' size='30'/><span style='font-size:30px'>%</span></td>
 							</tr>";
 								}
 								else
