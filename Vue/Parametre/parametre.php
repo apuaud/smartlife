@@ -107,8 +107,32 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="inscription_secondaire.php" method="post">
+            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=supprimerMaison" method="post">
                <table class="tableForm" align="center">
+                 <tr>
+                   <td>
+                     <SELECT name="idMaison">
+                         <?php
+                             $reponse = $dbh->query('SELECT logement_id, user_id, logement.id, nom
+                                 FROM users_logement, logement
+                                 WHERE user_id = \''.$_SESSION['id'] .'\'
+                                 AND logement_id=logement.id');
+
+                             while($donnees = $reponse->fetch())
+                             {
+                                 echo "<OPTION value=" . $donnees['logement_id']. ">" . $donnees['nom'];
+                             }
+                             $reponse->closeCursor();
+                         ?>
+                    </SELECT>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                     <button class="buttonsubmit" type="submit"> Supprimer </button>
+                  </td>
+                </tr>
+
               </table>
             </form>
         </div>

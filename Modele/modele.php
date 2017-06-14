@@ -409,15 +409,15 @@ function mettreAJourLesEffecteursDeLaPiece($idPiece, $nouvelleListeEffecteur, $d
 			'etatActuel' => 'false'
 			));
 			}
-		} 
+		}
 		else
 		{
-			
+
 		$req->execute(array(
 			'etatActuel' => $nouvelleListeEffecteur[$effecteur['nom']]
 			));
 		}
-		
+
 	}
 }
 
@@ -444,6 +444,14 @@ function modifierMDP($idUtilisateur, $nouveauMDP, $dbh)
 	$req->execute(array(
 		'password' => sha1($nouveauMDP),
     	'id' => $idUtilisateur
+		));
+}
+
+function supprimerMaison($idMaison,$dbh)
+{
+	$req = $dbh->prepare('DELETE FROM logement WHERE idMaison like :idMaison');
+	$req->execute(array(
+    	'idMaison' => $idMaison
 		));
 }
 ?>
