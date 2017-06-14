@@ -133,10 +133,33 @@ function verifierTypeInput($nomcapteur,$dbh)
 
 function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 {
+	$reponse = $dbh->query('SELECT id
+		FROM type_appareil
+		WHERE numeroModele =\'' . $typecapteur . '\'');
+	$donnees = $reponse->fetch();
+	$reponse->closeCursor();
+
 	$req = $dbh->prepare('INSERT INTO capteur(id_type_appareil, numeroSerie, id_piece)
 		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
 	$req->execute(array(
 		'id_type_appareil' => $typecapteur,
+		'numeroSerie' => $numeroserie,
+		'id_piece' => $piece
+		));
+}
+
+function ajouterEffecteur($typeeffecteur,$numeroserie,$piece,$dbh)
+{
+	$reponse = $dbh->query('SELECT id
+		FROM type_appareil
+		WHERE numeroModele =\'' . $typeeffecteur . '\'');
+	$donnees = $reponse->fetch();
+	$reponse->closeCursor();
+
+	$req = $dbh->prepare('INSERT INTO effecteur(id_type_appareil, numeroSerie, id_piece)
+		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
+	$req->execute(array(
+		'id_type_appareil' => $typeeffecteur,
 		'numeroSerie' => $numeroserie,
 		'id_piece' => $piece
 		));
@@ -309,13 +332,12 @@ function recupererLesCapteurs($dbh)
 	return $reponse;
 }
 
-function ajouterTypeAppareil($type, $numeroModele, $typeinput, $dbh)
+function ajouterTypeAppareil($type, $numeroModele, $dbh)
 {
-	$req = $dbh->prepare('INSERT INTO type_appareil(nom,numeroModele,type_input) VALUES(:nom, :numeroModele, :type_input)');
+	$req = $dbh->prepare('INSERT INTO type_appareil(nom,numeroModele) VALUES(:nom, :numeroModele)');
 	$req->execute(array(
 		'nom' => $type,
-		'numeroModele' => $numeroModele,
-		'type_input' => $typeinput
+		'numeroModele' => $numeroModele
 		));
 }
 
@@ -342,19 +364,17 @@ function recupererLesCapteursDeLaPiece($idPiece, $dbh)
 	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input, capteur.id
 	FROM type_appareil,capteur
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
-	AND capteur.id_type_appareil=type_appareil.id
-	AND type_appareil.type_input = "0"');
+	AND capteur.id_type_appareil=type_appareil.id');
 
 	return $reponse;
 }
 
 function recupererLesEffecteursDeLaPiece($idPiece, $dbh)
 {
-	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input, capteur.id
-	FROM type_appareil,capteur
-	WHERE capteur.id_piece=\'' . $idPiece . '\'
-	AND capteur.id_type_appareil=type_appareil.id
-	AND type_appareil.type_input <> "0"');
+	$reponse = $dbh->query('SELECT type_appareil.nom, effecteur.etatActuel, type_appareil.type_input, effecteur.id
+	FROM type_appareil,effecteur
+	WHERE effecteur.id_piece=\'' . $idPiece . '\'
+	AND effecteur.id_type_appareil=type_appareil.id');
 	return $reponse;
 }
 
@@ -363,43 +383,22 @@ function recupererLEtatDesCapteursDeLaPiece($idPiece, $dbh)
 	$reponse3 = $dbh->query('SELECT capteur.etatActuel
 	FROM type_appareil,capteur
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
-	AND capteur.id_type_appareil=type_appareil.id
-	AND type_appareil.type_input = "0"');
+	AND capteur.id_type_appareil=type_appareil.id');
 	return $reponse3;
 }
 
-function mettreAJourLesEffecteursDeLaPiece($idPiece, $nouvelleListeEffecteur, $dbh)
+function mettreAJourLesEffecteursDeLaPiece($idPiece, $dbh)
 {
 	$listeEffecteursDeLaPiece = recupererLesEffecteursDeLaPiece($idPiece, $dbh);
 	while ($effecteur = $listeEffecteursDeLaPiece->fetch())
 	{
-		$req = $dbh->prepare('UPDATE capteur
+		$req = $dbh->prepare('UPDATE effecteur
 								SET etatActuel=:etatActuel
-								WHERE capteur.id_piece=\'' . $idPiece . '\'
-								AND capteur.id = \'' . $effecteur['id'] . '\'');
-		if($effecteur['nom']=='Volets')
-		{
-			if(isset($nouvelleListeEffecteur['Volets']))
-			{
-				$req->execute(array(
-			'etatActuel' => 'true'
-			));
-			}
-			else
-			{
-				$req->execute(array(
-			'etatActuel' => 'false'
-			));
-			}
-		} 
-		else
-		{
-			
+								WHERE effecteur.id_piece=\'' . $idPiece . '\'
+								AND effecteur.id = \'' . $effecteur['id'] . '\'');
 		$req->execute(array(
-			'etatActuel' => $nouvelleListeEffecteur[$effecteur['nom']]
+			'etatActuel' => $_POST[$effecteur['nom']]
 			));
-		}
-		
 	}
 }
 
@@ -412,20 +411,20 @@ function modifierPseudo($idUtilisateur, $nouveauPseudo, $dbh)
 		));
 }
 
-function verifierMDPactuel($idUtilisateur, $dbh)
-{
-	$reponse = $dbh->query('SELECT users.password
-	FROM users
-	WHERE users.id=\'' . $idUtilisateur . '\'');
-	return $reponse;
-}
-
 function modifierMDP($idUtilisateur, $nouveauMDP, $dbh)
 {
 	$req = $dbh->prepare('UPDATE users SET password=:password WHERE id like :id');
 	$req->execute(array(
 		'password' => sha1($nouveauMDP),
     	'id' => $idUtilisateur
+		));
+}
+
+function supprimerMaison($idMaison,$dbh)
+{
+	$req = $dbh->prepare('DELETE FROM logement WHERE idMaison like :idMaison');
+	$req->execute(array(
+    	'idMaison' => $idMaison
 		));
 }
 ?>

@@ -92,5 +92,10 @@ if(ISSET($_GET['action']))
     case "error":
       include("../Vue/Error/error.php");
       break;
+
+      case "supprimerMaison":
+        include("supprimer_maison.php");
+        break;
+
   }
 ?>
