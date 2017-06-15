@@ -13,7 +13,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
         <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleParametre.css" />
         <title>Paramètres</title>
     </head>
-    <body class=parametreBody>
+    <body class=parametreBody onload="onLoadFunction()" onresize="setFontSize()">
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
@@ -210,38 +210,22 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
   		{
   			header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
   		} ?>
-    	<h1>
-    		Paramètres
-    	</h1>
-    <div class="divHori">
-    	<button class="compte" onclick="displayForm(0)"> Ajouter un compte secondaire </button>
-    </div>
-
-    <div class="divHori">
-      <button class="compte" onclick="displayForm(1)"> Modifier mon pseudo </button>
-    </div>
-    <div class="divHori">
-      <button class="compte" onclick="displayForm(2)"> Modifier mon mot de passe </button>
-    </div>
-
-    <div class="divHori">
-      <button class="compte" onclick="displayForm(3)"> Supprimer une maison</button>
-    </div>
-
-    <div class="divHori">
-      <button class="compte" onclick="displayForm(4)"> Supprimer un pièce</button>
-    </div>
-
-    <div class="divHori">
-      <button class="compte" onclick="displayForm(5)"> Supprimer mon compte </button>
-    </div>
 
 
+    <b class="question slogan" onclick="displayForm(0)">Ajouter un compte secondaire</b>
+    <b class="question slogan" onclick="displayForm(1)">Modifier mon pseudo</b>
+    <b class="question slogan" onclick="displayForm(2)">Modifier mon mot de passe</b>
+    <b class="question slogan" onclick="displayForm(3)">Supprimer une maison</b>
+    <b class="question slogan" onclick="displayForm(4)">Supprimer une pièce</b>
+    <b class="question slogan" onclick="displayForm(5)">Supprimer son compte</b>
 
     </body>
     <script>
       var forms = document.getElementsByClassName('sloganDescription');
-
+      var questions = document.getElementsByClassName('question');
+      var questionBottomSpace = 50;
+      var spaceBetweenQuestions = 80;
+      var spaceBetweenHeaderAndFooter = $(window).height()-66-80-40-50;
       function hideForms()
       {
         for (var form = 0 ; form < forms.length ; form++)
@@ -253,6 +237,20 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       function displayForm(num)
       {
         forms[num].style.display="table";
+      }
+
+      function setFontSize()
+      {
+        for(var questionNum = questions.length-1 ; questionNum >= 0  ; questionNum--)
+        {
+          questions[questionNum].style.bottom = questionBottomSpace +"px";
+          questionBottomSpace+=spaceBetweenQuestions;
+        }
+      }
+
+      function onLoadFunction()
+      {
+        setFontSize();
       }
     </script>
 </html>
