@@ -65,7 +65,7 @@ include('../../Modele/modele.php');
 											</tr>";
 									}
 								}
-							
+
 						}
 
 						echo"<tr>
@@ -134,7 +134,6 @@ include('../../Modele/modele.php');
 
 				while($donnees = $reponse->fetch())
 				{
-
 					$reponse2 = recupererLesCapteursDeLaPiece($donnees['id'], $dbh);
 
 					echo "<td><div class='textbox dropdown'>
