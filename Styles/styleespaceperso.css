@@ -160,12 +160,14 @@ body
 {
 	transform: scale(1.1);
 }
+
 .buttonsubmit:hover
 {
 	cursor: pointer;
 	background-color: white;
 	color:black;
 }
+
 .dropdown-content
 {
     display: none;
@@ -184,11 +186,12 @@ body
 {
     display: block;
 }
+
 #formulaire
 {
 	position: fixed;
 	color: white;
-	z-index: 6;
+	z-index: 35;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
@@ -198,10 +201,11 @@ input[type=checkbox]
 {
 	width: 30px;
 }
+
 #login
 {
 	bottom: 0px;
-	margin-top: 200px;
+	margin-top: 100px;
 }
 
 #login td
