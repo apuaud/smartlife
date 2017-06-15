@@ -140,6 +140,42 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=supprimerPiece" method="post">
+               <table class="tableForm" align="center">
+                 <tr>
+                   <td>
+                     <SELECT name="idPiece">
+                         <?php
+                             $reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom, piece.id, piece.nom, piece.id_maison
+                                  AS user_logement-id_logement, user_logement-id_user, logement-id, logement-nom, piece-id, piece-nom, piece-id_maison
+
+                                 FROM users_logement, logement, piece
+                                 WHERE id_user = \''.$_SESSION['id'] .'\'
+                                 AND users_logement.id_logement=logement.id
+                                 AND logement.id=piece.id_logement'); // AS=> mettre un nom de variable différent pour chaque champ. Car deux on le même nom (id)
+
+
+                             while($donnees = $reponse->fetch())
+                             {
+                                 echo "<OPTION value=" . $donnees['piece-id']. ">" . $donnees['logement-nom']." : ".$donnees['piece-nom'];
+                             }
+                             $reponse->closeCursor();
+                         ?>
+                    </SELECT>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                     <button class="buttonsubmit" type="submit"> Supprimer </button>
+                  </td>
+                </tr>
+              </table>
+            </form>
+        </div>
+      </div>
+      <div class="sloganDescription">
+        <div class="sloganDescriptionInnerContainer">
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="suppression.php" method="post">
                <table class="tableForm" align="center">
                 <tr>
@@ -194,8 +230,14 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
     </div>
 
     <div class="divHori">
-      <button class="compte" onclick="displayForm(4)"> Supprimer mon compte </button>
+      <button class="compte" onclick="displayForm(4)"> Supprimer un pièce</button>
     </div>
+
+    <div class="divHori">
+      <button class="compte" onclick="displayForm(5)"> Supprimer mon compte </button>
+    </div>
+
+
 
     </body>
     <script>

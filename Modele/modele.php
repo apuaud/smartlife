@@ -454,4 +454,11 @@ function supprimerMaison($idMaison,$dbh)
     	'id' => $idMaison
 		));
 }
+function supprimerPiece($idPiece,$dbh)
+{
+	$req = $dbh->prepare('DELETE FROM piece WHERE id like :id');
+	$req->execute(array(
+    	'id' => $idPiece
+		));
+}
 ?>
