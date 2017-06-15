@@ -11,7 +11,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleParametre.css" />
-        <title>Paramètre</title>
+        <title>Paramètres</title>
     </head>
     <body class=parametreBody>
       <div class="sloganDescription">
@@ -146,8 +146,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                    <td>
                      <SELECT name="idPiece">
                          <?php
-                             $reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom, piece.id, piece.nom, piece.id_maison
-                                  AS user_logement-id_logement, user_logement-id_user, logement-id, logement-nom, piece-id, piece-nom, piece-id_maison
+                             $reponse = $dbh->query('SELECT logement.nom AS "logement-nom", piece.id AS "piece-id", piece.nom AS "piece-nom"
 
                                  FROM users_logement, logement, piece
                                  WHERE id_user = \''.$_SESSION['id'] .'\'

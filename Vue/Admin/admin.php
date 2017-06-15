@@ -21,7 +21,9 @@ if($_SESSION['type']!=2)
         <body class="AdminBody">
         </body>
 </html>
-
+<div class=op>
+<h2 class="titre1">Liste des utilisateurs</h2>
+</div>
 <?php
 					echo "<table class='table1' border=1>
 					<tr>
@@ -57,8 +59,12 @@ while($donnees = $reponse->fetch())
 				echo "</table>";
 
 $reponse = recupererLesCapteurs($dbh);
-
-echo "<br /><br /><table class='table2' border=1>
+?>
+<div class=op>
+<h2 class="titre1">Liste des capteurs</h2>
+</div>
+<?php
+echo "<table class='table2' border=1>
 <tr>
 <td><strong>Type d'appareil</strong></td>
 <td><strong>Numéro de série</strong></td>";

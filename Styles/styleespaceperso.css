@@ -102,6 +102,12 @@ body
 	width:2%;
 }
 
+.scroll-hori
+{
+	overflow-x: auto;
+    white-space: nowrap;
+	width: 88%;
+}
 
 .spaceForPlus
 {
