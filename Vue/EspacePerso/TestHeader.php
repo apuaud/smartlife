@@ -15,14 +15,14 @@ session_start();
 						<tr class="tableHeader">
 							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Vue/EspacePerso/account.php">Accueil</a></td>
 							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToSupport">Support</a></td>
-							<td class="ongletHeader"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre">Paramètres</a></td>
+							<td class="ongletHeader border-right"> <a class="lienheader" href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre">Paramètres</a></td>
 						</tr>
 					</table>
 					<section class="ongletCoHeader">
-						<p class="titreConnecte"> <?php echo 'Vous êtes connecté en tant que <br />' . $_SESSION['prenom'] .
-						' ' . $_SESSION['nom'] . ' (' . $_SESSION['pseudo'] .')'; ?> </p>
 					<form action="http://puaud.eu/appmvc/Controleur/logout.php">
-						<button class="deconnexion" type="submit"> Se déconnecter </button>
+						<button class="deconnexion" type="submit">
+							<img src="http://puaud.eu/appmvc/img/deconnexionBlanc.png" alt="fr" style="height:80px;max-width:auto;" />
+						</button>
 					</form>
 					</section>
 				</section>

@@ -10,7 +10,7 @@
 	border-collapse: separate;
 	word-wrap: break-word;
 	width: 100vh;
-	overflow hidden;
+	margin-left: 50px;
 }
 
 
@@ -26,7 +26,43 @@
 	text-align:center;
 	max-height: 135px;
 	max-width: 180px;
+}
 
+.flecheGauche
+{
+	font-size: 20px;
+	color: black;
+	text-align: center;
+	position:relative;
+	border-radius: 10px 20px;
+	margin: 30px;
+	margin-left: -38px;
+	background-color: white;
+	z-index: 30;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align:center;
+	max-height: 135px;
+	width: 30px;
+}
+
+.flecheDroite
+{
+	font-size: 20px;
+	color: black;
+	text-align: center;
+	position:relative;
+	border-radius: 10px 20px;
+	margin: 30px;
+	margin-right: 500px;
+	background-color: white;
+	z-index: 30;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align:center;
+	max-height: 135px;
+	width: 30px;
+	position: fixed;
 }
 
 .textbox2
@@ -50,7 +86,6 @@
 
 body
 {
-
 	background-image:url("http://puaud.eu/appmvc/img/maison.png");
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -66,17 +101,16 @@ body
 	position: fixed;
 	width:2%;
 }
-.scroll-hori
-{
-	overflow-x: auto;
-  white-space: nowrap;
-	width: 88%;
-}
+
 
 .spaceForPlus
 {
-	margin-left: 175px;
+	margin-left: 210px;
 	border-left: solid black thin;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 82%;
+
 }
 .titre
 {

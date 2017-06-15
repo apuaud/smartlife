@@ -37,7 +37,6 @@ include('../../Modele/modele.php');
 							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "<span style='font-size:30px'>". $unite ."</td>";
 						}
 
-
 						while($effecteur = $listeEffecteurPiece -> fetch())
 						{
 							echo "<tr>
@@ -65,7 +64,6 @@ include('../../Modele/modele.php');
 											</tr>";
 									}
 								}
-
 						}
 
 						echo"<tr>
@@ -108,7 +106,10 @@ include('../../Modele/modele.php');
 
 		<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>+</a></span>
 		</div>
-		<div class='scroll-hori spaceForPlus'>
+
+		<div class='spaceForPlus' id='ScrollZone1'>
+			<div class='flecheGauche fixed' onmouseover="ScrollLeft(5, 1)" onmouseout="clearScroll(SL)"><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'><</a></span>
+			</div>
 			<table class="listepiece">
 				<tr>
 				<?php
@@ -120,7 +121,10 @@ include('../../Modele/modele.php');
 					. $donnees['id'] . "'>" . $donnees['nom'] . "</a></span></div></td>";
 				} ?>
 				</tr>
+				<div class='flecheDroite fixed' style='margin-left:82.734%' onmouseover="ScrollRight(5, 1)" onmouseout="clearScroll(SR)"><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>></a></span>
+				</div>
 			</table>
+
 		</div>
 			<?php $reponse->closeCursor(); ?>
 
@@ -129,7 +133,10 @@ include('../../Modele/modele.php');
 		if(isset($_GET['maison']) && $houseBelongsToUser){
 			echo "<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
 						</div>
-						<div class='scroll-hori spaceForPlus'><table class='listepiece'><tr>";
+
+						<div class='spaceForPlus' id='ScrollZone2'><table class='listepiece'><tr>
+						<div class='flecheGauche fixed' onmouseover='ScrollLeft(5, 2)' onmouseout='clearScroll(SL)'><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'><</a></span>
+						</div>";
 				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh);
 
 				while($donnees = $reponse->fetch())
@@ -156,7 +163,9 @@ include('../../Modele/modele.php');
 					<img class='minilogo' src='http://puaud.eu/appmvc/img/reglage.png' onclick='displaySetCaptors()'></a></li>
 						</ul></div>
 					</div>
-					</td>";
+					</td>
+					<div class='flecheDroite fixed' style='margin-left:82.734%' onmouseover='ScrollRight(5, 2)' onmouseout='clearScroll(SR)'><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>></a></span>
+					</div>";
 				}
 			}
 		else if(isset($_GET['maison']) && !$houseBelongsToUser)
@@ -171,6 +180,30 @@ include('../../Modele/modele.php');
 				{
 					formulaire.style.display="none";
 				}
+
+				var SR;
+				var SL;
+
+				function SRight(numero)
+				{
+					document.getElementById('ScrollZone' + numero).scrollLeft+=2;
+				}
+
+				function SLeft(numero){
+				document.getElementById('ScrollZone' + numero).scrollLeft-=2;
+				}
+
+				function ScrollRight(Speed,numero){
+				SR = setInterval('SRight(' + numero + ')',Speed);
+				}
+
+				function ScrollLeft(Speed, numero){
+				SL = setInterval('SLeft(' + numero + ')',Speed);
+				}
+
+				function clearScroll(way){
+				clearInterval(way)}
+
 			</script>
 	</body>
 </html>
