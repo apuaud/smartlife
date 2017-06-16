@@ -152,8 +152,6 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                                  WHERE id_user = \''.$_SESSION['id'] .'\'
                                  AND users_logement.id_logement=logement.id
                                  AND logement.id=piece.id_logement'); // AS=> mettre un nom de variable différent pour chaque champ. Car deux on le même nom (id)
-
-
                              while($donnees = $reponse->fetch())
                              {
                                  echo "<OPTION value=" . $donnees['piece-id']. ">" . $donnees['logement-nom']." : ".$donnees['piece-nom'];
