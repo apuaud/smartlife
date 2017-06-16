@@ -2,9 +2,10 @@
 session_start();
 include('../db_connect.php');
 if(!isset($_SESSION['id']) || $_SESSION['type']==0)
-  {
-    echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
-  }
+{
+  echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
         <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleParametre.css" />
         <title>Paramètres</title>
     </head>
-    <body class=parametreBody onload="onLoadFunction()" onresize="setFontSize()">
+    <body class=parametreBody onload="setFontSize();listenToSelect()" onresize="setFontSize()">
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
@@ -169,20 +170,50 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
             <form action="http://puaud.eu/appmvc/Controleur/action.php?action=supprimerPiece" method="post">
                <table class="tableForm" align="center">
                  <tr>
+                   <td>Maison</td>
+                 </tr>
+                 <tr>
                    <td>
-                     <SELECT name="idPiece">
+                     <SELECT name="idMaison" id="selectMaison">
                          <?php
-                             $reponse = $dbh->query('SELECT logement.nom AS "logement-nom", piece.id AS "piece-id", piece.nom AS "piece-nom"
 
-                                 FROM users_logement, logement, piece
+                             $reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom
+                                 FROM users_logement, logement
                                  WHERE id_user = \''.$_SESSION['id'] .'\'
-                                 AND users_logement.id_logement=logement.id
-                                 AND logement.id=piece.id_logement'); // AS=> mettre un nom de variable différent pour chaque champ. Car deux on le même nom (id)
+                                 AND users_logement.id_logement=logement.id');
+
                              while($donnees = $reponse->fetch())
                              {
-                                 echo "<OPTION value=" . $donnees['piece-id']. ">" . $donnees['logement-nom']." : ".$donnees['piece-nom'];
+
+                                  $selected = (isset($_GET['idMaison']) && ($_GET['idMaison'] == $donnees['id_logement'])) ? "selected" : "";
+
+                                 echo "<OPTION " .$selected . " value=" . $donnees['id_logement']. ">" . $donnees['nom'];
                              }
                              $reponse->closeCursor();
+                         ?>
+                    </SELECT>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pièce</td>
+                </tr>
+                 <tr>
+                   <td>
+                     <SELECT name="idPiece" id="selectPiece">
+                         <?php
+                              echo "<option value=''>Sélectionner pièce</option>";
+                              if(isset($_GET['idMaison']))
+                              {
+                                $reponse = $dbh->query(
+                                  'SELECT piece.id , piece.nom
+                                   FROM piece
+                                   WHERE piece.id_logement=\''. $_GET['idMaison'] .'\''); // AS=> mettre un nom de variable différent pour chaque champ. Car deux on le même nom (id)
+                                while($donnees = $reponse->fetch())
+                                {
+                                    echo "<OPTION value=" . $donnees['id']. "> ".$donnees['nom'];
+                                }
+                                $reponse->closeCursor();
+                              }
                          ?>
                     </SELECT>
                   </td>
@@ -244,7 +275,6 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
     <b class="question slogan" onclick="displayForm(5)">Supprimer une pièce</b>
     <b class="question slogan" onclick="displayForm(6)">Supprimer son compte</b>
 
-
     </body>
     <script>
       var forms = document.getElementsByClassName('sloganDescription');
@@ -274,9 +304,22 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
         }
       }
 
-      function onLoadFunction()
+      function listenToSelect()
       {
-        setFontSize();
+        $(document).ready(function () {
+          $("#selectMaison").change(function () {
+              var val = $(this).val();
+              document.location.href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&idMaison=" + val;
+            });
+          });
       }
+
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <?php
+    if(isset($_GET['idMaison']))
+    {
+      echo"<script>displayForm(5)</script>";
+    }
+    ?>
 </html>
