@@ -327,7 +327,7 @@ function recupererLesUtilisateurs($dbh)
 
 function recupererLesCapteurs($dbh)
 {
-	$reponse = $dbh->query('SELECT nom,numeroModele
+	$reponse = $dbh->query('SELECT id,nom,numeroModele
 							FROM type_appareil
 							LIMIT 0 , 50');
 	return $reponse;
@@ -465,6 +465,14 @@ function supprimerPiece($idPiece,$dbh)
 	$req = $dbh->prepare('DELETE FROM piece WHERE id like :id');
 	$req->execute(array(
     	'id' => $idPiece
+		));
+}
+
+function supprimerCapteur($id,$dbh)
+{
+	$req = $dbh->prepare('DELETE FROM type_appareil WHERE id like :id');
+	$req->execute(array(
+    	'id' => $id
 		));
 }
 ?>

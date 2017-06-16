@@ -34,7 +34,7 @@ if($_SESSION['type']!=2)
 					<td><strong>Email</strong></td>
 					<td><strong>Compte</strong></td>
 					<td><strong>Admin</strong></td>
-					<td><strong>Supp.</strong></td>
+					<td><strong>Suppr.</strong></td>
 					</tr>";
 
 $reponse = recupererLesUtilisateurs($dbh);
@@ -67,12 +67,15 @@ $reponse = recupererLesCapteurs($dbh);
 echo "<table class='table2' border=1>
 <tr>
 <td><strong>Type d'appareil</strong></td>
-<td><strong>Numéro de série</strong></td>";
+<td><strong>Numéro de série</strong></td>
+<td><strong>Suppr.</strong></td>";
 while($donnees = $reponse->fetch())
 {
 	echo "<tr>
 	<td>". $donnees['nom'] ."</td>
-	<td>". $donnees['numeroModele'] ."</td>";
+	<td>". $donnees['numeroModele'] ."</td>
+	<td style='text-align:center'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteur.php?id=".$donnees['id']."'><img src='../../img/croix.png'
+	alt='Supprimer' width=20px height=auto /></a></td>";
 }
 echo "</table>";
 ?>
