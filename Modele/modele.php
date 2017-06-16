@@ -236,6 +236,11 @@ http://puaud.eu/appmvc/Controleur/reinitialiser.php?log='.urlencode($donnees2['p
 ---------------
 Ceci est un mail automatique, merci de ne pas y répondre.';
 		mail($destinataire, $sujet, $message, $headers);
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
@@ -244,6 +249,7 @@ function reinitialisationMDP($pseudo,$dbh)
 	$reponse = $dbh->query('SELECT cle FROM users WHERE pseudo=\'' . $pseudo . '\'');
 	$donnees = $reponse->fetch();
 	$reponse->closeCursor();
+	return $donnees;
 }
 
 function changementMDP($pw,$pseudo,$dbh)

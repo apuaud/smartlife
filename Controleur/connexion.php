@@ -28,5 +28,5 @@ else if($row['type'] == 0 && $mdpinsere==$row['password'])
 // Si le mot de passe est incorrect
 else if($mdpinsere != $row['password'])
 {
-	echo "<script>alert('Mot de passe incorrect');</script>";
+	echo "<script>alert('Mot de passe incorrect');document.location.href='http://puaud.eu/appmvc/';</script>";
 }

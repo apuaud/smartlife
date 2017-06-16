@@ -5,7 +5,7 @@ include('../Modele/modele.php');
 
 if(isset($_GET['log']) AND isset($_GET['cle']))
 {
-	reinitialisationMDP($_GET['cle'],$dbh);
+	$donnees = reinitialisationMDP($_GET['log'],$dbh);
 
 	if($donnees['cle'] == $_GET['cle'])
 	{
