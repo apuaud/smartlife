@@ -176,7 +176,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                    <td>
                      <SELECT name="idMaison" id="selectMaison">
                          <?php
-
+                            echo "<option value=''>Sélectionner maison</option>";
                              $reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom
                                  FROM users_logement, logement
                                  WHERE id_user = \''.$_SESSION['id'] .'\'
