@@ -75,7 +75,6 @@ include('../../Modele/modele.php');
 									}
 								}
 						}
-
 						echo"<tr>
 							<td><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Envoyer</button></td>
 							<td><div class='buttonsubmit'><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Ajouter Capteur</a></div></td>
@@ -114,11 +113,10 @@ include('../../Modele/modele.php');
 
 		include_once("../../analyticstracking.php"); ?>
 
-		<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>+</a></span>
-		</div>
+		<a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'><div class='textbox fixed'>+</div></a>
 
 		<div class='spaceForPlus' id='ScrollZone1'>
-			<div class='flecheGauche fixed' onmouseover="ScrollLeft(5, 1)" onmouseout="clearScroll(SL)"><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'><</a></span>
+			<div class='flecheGauche fixed' onmouseover="ScrollLeft(5, 1)" onmouseout="clearScroll(SL)"><</span>
 			</div>
 			<table class="listepiece">
 				<tr>
@@ -127,11 +125,12 @@ include('../../Modele/modele.php');
 
 				while($donnees = $reponse->fetch())
 				{
-					echo "<td class='manon'><div class='textbox'><span><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
-					. $donnees['id'] . "'>" . $donnees['nom'] . "</a></span></div></td>";
+					$selectedHouse = (isset($_GET['maison']) && ($_GET['maison']==$donnees['id'])) ? "selectedHouse" : "textbox";
+					echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
+					. $donnees['id'] . "'><div class=" . $selectedHouse . ">" . $donnees['nom'] . "</div></a></td>";
 				} ?>
 				</tr>
-				<div class='flecheDroite fixed' style='margin-left:82.734%' onmouseover="ScrollRight(5, 1)" onmouseout="clearScroll(SR)"><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>></a></span>
+				<div class='flecheDroite fixed' style='margin-left:82.734%' onmouseover="ScrollRight(5, 1)" onmouseout="clearScroll(SR)">></span>
 				</div>
 			</table>
 
@@ -141,19 +140,16 @@ include('../../Modele/modele.php');
 		<?php
 		$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
 		if(isset($_GET['maison']) && $houseBelongsToUser){
-			echo "<div class='textbox fixed'><span><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'>+</a></span>
-						</div>
-
+			echo "<a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'><div class='textbox fixed'>+</div></a>
 						<div class='spaceForPlus' id='ScrollZone2'><table class='listepiece'><tr>
-						<div class='flecheGauche fixed' onmouseover='ScrollLeft(5, 2)' onmouseout='clearScroll(SL)'><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'><</a></span>
-						</div>";
+						<div class='flecheGauche fixed' onmouseover='ScrollLeft(5, 2)' onmouseout='clearScroll(SL)'><</div>";
 				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh);
 
 				while($donnees = $reponse->fetch())
 				{
 					$reponse2 = recupererLesCapteursDeLaPiece($donnees['id'], $dbh);
 
-					echo "<td><div class='textbox dropdown'>
+					echo "<td><div class='room dropdown' onmouseover='setPositionAndSize.call(this, event)'>
 					<span>" . $donnees['nom'] ."</span>
 					<div class='dropdown-content'><ul>
 							<div class='liste-left'>";
@@ -174,7 +170,7 @@ include('../../Modele/modele.php');
 						</ul></div>
 					</div>
 					</td>
-					<div class='flecheDroite fixed' style='margin-left:82.734%' onmouseover='ScrollRight(5, 2)' onmouseout='clearScroll(SR)'><span ><a style='color:black'href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'>></a></span>
+					<div class='flecheDroite fixed' style='margin-left:82.734%' onmouseover='ScrollRight(5, 2)' onmouseout='clearScroll(SR)'>></span>
 					</div>";
 				}
 			}
@@ -184,6 +180,13 @@ include('../../Modele/modele.php');
 		} ?>
 
 			<script>
+
+				function setPositionAndSize(e)
+				{
+					var affichageCapteur = this.getElementsByClassName('dropdown-content')[0];
+					affichageCapteur.style.width = (this.offsetWidth-10) + 'px';
+					affichageCapteur.style.height = (this.offsetHeight-10) + 'px';
+				}
 				var formulaire = document.getElementById('formulaire');
 
 				function hideFormulaire()
