@@ -80,6 +80,32 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=modifierEmail" method="post">
+               <table class="tableForm" align="center">
+                <tr>
+                  <td><input required  type="text" name="ancienEmail" placeholder="Ancien email">
+                  </td>
+                </tr>
+                <tr>
+                  <td><input required  type="text" name="nouveauEmail" placeholder="Nouvel email">
+                  </td>
+                </tr>
+                <tr>
+                  <td><input required  type="text" name="confirmerEmail" placeholder="Confirmer email">
+                  </td>
+                </tr>
+                <tr>
+                  <td><button class="buttonsubmit" type="submit"> Valider </button>
+                  </td>
+                </tr>
+              </table>
+            </form>
+        </div>
+      </div>
+
+      <div class="sloganDescription">
+        <div class="sloganDescriptionInnerContainer">
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="http://puaud.eu/appmvc/Controleur/action.php?action=modifierMDP" method="post">
                <table class="tableForm" align="center">
                 <tr>
@@ -212,10 +238,12 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
     <b class="question slogan" onclick="displayForm(0)">Ajouter un compte secondaire</b>
     <b class="question slogan" onclick="displayForm(1)">Modifier mon pseudo</b>
-    <b class="question slogan" onclick="displayForm(2)">Modifier mon mot de passe</b>
-    <b class="question slogan" onclick="displayForm(3)">Supprimer une maison</b>
-    <b class="question slogan" onclick="displayForm(4)">Supprimer une pièce</b>
-    <b class="question slogan" onclick="displayForm(5)">Supprimer son compte</b>
+    <b class="question slogan" onclick="displayForm(2)">Modifier mon email</b>
+    <b class="question slogan" onclick="displayForm(3)">Modifier mon mot de passe</b>
+    <b class="question slogan" onclick="displayForm(4)">Supprimer une maison</b>
+    <b class="question slogan" onclick="displayForm(5)">Supprimer une pièce</b>
+    <b class="question slogan" onclick="displayForm(6)">Supprimer son compte</b>
+
 
     </body>
     <script>

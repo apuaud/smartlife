@@ -444,6 +444,14 @@ function verifierMDPactuel($idUtilisateur, $dbh)
 	return $reponse;
 }
 
+function verifierEmailActuel($idUtilisateur, $dbh)
+{
+	$reponse = $dbh->query('SELECT users.email
+	FROM users
+	WHERE users.id=\'' . $idUtilisateur . '\'');
+	return $reponse['email'];
+}
+
 function modifierMDP($idUtilisateur, $nouveauMDP, $dbh)
 {
 	$req = $dbh->prepare('UPDATE users SET password=:password WHERE id like :id');
@@ -473,6 +481,15 @@ function supprimerCapteur($id,$dbh)
 	$req = $dbh->prepare('DELETE FROM type_appareil WHERE id like :id');
 	$req->execute(array(
     	'id' => $id
+		));
+}
+
+function modifierEmail($idUtilisateur, $nouveauMail, $dbh)
+{
+	$req = $dbh->prepare('UPDATE users SET email=:email WHERE id like :id');
+	$req->execute(array(
+		'email' => $nouveauMail,
+    	'id' => $idUtilisateur
 		));
 }
 ?>

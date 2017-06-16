@@ -100,5 +100,9 @@ if(ISSET($_GET['action']))
     case "supprimerPiece":
       include("supprimer_piece.php");
       break;
+
+    case "modifierEmail":
+      include("modifier_email.php");
+      break;
   }
 ?>
