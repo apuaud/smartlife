@@ -34,7 +34,9 @@ include('../../Modele/modele.php');
 							echo "<tr>
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
 
-							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "<span style='font-size:30px'>". $unite ."</td>";
+							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "<span style='font-size:30px'>". $unite ."</td>
+							<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$capteur['id']."'><img src='../../img/croix.png'
+							alt='Supprimer' width=20px height=auto /></a></td>";
 						}
 
 						while($effecteur = $listeEffecteurPiece -> fetch())
@@ -44,11 +46,15 @@ include('../../Modele/modele.php');
 								if($effecteur['type_input'] == "number" AND $effecteur['nom'] == "Climatiseur")
 								{
 									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='15' max='30' placeholder='30' size='30'/><span style='font-size:30px'>°C</span></td>
+									<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+							alt='Supprimer' width=20px height=auto /></a></td>
 							</tr>";
 								}
 								else if($effecteur['type_input'] == "number")
 								{
 									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='0' max='100' placeholder='30' size='30'/><span style='font-size:30px'>%</span></td>
+									<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+							alt='Supprimer' width=20px height=auto /></a></td>
 							</tr>";
 								}
 								else
@@ -56,11 +62,15 @@ include('../../Modele/modele.php');
 									if($effecteur['etatActuel']=='true')
 									{
 										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' checked = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/></td>
+										<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+							alt='Supprimer' width=20px height=auto /></a></td>
 											</tr>";
 									}
 									else
 									{
 										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' placeholder='30' size='30'/></td>
+										<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+							alt='Supprimer' width=20px height=auto /></a></td>
 											</tr>";
 									}
 								}

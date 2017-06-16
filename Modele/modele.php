@@ -492,4 +492,12 @@ function modifierEmail($idUtilisateur, $nouveauMail, $dbh)
     	'id' => $idUtilisateur
 		));
 }
+
+function supprimerCapteurPiece($id,$dbh)
+{
+	$req = $dbh->prepare('DELETE FROM capteur WHERE id like :id');
+	$req->execute(array(
+    	'id' => $id
+		));
+}
 ?>
