@@ -1,6 +1,6 @@
 .parametreBody
 {
-	background-image:url("../img/plan.jpg");
+	background-image:url("http://puaud.eu/appmvc/img/backgroundEspacePerso.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -94,14 +94,13 @@ select:hover
 	transition: 0.5s;
 	padding-bottom: 5px;
 	animation: zoom 4s ease infinite;
+	border-top: solid transparent thin;
+	border-bottom: solid transparent thin;
 }
 
 .slogan:hover
 {
-	color: black;
-	background-color: rgba(255,255,255,0.5);
-	border-top: solid black thin;
-	border-bottom: solid black thin;
+	border-color: white;
 }
 
 .divHori

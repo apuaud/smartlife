@@ -1,5 +1,4 @@
 <div class="container" id="accueil" >
-
 		<p id="logoContainer"><img align="middle"id="logo2" src="http://puaud.eu/appmvc/img/accueil_logo.png"></p>
 			<table id = "barreAccueil" class="caption">
 				<tr style="background-color:rgba(0,0,0,0.5)">
@@ -8,6 +7,13 @@
 					<td id='itemLogo' ><a href="http://puaud.eu/appmvc/index.php" style="text-decoration:none;color:inherit;"></a></td>
 					<td id='itemAccount'class="menuItem" onclick=<?php echo $functionCalledOnAccountClick ?>>Espace personnel</td>
 					<td id='itemAide'class="menuItem">Support</td>
+				</tr>
+				<tr id="ligneServices">
+					<td></td>
+					<td id="levelServices"></td>
+					<td></td>
+					<td></td>
+					<td style="background-color:white"></td>
 				</tr>
 			</table>
 </div>

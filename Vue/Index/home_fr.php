@@ -75,7 +75,7 @@ else
 					<td id="itemPresentation" class="menuItem">Présentation</td>
 					<td id='itemLogo' ></td>
 					<td id='itemAccount'class="menuItem" onclick=<?php echo $functionCalledOnAccountClick ?>>Espace personnel</td>
-					<td id='itemAide'class="menuItem"><a href="http://puaud.eu/appmvc/Controleur/action.php?action=goToSupport" style="text-decoration:none;color:inherit;">Support</a></td>
+					<td id='itemAide'class="menuItem"><a href="http://puaud.eu/appmvc/Controleur/action.php?action=goToSupport&focus1=itemSupport&focus2=&" style="text-decoration:none;color:inherit;">Support</a></td>
 				</tr>
 				<tr id="ligneServices">
 					<td></td>

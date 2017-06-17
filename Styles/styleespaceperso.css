@@ -90,7 +90,6 @@ OPTION:hover
 	cursor:pointer;
 }
 
-
 .room
 {
 	font-size: 20px;
@@ -179,7 +178,7 @@ OPTION:hover
 
 body
 {
-	background-image:url("http://puaud.eu/appmvc/img/maison.png");
+	background-image:url("http://puaud.eu/appmvc/img/backgroundEspacePerso.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;

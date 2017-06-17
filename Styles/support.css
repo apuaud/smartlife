@@ -29,11 +29,13 @@
 	float: right;
 }
 
-#itemAide
+#ligneServices td
 {
-	background-color: white;
-	color: black;
+	background-color: transparent;
+	height: 2px;
+	transition:0.5s;
 }
+
 .login
 {
 	bottom: 0px;
@@ -62,7 +64,6 @@ body
 	background-image: url("http://puaud.eu/appmvc/img/faq.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	font-size: 20px;
 	color: white;
 	width: auto;
 	height: 100%;
@@ -111,6 +112,11 @@ body
 	font-family: CenturyGothic,serif;
 	cursor:pointer; /* apparence du curseur */
 	transition: 1s;
+	color: white;
+	width: 20%;
+	height: 60px;
+	text-align: center;
+	font-size: 25px;
 }
 
 .menuItem:hover{
@@ -118,14 +124,7 @@ body
 	background-color: white;
 }
 
-td
-{
-	color: white;
-	width: 20%;
-	height: 60px;
-	text-align: center;
-	font-size: 25px;
-}
+
 
 #ligneServices td
 {

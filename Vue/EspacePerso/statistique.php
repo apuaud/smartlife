@@ -27,12 +27,12 @@ include('../../Modele/modele.php');
 		{
 			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
 			{
-				include("TestHeader.php");
+				include("../Header/headerUser.php");
 			}
 			else if($_SESSION['type']==2)
 			{
 
-				include("HeaderAdmin.php");
+				include("../Header/headerAdmin.php");
 			}
 		}
 
@@ -43,7 +43,7 @@ include('../../Modele/modele.php');
 
 		include_once("../../analyticstracking.php"); ?>
 <body style="background-image:url('http://puaud.eu/appmvc/img/admin.jpeg')">
-    
+
 <div class=op>
 <h2 class="titre1">Données brutes</h2>
 </div>
@@ -79,7 +79,7 @@ while($donnees = $reponse -> fetch())
 
 <?php
 /*
-$myData = new pData(); 
+$myData = new pData();
 $myData->addPoints($a1);
 $myPicture = new pImage(700,450,$myData);
 $myPicture->setFontProperties(array("FontName"=>"../../fonts/CenturyGothic.ttf","FontSize"=>11));

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../../db_connect.php');
-include("../EspacePerso/HeaderAdmin.php");
+include("../Header/headerAdmin.php");
 include("../../Modele/modele.php");
 
 if($_SESSION['type']!=2)

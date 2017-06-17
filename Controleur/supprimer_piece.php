@@ -10,7 +10,7 @@ if (isset($_POST['idPiece']))
 
   supprimerPiece($idPiece, $dbh);
 	echo "<script>alert('Votre pièce a bien été supprimée');
-	document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre';</script>";
+	document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 }
 else
 {

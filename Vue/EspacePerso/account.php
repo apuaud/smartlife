@@ -110,10 +110,12 @@ include('../../Modele/modele.php');
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
 
 							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "<span style='font-size:30px'>". $unite ."</td>
-							<td style='text-align:left'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/statistique.php?idCapteur=" . $capteur['id'] . "'><img src='https://www.alterjustice.org/images/ico/icone_web-statistiques-coul.svg'
-							alt='Statistique' width=20px height=auto /></a></td>
-							<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$capteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
-							alt='Supprimer' width=20px height=auto /></a></td>";
+							<td style='text-align:left'>
+								<a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$capteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
+								alt='Supprimer'  width=20px height=auto /></a>
+								<a href='http://puaud.eu/appmvc/Vue/EspacePerso/statistique.php?idCapteur=" . $capteur['id'] . "'><img src='https://www.alterjustice.org/images/ico/icone_web-statistiques-coul.svg'
+								alt='Statistique' style='margin-left:10px' width=20px height=auto /></a>
+							</td>";
 						}
 
 						while($effecteur = $listeEffecteurPiece -> fetch())
@@ -194,7 +196,7 @@ include('../../Modele/modele.php');
 						"
 						<tr>
 							<td style='text-align:center'><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Envoyer</button></td>
-							<td style='text-align:right'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?ajoutCapteur=true&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'><div class='divsubmit'>Ajouter Capteur</div></a></td>
+							<td style='text-align:right'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&ajoutCapteur=true&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'><div class='divsubmit'>Ajouter Capteur</div></a></td>
 						</tr>
 					</table>
 					</form>
@@ -215,12 +217,12 @@ include('../../Modele/modele.php');
 		{
 			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
 			{
-				include("TestHeader.php");
+				include("../Header/headerUser.php");
 			}
 			else if($_SESSION['type']==2)
 			{
 
-				include("HeaderAdmin.php");
+				include("../Header/headerAdmin.php");
 			}
 		}
 
@@ -246,7 +248,7 @@ include('../../Modele/modele.php');
 					if(isset($_GET['maison']) && ($_GET['maison']==$donnees['id']))
 					{
 						$selectedHouse = "selectedHouse";
-						echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
+						echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&maison="
 						. $donnees['id'] . "'><div class=" . $selectedHouse . ">" . $donnees['nom'] . "</div></a></td>";
 					}
 
@@ -259,7 +261,7 @@ include('../../Modele/modele.php');
 					if(!isset($_GET['maison']) || ($_GET['maison']!=$donnees['id']))
 					{
 						$selectedHouse = "textbox";
-						echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
+						echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&maison="
 						. $donnees['id'] . "'><div class=" . $selectedHouse . ">" . $donnees['nom'] . "</div></a></td>";
 					}
 
@@ -302,7 +304,7 @@ include('../../Modele/modele.php');
 					{
 						echo "<li>" . $donnees3['etatActuel'] . "</li>";
 					}
-					echo "</div><li style='text-align:right;'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison=". $_GET['maison'] ."&piece=" . $donnees['id'] . "'>
+					echo "</div><li style='text-align:right;'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&maison=". $_GET['maison'] ."&piece=" . $donnees['id'] . "'>
 					<img class='minilogo' src='http://puaud.eu/appmvc/img/reglage.png' onclick='displaySetCaptors()'></a></li>
 						</ul></div>
 					</div>
@@ -329,6 +331,8 @@ include('../../Modele/modele.php');
 				}
 			 ?>
 			<script>
+
+
 
 				function setPositionAndSize(e)
 				{

@@ -252,11 +252,11 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
   		{
   			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
   			{
-  				include("../Vue/EspacePerso/TestHeader.php");
+  				include("../Vue/Header/headerUser.php");
   			}
   			else if($_SESSION['type']==2)
   			{
-  				include("../Vue/EspacePerso/HeaderAdmin.php");
+  				include("../Vue/Header/headerAdmin.php");
   			}
   		}
   		if(!isset($_SESSION['id']) || $_SESSION['type']==0)
@@ -271,14 +271,15 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
     <b class="question slogan" onclick="displayForm(3)">Modifier mon mot de passe</b>
     <b class="question slogan" onclick="displayForm(4)">Supprimer une maison</b>
     <b class="question slogan" onclick="displayForm(5)">Supprimer une pièce</b>
-    <b class="question slogan" onclick="displayForm(6)">Supprimer son compte</b>
+    <b class="question slogan" onclick="displayForm(6)">Supprimer mon compte</b>
 
     </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
     <script>
       var forms = document.getElementsByClassName('sloganDescription');
       var questions = document.getElementsByClassName('question');
-      var questionBottomSpace = 50;
-      var spaceBetweenQuestions = 80;
+      var questionBottomSpace = 10;
       var spaceBetweenHeaderAndFooter = $(window).height()-66-80-40-50;
       function hideForms()
       {
@@ -295,8 +296,12 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
       function setFontSize()
       {
+        questionBottomSpace = 40;
+        spaceBetweenHeaderAndFooter = $(window).height()-66-80-questionBottomSpace;
+        spaceBetweenQuestions = spaceBetweenHeaderAndFooter/8;
         for(var questionNum = questions.length-1 ; questionNum >= 0  ; questionNum--)
         {
+          questions[questionNum].style.fontSize=40*$(window).width()/1440 + "px";
           questions[questionNum].style.bottom = questionBottomSpace +"px";
           questionBottomSpace+=spaceBetweenQuestions;
         }

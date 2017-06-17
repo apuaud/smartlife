@@ -53,7 +53,7 @@ function callRegistration()
 
 function callAccount()
 {
-  window.location="http://puaud.eu/appmvc/Vue/EspacePerso/account.php";
+  window.location="http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&";
 }
 
 function displayFormulaire()

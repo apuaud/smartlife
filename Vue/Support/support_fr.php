@@ -113,7 +113,23 @@ else
 				</div>
 			</div>
 
-    	<?php include("../Vue/Support/header.php") ?>
+    	<?php
+			if(isset($_SESSION['id']))
+			{
+				if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
+				{
+					include("../Vue/Header/headerUser.php");
+				}
+				else if($_SESSION['type']==2)
+				{
+
+					include("../Vue/Header/headerAdmin.php");
+				}
+			}
+			else {
+				include("../Vue/Header/headerNotConnected.php");
+			}
+			?>
 
   		<div style="margin:0;padding:0;cursor:pointer;">
       	<p class = "slogan" onclick="displayDescriptionNum(this,6)"><b>Nous contacter</b></p>

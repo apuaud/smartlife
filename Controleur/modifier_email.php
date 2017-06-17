@@ -19,12 +19,12 @@ if (isset($_POST['ancienEmail']) AND isset($_POST['nouveauEmail']))
 		{
 			modifierEmail($idUtilisateur, $nouvelEmail, $dbh);
 			echo "<script>alert('Votre mot de passe a bien été modifié.');
-			document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre';</script>";
+			document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 		}
 		else
 		{
 			echo "<script>alert('Cet email est déjà associé à un compte sur le site ! Veuillez en choisir un autre.');
-			document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre';</script>";
+			document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 		}
 	}
 	else

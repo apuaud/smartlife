@@ -92,5 +92,9 @@ if(ISSET($_GET['action']))
     case "modifierEmail":
       include("modifier_email.php");
       break;
+
+    case "goToAdministration":
+      include("../Vue/Admin/admin.php");
+      break;
   }
 ?>
