@@ -110,6 +110,8 @@ include('../../Modele/modele.php');
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
 
 							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "<span style='font-size:30px'>". $unite ."</td>
+							<td style='text-align:left'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/statistique.php?idCapteur=" . $capteur['id'] . "'><img src='https://www.alterjustice.org/images/ico/icone_web-statistiques-coul.svg'
+							alt='Statistique' width=20px height=auto /></a></td>
 							<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$capteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
 							alt='Supprimer' width=20px height=auto /></a></td>";
 						}
