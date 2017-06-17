@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once("../../phpChart/conf.php"); // this must be include in every page that uses phpChart.
 include("../../pChart/class/pDraw.class.php");
 include("../../pChart/class/pImage.class.php");
 include("../../pChart/class/pData.class.php");
@@ -15,9 +14,11 @@ include('../../Modele/modele.php');
 	<link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleAdmin.css" />
 	<title>Statistiques</title>
 	<style>
-	#__chart1
+	.graphique
 	{
-		margin-left: 25%;
+		width: 60%;
+		height: 60%;
+		margin-left: 20%;
 	}
 	</style>
 </head>
@@ -44,6 +45,59 @@ include('../../Modele/modele.php');
 		include_once("../../analyticstracking.php"); ?>
 <body style="background-image:url('http://puaud.eu/appmvc/img/admin.jpeg')">
 
+<?php
+
+$reponse = $dbh->query('SELECT statistique.etat,statistique.time
+FROM statistique
+WHERE statistique.id_capteur=\'' . $_GET['idCapteur'] . '\'');
+
+$a1 = array();
+$a2 = array();
+$i = 10;
+$texte = "";
+while($donnees = $reponse -> fetch())
+{
+	array_push($a1, $donnees['etat']);
+	if($i%10 == 0)
+	{
+		array_push($a2, $donnees['time']);
+	}
+	else
+	{
+		array_push($a2, VOID);
+	}
+	$texte = $texte . "<tr>
+		<td>". $donnees['time'] ."</td>
+		<td>". $donnees['etat'] . "</td>";
+	$i = $i+1;
+}
+?>
+
+<div class=op>
+<h2 class="titre1">Graphique</h2>
+</div>
+
+<?php
+
+$myData = new pData(); 
+$myData->addPoints($a1,'Valeur');
+$myData->setAxisName(0,"Valeur relevée");
+$myData->addPoints($a2,'Labels');
+$myData->setSerieDescription("Labels","Date");
+$myData->setAbscissa("Labels");
+$myPicture = new pImage(1200,750,$myData);
+$myPicture->setFontProperties(array("FontName"=>"../../fonts/CenturyGothic.ttf","FontSize"=>11));
+$myPicture->setGraphArea(70,70,1150,700);
+$myPicture->drawText(600,55,"Statistiques du capteur",array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));
+$AxisBoundaries = array(0=>array("Min"=>0,"Max"=>100));
+$ScaleSettings  = array("Mode"=>SCALE_MODE_MANUAL,"ManualScale"=>$AxisBoundaries,"DrawSubTicks"=>TRUE,"DrawArrows"=>TRUE,"ArrowSize"=>6);
+$myPicture->drawScale($ScaleSettings);
+$myPicture->drawSplineChart();
+$myPicture->Render("basic.png");
+
+?>
+<img src='basic.png' alt="Graphique" class="graphique" />
+
 <div class=op>
 <h2 class="titre1">Données brutes</h2>
 </div>
@@ -53,47 +107,10 @@ include('../../Modele/modele.php');
 		<td><strong>Date</strong></td>
 		<td><strong>Etat</strong></td>
 	</tr>
-
-<?php
-
-$reponse = $dbh->query('SELECT statistique.etat,statistique.time
-FROM statistique
-WHERE statistique.id_capteur=\'' . $_GET['idCapteur'] . '\'');
-
-$a1 = array();
-
-while($donnees = $reponse -> fetch())
-{
-	array_push($a1, $donnees['etat']);
-	echo "<tr>
-		<td>". $donnees['time'] ."</td>
-		<td>". $donnees['etat'] . "</td>";
-}
-?>
+<?php echo $texte . "<br />" ?>
 </table>
 
 
-<div class=op>
-<h2 class="titre1">Graphique</h2>
-</div>
-
-<?php
-/*
-$myData = new pData();
-$myData->addPoints($a1);
-$myPicture = new pImage(700,450,$myData);
-$myPicture->setFontProperties(array("FontName"=>"../../fonts/CenturyGothic.ttf","FontSize"=>11));
-$myPicture->setGraphArea(60,40,670,190);
-$myPicture->drawScale();
-$myPicture->drawSplineChart();
-$myPicture->Render("basic.png");
-*/
-
-$pc = new C_PhpChartX(array($a1),'basic_chart');
-$pc->set_title(array('text'=>'Statistiques du capteur'));
-$pc->set_animate(true);
-$pc->draw();
-?>
 
 </body>
 </html>
