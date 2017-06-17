@@ -371,6 +371,15 @@ function recupererLesCapteursDeLaPiece($idPiece, $dbh)
 
 	return $reponse;
 }
+function recupererLesCapteursEtEffecteursDeLaPiece($idPiece, $dbh)
+{
+	$reponse = $dbh->query('SELECT type_appareil.nom, capteur.etatActuel, type_appareil.type_input, capteur.id
+	FROM type_appareil,capteur
+	WHERE capteur.id_piece=\'' . $idPiece . '\'
+	AND capteur.id_type_appareil=type_appareil.id');
+
+	return $reponse;
+}
 
 function recupererLesEffecteursDeLaPiece($idPiece, $dbh)
 {
@@ -384,11 +393,30 @@ function recupererLesEffecteursDeLaPiece($idPiece, $dbh)
 
 function recupererLEtatDesCapteursDeLaPiece($idPiece, $dbh)
 {
-	$reponse3 = $dbh->query('SELECT capteur.etatActuel
+	$reponse3 = $dbh->query('SELECT capteur.etatActuel, type_appareil.nom
 	FROM type_appareil,capteur
 	WHERE capteur.id_piece=\'' . $idPiece . '\'
 	AND capteur.id_type_appareil=type_appareil.id
 	AND type_appareil.type_input = "0"');
+	return $reponse3;
+}
+
+function recupererLEtatDesEffecteursDeLaPiece($idPiece, $dbh)
+{
+	$reponse3 = $dbh->query('SELECT capteur.etatActuel, type_appareil.nom
+	FROM type_appareil,capteur
+	WHERE capteur.id_piece=\'' . $idPiece . '\'
+	AND capteur.id_type_appareil=type_appareil.id
+	AND type_appareil.type_input <> "0"');
+	return $reponse3;
+}
+
+function recupererLEtatDesCapteursEtEffecteursDeLaPiece($idPiece, $dbh)
+{
+	$reponse3 = $dbh->query('SELECT capteur.etatActuel
+	FROM type_appareil,capteur
+	WHERE capteur.id_piece=\'' . $idPiece . '\'
+	AND capteur.id_type_appareil=type_appareil.id');
 	return $reponse3;
 }
 

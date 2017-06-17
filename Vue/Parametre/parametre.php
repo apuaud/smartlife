@@ -312,7 +312,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
         $(document).ready(function () {
           $("#selectMaison").change(function () {
               var val = $(this).val();
-              document.location.href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&idMaison=" + val;
+              document.location.href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&idMaison=" + val;
             });
           });
       }

@@ -282,23 +282,60 @@ include('../../Modele/modele.php');
 
 				while($donnees = $reponse->fetch())
 				{
-					$reponse2 = recupererLesCapteursDeLaPiece($donnees['id'], $dbh);
-
 					echo "<td><div class='room dropdown' onmouseover='setPositionAndSize.call(this, event)'>
 					<span>" . $donnees['nom'] ."</span>
 					<div class='dropdown-content'><ul>
 							<div class='liste-left'>";
 
-					$reponse3 = recupererLEtatDesCapteursDeLaPiece($donnees['id'], $dbh);
-
+					$reponse2 = recupererLesCapteursDeLaPiece($donnees['id'], $dbh);
 					while($donnees2 = $reponse2->fetch())
 					{
 						echo "<li>".$donnees2['nom']."</li>";
 					}
-					echo "</div><div class='liste-right'>";
+
+					$reponse3 = recupererLesEffecteursDeLaPiece($donnees['id'], $dbh);
 					while($donnees3 = $reponse3->fetch())
 					{
-						echo "<li>" . $donnees3['etatActuel'] . "</li>";
+						echo "<li>".$donnees3['nom']."</li>";
+					}
+
+					echo "</div><div class='liste-right'>";
+
+					$reponse4 = recupererLEtatDesCapteursDeLaPiece($donnees['id'], $dbh);
+					while($donnees4 = $reponse4->fetch())
+					{
+						if($donnees4['nom']=="Mouvement")
+						{
+							if($donnees4['etatActuel']==0)
+							{
+								echo "<li>X</li>";
+							}
+							else {
+								echo "<li>✓</li>";
+							}
+						}
+						else
+						{
+							echo "<li>" . $donnees4['etatActuel'] . "</li>";
+						}
+					}
+
+					$reponse5 = recupererLEtatDesEffecteursDeLaPiece($donnees['id'], $dbh);
+					while($donnees5 = $reponse5->fetch())
+					{
+						if($donnees5['nom']=="Volets")
+						{
+							if($donnees5['etatActuel']=="false")
+							{
+								echo "<li>X</li>";
+							}
+							else {
+								echo "<li>✓</li>";
+							}
+						}
+						else {
+							echo "<li>" . $donnees5['etatActuel'] . "</li>";
+						}
 					}
 					echo "</div><li style='text-align:right;'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&maison=". $_GET['maison'] ."&piece=" . $donnees['id'] . "'>
 					<img class='minilogo' src='http://puaud.eu/appmvc/img/reglage.png' onclick='displaySetCaptors()'></a></li>

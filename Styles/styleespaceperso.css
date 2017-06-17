@@ -242,6 +242,7 @@ body
 		visibility: hidden;
 	  opacity: 0;
 	  transition: visibility 0s, opacity 0.5s linear;
+		overflow-y: scroll;
 }
 
 .dropdown:hover .dropdown-content
