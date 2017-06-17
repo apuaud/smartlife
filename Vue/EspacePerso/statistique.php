@@ -79,6 +79,20 @@ while($donnees = $reponse -> fetch())
 
 <?php
 
+$reponse = $dbh->query('SELECT piece.nom AS piece , logement.nom AS logement, type_appareil.nom AS type_appareil
+FROM piece, logement, type_appareil, capteur
+WHERE capteur.id=\'' . $_GET['idCapteur'] . '\'
+AND capteur.id_type_appareil = type_appareil.id
+AND capteur.id_piece = piece.id
+AND piece.id_logement = logement.id');
+
+while($donnees = $reponse -> fetch())
+{
+	$piece = $donnees['piece'];
+	$logement = $donnees['logement'];
+	$type_appareil = $donnees['type_appareil'];
+}
+
 $myData = new pData(); 
 $myData->addPoints($a1,'Valeur');
 $myData->setAxisName(0,"Valeur relevée");
@@ -88,7 +102,8 @@ $myData->setAbscissa("Labels");
 $myPicture = new pImage(1200,750,$myData);
 $myPicture->setFontProperties(array("FontName"=>"../../fonts/CenturyGothic.ttf","FontSize"=>11));
 $myPicture->setGraphArea(70,70,1150,700);
-$myPicture->drawText(600,55,"Statistiques du capteur",array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));
+$myPicture->drawText(630,35,$logement . " - " . $piece,array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));
+$myPicture->drawText(630,70,"Statistiques du capteur " . $type_appareil,array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));
 $AxisBoundaries = array(0=>array("Min"=>0,"Max"=>100));
 $ScaleSettings  = array("Mode"=>SCALE_MODE_MANUAL,"ManualScale"=>$AxisBoundaries,"DrawSubTicks"=>TRUE,"DrawArrows"=>TRUE,"ArrowSize"=>6);
 $myPicture->drawScale($ScaleSettings);
