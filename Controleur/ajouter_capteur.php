@@ -4,13 +4,13 @@ include('../db_connect.php');
 include('../Modele/modele.php');
 include("../analyticstracking.php");
 
-if(isset($_POST['nomcapteur']) AND isset($_POST['numeroserie']))
+if(isset($_GET['idAppareil']) AND isset($_GET['numeroSerie']))
 {
-	$nomcapteur = htmlspecialchars($_POST["nomcapteur"]);
-	$numeroserie = htmlspecialchars($_POST["numeroserie"]);
+	$nomcapteur = htmlspecialchars($_GET['idAppareil']);
+	$numeroserie = htmlspecialchars($_GET['numeroSerie']);
 
 	ajouterCapteur($nomcapteur,$numeroserie,$_GET['piece'],$dbh);
-	echo "<script>document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php'</script>";
+	echo "<script>alert('Appareil ajouté');document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?piece=" . $_GET['piece'] . "&maison=" . $_GET['maison'] . "'</script>";
 }
 else
 {

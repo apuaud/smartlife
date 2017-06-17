@@ -184,10 +184,8 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
                              while($donnees = $reponse->fetch())
                              {
-
-                                  $selected = (isset($_GET['idMaison']) && ($_GET['idMaison'] == $donnees['id_logement'])) ? "selected" : "";
-
-                                 echo "<OPTION " .$selected . " value=" . $donnees['id_logement']. ">" . $donnees['nom'];
+                                $selected = (isset($_GET['idMaison']) && ($_GET['idMaison'] == $donnees['id_logement'])) ? "selected" : "";
+                                echo "<OPTION " .$selected . " value=" . $donnees['id_logement']. ">" . $donnees['nom'];
                              }
                              $reponse->closeCursor();
                          ?>

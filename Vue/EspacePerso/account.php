@@ -13,15 +13,90 @@ include('../../Modele/modele.php');
 		</head>
 
 		<body class="manonbody">
+			<div class='formulaire' id='formulaireAjoutMaison'>
+				<form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutMaison" method='post'>
+				<table id='login' align='center'>
+					<tr >
+						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonetexte" type="text" name="nom-maison" pattern=".{1,}" title="Doit contenir au moins un caractère" placeholder="Nom de la maison"  />
+						</td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonetexte" type="text" name="adresse" pattern=".{1,}" title="Doit contenir au moins un caractère" placeholder="Adresse"  />
+						</td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonetexte" type="text" pattern="[0-9]{5}" title="5 chiffres"name="codepostal" placeholder="Code postal"  />
+						</td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonetexte" type="text" pattern="[a-zA-Z]{1,}" title="Ne peut conternir que des lettres" name="ville" placeholder="Ville"  />
+						</td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonetexte" type="text" name="pays" pattern="[a-zA-Z]{1,}" title="Ne peut conternir que des lettres" placeholder="Pays"  />
+						</td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie"  />
+							<input required class="zonenombre" type="number" name="nbhab" placeholder="Nb habitants"  />
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">
+							<button class='buttonsubmit' type="submit"> Ajouter </button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div class='formulaire' id='formulaireAjoutPiece'>
+<form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutPiece&maison=<?php echo $_GET['maison'] ?>" method="post"/>
+	<table id='login' align='center'>
+				<tr >
+					<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonetexte" type="text" name="nom-piece" placeholder="Nom de la pièce"/>
+					</td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonenombre" type="number" name="etage" placeholder="Etage"/>
+						<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie"/>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center">
+						<button class='buttonsubmit' type="submit"> Ajouter </button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
 			<?php
-			$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
+			if(isset($_GET['maison']))
+			{
+				$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
+			}
 			$roomBelongsToHouse =true;
 			if(isset($_GET['maison']) && isset($_GET['piece']) && $houseBelongsToUser && $roomBelongsToHouse)
 			{
 				$listeCapteurPiece = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
 				$listeEffecteurPiece = recupererLesEffecteursDeLaPiece($_GET['piece'], $dbh);
 
-				echo "<div id='formulaire'>
+				echo "<div class='formulaire'>
 					<form action='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "' method='post'>
 					<table id='login' align='center'>
 						<tr>
@@ -35,7 +110,7 @@ include('../../Modele/modele.php');
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
 
 							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "<span style='font-size:30px'>". $unite ."</td>
-							<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$capteur['id']."'><img src='../../img/croix.png'
+							<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$capteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
 							alt='Supprimer' width=20px height=auto /></a></td>";
 						}
 
@@ -46,14 +121,14 @@ include('../../Modele/modele.php');
 								if($effecteur['type_input'] == "number" AND $effecteur['nom'] == "Climatiseur")
 								{
 									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='15' max='30' placeholder='30' size='30'/><span style='font-size:30px'>°C</span></td>
-									<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+									<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
 							alt='Supprimer' width=20px height=auto /></a></td>
 							</tr>";
 								}
 								else if($effecteur['type_input'] == "number")
 								{
 									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='0' max='100' placeholder='30' size='30'/><span style='font-size:30px'>%</span></td>
-									<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+									<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."&maison=" . $_GET['maison'] ."&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
 							alt='Supprimer' width=20px height=auto /></a></td>
 							</tr>";
 								}
@@ -62,22 +137,62 @@ include('../../Modele/modele.php');
 									if($effecteur['etatActuel']=='true')
 									{
 										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' checked = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/></td>
-										<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+										<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."&maison=" . $_GET['maison'] ."&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
 							alt='Supprimer' width=20px height=auto /></a></td>
 											</tr>";
 									}
 									else
 									{
 										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' placeholder='30' size='30'/></td>
-										<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=".$effecteur['id']."'><img src='../../img/croix.png'
+										<td style='text-align:left'><a href='http://puaud.eu/appmvc/Controleur/supprimer_capteurpiece.php?id=" . $effecteur['id'] . "&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='http://puaud.eu/appmvc/img/croix.png'
 							alt='Supprimer' width=20px height=auto /></a></td>
 											</tr>";
 									}
 								}
 						}
-						echo"<tr>
-							<td><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Envoyer</button></td>
-							<td><div class='buttonsubmit'><a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutCapteur&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Ajouter Capteur</a></div></td>
+						if(isset($_GET['ajoutCapteur']))
+						{
+							echo "
+							<tr>
+								<td>
+								<SELECT name='nomcapteur' id='selectAjoutCapteur' dir='rtl'>";
+										echo "<OPTION value=''>Type appareil";
+										$reponse = $dbh->query('SELECT ALL id,nom,numeroModele,type_input
+												FROM type_appareil');
+										while($donnees = $reponse->fetch())
+										{
+											if(isset($_GET['idAppareil'])&&($donnees['id']==$_GET['idAppareil']))
+											{
+												echo "<OPTION selected value=" . $donnees['id']. ">" . $donnees['nom'];
+											}
+											else {
+												echo "<OPTION value=" . $donnees['id']. ">" . $donnees['nom'] ;
+											}
+										}
+										$reponse->closeCursor();
+							$numeroSerie = (isset($_GET['numeroSerie'])&&($_GET['numeroSerie']!='')) ? $_GET['numeroSerie'] : 'Numéro de série';
+							echo "
+									</SELECT>
+								</td>
+								<td>
+									<input required id='numeroSerieInput' class='zonetexte2'type='text' name='numeroserie' placeholder='" . $numeroSerie . "' size=70/>
+								</td>";
+
+								echo"<td style='text-align:left'>
+										<a id='addCapteur'>
+											<img src='http://puaud.eu/appmvc/img/plus.png' alt='Ajouter' width=20px height=auto />
+										</a>
+										</td>";
+
+							echo"
+							</tr>";
+						}
+
+						echo
+						"
+						<tr>
+							<td style='text-align:center'><button class='buttonsubmit' type='submit' href='http://puaud.eu/appmvc/Controleur/action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'>Envoyer</button></td>
+							<td style='text-align:right'><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?ajoutCapteur=true&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "'><div class='divsubmit'>Ajouter Capteur</div></a></td>
 						</tr>
 					</table>
 					</form>
@@ -102,6 +217,7 @@ include('../../Modele/modele.php');
 			}
 			else if($_SESSION['type']==2)
 			{
+
 				include("HeaderAdmin.php");
 			}
 		}
@@ -113,7 +229,7 @@ include('../../Modele/modele.php');
 
 		include_once("../../analyticstracking.php"); ?>
 
-		<a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutMaison'><div class='textbox fixed'>+</div></a>
+		<div class='textbox fixed' onclick="display('formulaireAjoutMaison')">+</div>
 
 		<div class='spaceForPlus' id='ScrollZone1'>
 			<div class='flecheGauche fixed' onmouseover="ScrollLeft(5, 1)" onmouseout="clearScroll(SL)"><</span>
@@ -121,26 +237,45 @@ include('../../Modele/modele.php');
 			<table class="listepiece">
 				<tr>
 				<?php
-				$reponse = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
+				$maisonSelectionnee = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
 
-				while($donnees = $reponse->fetch())
+				while($donnees = $maisonSelectionnee->fetch())
 				{
-					$selectedHouse = (isset($_GET['maison']) && ($_GET['maison']==$donnees['id'])) ? "selectedHouse" : "textbox";
-					echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
-					. $donnees['id'] . "'><div class=" . $selectedHouse . ">" . $donnees['nom'] . "</div></a></td>";
-				} ?>
+					if(isset($_GET['maison']) && ($_GET['maison']==$donnees['id']))
+					{
+						$selectedHouse = "selectedHouse";
+						echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
+						. $donnees['id'] . "'><div class=" . $selectedHouse . ">" . $donnees['nom'] . "</div></a></td>";
+					}
+
+				}
+
+				$maisonsNonSelectionnees = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
+
+				while($donnees = $maisonsNonSelectionnees->fetch())
+				{
+					if(!isset($_GET['maison']) || ($_GET['maison']!=$donnees['id']))
+					{
+						$selectedHouse = "textbox";
+						echo "<td><a href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison="
+						. $donnees['id'] . "'><div class=" . $selectedHouse . ">" . $donnees['nom'] . "</div></a></td>";
+					}
+
+				}
+
+				?>
 				</tr>
 				<div class='flecheDroite fixed' style='margin-left:82.734%' onmouseover="ScrollRight(5, 1)" onmouseout="clearScroll(SR)">></span>
 				</div>
 			</table>
 
 		</div>
-			<?php $reponse->closeCursor(); ?>
+			<?php $maisonsNonSelectionnees->closeCursor();
+						$maisonSelectionnee->closeCursor();?>
 
 		<?php
-		$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
 		if(isset($_GET['maison']) && $houseBelongsToUser){
-			echo "<a href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAjoutPiece&maison=" . $_GET['maison'] . "'><div class='textbox fixed'>+</div></a>
+			echo "<div class='textbox fixed' onclick=\"display('formulaireAjoutPiece')\">+</div>
 						<div class='spaceForPlus' id='ScrollZone2'><table class='listepiece'><tr>
 						<div class='flecheGauche fixed' onmouseover='ScrollLeft(5, 2)' onmouseout='clearScroll(SL)'><</div>";
 				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh);
@@ -179,6 +314,18 @@ include('../../Modele/modele.php');
 			header('Location: http://puaud.eu/appmvc/Vue/Error/error.php?error=notYourHouse');
 		} ?>
 
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+			<?php
+				if(isset($_GET['maison'])&&isset($_GET['piece'])&&isset($_GET['ajoutCapteur']))
+				{
+					include("listenToTypeAppareilJS.php");
+				}
+				if(isset($_GET['maison'])&&isset($_GET['piece'])&&isset($_GET['ajoutCapteur'])&&isset($_GET['idAppareil']))
+				{
+					include("listenToNumeroSerieJS.php");
+				}
+			 ?>
 			<script>
 
 				function setPositionAndSize(e)
@@ -187,16 +334,23 @@ include('../../Modele/modele.php');
 					affichageCapteur.style.width = (this.offsetWidth-10) + 'px';
 					affichageCapteur.style.height = (this.offsetHeight-10) + 'px';
 				}
-				var formulaire = document.getElementById('formulaire');
+				var formulaires = document.getElementsByClassName('formulaire');
 
 				function hideFormulaire()
 				{
-					formulaire.style.display="none";
+					for(var i = 0 ; i < formulaires.length ; i++)
+					{
+						formulaires[i].style.display="none";
+					}
 				}
 
 				var SR;
 				var SL;
 
+				function display(id)
+				{
+					document.getElementById(id).style.display = 'block';
+				}
 				function SRight(numero)
 				{
 					document.getElementById('ScrollZone' + numero).scrollLeft+=2;

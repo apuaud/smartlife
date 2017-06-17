@@ -33,24 +33,12 @@ if(ISSET($_GET['action']))
       include("support.php");
       break;
 
-    case "goToAjoutMaison" :
-      include("../Vue/EspacePerso/add_house.php");
-      break;
-
     case "validerAjoutMaison" :
       include("ajouter_maison.php");
       break;
 
-    case "goToAjoutPiece" :
-      include("../Vue/EspacePerso/add_room.php");
-      break;
-
     case "validerAjoutPiece" :
       include("ajouter_piece.php");
-      break;
-
-    case "goToAjoutCapteur" :
-      include("../Vue/EspacePerso/add_capteur.php");
       break;
 
     case "validerAjoutCapteur" :

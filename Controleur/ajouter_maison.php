@@ -19,7 +19,9 @@ if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['co
 
 	lienUtilisateurLogement($_SESSION['id'],$dbh);
 
-	echo "<script>alert('Maison ajoutée !');document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php';</script>";
+	$idMaison = getNewId($dbh);
+
+	echo "<script>alert('Maison ajoutée !');document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?maison=" . $idMaison . "';</script>";
 }
 
 else

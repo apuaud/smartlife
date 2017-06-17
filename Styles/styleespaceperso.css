@@ -2,9 +2,60 @@
 {
 	font-family: 'Century';
 	src: url();
-
 }
 
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: transparent; /* fallback color if gradients are not supported */
+    background-position: center right;
+    background-repeat: no-repeat;
+		border: none;
+    color: rgba(255,255,255,0.8);
+		font-size: 30px;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+		width: 300px;
+}
+
+#addCapteur
+{
+	display: none;
+}
+
+#addCapteur:hover
+{
+	cursor: pointer;
+}
+
+
+select:focus
+{
+	outline: none;
+}
+
+select:hover
+{
+	cursor: pointer;
+}
+OPTION
+{
+	text-align:right;
+}
+OPTION:hover
+{
+	cursor: pointer;
+}
 .listepiece
 {
 	border-collapse: separate;
@@ -13,7 +64,10 @@
 	margin-left: 50px;
 }
 
-
+.border-bottom
+{
+	border-bottom: solid white thin;
+}
 .textbox
 {
 	font-size: 20px;
@@ -219,6 +273,7 @@ body
 	border: solid white thin;
 	transition: 0.5s;
 	text-align: center;
+	margin-top: 30px;
 }
 
 .buttonsubmit:hover
@@ -232,9 +287,45 @@ body
 	background-color: white;
 	color:black;
 }
+.divsubmit
+{
+	margin: auto;
+	background-color: transparent;
+	color:white;
+	font-size: 20px;
+	width: 300px;
+	height: 28px;
+	transition: 0.5s;
+	border-width: 1px;
+	border-radius: 5px;
+	border: solid white thin;
+	transition: 0.5s;
+	text-align: center;
+	margin-top: 30px;
+}
 
+.divsubmit:hover
+{
+	transform: scale(1.1);
+	cursor: pointer;
+	background-color: white;
+	color:black;
+}
+.zonetexte
+{
+	width:400px;
+}
 
-#formulaire
+.zonetexte2
+{
+	width:250px;
+}
+.zonenombre
+{
+	width: 190px;
+}
+
+.formulaire
 {
 	position: fixed;
 	color: white;
@@ -244,6 +335,17 @@ body
 	background-color: rgba(0, 0, 0, 0.9);
 	transition:2s;
 }
+
+#formulaireAjoutMaison
+{
+	display: none;
+}
+
+#formulaireAjoutPiece
+{
+	display: none;
+}
+
 input[type=checkbox]
 {
 	width: 30px;

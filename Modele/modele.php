@@ -500,4 +500,16 @@ function supprimerCapteurPiece($id,$dbh)
     	'id' => $id
 		));
 }
+
+function getNewId($dbh)
+{
+	$id=0;
+	$reponse = $dbh->query('SELECT logement.id
+	FROM logement');
+	while($donnee = $reponse->fetch())
+	{
+		$id = $donnee['id'];
+	}
+	return $id;
+}
 ?>
