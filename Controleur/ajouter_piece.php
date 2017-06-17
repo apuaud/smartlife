@@ -6,12 +6,13 @@ include('../Modele/modele.php');
 if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['etage']) AND isset($_GET['maison']))
 {
 	$piece = htmlspecialchars($_POST["nom-piece"]);
-    $etage = htmlspecialchars($_POST["etage"]);
+  $etage = htmlspecialchars($_POST["etage"]);
 	$superficie = htmlspecialchars($_POST["superficie"]);
 	$maison = htmlspecialchars($_GET['maison']);
 
 	ajouterPiece($piece,$etage,$superficie,$maison,$dbh);
-	echo "<script>alert('Pièce ajoutée !');document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&maison=" . $maison . "';</script>";
+	$idPiece = getIdPiece($dbh);
+	echo "<script>document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&maison=" . $maison . "&piece=" . $idPiece . "';</script>";
 }
 else
 {

@@ -512,4 +512,16 @@ function getNewId($dbh)
 	}
 	return $id;
 }
+
+function getIdPiece($dbh)
+{
+	$id=0;
+	$reponse = $dbh->query('SELECT piece.id
+	FROM piece');
+	while($donnee = $reponse->fetch())
+	{
+		$id = $donnee['id'];
+	}
+	return $id;
+}
 ?>

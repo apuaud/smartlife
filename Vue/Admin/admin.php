@@ -18,12 +18,13 @@ if($_SESSION['type']!=2)
         <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleAdmin.css" />
         <title>Administration</title>
     </head>
-        <body class="AdminBody">
+        <body class="AdminBody" onload="resizeDiv()" onresize="resizeDiv()">
         </body>
 </html>
-<div class=op>
-<h2 class="titre1">Liste des utilisateurs</h2>
-</div>
+
+<div class="noOverflow">
+<div class="slogan">Liste des utilisateurs</div>
+
 <?php
 					echo "<table class='table1' border=1>
 					<tr>
@@ -60,9 +61,9 @@ while($donnees = $reponse->fetch())
 
 $reponse = recupererLesCapteurs($dbh);
 ?>
-<div class=op>
-<h2 class="titre1">Liste des capteurs</h2>
-</div>
+
+<div class="slogan">Liste des appareils</div>
+
 <?php
 echo "<table class='table2' border=1>
 <tr>
@@ -79,15 +80,14 @@ while($donnees = $reponse->fetch())
 }
 echo "</table>";
 ?>
-<div class=op>
-<h2 class="titre1">Ajouter un nouveau type d'appareil</h2>
-</div>
+
+<div class="slogan">Ajouter un appareil</div>
  <form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerAjoutTypeAppareil" method="post">
  	<div align="center">
-	<label class=PSG for="Type de capteur"> Type de capteur :</label><input required class="form" type="text" name="type" size=40 /><br />
-	<label class=PSG for="Numéro de modèle"> Numéro de modèle :</label><input required class="form" type="text" name="numeromodele" size=40 /><br />
-	<label class=PSG for="Numéro de modèle"> Type de valeur :</label>
-	<select name="typeinput">
+	<input required class="form" type="text" name="type" size=40 placeholder="Type d'appareil"/><br />
+  <input required class="form" type="text" name="numeromodele" size=40 placeholder="Numéro de série"/><br />
+	<select required name="typeinput">
+    <option value="">Valeur de renvoi</option>
 		<optgroup label="Capteur">
 			<option value="0">Aucune</option>
 		</optgroup>
@@ -96,6 +96,20 @@ echo "</table>";
 			<option value="checkbox">Binaire</option>
 		</optgroup>
 	</select><br />
-	<button class="add" type="submit">Ajouter</button>
+	<button class="buttonsubmit" type="submit">Ajouter</button>
 	</div>
 </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+  function resizeDiv()
+  {
+    var heightOfWindow = $(window).height();
+    var marginTop = 200;
+    var noOverflow = document.getElementsByClassName('noOverflow')[0];
+    noOverflow.style.height = (heightOfWindow-marginTop)+"px";
+  }
+
+</script>

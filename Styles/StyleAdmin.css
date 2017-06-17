@@ -9,10 +9,141 @@
 
 .AdminBody
 {
-	background-image: url("../img/admin.jpeg");
+	background-image:url("http://puaud.eu/appmvc/img/backgroundEspacePerso.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	margin: 0;
+	overflow: hidden;
+}
+
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: transparent; /* fallback color if gradients are not supported */
+    background-position: center right;
+    background-repeat: no-repeat;
+		border: none;
+		border-radius: 0px;
+		border-left: solid white thin;
+		border-right: solid white thin;
+    color: white;
+		font-size: 30px;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+		width: 300px;
+		margin-top: 10px;
+		text-align: center;
+		text-align-last: center;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    white;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    white;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    white;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    white;
+}
+
+.buttonsubmit
+{
+	margin: auto;
+	background-color: transparent;
+	color:white;
+	font-size: 20px;
+	width: 300px;
+	transition: 0.5s;
+	border-width: 1px;
+	border-radius: 5px;
+	border: solid white thin;
+	transition: 0.5s;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.buttonsubmit:hover
+{
+	transform: scale(1.1);
+}
+.buttonsubmit:hover
+{
+	cursor: pointer;
+	background-color: white;
+	color:black;
+}
+
+select:focus
+{
+	outline: none;
+}
+
+select:hover
+{
+	cursor: pointer;
+}
+
+input
+{
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-size: 30px;
+	border-bottom: solid white thin;
+	margin: 0;
+	padding: 0;
+	height: 35px;
+	z-index: 10;
+	width: 300px;
+}
+input:focus
+{
+	outline: none;
+}
+.noOverflow
+{
+	position: absolute;
+	width: 100%;
+	margin-top: 20px;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.slogan
+{
+	font-family: CenturyGothic,serif;
+	text-align:center;
+	color:white;
+	background-color: rgba(0,0, 0, 0.5);
+	border-top: solid transparent thin;
+	border-bottom: solid transparent thin;
+	font-size: 40px;
+	font-family: CenturyGothic,serif;
+	width: 100%;
+	transition: 0.5s;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	padding-bottom: 5px;
+	padding-top: 2px;
 }
 
 .table1
@@ -21,7 +152,7 @@
 	text-align: center;
 	margin: auto;
 	font-family: 'CenturyGothic';
-	
+
 }
 .table2
 {
@@ -55,19 +186,7 @@
 	color: white;
 	align-content: center;
 }
-.add
-{
-	border:grey solid;
-	border-width: 1px;
-	border-radius: 10px 10px;
-	padding: 10px;
-	color: green;
-	text-align: center;
-	background-color: white;
-	margin-top: 2%;
-	margin-bottom: 2%;
 
-}
 
 .add:hover
 {
