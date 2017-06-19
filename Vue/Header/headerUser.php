@@ -28,7 +28,7 @@ session_start();
 						<td></td>
 						<td></td>
 						<td>
-							<a class="logoTagA" id="logoMaison" href="../Controleur/action.php?action=goToAccountt&focus1=itemEspacePerso&focus2=logoMaison&">
+							<a class="logoTagA" id="logoMaison" href="../Controleur/action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&">
 								<img class="logoSub" src="../img/logoMaisonBlanc.png">
 							</a>
 							<a class="logoTagA" id="logoReglages" href="../Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages">

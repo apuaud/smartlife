@@ -7,6 +7,6 @@ if(isset($_GET['id']))
 {
 	echo"<script>alert('yo')</script>";
 	supprimerCapteurPiece($_GET['id'],$dbh);
-	header('Location:http://puaud.eu/appmvc/Controleur/action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&maison=' . $_GET['maison'] . '&piece=' . $_GET['piece']);
+	header('Location:action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&maison=' . $_GET['maison'] . '&piece=' . $_GET['piece']);
 }
 ?>

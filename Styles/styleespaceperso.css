@@ -1,10 +1,10 @@
 @font-face
 {
 	font-family: 'CenturyGothic';
-	src:url('http://puaud.eu/appmvc/fonts/CenturyGothic.otf') format('otf'),
-		url('http://puaud.eu/appmvc/fonts/CenturyGothic.svg') format('svg'),
-		url('http://puaud.eu/appmvc/fonts/CenturyGothic.ttf') format('truetype'),
-		url('http://puaud.eu/appmvc/fonts/CenturyGothic.woff') format('woff');
+	src:url('../fonts/CenturyGothic.otf') format('otf'),
+		url('../fonts/CenturyGothic.svg') format('svg'),
+		url('../fonts/CenturyGothic.ttf') format('truetype'),
+		url('../fonts/CenturyGothic.woff') format('woff');
 }
 
 select {
@@ -182,7 +182,7 @@ OPTION:hover
 
 body
 {
-	background-image:url("http://puaud.eu/appmvc/img/backgroundEspacePerso.jpg");
+	background-image:url("../img/backgroundEspacePerso.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;

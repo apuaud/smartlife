@@ -10,7 +10,7 @@ if (isset($_POST['idMaison']))
 
   supprimerMaison($idMaison, $dbh);
 	echo "<script>alert('Votre maison a bien été supprimée');
-	document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
+	document.location.href='action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 }
 else
 {

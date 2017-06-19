@@ -6,6 +6,6 @@ include('../Modele/modele.php');
 if(isset($_GET['id']))
 {
 	promouvoir($_GET['id'],$dbh);
-	header('Location:http://puaud.eu/appmvc/Controleur/action.php?action=goToAdministration&');
+	header('Location:action.php?action=goToAdministration&');
 }
 ?>

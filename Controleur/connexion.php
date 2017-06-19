@@ -16,7 +16,7 @@ if($row['type'] >= 1 && $mdpinsere==$row['password'])
 	$_SESSION['type'] = $row['type'];
 	$_SESSION['nom'] = $row['nom'];
 	$_SESSION['prenom'] = $row['prenom'];
-	header('Location: http://puaud.eu/appmvc/Controleur/action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&');
+	header('Location: action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&');
 }
 
 // Si le compte n'est pas activé

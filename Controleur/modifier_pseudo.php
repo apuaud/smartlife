@@ -14,12 +14,12 @@ if (isset($_POST['ancienPseudo']) AND isset($_POST['nouveauPseudo']))
 	{
 		modifierPseudo($idUtilisateur, $newPseudo, $dbh);
 		echo "<script>alert('Votre nouveau pseudo est bien :  " . $newPseudo . "');
-		document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
+		document.location.href='action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 	}
 	else
 	{
 		echo "<script>alert('Ce pseudo est déjà réservé ! Veuillez en choisir un autre.');
-		document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
+		document.location.href='action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 	}
 
 }

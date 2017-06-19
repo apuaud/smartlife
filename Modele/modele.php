@@ -464,20 +464,21 @@ function modifierPseudo($idUtilisateur, $nouveauPseudo, $dbh)
 		));
 }
 
-function verifierMDPactuel($idUtilisateur, $dbh)
+function getMDPactuel($idUtilisateur, $dbh)
 {
 	$reponse = $dbh->query('SELECT users.password
 	FROM users
 	WHERE users.id=\'' . $idUtilisateur . '\'');
-	return $reponse;
+	$donnee = $reponse->fetch();
+	return $donnee['password'];
 }
 
-function verifierEmailActuel($idUtilisateur, $dbh)
+function getEmailActuel($idUtilisateur, $dbh)
 {
 	$reponse = $dbh->query('SELECT users.email
 	FROM users
 	WHERE users.id=\'' . $idUtilisateur . '\'');
-	return $reponse['email'];
+	return $reponse->fetch()['email'];
 }
 
 function modifierMDP($idUtilisateur, $nouveauMDP, $dbh)

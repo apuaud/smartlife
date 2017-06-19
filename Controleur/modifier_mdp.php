@@ -10,13 +10,13 @@ if (isset($_POST['ancienMotDePasse']) AND isset($_POST['nouveauMotDePasse']))
 	$newPassword = $_POST['nouveauMotDePasse'];
 	$mdpInsere = sha1($_POST['ancienMotDePasse']);
 
-	$mdpBDD = verifierMDPactuel($idUtilisateur, $dbh);
+	$mdpBDD = getMDPactuel($idUtilisateur, $dbh);
 
 	if($mdpBDD == $mdpInsere)
 	{
 		modifierMDP($idUtilisateur, $newPassword, $dbh);
 		echo "<script>alert('Votre mot de passe a bien été modifié.');
-		document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
+		document.location.href='action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 	}
 	else
 	{

@@ -8,23 +8,24 @@ if (isset($_POST['ancienEmail']) AND isset($_POST['nouveauEmail']))
 {
 	$idUtilisateur = htmlspecialchars($_SESSION['id']);
 	$ancienEmail = $_POST['ancienEmail'];
-	$nouvelEmail = $_POST['nouvelEmail'];
+	$nouvelEmail = $_POST['nouveauEmail'];
 
-	$emailBDD = verifierEmailActuel($idUtilisateur, $dbh);
+	$emailActuel = getEmailActuel($idUtilisateur, $dbh);
 
-	if($emailBDD == $ancienEmail)
+
+	if($emailActuel == $ancienEmail)
 	{
-		$countEmail = verifierDoubleCompteEmail($nouvelEmail,$dbh)
+		$countEmail = verifierDoubleCompteEmail($nouvelEmail,$dbh);
 		if($countEmail == 0)
 		{
 			modifierEmail($idUtilisateur, $nouvelEmail, $dbh);
-			echo "<script>alert('Votre mot de passe a bien été modifié.');
-			document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
+			echo "<script>alert('Votre email a bien été modifié.');
+			document.location.href='action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 		}
 		else
 		{
 			echo "<script>alert('Cet email est déjà associé à un compte sur le site ! Veuillez en choisir un autre.');
-			document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
+			document.location.href='action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&';</script>";
 		}
 	}
 	else

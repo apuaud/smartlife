@@ -61,7 +61,7 @@
 
 body
 {
-	background-image: url("http://puaud.eu/appmvc/img/faq.jpg");
+	background-image: url("../img/faq.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	color: white;

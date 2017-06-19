@@ -35,7 +35,7 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 	envoiMailConfirmationSecondaire($pseudo,$email,$dbh);
 
 	echo "<script>alert('Votre ajout de compte secondaire est désormais en attente, veuillez cliquer sur le mail de confirmation !');
-	document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemAdministration&focus2=&';</script>";
+	document.location.href='action.php?action=goToParametre&focus1=itemAdministration&focus2=&';</script>";
 }
 else
 {

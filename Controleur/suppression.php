@@ -8,11 +8,18 @@ if(isset($_POST['motDePasse']))
 {
 	$idUtilisateur = htmlspecialchars($_SESSION['id']);
 	$mdpInsere = sha1($_POST['motDePasse']);
-	$mdpBDD = verifierMDPactuel($idUtilisateur, $dbh);
+	$reponse = getMDPactuel($idUtilisateur, $dbh);
 
-	if($mdpBDD == $mdpInsere)
+	while($mdpBDD = $reponse -> fetch())
+	{
+		$tmp = $mdpBDD['password'];
+	}
+
+	if($tmp == $mdpInsere)
 	{
 		supprimer($idUtilisateur, $dbh);
+		session_unset();
+		session_destroy();
 		echo "<script>alert('Votre compte a été supprimé. Au revoir !');
 		document.location.href='../index.php';</script>";
 	}

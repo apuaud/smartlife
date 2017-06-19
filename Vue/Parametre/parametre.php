@@ -35,10 +35,10 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                   <td><input required  type="text" name="id" placeholder="Pseudo"></td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="pw" placeholder="Mot de passe"></td>
+                  <td><input required  type="password" name="pw" placeholder="Mot de passe"></td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="pw2" placeholder="Confirmer MDP"></td>
+                  <td><input required  type="password" name="pw2" placeholder="Confirmer MDP"></td>
                 </tr>
                 <tr>
                   <td>Lecture  <input required type="radio" name="type" value=3></td>
@@ -112,15 +112,15 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
             <form action="action.php?action=modifierMDP" method="post">
                <table class="tableForm" align="center">
                 <tr>
-                  <td><input required  type="text" name="ancienMotDePasse" placeholder="Ancien mot de passe">
+                  <td><input required  type="password" name="ancienMotDePasse" placeholder="Ancien mot de passe">
                   </td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="nouveauMotDePasse" placeholder="Nouveau mot de passe">
+                  <td><input required  type="password" name="nouveauMotDePasse" placeholder="Nouveau mot de passe">
                   </td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="confirmerMotDePasse" placeholder="Confirmer votre mdp">
+                  <td><input required  type="password" name="confirmerMotDePasse" placeholder="Confirmer votre mdp">
                   </td>
                 </td>
                 <tr>
@@ -228,11 +228,11 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                   </td>
                 </tr>
                 <tr>
-                  <td><input required  type="text" name="motDePasse" placeholder="Mot de passe actuel"></td>
+                  <td><input required  type="password" name="motDePasse" placeholder="Mot de passe actuel"></td>
                 </tr>
                 <tr>
                   <td>
-                     <button class="buttonsubmit"> Valider </button>
+                     <button class="buttonsubmit"> Supprimer </button>
                   </td>
                 </tr>
               </table>

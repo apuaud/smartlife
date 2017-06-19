@@ -12,7 +12,7 @@ if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['
 
 	ajouterPiece($piece,$etage,$superficie,$maison,$dbh);
 	$idPiece = getIdPiece($dbh);
-	echo "<script>document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&maison=" . $maison . "&piece=" . $idPiece . "';</script>";
+	echo "<script>document.location.href='action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&maison=" . $maison . "&piece=" . $idPiece . "';</script>";
 }
 else
 {

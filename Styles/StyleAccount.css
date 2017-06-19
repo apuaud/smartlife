@@ -28,7 +28,7 @@
 .manonbody
 {
 
-	background-image:url("http://puaud.eu/appmvc/img/plan.jpg");
+	background-image:url("../img/plan.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -37,7 +37,7 @@
 
 .guillaumebody
 {
-	background-image:url("http://puaud.eu/appmvc/img/plan.jpg");
+	background-image:url("../img/plan.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;	
