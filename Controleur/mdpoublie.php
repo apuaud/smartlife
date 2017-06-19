@@ -11,7 +11,7 @@ if(isset($_POST['email']))
 
 	if($verif)
 	{
-		echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='http://puaud.eu/appmvc/';</script>";
+		echo "<script>alert('Un email vient de vous être envoyé !');document.location.href='../index.php';</script>";
 	}
 	else
 	{

@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>SmartLife</title>
-		<link rel="stylesheet" type="text/css" href="http://puaud.eu/appmvc/Styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="../Styles/style.css" />
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
-			<form action="http://puaud.eu/appmvc/Controleur/action.php?action=validerInscription" method="post" onsubmit="return verifyInputs();">
+			<form action="action.php?action=validerInscription" method="post" onsubmit="return verifyInputs();">
 
 			<table class="registrationTable" align="center">
 
@@ -81,9 +81,9 @@
 		</div>
 
 		<div class="container" id="accueil" >
-			<p id="logoContainer"><img align="middle"id="logo2" src="http://puaud.eu/appmvc/img/logo_sansFond.png"></p>
+			<p id="logoContainer"><img align="middle"id="logo2" src="../img/logo_sansFond.png"></p>
 
-			<img class ="imgBackground"src="http://puaud.eu/appmvc/img/leveSoleilTest.jpg" style="position:relative; z-index=4;">
+			<img class ="imgBackground"src="../img/leveSoleilTest.jpg" style="position:relative; z-index=4;">
 		</div>
 	</body>
 
@@ -91,5 +91,5 @@
 	<script type="text/javascript">
 
 	</script>
-	<script type="text/javascript" src="http://puaud.eu/appmvc/Vue/Register/register.js"></script>
+	<script type="text/javascript" src="../Vue/Register/register.js"></script>
 </html>

@@ -36,7 +36,7 @@ if (isset($_POST['firstName']) AND isset($_POST['lastName']) AND isset($_POST['i
 	envoiMailConfirmation($pseudo,$cle,$email,$dbh);
 
 	echo "<script>alert('Votre inscription est désormais en attente, veuillez cliquer sur le mail de confirmation !');
-	document.location.href='http://puaud.eu/appmvc/';</script>";
+	document.location.href='../index.php';</script>";
 }
 else
 {

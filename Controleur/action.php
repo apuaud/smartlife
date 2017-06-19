@@ -96,5 +96,13 @@ if(ISSET($_GET['action']))
     case "goToAdministration":
       include("../Vue/Admin/admin.php");
       break;
+
+    case "goToStatistiques":
+      include("../Vue/EspacePerso/statistique.php");
+      break;
+
+    case "goToAccount":
+      include("../Vue/EspacePerso/account.php");
+      break;
   }
 ?>

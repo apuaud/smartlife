@@ -48,12 +48,12 @@ function setFontSize()
 
 function callRegistration()
 {
-  window.location="http://puaud.eu/appmvc/Controleur/action.php?action=goToInscription";
+  window.location="action.php?action=goToInscription";
 }
 
 function callAccount()
 {
-  window.location="http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&";
+  window.location="action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&";
 }
 
 function displayFormulaire()

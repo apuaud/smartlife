@@ -6,7 +6,7 @@ $(document).ready(function () {
     var idAppareil = <?php echo json_encode($_GET['idAppareil']); ?>;
     var numeroSerie = $('#numeroSerieInput').val();
     document.location.href=
-    "http://puaud.eu/appmvc/Controleur/ajouter_capteur.php?ajoutCapteur=true&" +
+    "ajouter_capteur.php?ajoutCapteur=true&" +
     "idAppareil=" + idAppareil + "&" +
     "maison=" + idMaison + "&" +
     "piece=" + idPiece + "&" +

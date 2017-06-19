@@ -1,12 +1,12 @@
 <?php
 session_start();
-include('../../db_connect.php');
-include("../Header/headerAdmin.php");
-include("../../Modele/modele.php");
+include('../db_connect.php');
+include("../Vue/Header/headerAdmin.php");
+include("../Modele/modele.php");
 
 if($_SESSION['type']!=2)
 {
-  header("Location:../../Controleur/action.php?action=error&error=notAdmin");
+  header("Location:../Controleur/action.php?action=error&error=notAdmin");
 }
 
 ?>
@@ -15,7 +15,7 @@ if($_SESSION['type']!=2)
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../../Styles/StyleAdmin.css" />
+        <link rel="stylesheet" href="../Styles/StyleAdmin.css" />
         <title>Administration</title>
     </head>
         <body class="AdminBody" onload="resizeDiv()" onresize="resizeDiv()">
@@ -50,10 +50,10 @@ while($donnees = $reponse->fetch())
 					<td>". $donnees['email'] ."</td>";
 					if($donnees['type']==2){echo "<td>Admin</td>";}else if($donnees['type']==0)
 					{echo "<td>Inactif</td>";}else if($donnees['type']==1){echo "<td>Actif</td>";}else{echo "<td>Secondaire</td>";}
-					echo "<td style='text-align:center'><a href='../../Controleur/promouvoir.php?id=".$donnees['id']."'><img src='../../img/fleche_haut.png'
-					alt='Promouvoir' width=20px height=auto /></a><a href='../../Controleur/action.php?action=depromouvoir&id=".$donnees['id']."'><img src='../../img/fleche_bas.png'
+					echo "<td style='text-align:center'><a href='../Controleur/promouvoir.php?id=".$donnees['id']."'><img src='../img/fleche_haut.png'
+					alt='Promouvoir' width=20px height=auto /></a><a href='../Controleur/action.php?action=depromouvoir&id=".$donnees['id']."'><img src='../img/fleche_bas.png'
 					alt='Promouvoir' width=20px height=auto /></a></td>
-					<td style='text-align:center'><a href='../../Controleur/supprimer_compte.php?id=".$donnees['id']."'><img src='../../img/croix.png'
+					<td style='text-align:center'><a href='../Controleur/supprimer_compte.php?id=".$donnees['id']."'><img src='../img/croix.png'
 					alt='Supprimer' width=20px height=auto /></a></td>
 					</tr>";
 				}
@@ -75,14 +75,14 @@ while($donnees = $reponse->fetch())
 	echo "<tr>
 	<td>". $donnees['nom'] ."</td>
 	<td>". $donnees['numeroModele'] ."</td>
-	<td style='text-align:center'><a href='../../Controleur/supprimer_capteur.php?id=".$donnees['id']."'><img src='../../img/croix.png'
+	<td style='text-align:center'><a href='../Controleur/supprimer_capteur.php?id=".$donnees['id']."'><img src='../img/croix.png'
 	alt='Supprimer' width=20px height=auto /></a></td>";
 }
 echo "</table>";
 ?>
 
 <div class="slogan">Ajouter un appareil</div>
- <form action="../../Controleur/action.php?action=validerAjoutTypeAppareil" method="post">
+ <form action="../Controleur/action.php?action=validerAjoutTypeAppareil" method="post">
  	<div align="center">
 	<input required class="form" type="text" name="type" size=40 placeholder="Type d'appareil"/><br />
   <input required class="form" type="text" name="numeromodele" size=40 placeholder="Numéro de série"/><br />

@@ -21,7 +21,7 @@ if(isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['co
 
 	$idMaison = getNewId($dbh);
 
-	echo "<script>document.location.href='http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&maison=" . $idMaison . "';</script>";
+	echo "<script>document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&maison=" . $idMaison . "';</script>";
 }
 
 else

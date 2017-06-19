@@ -6,6 +6,6 @@ include('../Modele/modele.php');
 if(isset($_GET['id']))
 {
 	supprimerCapteur($_GET['id'],$dbh);
-	header('Location:http://puaud.eu/appmvc/Vue/Admin/admin.php');
+	header('Location:http://puaud.eu/appmvc/Controleur/action.php?action=goToAdministration&');
 }
 ?>

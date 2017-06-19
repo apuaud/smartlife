@@ -5,7 +5,7 @@ include('../Modele/modele.php');
 
 if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 {
-  echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
+  echo "<script> document.location.href='action.php?action=error&error=notConnected';</script>";
 }
 
 ?>
@@ -13,14 +13,14 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleParametre.css" />
+        <link rel="stylesheet" href="../Styles/StyleParametre.css" />
         <title>Paramètres</title>
     </head>
     <body class=parametreBody onload="setFontSize();listenToSelect()" onresize="setFontSize()">
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=ajouterCompteSecondaire" method="post">
+            <form action="action.php?action=ajouterCompteSecondaire" method="post">
               <table class="tableForm" align="center">
                 <tr>
                   <td><input required  type="text" name="email" placeholder="Email"></td>
@@ -57,7 +57,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=modifierPseudo" method="post">
+            <form action="action.php?action=modifierPseudo" method="post">
                <table class="tableForm" align="center">
                 <tr>
                   <td><input required  type="text" name="ancienPseudo" placeholder="Ancien pseudo">
@@ -83,7 +83,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=modifierEmail" method="post">
+            <form action="action.php?action=modifierEmail" method="post">
                <table class="tableForm" align="center">
                 <tr>
                   <td><input required  type="text" name="ancienEmail" placeholder="Ancien email">
@@ -109,7 +109,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=modifierMDP" method="post">
+            <form action="action.php?action=modifierMDP" method="post">
                <table class="tableForm" align="center">
                 <tr>
                   <td><input required  type="text" name="ancienMotDePasse" placeholder="Ancien mot de passe">
@@ -136,7 +136,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=supprimerMaison" method="post">
+            <form action="action.php?action=supprimerMaison" method="post">
                <table class="tableForm" align="center">
                  <tr>
                    <td>
@@ -165,7 +165,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
-            <form action="http://puaud.eu/appmvc/Controleur/action.php?action=supprimerPiece" method="post">
+            <form action="action.php?action=supprimerPiece" method="post">
                <table class="tableForm" align="center">
                  <tr>
                    <td>Maison</td>
@@ -253,7 +253,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
   		}
   		if(!isset($_SESSION['id']) || $_SESSION['type']==0)
   		{
-  			header("Location:http://puaud.eu/appmvc/Vue/Error/error.php?error=notConnected");
+  			header("Location:../Vue/Error/error.php?error=notConnected");
   		} ?>
 
 
@@ -304,7 +304,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
         $(document).ready(function () {
           $("#selectMaison").change(function () {
               var val = $(this).val();
-              document.location.href="http://puaud.eu/appmvc/Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&idMaison=" + val;
+              document.location.href="action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages&idMaison=" + val;
             });
           });
       }

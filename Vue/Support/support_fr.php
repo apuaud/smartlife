@@ -11,13 +11,13 @@ else
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/support.css" />
+        <link rel="stylesheet" href="../Styles/support.css" />
         <title>FAQ</title>
     </head>
     <body onload="onLoadFunction()" onresize="setFontSize()">
 
 			<div id="formulaire">
-				<form action="http://puaud.eu/appmvc/Controleur/action.php?action=connexion" method="post">
+				<form action="action.php?action=connexion" method="post">
 				<table class="login" align="center">
 					<tr>
 						<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" /></td>
@@ -32,7 +32,7 @@ else
 						<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
 					</tr>
 					<tr>
-						<td id='itemLostPassword'  align="center"><a href="http://puaud.eu/appmvc/Controleur/action.php?action=goToOublieMotDePasse" style="color:white" >Mot de passe oublié ?</td>
+						<td id='itemLostPassword'  align="center"><a href="action.php?action=goToOublieMotDePasse" style="color:white" >Mot de passe oublié ?</td>
 					</tr>
 					</form>
 					<tr>
@@ -94,7 +94,7 @@ else
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 6)"/>
-          <form action="http://puaud.eu/appmvc/Controleur/action.php?action=sendMail" method="post">
+          <form action="action.php?action=sendMail" method="post">
             <table id="login" align="center">
             	<tr>
             		<td id="itemEmail" class="menuMail"><input required type="text" name="email" placeholder="Votre email" size="41"/></td>
@@ -138,5 +138,5 @@ else
       </body>
 
   		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-      <script type="text/javascript" src="http://puaud.eu/appmvc/Vue/Support/support.js"></script>
+      <script type="text/javascript" src="../Vue/Support/support.js"></script>
 </html>

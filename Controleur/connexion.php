@@ -16,17 +16,17 @@ if($row['type'] >= 1 && $mdpinsere==$row['password'])
 	$_SESSION['type'] = $row['type'];
 	$_SESSION['nom'] = $row['nom'];
 	$_SESSION['prenom'] = $row['prenom'];
-	header('Location: http://puaud.eu/appmvc/Vue/EspacePerso/account.php?focus1=itemEspacePerso&focus2=logoMaison&');
+	header('Location: http://puaud.eu/appmvc/Controleur/action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&');
 }
 
 // Si le compte n'est pas activé
 else if($row['type'] == 0 && $mdpinsere==$row['password'])
 {
-	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='http://puaud.eu/appmvc/';</script>";
+	echo "<script>alert('Votre compte n'est pas encore activé !');document.location.href='../index.php';</script>";
 }
 
 // Si le mot de passe est incorrect
 else if($mdpinsere != $row['password'])
 {
-	echo "<script>alert('Mot de passe incorrect');document.location.href='http://puaud.eu/appmvc/';</script>";
+	echo "<script>alert('Mot de passe incorrect');document.location.href='../index.php';</script>";
 }

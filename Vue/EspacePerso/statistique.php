@@ -1,17 +1,17 @@
 <?php
 session_start();
-include("../../pChart/class/pDraw.class.php");
-include("../../pChart/class/pImage.class.php");
-include("../../pChart/class/pData.class.php");
-include('../../db_connect.php');
-include('../../Modele/modele.php');
+include("../pChart/class/pDraw.class.php");
+include("../pChart/class/pImage.class.php");
+include("../pChart/class/pData.class.php");
+include('../db_connect.php');
+include('../Modele/modele.php');
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/styleespaceperso.css"/>
-	<link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleAdmin.css" />
+	<link rel="stylesheet" href="../Styles/styleespaceperso.css"/>
+	<link rel="stylesheet" href="../Styles/StyleAdmin.css" />
 	<title>Statistiques</title>
 	<style>
 	.graphique
@@ -28,22 +28,22 @@ include('../../Modele/modele.php');
 		{
 			if($_SESSION['type']==1 || $_SESSION['type']==3 || $_SESSION['type']==4)
 			{
-				include("../Header/headerUser.php");
+				include("../Vue/Header/headerUser.php");
 			}
 			else if($_SESSION['type']==2)
 			{
 
-				include("../Header/headerAdmin.php");
+				include("../Vue/Header/headerAdmin.php");
 			}
 		}
 
 		if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 		{
-			echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
+			echo "<script> document.location.href='../Controleur/action.php?action=error&error=notConnected';</script>";
 		}
 
-		include_once("../../analyticstracking.php"); ?>
-<body style="background-image:url('http://puaud.eu/appmvc/img/admin.jpeg');overflow:scroll;">
+		include_once("../analyticstracking.php"); ?>
+<body style="background-image:url('../img/admin.jpeg');overflow:scroll;">
 
 <?php
 
@@ -100,7 +100,7 @@ $myData->addPoints($a2,'Labels');
 $myData->setSerieDescription("Labels","Date");
 $myData->setAbscissa("Labels");
 $myPicture = new pImage(1200,750,$myData);
-$myPicture->setFontProperties(array("FontName"=>"../../fonts/CenturyGothic.ttf","FontSize"=>11));
+$myPicture->setFontProperties(array("FontName"=>"../fonts/CenturyGothic.ttf","FontSize"=>11));
 $myPicture->setGraphArea(70,70,1150,700);
 $myPicture->drawText(630,35,$logement . " - " . $piece,array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));
 $myPicture->drawText(630,70,"Statistiques du capteur " . $type_appareil,array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));

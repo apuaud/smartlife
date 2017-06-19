@@ -14,7 +14,7 @@ if(isset($_POST['motDePasse']))
 	{
 		supprimer($idUtilisateur, $dbh);
 		echo "<script>alert('Votre compte a été supprimé. Au revoir !');
-		document.location.href='http://puaud.eu/appmvc';</script>";
+		document.location.href='../index.php';</script>";
 	}
 
 	else
