@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('../db_connect.php');
+include('../Modele/modele.php');
+
 if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 {
   echo "<script> document.location.href='http://puaud.eu/appmvc/Controleur/action.php?action=error&error=notConnected';</script>";
@@ -140,11 +142,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                    <td>
                      <SELECT name="idMaison">
                          <?php
-                             $reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom
-                                 FROM users_logement, logement
-                                 WHERE id_user = \''.$_SESSION['id'] .'\'
-                                 AND users_logement.id_logement=logement.id');
-
+                             $reponse = getHomesOfUser($dbh, $_SESSION['id']);
                              while($donnees = $reponse->fetch())
                              {
                                  echo "<OPTION value=" . $donnees['id_logement']. ">" . $donnees['nom'];
@@ -177,10 +175,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                      <SELECT name="idMaison" id="selectMaison">
                          <?php
                             echo "<option value=''>Sélectionner maison</option>";
-                             $reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom
-                                 FROM users_logement, logement
-                                 WHERE id_user = \''.$_SESSION['id'] .'\'
-                                 AND users_logement.id_logement=logement.id');
+                             $reponse = getHomesOfUser($dbh, $_SESSION['id']);
 
                              while($donnees = $reponse->fetch())
                              {
@@ -202,10 +197,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                               echo "<option value=''>Sélectionner pièce</option>";
                               if(isset($_GET['idMaison']))
                               {
-                                $reponse = $dbh->query(
-                                  'SELECT piece.id , piece.nom
-                                   FROM piece
-                                   WHERE piece.id_logement=\''. $_GET['idMaison'] .'\''); // AS=> mettre un nom de variable différent pour chaque champ. Car deux on le même nom (id)
+                                $reponse = getRoomsOfHome($dbh, $_GET['idMaison']);
                                 while($donnees = $reponse->fetch())
                                 {
                                     echo "<OPTION value=" . $donnees['id']. "> ".$donnees['nom'];

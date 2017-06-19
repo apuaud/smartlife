@@ -552,4 +552,24 @@ function getIdPiece($dbh)
 	}
 	return $id;
 }
+
+function getHomesOfUser($dbh, $idUser)
+{
+	$reponse = $dbh->query('SELECT users_logement.id_logement, users_logement.id_user, logement.id, logement.nom
+			FROM users_logement, logement
+			WHERE id_user = \''.$idUser .'\'
+			AND users_logement.id_logement=logement.id');
+
+	return $reponse;
+}
+
+function getRoomsOfHome($dbh, $idMaison)
+{
+	$reponse = $dbh->query(
+		'SELECT piece.id , piece.nom
+		 FROM piece
+		 WHERE piece.id_logement=\''. $_GET['idMaison'] .'\'');
+	return $reponse;
+}
+
 ?>
