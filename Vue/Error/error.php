@@ -2,7 +2,7 @@
 	<html>
 		<head>
 			<meta charset="utf-8"/>
-      <link rel="stylesheet" href="http://puaud.eu/appmvc/Styles/StyleError.css" />
+      <link rel="stylesheet" href="../Styles/StyleError.css" />
 			<title>Mon espace personnel</title>
 		</head>
 		  <body class=erreur>
@@ -10,7 +10,7 @@
   				<table align= center>
             <tr>
             <td>
-             <img class= flotte src="http://puaud.eu/appmvc/img/alert2.png">
+             <img class= flotte src="../img/alert2.png">
             </td>
               <td>
                 Nous sommes désolés mais vous ne pouvez pas accéder à cette page pour la raison suivante : <br/>
