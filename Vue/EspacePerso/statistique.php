@@ -43,7 +43,7 @@ include('../../Modele/modele.php');
 		}
 
 		include_once("../../analyticstracking.php"); ?>
-<body style="background-image:url('http://puaud.eu/appmvc/img/admin.jpeg')">
+<body style="background-image:url('http://puaud.eu/appmvc/img/admin.jpeg');overflow:scroll;">
 
 <?php
 
