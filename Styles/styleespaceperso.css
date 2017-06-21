@@ -243,6 +243,7 @@ body
 	  opacity: 0;
 	  transition: visibility 0s, opacity 0.5s linear;
 		overflow-y: scroll;
+		overflow-x:hidden;
 }
 
 .dropdown:hover .dropdown-content
@@ -251,6 +252,10 @@ body
 	opacity: 1;
 }
 
+.scroll-verti
+{
+	overflow-y: scroll;
+}
 .minilogo
 {
 	width: 20px;
@@ -482,4 +487,10 @@ a:active
 {
 	text-decoration: none;
 	color: white;
+}
+
+
+.inline-block
+{
+	display: inline-block;
 }

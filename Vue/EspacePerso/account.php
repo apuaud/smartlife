@@ -13,6 +13,7 @@ include('../Modele/modele.php');
 		</head>
 
 		<body class="manonbody" onload="resizeLists()" onresize="resizeLists()">
+
 			<div class='formulaire' id='formulaireAjoutMaison'>
 				<form action="action.php?action=validerAjoutMaison" method='post'>
 				<table id='login' align='center'>
@@ -88,20 +89,24 @@ include('../Modele/modele.php');
 			<?php
 			if(isset($_GET['maison']))
 			{
-				$houseBelongsToUser = verifierAppartenanceMaisonUtilisateur($_SESSION['id'], $_GET['maison'], $dbh);
+				$houseBelongsToUser = houseBelongsToUser($_SESSION['id'], $_GET['maison'], $dbh);
 			}
-			$roomBelongsToHouse =true;
+			if(isset($_GET['piece']))
+			{
+				$roomBelongsToHouse = roomBelongsToHouse($_GET['maison'],$_GET['piece'],$dbh);
+			}
 			if(isset($_GET['maison']) && isset($_GET['piece']) && $houseBelongsToUser && $roomBelongsToHouse)
 			{
 				$listeCapteurPiece = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
 				$listeEffecteurPiece = recupererLesEffecteursDeLaPiece($_GET['piece'], $dbh);
 
-				echo "<div class='formulaire'>
+				echo "<div class='formulaire scroll-verti'>
+				<table id='login' align='center'>
+					<tr>
+						<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+					</tr>
 					<form action='action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "' method='post'>
-					<table id='login' align='center'>
-						<tr>
-							<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
-						</tr>";
+					";
 
 						while($capteur = $listeCapteurPiece -> fetch())
 						{
@@ -201,7 +206,7 @@ include('../Modele/modele.php');
 			{
 				echo "<script> document.location.href='action.php?action=error&error=notYourHouse';</script>";
 			}
-			else if (isset($_GET['maison']) && $roomBelongsToHouse==false)
+			else if (isset($_GET['maison'])&& isset($_GET['piece']) && $roomBelongsToHouse==false)
 			{
 				echo "<script> document.location.href='action.php?action=error&error=notYourRoom';</script>";
 			}
@@ -364,6 +369,7 @@ include('../Modele/modele.php');
 				}
 			 ?>
 			<script>
+
 
 				function resizeLists()
 				{

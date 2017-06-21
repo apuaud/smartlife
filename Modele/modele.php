@@ -301,7 +301,7 @@ function supprimer($id,$dbh)
 		));
 }
 
-function verifierAppartenanceMaisonUtilisateur($idUtilisateur, $idMaison, $dbh)
+function houseBelongsToUser($idUtilisateur, $idMaison, $dbh)
 {
 	$req = $dbh->prepare('SELECT id_logement FROM users_logement WHERE id_user LIKE :id');
 	$req->execute(array(
@@ -310,6 +310,23 @@ function verifierAppartenanceMaisonUtilisateur($idUtilisateur, $idMaison, $dbh)
 	while($reponse = $req->fetch())
 	{
 		if($reponse['id_logement'] == $idMaison)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
+function roomBelongsToHouse($idMaison, $idPiece, $dbh)
+{
+	$req = $dbh->prepare('SELECT piece.id FROM piece WHERE id_logement LIKE :id');
+	$req->execute(array(
+    	'id' => $idMaison
+		));
+	while($reponse = $req->fetch())
+	{
+		if($reponse['id'] == $idPiece)
 		{
 			return true;
 		}
