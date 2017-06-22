@@ -586,7 +586,18 @@ function getRoomsOfHome($dbh, $idMaison)
 	$reponse = $dbh->query(
 		'SELECT piece.id , piece.nom
 		 FROM piece
-		 WHERE piece.id_logement=\''. $_GET['idMaison'] .'\'');
+		 WHERE piece.id_logement=\''. $idMaison .'\'');
+	return $reponse;
+}
+
+function recupererCapteurDunePiece($idPiece, $dbh)
+{
+		$reponse = $dbh->query(
+		'SELECT capteur.id , type_appareil.nom
+		 FROM capteur, type_appareil
+		 WHERE capteur.id_piece=\''. $idPiece .'\'
+		 AND capteur.id_type_appareil = type_appareil.id
+		 AND type_appareil.type_input = "0"');
 	return $reponse;
 }
 

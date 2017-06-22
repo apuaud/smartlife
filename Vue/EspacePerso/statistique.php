@@ -43,7 +43,7 @@ include('../Modele/modele.php');
 		}
 
 		include_once("../analyticstracking.php"); ?>
-<body>
+<body style="overflow:scroll;">
 
 <?php
 
