@@ -32,6 +32,9 @@
 							<a class="logoTagA" id="logoReglages" href="../Controleur/action.php?action=goToParametre&focus1=itemEspacePerso&focus2=logoReglages">
 								<img class="logoSub" src="../img/reglageBlanc.png">
 							</a>
+							<a class="logoTagA" id="logoStats" href="../Controleur/action.php?action=goToStatistiques&focus1=itemEspacePerso&focus2=logoStats">
+								<img class="logoSub" src="../img/logoStats.png">
+							</a>
 						</td>
 						<td>
 						</td>

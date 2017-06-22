@@ -138,7 +138,7 @@
 
 .logoTagA
 {
-	width: 50%;
+	width: 33%;
 	position: relative;
 	text-align: center;
 }
@@ -156,6 +156,14 @@
 	float: right;
 	border-top: solid transparent;
 }
+
+#logoStats
+{
+	float: right;
+	border-top: solid transparent;
+}
+
+
 
 .ContenuHeader
 {

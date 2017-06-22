@@ -43,7 +43,7 @@ include('../Modele/modele.php');
 		}
 
 		include_once("../analyticstracking.php"); ?>
-<body style="background-image:url('../img/admin.jpeg');overflow:scroll;">
+<body>
 
 <?php
 
@@ -93,7 +93,7 @@ while($donnees = $reponse -> fetch())
 	$type_appareil = $donnees['type_appareil'];
 }
 
-$myData = new pData(); 
+$myData = new pData();
 $myData->addPoints($a1,'Valeur');
 $myData->setAxisName(0,"Valeur relevée");
 $myData->addPoints($a2,'Labels');
