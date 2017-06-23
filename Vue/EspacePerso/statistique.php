@@ -17,7 +17,6 @@ include('../Modele/modele.php');
 	.graphique
 	{
 		width: 60%;
-		height: 60%;
 		margin-left: 20%;
 	}
 	</style>
@@ -76,13 +75,13 @@ include('../Modele/modele.php');
 		}
 		echo"
 		<div class=op>
-		<h2 class='titre1'>Graphique</h2>
+			<div class='slogan'>Graphique</div>
 		</div>
 		";
 
 		$reponse = $dbh->query('SELECT piece.nom AS piece , logement.nom AS logement, type_appareil.nom AS type_appareil
 		FROM piece, logement, type_appareil, capteur
-		WHERE capteur.id=\'' . $_GET['idCapteur'] . '\'
+		WHERE capteur.id=\'' . $idCapteur . '\'
 		AND capteur.id_type_appareil = type_appareil.id
 		AND capteur.id_piece = piece.id
 		AND piece.id_logement = logement.id');
@@ -115,9 +114,8 @@ include('../Modele/modele.php');
 		<img src='basic.png' alt='Graphique' class='graphique' />
 
 		<div class=op>
-		<h2 class='titre1'>Données brutes</h2>
+			<div class='slogan'>Données brutes</div>
 		</div>
-
 		<table class='table1' border=1>
 			<tr>
 				<td><strong>Date</strong></td>
@@ -210,14 +208,14 @@ include('../Modele/modele.php');
 		$(document).ready(function () {
 			$("#selectMaison").change(function () {
 					val = $(this).val();
-					document.location.href="action.php?action=goToStatistiques&focus1=itemEspacePerso&focus2=logoReglages&idMaison=" + val;
+					document.location.href="action.php?action=goToStatistiques&focus1=itemEspacePerso&focus2=logoStats&idMaison=" + val;
 			});
 	});
 		$(document).ready(function () {
 			$("#selectPiece").change(function () {
 					val = $("#selectMaison").val();
 					var val2 = $(this).val();
-					document.location.href="action.php?action=goToStatistiques&focus1=itemEspacePerso&focus2=logoReglages&idMaison=" + val + "&idPiece=" + val2;
+					document.location.href="action.php?action=goToStatistiques&focus1=itemEspacePerso&focus2=logoStats&idMaison=" + val + "&idPiece=" + val2;
 			});
 	});
 	}
