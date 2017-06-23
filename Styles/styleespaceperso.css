@@ -30,7 +30,10 @@ select {
     white-space: nowrap;
 		width: 300px;
 }
-
+.logoReglageMaison
+{
+	cursor: pointer;
+}
 #addCapteur
 {
 	display: none;
@@ -272,6 +275,14 @@ body
 	margin-top: 5px;
 }
 
+.logoReglageMaison
+{
+	width: 20px;
+	height: 20px;
+	margin-right:25px;
+	margin-top: 5px;
+}
+
 .buttonsubmit
 {
 	margin: auto;
@@ -359,6 +370,11 @@ body
 }
 
 #formulaireAjoutPiece
+{
+	display: none;
+}
+
+#formulaireModificationMaison
 {
 	display: none;
 }

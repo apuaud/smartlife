@@ -601,4 +601,29 @@ function recupererCapteurDunePiece($idPiece, $dbh)
 	return $reponse;
 }
 
+function getHomeInformation($idHome, $dbh)
+{
+	$reponse = $dbh->query(
+		'SELECT logement.nom , logement.adresse, logement.ville, logement.codePostal, logement.pays, logement.superficie, logement.nombreHabitants
+		 FROM logement
+		 WHERE logement.id=\''. $idHome .'\'');
+	return $reponse->fetch();
+}
+
+function modifierMaison($idMaison, $nomMaison,$adresse,$ville,$codepostal,$pays,$superficie,$nbhab,$dbh)
+{
+	$req = $dbh->prepare('UPDATE logement SET nom=:nomMaison, adresse=:adresse, ville=:ville, codePostal=:codepostal, pays=:pays, superficie=:superficie, nombreHabitants=:nbhab  WHERE id like :idMaison');
+	$req->execute(array(
+		'nomMaison' => $nomMaison,
+		'adresse' => $adresse,
+		'ville' => $ville,
+		'codepostal' => $codepostal,
+		'pays' => $pays,
+		'superficie' => $superficie,
+		'nbhab' => $nbhab,
+		'idMaison' => $idMaison
+		));
+}
+
+
 ?>

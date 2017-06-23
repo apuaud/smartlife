@@ -60,6 +60,60 @@ include('../Modele/modele.php');
 			</form>
 		</div>
 
+		<div class='formulaire' id='formulaireModificationMaison'>
+			<?php
+				$home = getHomeInformation($_GET['maison'], $dbh);
+			?>
+			<form action="action.php?action=modifierInformationsMaison" method='post'>
+			<table id='login' align='center'>
+				<tr >
+					<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonetexte" type="text" name="nom-maison" pattern=".{1,}" title="Doit contenir au moins un caractère" value=<?php echo $home['nom'] ?>  />
+					</td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonetexte" type="text" name="adresse" pattern=".{1,}" title="Doit contenir au moins un caractère" value=<?php echo $home['adresse'] ?>  />
+					</td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonetexte" type="text" pattern="[0-9]{5}" title="5 chiffres" name="codepostal" value=<?php echo $home['codePostal'] ?>  />
+					</td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonetexte" type="text" pattern="[a-zA-Z]{1,}" title="Ne peut conternir que des lettres" name="ville" value=<?php echo $home['ville'] ?>  />
+					</td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonetexte" type="text" name="pays" pattern="[a-zA-Z]{1,}" title="Ne peut conternir que des lettres" value=<?php echo $home['pays'] ?>  />
+					</td>
+				</tr>
+				<tr>
+					<td class = "border-bottom">
+						<input required class="zonenombre" type="number" name="superficie" value=<?php echo $home['superficie'] ?>  />
+						<input required class="zonenombre" type="number" name="nbhab" value=<?php echo $home['nombreHabitants'] ?> />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input required class="zonetexte" type="hidden" name="idMaison"  value = <?php echo $_GET['maison'] ?>  />
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center">
+						<button class='buttonsubmit' type="submit"> Modifier </button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
 		<div class='formulaire' id='formulaireAjoutPiece'>
 			<form action="action.php?action=validerAjoutPiece&maison=<?php echo $_GET['maison'] ?>" method="post"/>
 				<table id='login' align='center'>
@@ -248,10 +302,12 @@ include('../Modele/modele.php');
 					if(isset($_GET['maison']) && ($_GET['maison']==$donnees['id']))
 					{
 						$selectedHouse = "selectedHouse";
-						echo "<td><a href='action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&maison="
-						. $donnees['id'] . "'><div class=" . $selectedHouse . ">" . $donnees['nom'] . "</div></a></td>";
+						echo "<td>
+						<div class=" . $selectedHouse . ">" . $donnees['nom'] . "
+							<img class='logoReglageMaison' src='../img/reglage.png' onclick=\"display('formulaireModificationMaison')\">
+						</div>
+						</td>";
 					}
-
 				}
 
 				$maisonsNonSelectionnees = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
