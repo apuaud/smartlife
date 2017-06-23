@@ -61,30 +61,30 @@ include('../Modele/modele.php');
 		</div>
 
 		<div class='formulaire' id='formulaireAjoutPiece'>
-<form action="action.php?action=validerAjoutPiece&maison=<?php echo $_GET['maison'] ?>" method="post"/>
-	<table id='login' align='center'>
-				<tr >
-					<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
-				</tr>
-				<tr>
-					<td class = "border-bottom">
-						<input required class="zonetexte" type="text" name="nom-piece" placeholder="Nom de la pièce"/>
-					</td>
-				</tr>
-				<tr>
-					<td class = "border-bottom">
-						<input required class="zonenombre" type="number" name="etage" placeholder="Etage"/>
-						<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie"/>
-					</td>
-				</tr>
-				<tr>
-					<td style="text-align:center">
-						<button class='buttonsubmit' type="submit"> Ajouter </button>
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
+			<form action="action.php?action=validerAjoutPiece&maison=<?php echo $_GET['maison'] ?>" method="post"/>
+				<table id='login' align='center'>
+					<tr >
+						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonetexte" type="text" name="nom-piece" placeholder="Nom de la pièce"/>
+						</td>
+					</tr>
+					<tr>
+						<td class = "border-bottom">
+							<input required class="zonenombre" type="number" name="etage" placeholder="Etage"/>
+							<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">
+							<button class='buttonsubmit' type="submit"> Ajouter </button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
 
 			<?php
 			if(isset($_GET['maison']))
@@ -369,7 +369,6 @@ include('../Modele/modele.php');
 				}
 			 ?>
 			<script>
-
 
 				function resizeLists()
 				{

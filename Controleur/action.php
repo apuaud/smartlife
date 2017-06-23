@@ -104,9 +104,5 @@ if(ISSET($_GET['action']))
     case "goToAccount":
       include("../Vue/EspacePerso/account.php");
       break;
-
-    case "goToAccueilStatistiques":
-    include("stats.php");
-    break;
   }
 ?>

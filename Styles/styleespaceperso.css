@@ -41,6 +41,14 @@ select {
 	cursor: pointer;
 }
 
+.noOverflow
+{
+	position: absolute;
+	width: 100%;
+	margin-top: 20px;
+	overflow: hidden;
+	overflow-y: scroll;
+}
 
 select:focus
 {
