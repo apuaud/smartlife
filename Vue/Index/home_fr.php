@@ -129,7 +129,7 @@ else
 			<img class ="imgBackground" src="img/presentation3.jpg">
 		</div>
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 		</script>
 		<script type="text/javascript" src="Vue/Index/firstPage.js"></script>
 
