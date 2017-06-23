@@ -143,7 +143,15 @@ include('../Modele/modele.php');
 			<?php
 			if(isset($_GET['maison']))
 			{
-				$houseBelongsToUser = houseBelongsToUser($_SESSION['id'], $_GET['maison'], $dbh);
+				if(isset($_SESSION['comptePrincipal']))
+				{
+					$houseBelongsToUser = houseBelongsToUser($_SESSION['comptePrincipal'], $_GET['maison'], $dbh);
+				}
+				else
+				{
+					$houseBelongsToUser = houseBelongsToUser($_SESSION['id'], $_GET['maison'], $dbh);
+				}
+				
 			}
 			if(isset($_GET['piece']))
 			{
@@ -295,7 +303,14 @@ include('../Modele/modele.php');
 			<table class="listepiece">
 				<tr>
 				<?php
-				$maisonSelectionnee = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
+				if(isset($_SESSION['comptePrincipal']))
+				{
+					$maisonSelectionnee = recupererLesMaisonsDeLUtilisateur($_SESSION['comptePrincipal'], $dbh);
+				}
+				else
+				{
+					$maisonSelectionnee = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
+				}
 
 				while($donnees = $maisonSelectionnee->fetch())
 				{
@@ -310,7 +325,15 @@ include('../Modele/modele.php');
 					}
 				}
 
-				$maisonsNonSelectionnees = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
+
+				if(isset($_SESSION['comptePrincipal']))
+				{
+					$maisonsNonSelectionnees = recupererLesMaisonsDeLUtilisateur($_SESSION['comptePrincipal'], $dbh);
+				}
+				else
+				{
+					$maisonsNonSelectionnees = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
+				}				
 
 				while($donnees = $maisonsNonSelectionnees->fetch())
 				{
@@ -398,11 +421,14 @@ include('../Modele/modele.php');
 							echo "<li>" . $donnees5['etatActuel'] . "</li>";
 						}
 					}
+					if($_SESSION['type']<=3)
+					{
 					echo "</div><li style='text-align:right;'><a href='action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&maison=". $_GET['maison'] ."&piece=" . $donnees['id'] . "'>
 					<img class='minilogo' src='../img/reglage.png' onclick='displaySetCaptors()'></a></li>
 						</ul></div>
 					</div>
 					</td>";
+					}
 				}
 				echo"</tr></table></div><div class='flecheDroite' onmouseover='ScrollRight(5, 2)' onmouseout='clearScroll(SR)'>></span>
 				</div>";

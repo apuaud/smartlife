@@ -41,10 +41,10 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                   <td><input required  type="password" name="pw2" placeholder="Confirmer MDP"></td>
                 </tr>
                 <tr>
-                  <td>Lecture  <input required type="radio" name="type" value=3></td>
+                  <td>Lecture  <input required type="radio" name="type" value=4></td>
                 </tr>
                 <tr>
-                  <td>Edition  <input required type="radio" name="type" value=4></td>
+                  <td>Edition  <input required type="radio" name="type" value=3></td>
                 </tr>
                 <tr>
                   <td><button class="buttonsubmit" type="submit"> Valider </button></td>
@@ -256,8 +256,12 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
   			header("Location:../Vue/Error/error.php?error=notConnected");
   		} ?>
 
-
-    <b class="question slogan" onclick="displayForm(0)">Ajouter un compte secondaire</b>
+    <?php 
+    if(!isset($_SESSION['comptePrincipal']))
+    {
+      echo '<b class="question slogan" onclick="displayForm(0)">Ajouter un compte secondaire</b>';
+    }
+     ?>
     <b class="question slogan" onclick="displayForm(1)">Modifier mon pseudo</b>
     <b class="question slogan" onclick="displayForm(2)">Modifier mon email</b>
     <b class="question slogan" onclick="displayForm(3)">Modifier mon mot de passe</b>

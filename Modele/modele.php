@@ -263,7 +263,7 @@ function changementMDP($pw,$pseudo,$dbh)
 
 function connexion($pseudo,$dbh)
 {
-	$req = $dbh->prepare("SELECT id,password,type,nom,prenom FROM users WHERE pseudo like :pseudo ");
+	$req = $dbh->prepare("SELECT id,password,type,nom,prenom,id_comptePrincipal FROM users WHERE pseudo like :pseudo ");
 	if($req->execute(array(':pseudo' => $pseudo)) && $row = $req->fetch())
 	{
 		$id = $row['id'];
@@ -271,6 +271,7 @@ function connexion($pseudo,$dbh)
 	    $type = $row['type'];
 	    $nom = $row['nom'];
 	    $prenom = $row['prenom'];
+	    $id_comptePrincipal = $row['id_comptePrincipal'];
 	}
 	return $row;
 }

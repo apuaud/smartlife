@@ -16,6 +16,10 @@ if($row['type'] >= 1 && $mdpinsere==$row['password'])
 	$_SESSION['type'] = $row['type'];
 	$_SESSION['nom'] = $row['nom'];
 	$_SESSION['prenom'] = $row['prenom'];
+	if($row['type'] >=3)
+	{
+		$_SESSION['comptePrincipal'] = $row['id_comptePrincipal'];
+	}
 	header('Location: action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&');
 }
 
