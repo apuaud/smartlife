@@ -7,7 +7,7 @@
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
-			<form action="action.php?action=validerInscription" method="post">
+			<form action="action.php?action=validerInscription" method="post" onsubmit="return pwAndpwcEquals()">
 				<table class="registrationTable" align="center">
 					<tr>
 						<td id="firstNameTd" align="right" >
@@ -23,27 +23,15 @@
 					</tr>
 					<tr>
 						<td id="emailTd" align="right">
-							<input required  type="text" name="email" placeholder="Email" pattern="[a-zA-Z0-9-_]{1,}" title="L'email doit être valide"/></td>
+							<input required  type="text" name="email" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="L'email doit être valide"/></td>
 					</tr>
 					<tr>
 						<td id="passwordTd" align="right">
-							<div class="messageCorrection">
-								Le mot de passe doit contenir au moins 1 maj, 1 min, 1 chiffre et 8 caractères
-							</div>
-							<div class="iconeErrorDiv">
-								<div class="iconeError" >!</div>
-							</div>
-							<input required  type="password" name="pw" placeholder="Mot de passe" pattern="[a-zA-Z0-9-_]{1,}" title="L'email doit être valide"/></td>
+							<input id="passwordInputValue"required type="password" name="pw" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Doit contenir au moins 1maj, 1min, 1 chiffre et 8 caractères"/></td>
 					</tr>
 					<tr>
 						<td id="passwordConfirmTd" align="right">
-							<div class="messageCorrection">
-								Doit être identique au mot de passe ci-dessus
-							</div>
-							<div class="iconeErrorDiv">
-								<div class="iconeError" >!</div>
-							</div>
-							<input required type="password" name="pw2" placeholder="Confirmation mot de passe"/></td>
+							<input id="passwordConfirmInputValue" required type="password" name="pw2" placeholder="Confirmation mot de passe"/></td>
 					</tr>
 					<tr>
 						<td id='buttonConnexion' style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>

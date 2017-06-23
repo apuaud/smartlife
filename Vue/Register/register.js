@@ -54,3 +54,18 @@ function comparePasswordAndPasswordConfirm()
     hide(inputPasswordConfirm['errorIconeDiv']);
   }
 }
+
+function pwAndpwcEquals()
+{
+  var passwordInputValue = document.getElementById('passwordInputValue').value;
+  var passwordConfirmInputValue = document.getElementById('passwordConfirmInputValue').value;
+
+  if(passwordInputValue == passwordConfirmInputValue)
+  {
+    return true;
+  }
+  else {
+    alert("Les mots de passes ne sont pas identiques.")
+    return false;
+  }
+}
