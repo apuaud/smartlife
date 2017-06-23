@@ -14,7 +14,7 @@
 .manon
 {
 	border-radius: 10px 10px;
-	margin: 30px;	
+	margin: 30px;
 	background-color: rgba(0,0,0,0.7);
 	padding: 50px;
 }
@@ -29,7 +29,7 @@
 {
 
 	background-image:url("../img/plan.jpg");
-	background-size: 100%;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	font-size: 20px;
@@ -40,7 +40,7 @@
 	background-image:url("../img/plan.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
-	background-attachment: fixed;	
+	background-attachment: fixed;
 	text-align: center;
 }
 
@@ -57,7 +57,7 @@
 	border-radius: 5px 5px;
 }
 
-button 
+button
 {
 	border: none;
 	border-radius: 10px 10px;

@@ -3,7 +3,10 @@
 	font-family: 'Century';
 	src: url();
 }
-
+.spaceBetweenInput
+{
+	height: 60px;
+}
 @font-face
 {
 	font-family: 'Adam';
@@ -124,13 +127,12 @@ body
 	background-color: white;
 }
 
-
-
-#ligneServices td
+.menuItem
 {
-	background-color: transparent;
-	height: 2px;
-	transition:0.5s;
+	color: white;
+	width: 20%;
+	height: 60px;
+	font-size: 25px;
 }
 
 #logo

@@ -10,31 +10,31 @@
 			<form action="action.php?action=validerInscription" method="post" onsubmit="return pwAndpwcEquals()">
 				<table class="registrationTable" align="center">
 					<tr>
-						<td id="firstNameTd" align="right" >
+						<td id="firstNameTd" class="spaceBetweenInput" align="right" >
 							<input required type="text" name="firstName" placeholder="Prénom" pattern="[a-zA-Z-]{1,}" title="Ne doit contenir que lettres et tirets" id="firstNameInput"/></td>
 					</tr>
 					<tr>
-						<td id="lastNameTd" align="right">
+						<td id="lastNameTd" class="spaceBetweenInput"align="right">
 							<input required  type="text" name="lastName" placeholder="Nom" pattern="[a-zA-Z-]{1,}" title="Ne doit contenir que lettres et tirets"/></td>
 					</tr>
 					<tr>
-						<td id="idTd" align="right">
+						<td id="idTd" class="spaceBetweenInput"align="right">
 							<input required  type="text" name="id" placeholder="Identifiant" pattern="[a-zA-Z0-9-_]{1,}" title="Ne doit contenir que lettres / chiffres / tirets"/></td>
 					</tr>
 					<tr>
-						<td id="emailTd" align="right">
+						<td id="emailTd" class="spaceBetweenInput"align="right">
 							<input required  type="text" name="email" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="L'email doit être valide"/></td>
 					</tr>
 					<tr>
-						<td id="passwordTd" align="right">
+						<td id="passwordTd" class="spaceBetweenInput"align="right">
 							<input id="passwordInputValue"required type="password" name="pw" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Doit contenir au moins 1maj, 1min, 1 chiffre et 8 caractères"/></td>
 					</tr>
 					<tr>
-						<td id="passwordConfirmTd" align="right">
+						<td id="passwordConfirmTd" class="spaceBetweenInput"align="right">
 							<input id="passwordConfirmInputValue" required type="password" name="pw2" placeholder="Confirmation mot de passe"/></td>
 					</tr>
 					<tr>
-						<td id='buttonConnexion' style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>
+						<td id='buttonConnexion' class="spaceBetweenInput"style="text-align:center"><button class="buttonsubmit" type="submit">Register</button></td>
 					</tr>
 				</table>
 			</form>

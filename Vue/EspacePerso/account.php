@@ -1,7 +1,5 @@
 <?php
 session_start();
-include("../db_connect.php");
-include('../Modele/modele.php');
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +149,7 @@ include('../Modele/modele.php');
 				{
 					$houseBelongsToUser = houseBelongsToUser($_SESSION['id'], $_GET['maison'], $dbh);
 				}
-				
+
 			}
 			if(isset($_GET['piece']))
 			{
@@ -294,7 +292,7 @@ include('../Modele/modele.php');
 		}
 
 		include_once("../analyticstracking.php"); ?>
-
+		<div class="spaceForNavBar noOverflow">
 		<div class='textbox fixed' onclick="display('formulaireAjoutMaison')">+</div>
 
 		<div class='spaceForPlus' id='ScrollZone1'>
@@ -333,7 +331,7 @@ include('../Modele/modele.php');
 				else
 				{
 					$maisonsNonSelectionnees = recupererLesMaisonsDeLUtilisateur($_SESSION['id'], $dbh);
-				}				
+				}
 
 				while($donnees = $maisonsNonSelectionnees->fetch())
 				{
@@ -437,6 +435,7 @@ include('../Modele/modele.php');
 		{
 			header('Location: ../Vue/Error/error.php?error=notYourHouse');
 		} ?>
+	</div>
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 

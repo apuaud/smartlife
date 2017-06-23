@@ -1,10 +1,17 @@
 <?php
 
+include("../Modele/modele.php");
+include('../db_connect.php');
+
 if(ISSET($_GET['action']))
   $action = $_GET['action'];
 
   switch($action)
   {
+    case "goToHome":
+      include("../Vue/Index/home_fr.php");
+      break;
+
     case "connexion" :
       include("connexion.php");
       break;

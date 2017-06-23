@@ -1,8 +1,6 @@
 <?php
 session_start();
-include('../db_connect.php');
 include("../Vue/Header/headerAdmin.php");
-include("../Modele/modele.php");
 
 if($_SESSION['type']!=2)
 {
@@ -22,7 +20,7 @@ if($_SESSION['type']!=2)
         </body>
 </html>
 
-<div class="noOverflow">
+<div class="noOverflow spaceForNavBar">
 <div class="slogan">Liste des utilisateurs</div>
 
 <?php

@@ -5,6 +5,16 @@ var spaceBetweenQuestions = 80;
 var spaceBetweenHeaderAndFooter = $(window).height()-66-80-40-50;
 var formulaire = document.getElementById('formulaire');
 
+document.getElementById('levelSupport').style.backgroundColor="white";
+
+function goToHome()
+{
+  document.location.href="action.php?action=goToHome";
+}
+function goToSupport()
+{
+  document.location.href="action.php?action=goToSupport";
+}
 
 function onLoadFunction()
 {

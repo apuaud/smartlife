@@ -1,7 +1,6 @@
 <?php
 session_start();
-include('../db_connect.php');
-include('../Modele/modele.php');
+
 
 if(isset($_POST['nom-piece']) AND isset($_POST['superficie']) AND isset($_POST['etage']) AND isset($_GET['maison']))
 {

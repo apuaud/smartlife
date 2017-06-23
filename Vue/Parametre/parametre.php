@@ -1,7 +1,5 @@
 <?php
 session_start();
-include('../db_connect.php');
-include('../Modele/modele.php');
 
 if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 {
@@ -256,7 +254,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
   			header("Location:../Vue/Error/error.php?error=notConnected");
   		} ?>
 
-    <?php 
+    <?php
     if(!isset($_SESSION['comptePrincipal']))
     {
       echo '<b class="question slogan" onclick="displayForm(0)">Ajouter un compte secondaire</b>';

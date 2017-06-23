@@ -1,7 +1,5 @@
 <?php
 session_start();
-include('../db_connect.php');
-include('../Modele/modele.php');
 
 if(isset($_POST['idMaison']) AND isset($_POST['nom-maison']) AND isset($_POST['adresse']) AND isset($_POST['codepostal']) AND isset($_POST['ville'])
 	AND isset($_POST['pays']) AND isset($_POST['superficie']) AND isset($_POST['nbhab']) AND isset($_SESSION['id']))

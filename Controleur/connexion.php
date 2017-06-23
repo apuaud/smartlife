@@ -1,7 +1,5 @@
 <?php
 session_start();
-include('../db_connect.php');
-include('../Modele/modele.php');
 
 $pseudo = $_POST['login'];
 $mdpinsere = sha1($_POST['motdepasse']);

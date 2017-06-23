@@ -43,6 +43,11 @@ select {
 {
 	cursor: pointer;
 }
+.spaceForNavBar
+{
+
+	top: 180px;
+}
 
 .noOverflow
 {
@@ -357,7 +362,7 @@ body
 {
 	position: fixed;
 	color: white;
-	z-index: 35;
+	z-index: 200;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.9);
@@ -387,7 +392,7 @@ input[type=checkbox]
 #login
 {
 	bottom: 0px;
-	margin-top: 100px;
+	margin-top: 150px;
 }
 
 #login td
@@ -472,12 +477,12 @@ ul
 }
 .nomCapteur
 {
-	font-size: 50px;
+	font-size: 30px;
 	margin-right: 10px;
 	width: 150px;
 	padding-right: 10px;
 	text-align: right;
-
+	font-family: CenturyGothic;
 }
 
 .nomEtat

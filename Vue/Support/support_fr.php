@@ -20,23 +20,23 @@ else
 				<form action="action.php?action=connexion" method="post">
 				<table class="login" align="center">
 					<tr>
-						<td id="closeForm" onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" /></td>
+						<td id="closeForm" onclick="hideFormulaire()" class="spaceBetweenInput"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" /></td>
 					</tr>
 					<tr>
-						<td id="itemID" ><input required id="idInput" type="text" name="login" placeholder="Pseudo" size="30"/></td>
+						<td id="itemID" class="spaceBetweenInput"><input required id="idInput" type="text" name="login" placeholder="Pseudo" size="30"/></td>
 					</tr>
 					<tr>
-						<td id="itemPassword"><input required id="passwordInput" type="password" name="motdepasse" placeholder="Mot de passe" size="30" /></td>
+						<td id="itemPassword" class="spaceBetweenInput"><input required id="passwordInput" type="password" name="motdepasse" placeholder="Mot de passe" size="30" /></td>
 					</tr>
 					<tr>
-						<td id='buttonConnexion'><button class="buttonsubmit" type="submit">Connexion</button></td>
+						<td id='buttonConnexion' class="spaceBetweenInput"><button class="buttonsubmit" type="submit">Connexion</button></td>
 					</tr>
 					<tr>
-						<td id='itemLostPassword'  align="center"><a href="action.php?action=goToOublieMotDePasse" style="color:white" >Mot de passe oublié ?</td>
+						<td id='itemLostPassword'  align="center" class="spaceBetweenInput"><a href="action.php?action=goToOublieMotDePasse" style="color:white" >Mot de passe oublié ?</td>
 					</tr>
 					</form>
 					<tr>
-						<td id='itemRegister' style="text-align:center"><div class="buttonsubmit" onclick="callRegistration()">Inscription</div></td>
+						<td id='itemRegister' style="text-align:center" class="spaceBetweenInput"><div class="buttonsubmit" onclick="callRegistration()">Inscription</div></td>
 					</tr>
 				</table>
 			</div>
@@ -97,16 +97,16 @@ else
           <form action="action.php?action=sendMail" method="post">
             <table id="login" align="center">
             	<tr>
-            		<td id="itemEmail" class="menuMail"><input required type="text" name="email" placeholder="Votre email" size="41"/></td>
+            		<td id="itemEmail" class="menuMail spaceBetweenInput"><input required type="text" name="email" placeholder="Votre email" size="41"/></td>
             	</tr>
             	<tr>
-            		<td id="itemSubject" class="menuMail"><input required type="text" name="subject" placeholder="Sujet de votre email" size="41"/></td>
+            		<td id="itemSubject" class="menuMail spaceBetweenInput"><input required type="text" name="subject" placeholder="Sujet de votre email" size="41"/></td>
             	</tr>
             	<tr>
-            		<td id="itemPassword" class="menuMail"><textarea class="textarea"name="message" rows="10" cols="70" placeholder="Ecrivez votre message ici"></textarea></td>
+            		<td id="itemPassword" class="menuMail spaceBetweenInput"><textarea class="textarea"name="message" rows="10" cols="70" placeholder="Ecrivez votre message ici"></textarea></td>
             	</tr>
             	<tr>
-                <td id='buttonConnexion'><button class="buttonsubmit" type="submit">Envoyer</button></td>
+                <td id='buttonConnexion' class="spaceBetweenInput" style="text-align:center"><button class="buttonsubmit" type="submit">Envoyer</button></td>
             	</tr>
             </table>
           </form>
@@ -134,9 +134,7 @@ else
   		<div style="margin:0;padding:0;cursor:pointer;">
       	<p class = "slogan" onclick="displayDescriptionNum(this,6)"><b>Nous contacter</b></p>
   		</div>
-
       </body>
-
   		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
       <script type="text/javascript" src="../Vue/Support/support.js"></script>
 </html>

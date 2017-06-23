@@ -4,10 +4,17 @@ var imgId;
 var lastImgId;
 var levelServices = document.getElementById("levelServices");
 var formulaire = document.getElementById('formulaire');
-var ligneServices=document.getElementById('ligneServices').getElementsByTagName('td');
+var ligneServices = document.getElementById('ligneServices').getElementsByTagName('td');
 var sloganDescriptionPs = document.getElementsByClassName('sloganDescriptionP');
 
-
+function goToHome()
+{
+  document.location.href="action.php?action=goToHome";
+}
+function goToSupport()
+{
+  document.location.href="action.php?action=goToSupport";
+}
 function displayDescription(slogan)
 {
   slogan.parentNode.getElementsByClassName('sloganDescription')[0].style.display="table";
@@ -35,7 +42,6 @@ function onLoadFunction()
   },1);
   return;
 }
-
 
 function zoom(imgNum)
 {

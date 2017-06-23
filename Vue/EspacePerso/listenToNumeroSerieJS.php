@@ -6,7 +6,7 @@ $(document).ready(function () {
     var idAppareil = <?php echo json_encode($_GET['idAppareil']); ?>;
     var numeroSerie = $('#numeroSerieInput').val();
     document.location.href=
-    "ajouter_capteur.php?ajoutCapteur=true&" +
+    "action.php?action=validerAjoutCapteur&ajoutCapteur=true&" +
     "idAppareil=" + idAppareil + "&" +
     "maison=" + idMaison + "&" +
     "piece=" + idPiece + "&" +

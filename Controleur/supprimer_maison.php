@@ -1,7 +1,5 @@
 <?php
 session_start();
-include('../db_connect.php');
-include('../Modele/modele.php');
 
 // On vérifie que tous les champs sont bien remplis
 if (isset($_POST['idMaison']))

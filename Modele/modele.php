@@ -626,5 +626,14 @@ function modifierMaison($idMaison, $nomMaison,$adresse,$ville,$codepostal,$pays,
 		));
 }
 
+function getUsersPseudo($idUser, $dbh)
+{
+	$reponse = $dbh->query(
+		'SELECT users.pseudo
+		 FROM users
+		 WHERE users.id=\''. $idUser .'\'');
+	return $reponse->fetch()['pseudo'];
+}
+
 
 ?>

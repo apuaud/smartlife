@@ -3,8 +3,7 @@ session_start();
 include("../pChart/class/pDraw.class.php");
 include("../pChart/class/pImage.class.php");
 include("../pChart/class/pData.class.php");
-include('../db_connect.php');
-include('../Modele/modele.php');
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -43,8 +42,7 @@ include('../Modele/modele.php');
 
 		include_once("../analyticstracking.php"); ?>
 <body onload="resizeDiv(); listenToSelect()">
-	<div class="noOverflow">
-
+	<div class="noOverflow spaceForNavBar">
 <?php
 	if(isset($_POST['idCapteur']) || isset($_GET['idCapteur']))
 	{

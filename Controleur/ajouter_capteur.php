@@ -1,7 +1,5 @@
 <?php
 session_start();
-include('../db_connect.php');
-include('../Modele/modele.php');
 include("../analyticstracking.php");
 
 if(isset($_GET['idAppareil']) AND isset($_GET['numeroSerie']))

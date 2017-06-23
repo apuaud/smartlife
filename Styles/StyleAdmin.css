@@ -10,13 +10,17 @@
 .AdminBody
 {
 	background-image:url("../img/backgroundEspacePerso.jpg");
-	background-size: 100%;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	margin: 0;
 	overflow: hidden;
 }
+.spaceForNavBar
+{
 
+	top: 180px;
+}
 select {
     -webkit-appearance: button;
     -moz-appearance: button;

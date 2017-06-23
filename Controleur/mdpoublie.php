@@ -1,7 +1,5 @@
 <?php
 session_start();
-include('../db_connect.php');
-include('../Modele/modele.php');
 
 if(isset($_POST['email']))
 {
@@ -16,7 +14,7 @@ if(isset($_POST['email']))
 	else
 	{
 		echo "<script>alert('Cet email n'est relié à aucun compte');history.back();</script>";
-	}	
+	}
 }
 
 else
