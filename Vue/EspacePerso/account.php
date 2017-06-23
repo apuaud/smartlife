@@ -47,8 +47,8 @@ include('../Modele/modele.php');
 					</tr>
 					<tr>
 						<td class = "border-bottom">
-							<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie"  />
-							<input required class="zonenombre" type="number" name="nbhab" placeholder="Nb habitants"  />
+							<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie" min="0" />
+							<input required class="zonenombre" type="number" name="nbhab" placeholder="Nb habitants" min="1" />
 						</td>
 					</tr>
 					<tr>
@@ -127,8 +127,8 @@ include('../Modele/modele.php');
 					</tr>
 					<tr>
 						<td class = "border-bottom">
-							<input required class="zonenombre" type="number" name="etage" placeholder="Etage"/>
-							<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie"/>
+							<input required class="zonenombre" type="number" name="etage" placeholder="Etage" min="-2" />
+							<input required class="zonenombre" type="number" name="superficie" placeholder="Superficie" min="0" />
 						</td>
 					</tr>
 					<tr>
