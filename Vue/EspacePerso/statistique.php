@@ -74,9 +74,7 @@ include('../Modele/modele.php');
 			$i = $i+1;
 		}
 		echo"
-		<div class=op>
 			<div class='slogan'>Graphique</div>
-		</div>
 		";
 
 		$reponse = $dbh->query('SELECT piece.nom AS piece , logement.nom AS logement, type_appareil.nom AS type_appareil
@@ -113,9 +111,7 @@ include('../Modele/modele.php');
 		echo"
 		<img src='basic.png' alt='Graphique' class='graphique' />
 
-		<div class=op>
-			<div class='slogan'>Données brutes</div>
-		</div>
+		<div class='slogan'>Données brutes</div>
 		<table class='table1' border=1>
 			<tr>
 				<td><strong>Date</strong></td>
@@ -124,13 +120,11 @@ include('../Modele/modele.php');
 		" . $texte . "<br />
 		</table>
 		";
-
-
 	}
 	else {
 
 		echo"
-		      <form action='action.php?action=goToStatistiques&focus1=itemEspacePerso&focus2=logoReglages' method='post'>
+		      <form action='action.php?action=goToStatistiques&focus1=itemEspacePerso&focus2=logoStats' method='post'>
 		         <table class='tableForm' align='center'>
 		           <tr>
 		             <td>
