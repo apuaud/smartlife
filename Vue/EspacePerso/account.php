@@ -303,11 +303,11 @@ session_start();
 		}
 
 		include_once("../analyticstracking.php"); ?>
-		<div class="spaceForNavBar noOverflow">
+		<div class="spaceForNavBar noOverflow" style="overflow-y: hidden;">
 		<?php 
 		if($_SESSION['type'] <= 3)
 		{
-			echo "<div class='textbox fixed' onclick='display('formulaireAjoutMaison')'>+</div>";
+			echo "<div class='textbox fixed' onclick='display(\"formulaireAjoutMaison\")'>+</div>";
 		}
 		?>
 		
