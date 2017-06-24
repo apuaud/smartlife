@@ -1,13 +1,4 @@
-<?php
 
-if(isset($_SESSION['id']))
-{
-	$functionCalledOnAccountClick = "callAccount()";
-}
-else
-{
-	$functionCalledOnAccountClick ="displayFormulaire()";
-} ?>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -136,5 +127,5 @@ else
   		</div>
       </body>
   		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-      <script type="text/javascript" src="../Vue/Support/support.js"></script>
+      <script type="text/javascript" src="../js/support.js"></script>
 </html>

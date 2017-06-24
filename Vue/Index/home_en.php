@@ -1,15 +1,6 @@
 <?php
 session_start();
 
-if(isset($_SESSION['id']))
-{
-	$functionCalledOnAccountClick = "callAccount()";
-}
-else
-{
-	$functionCalledOnAccountClick ="displayFormulaire()";
-}
-
 ?>
 
 <!DOCTYPE html>

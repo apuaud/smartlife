@@ -85,7 +85,7 @@ session_start();
 				<div class="sloganDescriptionInnerContainer">
 					<p class="sloganDescriptionP" style="text-align:left"><img class="sloganDescriptionGuillemet"src="../img/guillemetsHaut.png"></p>
 					<p class="sloganDescriptionP">Prenez le contrôle de votre logement en connectant vos volets,
-																				vos lumières et en a plein d'autres fonctionnalités !</p>
+																				vos lumières et en ajoutant plein d'autres fonctionnalités !</p>
 					<p class="sloganDescriptionP" style="text-align:right"><img class="sloganDescriptionGuillemet"src="../img/guillemetsBas.png"></p>
 				</div>
 			</div>
@@ -122,7 +122,7 @@ session_start();
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 		</script>
-		<script type="text/javascript" src="../Vue/Index/firstPage.js"></script>
+		<script type="text/javascript" src="../js/firstPage.js"></script>
 
 	</body>
 </html>

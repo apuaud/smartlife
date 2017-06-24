@@ -64,36 +64,42 @@ session_start();
 			?>
 			<form action="action.php?action=modifierInformationsMaison" method='post'>
 			<table id='login' align='center'>
-				<tr >
+				<tr>
 					<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
 				</tr>
 				<tr>
-					<td class = "border-bottom">
+					<td class = "border-bottom" style="text-align:center; font-family:CenturyGothic">
+						Nom de la maison
 						<input required class="zonetexte" type="text" name="nom-maison" pattern=".{1,}" title="Doit contenir au moins un caractère" value=<?php echo $home['nom'] ?>  />
 					</td>
 				</tr>
 				<tr>
-					<td class = "border-bottom">
+					<td class = "border-bottom" style="text-align:center; font-family:CenturyGothic">
+						Adresse
 						<input required class="zonetexte" type="text" name="adresse" pattern=".{1,}" title="Doit contenir au moins un caractère" value=<?php echo $home['adresse'] ?>  />
 					</td>
 				</tr>
 				<tr>
-					<td class = "border-bottom">
+					<td class = "border-bottom" style="text-align:center; font-family:CenturyGothic">
+						Code Postal
 						<input required class="zonetexte" type="text" pattern="[0-9]{5}" title="5 chiffres" name="codepostal" value=<?php echo $home['codePostal'] ?>  />
 					</td>
 				</tr>
 				<tr>
-					<td class = "border-bottom">
+					<td class = "border-bottom" style="text-align:center; font-family:CenturyGothic">
+						Ville
 						<input required class="zonetexte" type="text" pattern="[a-zA-Z]{1,}" title="Ne peut conternir que des lettres" name="ville" value=<?php echo $home['ville'] ?>  />
 					</td>
 				</tr>
 				<tr>
-					<td class = "border-bottom">
+					<td class = "border-bottom" style="text-align:center; font-family:CenturyGothic">
+						Pays
 						<input required class="zonetexte" type="text" name="pays" pattern="[a-zA-Z]{1,}" title="Ne peut conternir que des lettres" value=<?php echo $home['pays'] ?>  />
 					</td>
 				</tr>
 				<tr>
-					<td class = "border-bottom">
+					<td class = "border-bottom" style="text-align:center; font-family:CenturyGothic">
+						<p style="white-space:pre;">Superficie                      Nombre d'habitants</p>
 						<input required class="zonenombre" type="number" name="superficie" value=<?php echo $home['superficie'] ?>  />
 						<input required class="zonenombre" type="number" name="nbhab" value=<?php echo $home['nombreHabitants'] ?> />
 					</td>
@@ -108,6 +114,7 @@ session_start();
 						<button class='buttonsubmit' type="submit"> Modifier </button>
 					</td>
 				</tr>
+				
 			</table>
 		</form>
 	</div>
@@ -161,9 +168,13 @@ session_start();
 				$listeEffecteurPiece = recupererLesEffecteursDeLaPiece($_GET['piece'], $dbh);
 
 				echo "<div class='formulaire scroll-verti'>
-				<table id='login' align='center'>
+				<table id='login' align='center' style='border-collapse:collapse'>
 					<tr>
 						<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+					</tr>
+					<tr>
+						<td style='text-align:right;font-size:40px; font-family:CenturyGothic;border-bottom: solid white thin'>" . getNameOfHouse($_GET['maison'], $dbh) . "</td>
+						<td style='font-size:40px; font-family:CenturyGothic;border-bottom: solid white thin'>" . getNameOfRoom($_GET['piece'], $dbh) . "</td>
 					</tr>
 					<form action='action.php?action=updateCaptors&piece=" . $_GET['piece'] . "&maison=" .$_GET['maison'] . "' method='post'>
 					";
@@ -176,7 +187,7 @@ session_start();
 
 							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "
 											<span style='font-size:30px'>". $unite ."
-											<a class='floatRight' href='supprimer_capteurpiece.php?id=".$capteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
+											<a class='floatRight' href='action.php?action=supprimerCapteurPiece&id=".$capteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
 											alt='Supprimer'  width=20px height=auto /></a>
 											<a class='floatRight' href='action.php?action=goToStatistiques&idCapteur=" . $capteur['id'] . "'><img src='https://www.alterjustice.org/images/ico/icone_web-statistiques-coul.svg'
 											alt='Statistique' style='margin-left:10px' width=20px height=auto /></a>
@@ -190,7 +201,7 @@ session_start();
 								if($effecteur['type_input'] == "number" AND $effecteur['nom'] == "Climatiseur")
 								{
 									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='15' max='30' placeholder='30' size='30'/><span style='font-size:30px'>°C</span>
-														<a class='floatRight' href='supprimer_capteurpiece.php?id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
+														<a class='floatRight' href='action.php?action=supprimerCapteurPiece&id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
 														alt='Supprimer'  width=20px height=auto /></a>
 												</td>
 							</tr>";
@@ -198,7 +209,7 @@ session_start();
 								else if($effecteur['type_input'] == "number")
 								{
 									echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' value = '" . $effecteur['etatActuel'] ."' min='0' max='100' placeholder='30' size='30'/><span style='font-size:30px'>%</span>
-												<a class='floatRight' href='supprimer_capteurpiece.php?id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
+												<a class='floatRight' href='action.php?action=supprimerCapteurPiece&id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
 												alt='Supprimer'  width=20px height=auto /></a>
 												</td></tr>";
 								}
@@ -207,14 +218,14 @@ session_start();
 									if($effecteur['etatActuel']=='true')
 									{
 										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' checked = '" . $effecteur['etatActuel'] ."' placeholder='30' size='30'/>
-													<a class='floatRight' href='supprimer_capteurpiece.php?id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
+													<a class='floatRight' href='action.php?action=supprimerCapteurPiece&id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
 														alt='Supprimer'  width=20px height=auto /></a>
 													</td></tr>";
 									}
 									else
 									{
 										echo "<td><input type='" . $effecteur['type_input'] ."' name='" . $effecteur['nom'] . "' placeholder='30' size='30'/>
-													<a class='floatRight' href='supprimer_capteurpiece.php?id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
+													<a class='floatRight' href='action.php?action=supprimerCapteurPiece&id=".$effecteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
 													alt='Supprimer'  width=20px height=auto /></a>
 													</td></tr>";
 									}
@@ -442,11 +453,12 @@ session_start();
 			<?php
 				if(isset($_GET['maison'])&&isset($_GET['piece'])&&isset($_GET['ajoutCapteur']))
 				{
-					include("listenToTypeAppareilJS.php");
+					include("../js/listenToTypeAppareil.php");
+
 				}
 				if(isset($_GET['maison'])&&isset($_GET['piece'])&&isset($_GET['ajoutCapteur'])&&isset($_GET['idAppareil']))
 				{
-					include("listenToNumeroSerieJS.php");
+					include("../js/listenToNumeroSerie.php");
 				}
 			 ?>
 			<script>

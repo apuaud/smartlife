@@ -1,12 +1,4 @@
-<?php
-if(isset($_SESSION['id']))
-{
-	$functionCalledOnAccountClick = "callAccount()";
-}
-else
-{
-	$functionCalledOnAccountClick ="displayFormulaire()";
-} ?>
+
 <html>
     <head>
         <meta charset="utf-8" />

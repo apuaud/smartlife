@@ -1,4 +1,6 @@
+
 <script>
+
 $(document).ready(function () {
   $("#selectAjoutCapteur").change(function () {
       var idMaison = <?php echo json_encode($_GET['maison']); ?>;

@@ -115,5 +115,10 @@ if(ISSET($_GET['action']))
     case "modifierInformationsMaison":
       include("modifier_maison.php");
       break;
+
+    case "supprimerCapteurPiece":
+
+      include("supprimer_capteurpiece.php");
+      break;
   }
 ?>

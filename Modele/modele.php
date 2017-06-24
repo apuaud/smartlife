@@ -634,6 +634,21 @@ function getUsersPseudo($idUser, $dbh)
 		 WHERE users.id=\''. $idUser .'\'');
 	return $reponse->fetch()['pseudo'];
 }
+function getNameOfHouse($idHouse, $dbh)
+{
+	$reponse = $dbh->query(
+		'SELECT logement.nom
+		 FROM logement
+		 WHERE logement.id=\''. $idHouse .'\'');
+	return $reponse->fetch()['nom'];
+}
 
-
+function getNameOfRoom($idRoom, $dbh)
+{
+	$reponse = $dbh->query(
+		'SELECT piece.nom
+		 FROM piece
+		 WHERE piece.id=\''. $idRoom .'\'');
+	return $reponse->fetch()['nom'];
+}
 ?>

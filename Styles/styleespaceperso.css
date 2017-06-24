@@ -86,6 +86,7 @@ OPTION:hover
 .border-bottom
 {
 	border-bottom: solid white thin;
+	height: 30px;
 }
 
 .textbox
@@ -393,6 +394,7 @@ input[type=checkbox]
 {
 	bottom: 0px;
 	margin-top: 150px;
+	border-collapse: collapse;
 }
 
 #login td
