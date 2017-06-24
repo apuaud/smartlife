@@ -651,4 +651,12 @@ function getNameOfRoom($idRoom, $dbh)
 		 WHERE piece.id=\''. $idRoom .'\'');
 	return $reponse->fetch()['nom'];
 }
+
+function recupererCompteSecondaireAssocie($idPrincipal, $dbh)
+{
+	$reponse = $dbh->query('SELECT users.pseudo, users.nom, users.prenom, users.id
+		FROM users
+		WHERE users.id_comptePrincipal = \''.$idPrincipal .'\'');
+	return $reponse;
+}
 ?>

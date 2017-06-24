@@ -14,7 +14,7 @@ session_start();
 			<form action="action.php?action=connexion" method="post">
 			<table id="login" align="center">
 				<tr>
-					<td id="closeForm" class="spaceBetweenInput"onclick="hideFormulaire()"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" /></td>
+					<td id="closeForm" class="spaceBetweenInput"onclick="hideFormulaire()"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" /></td>
 				</tr>
 				<tr>
 					<td id="itemID"class="spaceBetweenInput" ><input required id="idInput" type="text" name="login" placeholder="Pseudo" size="30"/></td>

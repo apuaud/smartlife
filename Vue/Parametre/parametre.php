@@ -17,32 +17,61 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
     <body class=parametreBody onload="setFontSize();listenToSelect()" onresize="setFontSize()">
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="action.php?action=ajouterCompteSecondaire" method="post">
-              <table class="tableForm" align="center">
+              <table class="tableForm" align="center" style="margin-top:100px;">
+                <?php
+                $compteAssocie = recupererCompteSecondaireAssocie($_SESSION['id'],$dbh);
+                $listeCompte = array();
+                $listeNom = array();
+                $listePrenom = array();
+                $listeID = array();
+                while($donnees = $compteAssocie -> fetch())
+                {
+                  array_push($listeCompte, $donnees['pseudo']);
+                  array_push($listeNom, $donnees['prenom']);
+                  array_push($listePrenom, $donnees['nom']);
+                  array_push($listeID, $donnees['id']);
+                }
+               ?>
                 <tr>
                   <td><input required  type="text" name="email" placeholder="Email"></td>
+                  <td><span>Comptes secondaires actuels :</span></td>
                 </tr>
                 <tr>
                   <td><input required  type="text" name="lastName" placeholder="Prénom"></td>
+                  <td><?php if(isset($listeCompte[0])){echo $listeCompte[0] . " (" . $listePrenom[0] . " " . $listeNom[0] . ")  " . "<a href='../Controleur/supprimer_compte.php?id=".$listeID[0]."'><img src='../img/croix.png'
+          alt='Supprimer' width=20px height=auto /></a>";} ?></td>
                 </tr>
                 <tr>
                   <td><input required  type="text" name="firstName" placeholder="Nom"></td>
+                  <td><?php if(isset($listeCompte[1])){echo $listeCompte[1] . " (" . $listePrenom[1] . " " . $listeNom[1] . ")  " . "<a href='../Controleur/supprimer_compte.php?id=".$listeID[1]."'><img src='../img/croix.png'
+          alt='Supprimer' width=20px height=auto /></a>";} ?></td>
                 </tr>
                 <tr>
                   <td><input required  type="text" name="id" placeholder="Pseudo"></td>
+                  <td><?php if(isset($listeCompte[2])){echo $listeCompte[2] . " (" . $listePrenom[2] . " " . $listeNom[2] . ")  " . "<a href='../Controleur/supprimer_compte.php?id=".$listeID[2]."'><img src='../img/croix.png'
+          alt='Supprimer' width=20px height=auto /></a>";} ?></td>
                 </tr>
                 <tr>
                   <td><input required  type="password" name="pw" placeholder="Mot de passe"></td>
+                  <td><?php if(isset($listeCompte[3])){echo $listeCompte[3] . " (" . $listePrenom[3] . " " . $listeNom[3] . ")  " . "<a href='../Controleur/supprimer_compte.php?id=".$listeID[3]."'><img src='../img/croix.png'
+          alt='Supprimer' width=20px height=auto /></a>";} ?></td>
                 </tr>
                 <tr>
                   <td><input required  type="password" name="pw2" placeholder="Confirmer MDP"></td>
+                  <td><?php if(isset($listeCompte[4])){echo $listeCompte[4] . " (" . $listePrenom[4] . " " . $listeNom[4] . ")  " . "<a href='../Controleur/supprimer_compte.php?id=".$listeID[4]."'><img src='../img/croix.png'
+          alt='Supprimer' width=20px height=auto /></a>";} ?></td>
                 </tr>
                 <tr>
-                  <td>Lecture  <input required type="radio" name="type" value=4></td>
+                  <td><label style="font-family: CenturyGothic,serif;">Lecture </label><input required type="radio" name="type" value=4></td>
+                  <td><?php if(isset($listeCompte[5])){echo $listeCompte[5] . " (" . $listePrenom[5] . " " . $listeNom[5] . ")  " . "<a href='../Controleur/supprimer_compte.php?id=".$listeID[5]."'><img src='../img/croix.png'
+          alt='Supprimer' width=20px height=auto /></a>";} ?></td>
                 </tr>
                 <tr>
-                  <td>Edition  <input required type="radio" name="type" value=3></td>
+                  <td><label style="font-family: CenturyGothic,serif;">Edition </label><input required type="radio" name="type" value=3></td>
+                  <td><?php if(isset($listeCompte[6])){echo $listeCompte[6] . " (" . $listePrenom[6] . " " . $listeNom[6] . ")  " . "<a href='../Controleur/supprimer_compte.php?id=".$listeID[6]."'><img src='../img/croix.png'
+          alt='Supprimer' width=20px height=auto /></a>";} ?></td>
                 </tr>
                 <tr>
                   <td><button class="buttonsubmit" type="submit"> Valider </button></td>
@@ -54,7 +83,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="action.php?action=modifierPseudo" method="post">
                <table class="tableForm" align="center">
                 <tr>
@@ -80,7 +109,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="action.php?action=modifierEmail" method="post">
                <table class="tableForm" align="center">
                 <tr>
@@ -106,7 +135,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="action.php?action=modifierMDP" method="post">
                <table class="tableForm" align="center">
                 <tr>
@@ -133,7 +162,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="action.php?action=supprimerMaison" method="post">
                <table class="tableForm" align="center">
                  <tr>
@@ -162,7 +191,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
 
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="action.php?action=supprimerPiece" method="post">
                <table class="tableForm" align="center">
                  <tr>
@@ -217,7 +246,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
       </div>
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="suppression.php" method="post">
                <table class="tableForm" align="center">
                 <tr>

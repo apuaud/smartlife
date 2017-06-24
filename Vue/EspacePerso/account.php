@@ -16,7 +16,7 @@ session_start();
 				<form action="action.php?action=validerAjoutMaison" method='post'>
 				<table id='login' align='center'>
 					<tr >
-						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='../img/whitecross.png' alt='Fermer'  /></td>
 					</tr>
 					<tr>
 						<td class = "border-bottom">
@@ -65,7 +65,7 @@ session_start();
 			<form action="action.php?action=modifierInformationsMaison" method='post'>
 			<table id='login' align='center'>
 				<tr>
-					<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+					<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='../img/whitecross.png' alt='Fermer'  /></td>
 				</tr>
 				<tr>
 					<td class = "border-bottom" style="text-align:center; font-family:CenturyGothic">
@@ -123,7 +123,7 @@ session_start();
 			<form action="action.php?action=validerAjoutPiece&maison=<?php echo $_GET['maison'] ?>" method="post"/>
 				<table id='login' align='center'>
 					<tr >
-						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='../img/whitecross.png' alt='Fermer'  /></td>
 					</tr>
 					<tr>
 						<td class = "border-bottom">
@@ -170,7 +170,7 @@ session_start();
 				echo "<div class='formulaire scroll-verti'>
 				<table id='login' align='center' style='border-collapse:collapse'>
 					<tr>
-						<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png' alt='Fermer'  /></td>
+						<td id='closeForm' onclick='hideFormulaire()''><img id='cross' src='../img/whitecross.png' alt='Fermer'  /></td>
 					</tr>
 					<tr>
 						<td style='text-align:right;font-size:40px; font-family:CenturyGothic;border-bottom: solid white thin'>" . getNameOfHouse($_GET['maison'], $dbh) . "</td>
@@ -304,7 +304,13 @@ session_start();
 
 		include_once("../analyticstracking.php"); ?>
 		<div class="spaceForNavBar noOverflow">
-		<div class='textbox fixed' onclick="display('formulaireAjoutMaison')">+</div>
+		<?php 
+		if($_SESSION['type'] <= 3)
+		{
+			echo "<div class='textbox fixed' onclick='display('formulaireAjoutMaison')'>+</div>";
+		}
+		?>
+		
 
 		<div class='spaceForPlus' id='ScrollZone1'>
 			<div class='flecheGauche fixed' onmouseover="ScrollLeft(5, 1)" onmouseout="clearScroll(SL)"><</span>
@@ -327,9 +333,13 @@ session_start();
 					{
 						$selectedHouse = "selectedHouse";
 						echo "<td>
-						<div class=" . $selectedHouse . ">" . $donnees['nom'] . "
-							<img class='logoReglageMaison' src='../img/reglage.png' onclick=\"display('formulaireModificationMaison')\">
-						</div>
+						<div class=" . $selectedHouse . ">" . $donnees['nom'];
+						if($_SESSION['type'] <= 3)
+						{
+							echo "<img class='logoReglageMaison' src='../img/reglage.png' onclick=display('formulaireModificationMaison')>";
+						}
+							
+						echo "</div>
 						</td>";
 					}
 				}
@@ -368,8 +378,12 @@ session_start();
 
 		<?php
 		if(isset($_GET['maison']) && $houseBelongsToUser){
-			echo "<div class='textbox fixed' onclick=\"display('formulaireAjoutPiece')\">+</div>
-						<div class='spaceForPlus' id='ScrollZone2'><table class='listepiece'><tr>
+			if($_SESSION['type'] <= 3)
+			{
+				echo "<div class='textbox fixed' onclick=display('formulaireAjoutPiece')>+</div>";
+			}
+			
+						echo "<div class='spaceForPlus' id='ScrollZone2'><table class='listepiece'><tr>
 						<div class='flecheGauche fixed' onmouseover='ScrollLeft(5, 2)' onmouseout='clearScroll(SL)'><</div>";
 				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh);
 

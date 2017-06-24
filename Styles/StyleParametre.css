@@ -158,11 +158,11 @@ input:focus
 
 .tableForm td
 {
+	font-family: CenturyGothic, serif;
 	text-align: center;
 	background-color: transparent;
 	margin: 0;
 	padding-bottom:10px;
-	width: 400px;
 	font-size: 30px;
 }
 

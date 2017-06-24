@@ -11,7 +11,7 @@
 				<form action="action.php?action=connexion" method="post">
 				<table class="login" align="center">
 					<tr>
-						<td id="closeForm" onclick="hideFormulaire()" class="spaceBetweenInput"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" /></td>
+						<td id="closeForm" onclick="hideFormulaire()" class="spaceBetweenInput"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" /></td>
 					</tr>
 					<tr>
 						<td id="itemID" class="spaceBetweenInput"><input required id="idInput" type="text" name="login" placeholder="Pseudo" size="30"/></td>
@@ -42,49 +42,49 @@
 
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 0)"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 0)"/>
           <p class="sloganDescriptionP">Cliquez sur la rubrique « Espace personnel » puis cliquez sur « se créer un compte ».<br/> Ensuite, veuillez remplir les informations nécessaires.<br/> Pour terminer votre inscription, cliquez sur « s’enregistrer ». Vous allez recevoir un	mail de confirmation qu’il faudra ouvrir pour finaliser votre inscription.</p>
         </div>
       </div>
 
       <div class="sloganDescription">
         <div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 1)"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 1)"/>
           <p class="sloganDescriptionP">Cliquez sur la rubrique « Espace personnel » puis entrez votre identifiant et votre mot de passe. Ensuite cliquez sur « Entrer ».</p>
         </div>
       </div>
 
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 2)"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 2)"/>
 					<p class="sloganDescriptionP">Cliquez sur la rubrique « Espace personnel », puis cliquez  sur « paramètres ». Vous trouverez toutes vos informations personnelles et vous pourrez les modifier à votre guise.</p>
 				</div>
 			</div>
 
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 3)"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 3)"/>
 					<p class="sloganDescriptionP">Cliquez sur la rubrique « Espace personnel », puis vous pouvez directement <br/>ajouter une maison en cliquant sur la rubrique « ajouter une maison ». Vous êtes ensuite <br/>redirigés sur la page de votre nouvelle maison et vous pouvez compléter les informations demandées.</p>
 				</div>
 			</div>
 
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 4)"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 4)"/>
 					<p class="sloganDescriptionP">Cliquez sur la rubrique « Espace personnel », puis cliquez sur « Ma maison ». Vous êtes ensuite redirigés vers la page de votre maison où vous pouvez voir l’ensemble de vos pièces. Cliquez maintenant sur la rubrique « Ajouter une pièce ».</p>
 				</div>
 			</div>
 
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 5)"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 5)"/>
 					<p class="sloganDescriptionP">Cliquez sur la rubrique « Espace personnel », puis cliquez sur « Ma maison ». Vous êtes ensuite redirigés vers la page de votre maison où vous pouvez voir l’ensemble de vos pièces. Cliquez maintenant sur la rubrique « Ajouter une pièce ».</p>
 				</div>
 			</div>
 
       <div class="sloganDescription">
 				<div class="sloganDescriptionInnerContainer">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="http://image.noelshack.com/fichiers/2017/13/1490697237-whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 6)"/>
+          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideDescriptionNum(this, 6)"/>
           <form action="action.php?action=sendMail" method="post">
             <table id="login" align="center">
             	<tr>
