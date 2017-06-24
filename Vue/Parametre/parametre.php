@@ -286,7 +286,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
     <?php
     if(!isset($_SESSION['comptePrincipal']))
     {
-      echo '<b class="question slogan" onclick="displayForm(0)">Ajouter un compte secondaire</b>';
+      echo '<b class="question slogan" onclick="displayForm(0)">Gérer les comptes secondaires</b>';
     }
      ?>
     <b class="question slogan" onclick="displayForm(1)">Modifier mon pseudo</b>
