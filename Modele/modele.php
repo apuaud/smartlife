@@ -143,23 +143,6 @@ function ajouterCapteur($typecapteur,$numeroserie,$piece,$dbh)
 		));
 }
 
-function ajouterEffecteur($typeeffecteur,$numeroserie,$piece,$dbh)
-{
-	$reponse = $dbh->query('SELECT id
-		FROM type_appareil
-		WHERE numeroModele =\'' . $typeeffecteur . '\'');
-	$donnees = $reponse->fetch();
-	$reponse->closeCursor();
-
-	$req = $dbh->prepare('INSERT INTO effecteur(id_type_appareil, numeroSerie, id_piece)
-		VALUES(:id_type_appareil, :numeroSerie, :id_piece)');
-	$req->execute(array(
-		'id_type_appareil' => $typeeffecteur,
-		'numeroSerie' => $numeroserie,
-		'id_piece' => $piece
-		));
-}
-
 function ajouterMaison($maison,$adresse,$ville,$codepostal,$pays,$superficie,$nbhab,$dbh)
 {
 	$req = $dbh->prepare('INSERT INTO logement(nom, adresse, ville, codePostal, pays, superficie, nombreHabitants)
