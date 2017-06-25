@@ -118,8 +118,10 @@ session_start();
 			</div>
 			<p class = "slogan" onmouseover="displayDescription(this)" onmouseout="hideDescription(this)">Optimisez votre consommation énergétique</p>
 			<img class ="imgBackground" src="../img/presentation3.jpg">
-			<div class = "mentionslegales"><a class="lienML" href="">Mentions légales</a> - <a class="lienML" href="">Conditions générales d'utilisation</a></div>
 		</div>
+
+		<div class = "mentionslegales"><a class="lienML" href="action.php?action=goToML">Mentions légales</a> - <a class="lienML" href="action.php?action=goToCGU">Conditions générales d'utilisation</a></div>
+
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 		</script>

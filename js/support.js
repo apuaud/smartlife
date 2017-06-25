@@ -61,11 +61,6 @@ function callRegistration()
   window.location="action.php?action=goToInscription";
 }
 
-function callAccount()
-{
-  window.location="action.php?action=goToAccount&focus1=itemEspacePerso&focus2=logoMaison&";
-}
-
 function displayFormulaire()
 {
   formulaire.style.display="block";

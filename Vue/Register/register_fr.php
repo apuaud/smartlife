@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="container" id="accueil" >
-			<p id="logoContainer"><img align="middle"id="logo2" src="../img/logo_sansFond.png"></p>
+			<p id="logoContainer"><a href="action.php?action=goToHome"><img align="middle"id="logo2" src="../img/logo_sansFond.png"></a></p>
 			<img class ="imgBackground"src="../img/leveSoleilTest.jpg" style="position:relative; z-index=4;">
 		</div>
 	</body>

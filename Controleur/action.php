@@ -117,8 +117,31 @@ if(ISSET($_GET['action']))
       break;
 
     case "supprimerCapteurPiece":
-
       include("supprimer_capteurpiece.php");
+      break;
+
+    case "goToML":
+      include("../Vue/ML/mentionsLegales.php");
+      break;
+
+    case "goToCGU":
+      include("../Vue/ML/conditionsUtilisation.php");
+      break;
+
+    case "goToCGUAdmin":
+      include("../Vue/ML/conditionsUtilisationAdmin.php");
+      break;
+
+    case "goToMLAdmin":
+      include("../Vue/ML/mentionsLegalesAdmin.php");
+      break;
+
+    case "modifierML":
+      include("modifier_ml.php");
+      break;
+
+    case "modifierCGU":
+      include("modifier_cgu.php");
       break;
   }
 ?>

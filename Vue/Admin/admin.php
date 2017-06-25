@@ -97,7 +97,17 @@ echo "</table>";
 	<button class="buttonsubmit" type="submit">Ajouter</button>
 	</div>
 </form>
+
+<div class="slogan">Modifier les conditions d'utilisation et les mentions légales</div>
+<div align="center">
+
+<a href="action.php?action=goToCGUAdmin"><button class="buttonsubmit" type="submit" style="margin-right:20px">Conditions d'utilisation</button></a>
+<a href="action.php?action=goToMLAdmin"><button class="buttonsubmit" type="submit">Mentions légales</button></a>
 </div>
+
+</div>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 

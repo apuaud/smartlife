@@ -642,4 +642,34 @@ function recupererCompteSecondaireAssocie($idPrincipal, $dbh)
 		WHERE users.id_comptePrincipal = \''.$idPrincipal .'\'');
 	return $reponse;
 }
+
+function getCGU($dbh)
+{
+	$reponse = $dbh->query('SELECT ml_cgu.cgu
+		FROM ml_cgu');
+	return $reponse->fetch()['cgu'];
+}
+
+function getML($dbh)
+{
+	$reponse = $dbh->query('SELECT ml_cgu.ml
+		FROM ml_cgu');
+	return $reponse->fetch()['ml'];
+}
+
+function setML($mlText, $dbh)
+{
+	$req = $dbh->prepare('UPDATE ml_cgu SET ml=:mlText');
+	$req->execute(array(
+		'mlText' => $mlText
+		));
+}
+
+function setCGU($cguText, $dbh)
+{
+	$req = $dbh->prepare('UPDATE ml_cgu SET cgu=:cguText');
+	$req->execute(array(
+		'cguText' => $cguText
+		));
+}
 ?>

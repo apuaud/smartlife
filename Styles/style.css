@@ -43,7 +43,11 @@ div, img
 	border: solid white thin;
 	transition: 0.5s;
 }
-
+.mlDIV
+{
+	overflow-y: scroll;
+	height: 60%;
+}
 .buttonsubmit:hover
 {
 	transform: scale(1.1);
@@ -82,7 +86,18 @@ div, img
 	border-radius: 5px;
 	border: solid white thin;
 }
-
+.textarea
+{
+	background-color: transparent;
+	color:white;
+	border: none;
+	font-family: 'CenturyGothic';
+	text-align:justify;
+	width: 100%;
+	font-size:16px;
+	height: 100%;
+	outline: none;
+}
 input
 {
 	background-color: transparent;
@@ -278,7 +293,10 @@ input:focus
 	background-color: rgba(255,255, 255, 0.5);
 	margin-bottom: 2px;
 }
-
+.lienML
+{
+	cursor: pointer;
+}
 .lienML:visited
 {
 	color:black;
@@ -392,6 +410,30 @@ input:focus
 	margin: 0;
 	padding: 0;
 	width: 400px;
+}
+
+
+.mlTable
+{
+	bottom: 0px;
+}
+
+#textAreaTD
+{
+	height: 55vh;
+}
+
+#tabTitle
+{
+	margin-top: 200px;
+}
+.mlTable td
+{
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	width: 100vh;
+	font-family: 'CenturyGothic';
 }
 
 .registrationTable input
