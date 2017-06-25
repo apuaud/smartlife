@@ -11,11 +11,11 @@
 				<table class="registrationTable" align="center">
 					<tr>
 						<td id="firstNameTd" class="spaceBetweenInput" align="right" >
-							<input required type="text" name="firstName" placeholder="Prénom" pattern="[a-zA-Z-]{1,}" title="Ne doit contenir que lettres et tirets" id="firstNameInput"/></td>
+							<input required type="text" name="firstName" placeholder="Prénom" pattern="[a-zA-Z- ]{1,}" title="Ne doit contenir que lettres et tirets" id="firstNameInput"/></td>
 					</tr>
 					<tr>
 						<td id="lastNameTd" class="spaceBetweenInput"align="right">
-							<input required  type="text" name="lastName" placeholder="Nom" pattern="[a-zA-Z-]{1,}" title="Ne doit contenir que lettres et tirets"/></td>
+							<input required  type="text" name="lastName" placeholder="Nom" pattern="[a-zA-Z- ]{1,}" title="Ne doit contenir que lettres et tirets"/></td>
 					</tr>
 					<tr>
 						<td id="idTd" class="spaceBetweenInput"align="right">

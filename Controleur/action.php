@@ -102,7 +102,7 @@ if(ISSET($_GET['action']))
       break;
 
     case "supprimerCompte":
-      include("supprimer_compte.php");
+      include("supprimer_compte_utilisateur.php");
       break;
 
     case "supprimerPiece":
