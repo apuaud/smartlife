@@ -6,6 +6,21 @@ var levelServices = document.getElementById("levelServices");
 var formulaire = document.getElementById('formulaire');
 var ligneServices = document.getElementById('ligneServices').getElementsByTagName('td');
 var sloganDescriptionPs = document.getElementsByClassName('sloganDescriptionP');
+var slogans = document.getElementsByClassName('slogan');
+var mentionslegales = document.getElementsByClassName('mentionslegales')[0];
+function setFontSize()
+{
+  for(var sloganNum = slogans.length-1 ; sloganNum >= 0  ; sloganNum--)
+  {
+    slogans[sloganNum].style.fontSize=50*$(window).width()/1440 + "px";
+  }
+  for(var sloganNum = 0; sloganNum < sloganDescriptionPs.length ; sloganNum++)
+  {
+    sloganDescriptionPs[sloganNum].style.fontSize = 50*$(window).width()/1440 + "px";
+  }
+  mentionslegales.style.fontSize = 25*$(window).width()/1440 + "px";
+
+}
 
 function goToHome()
 {
@@ -28,6 +43,7 @@ function hideDescription(slogan)
 
 function onLoadFunction()
 {
+  setFontSize();
   for(var i = 0 ; i < imgs.length ; i ++)
   {
     imgs[i].classList.remove('zoom');

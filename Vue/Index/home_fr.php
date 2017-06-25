@@ -9,7 +9,7 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="../Styles/style.css"  />
 
 	</head>
-	<body class="margin0" onload="onLoadFunction()">
+	<body class="margin0" onload="onLoadFunction()" onresize="setFontSize()">
 		<div id="formulaire">
 			<form action="action.php?action=connexion" method="post">
 			<table id="login" align="center">
