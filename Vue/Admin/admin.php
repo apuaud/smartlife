@@ -48,10 +48,10 @@ while($donnees = $reponse->fetch())
 					<td>". $donnees['email'] ."</td>";
 					if($donnees['type']==2){echo "<td>Admin</td>";}else if($donnees['type']==0)
 					{echo "<td>Inactif</td>";}else if($donnees['type']==1){echo "<td>Actif</td>";}else{echo "<td>Secondaire</td>";}
-					echo "<td style='text-align:center'><a href='../Controleur/promouvoir.php?id=".$donnees['id']."'><img src='../img/fleche_haut.png'
+					echo "<td style='text-align:center'><a href='action.php?action=promouvoir&id=".$donnees['id']."'><img src='../img/fleche_haut.png'
 					alt='Promouvoir' width=20px height=auto /></a><a href='../Controleur/action.php?action=depromouvoir&id=".$donnees['id']."'><img src='../img/fleche_bas.png'
 					alt='Promouvoir' width=20px height=auto /></a></td>
-					<td style='text-align:center'><a href='../Controleur/supprimer_compte.php?id=".$donnees['id']."'><img src='../img/croix.png'
+					<td style='text-align:center'><a href='action.php?action=supprimerCompteUtilisateur&id=".$donnees['id']."'><img src='../img/croix.png'
 					alt='Supprimer' width=20px height=auto /></a></td>
 					</tr>";
 				}
@@ -73,7 +73,7 @@ while($donnees = $reponse->fetch())
 	echo "<tr>
 	<td>". $donnees['nom'] ."</td>
 	<td>". $donnees['numeroModele'] ."</td>
-	<td style='text-align:center'><a href='../Controleur/supprimer_capteur.php?id=".$donnees['id']."'><img src='../img/croix.png'
+	<td style='text-align:center'><a href='action.php?action=supprimerTypeAppareil&id=".$donnees['id']."'><img src='../img/croix.png'
 	alt='Supprimer' width=20px height=auto /></a></td>";
 }
 echo "</table>";

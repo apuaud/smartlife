@@ -84,6 +84,10 @@ if(ISSET($_GET['action']))
       include("depromouvoir.php");
       break;
 
+    case "promouvoir":
+      include("promouvoir.php");
+      break;
+
     case "error":
       include("../Vue/Error/error.php");
       break;
@@ -146,6 +150,22 @@ if(ISSET($_GET['action']))
 
     case"seDeconnecter";
       include("logout.php");
+      break;
+
+    case"supprimerCompteSecondaire":
+      include("supprimer_compte_secondaire.php");
+      break;
+
+    case"supprimerComptePrincipale":
+      include("suppression.php");
+      break;
+
+    case"supprimerCompteUtilisateur":
+      include("supprimer_compte_utilisateur.php");
+      break;
+
+    case"supprimerTypeAppareil":
+      include("supprimer_capteur.php");
       break;
   }
 ?>
