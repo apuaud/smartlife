@@ -1,8 +1,9 @@
 <?php
-	if($_SESSION['type']!=2)
-	{
-		header("Location:../Controleur/action.php?action=error&error=notAdmin");
-	}
+session_start();
+if($_SESSION['type']!=2)
+{
+  header("Location:../Controleur/action.php?action=error&error=notAdmin");
+}
  ?>
 
 <!DOCTYPE html>
