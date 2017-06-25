@@ -74,7 +74,7 @@ function envoiMailConfirmation($pseudo,$cle,$email,$dbh)
 Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
 ou le copier/coller dans votre navigateur internet.
 
-http://puaud.eu/appmvc/Controleur/activation.php?log='.urlencode($pseudo).'&cle='.urlencode($cle).'
+http://smartlife.puaud.eu/Controleur/action.php?action=activation&log='.urlencode($pseudo).'&cle='.urlencode($cle).'
 
 ---------------
 Ceci est un mail automatique, Merci de ne pas y répondre.';
@@ -214,7 +214,7 @@ function motDePasseOublie($email,$dbh)
 Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous
 ou le copier/coller dans votre navigateur internet.
 
-http://puaud.eu/appmvc/Controleur/reinitialiser.php?log='.urlencode($donnees2['pseudo']).'&cle='.urlencode($cle).'
+http://smartlife.puaud.eu/Controleur/action.php?action=reinitialiser?log='.urlencode($donnees2['pseudo']).'&cle='.urlencode($cle).'
 
 ---------------
 Ceci est un mail automatique, merci de ne pas y répondre.';

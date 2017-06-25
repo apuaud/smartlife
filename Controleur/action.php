@@ -176,5 +176,13 @@ if(ISSET($_GET['action']))
     case"supprimerTypeAppareil":
       include("supprimer_capteur.php");
       break;
+
+    case "activation":
+      include("activation.php");
+      break;
+
+    case "reinitialiser":
+      include("reinitialiser.php");
+      break;
   }
 ?>

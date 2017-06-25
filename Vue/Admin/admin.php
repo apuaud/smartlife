@@ -26,7 +26,6 @@ if($_SESSION['type']!=2)
 <?php
 					echo "<table class='table1' border=1>
 					<tr>
-					<td><strong>ID</strong></td>
 					<td><strong>Pseudo</strong></td>
 					<td><strong>Prénom</strong></td>
 					<td><strong>Nom</strong></td>
@@ -41,7 +40,6 @@ $reponse = recupererLesUtilisateurs($dbh);
 while($donnees = $reponse->fetch())
 				{
 					echo "<tr>
-					<td>". $donnees['id'] ."</td>
 					<td>". $donnees['pseudo'] ."</td>
 					<td>". $donnees['nom'] ."</td>
 					<td>". $donnees['prenom'] ."</td>
