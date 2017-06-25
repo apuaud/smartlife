@@ -48,12 +48,13 @@ while($donnees = $reponse->fetch())
 					<td>". $donnees['email'] ."</td>";
 					if($donnees['type']==2){echo "<td>Admin</td>";}else if($donnees['type']==0)
 					{echo "<td>Inactif</td>";}else if($donnees['type']==1){echo "<td>Actif</td>";}else{echo "<td>Secondaire</td>";}
-					echo "<td style='text-align:center'><a href='action.php?action=promouvoir&id=".$donnees['id']."'><img src='../img/fleche_haut.png'
-					alt='Promouvoir' width=20px height=auto /></a><a href='../Controleur/action.php?action=depromouvoir&id=".$donnees['id']."'><img src='../img/fleche_bas.png'
-					alt='Promouvoir' width=20px height=auto /></a></td>
-					<td style='text-align:center'><a href='action.php?action=supprimerCompteUtilisateur&id=".$donnees['id']."'><img src='../img/croix.png'
-					alt='Supprimer' width=20px height=auto /></a></td>
-					</tr>";
+					if($donnees['type']==1){echo "<td style='text-align:center'><a href='action.php?action=promouvoir&id=".$donnees['id']."'><img src='../img/fleche_haut.png' alt='Promouvoir' width=20px height=auto /></a></td>";}
+					else if($donnees['type']==2){echo "<td><a href='action.php?action=depromouvoir&id=".$donnees['id']."'><img src='../img/fleche_bas.png' alt='Promouvoir' width=20px height=auto /></a></td>";}
+					else{echo "<td></td>";}
+					if($donnees['type']!=2){echo "<td style='text-align:center'><a href='action.php?action=supprimerCompte&id=".$donnees['id']."'><img src='../img/croix.png' alt='Supprimer' width=20px height=auto /></a></td>";}
+					else{echo "<td></td>";}
+					
+					echo "</tr>";
 				}
 				echo "</table>";
 

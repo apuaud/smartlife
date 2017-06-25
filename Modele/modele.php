@@ -321,8 +321,7 @@ function roomBelongsToHouse($idMaison, $idPiece, $dbh)
 function recupererLesUtilisateurs($dbh)
 {
 	$reponse = $dbh->query('SELECT id,pseudo,nom,prenom,email,type
-							FROM users
-							LIMIT 0 , 50');
+							FROM users');
 	return $reponse;
 }
 

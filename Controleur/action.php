@@ -80,6 +80,11 @@ if(ISSET($_GET['action']))
       include("modifier_mdp.php");
       break;
 
+    case "promouvoir":
+      include("promouvoir.php");
+      break;
+
+
     case "depromouvoir":
       include("depromouvoir.php");
       break;
@@ -94,6 +99,10 @@ if(ISSET($_GET['action']))
 
     case "supprimerMaison":
       include("supprimer_maison.php");
+      break;
+
+    case "supprimerCompte":
+      include("supprimer_compte.php");
       break;
 
     case "supprimerPiece":
