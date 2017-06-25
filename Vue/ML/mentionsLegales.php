@@ -18,7 +18,7 @@
       <div class="mlDIV">
 				<table class="mlTable" align="center">
 					<tr>
-						<td id="firstNameTd" align="justify" >
+						<td id="firstNameTd" align="justify" style="white-space:pre-wrap;">
               <?php
                 $ml = getML($dbh);
                 echo $ml;

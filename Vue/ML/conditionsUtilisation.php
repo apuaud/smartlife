@@ -10,7 +10,7 @@
 		<div id="formulaire">
       <table class="mlTable" id="tabTitle" align="center">
         <tr>
-          <td id="firstNameTd" align="middle" style='border-bottom:solid white thin; font-size:30px'>
+          <td id="firstNameTd" align="middle" style='border-bottom:solid white thin; font-size:30px' >
             CONDITIONS GENERALES D'UTILISATION
           </td>
         </tr>
@@ -18,7 +18,7 @@
       <div class="mlDIV">
 				<table class="mlTable" align="center">
 					<tr>
-						<td id="firstNameTd" align="justify" >
+						<td id="firstNameTd" align="justify" style="white-space:pre-wrap;text-align:justify">
               <?php
                 $ml = getCGU($dbh);
                 echo $ml;
