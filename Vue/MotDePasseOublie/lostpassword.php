@@ -19,9 +19,9 @@ session_start();
 						<input required id="firstNameInput" type="text" name="email" placeholder="Votre email" size="20"/>
 					</td>
 				</tr>
-				<tr>
+				<tr >
 					<td></td>
-					<td id='itemRegister'><button onclick="">Réinitialiser mon mot de passe</button></a></td>
+					<td id='itemRegister'><button onclick="" class="buttonsubmit" style ="margin-top:30px">Réinitialiser mon mot de passe</button></a></td>
 					<td></td>
 				</tr>
 

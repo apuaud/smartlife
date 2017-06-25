@@ -114,7 +114,7 @@ session_start();
 						<button class='buttonsubmit' type="submit"> Modifier </button>
 					</td>
 				</tr>
-				
+
 			</table>
 		</form>
 	</div>
@@ -156,12 +156,12 @@ session_start();
 				{
 					$houseBelongsToUser = houseBelongsToUser($_SESSION['id'], $_GET['maison'], $dbh);
 				}
-
 			}
 			if(isset($_GET['piece']))
 			{
 				$roomBelongsToHouse = roomBelongsToHouse($_GET['maison'],$_GET['piece'],$dbh);
 			}
+
 			if(isset($_GET['maison']) && isset($_GET['piece']) && $houseBelongsToUser && $roomBelongsToHouse)
 			{
 				$listeCapteurPiece = recupererLesCapteursDeLaPiece($_GET['piece'], $dbh);
@@ -184,8 +184,10 @@ session_start();
 							if($capteur['nom']=="Température"){$unite=" °C";}else if($capteur['nom']=="Humidité"){$unite=" %";}else{$unite="";}
 							echo "<tr>
 								<td class='nomCapteur'>" . $capteur['nom'] . "</td>";
-
-							echo "<td style='font-size:30px;'>" . $capteur['etatActuel'] . "
+							$etatActuel = $capteur['etatActuel'];
+							if($capteur['nom']=='Mouvement')
+							(($capteur['nom']=='Mouvement')&&($etatActuel==0)) ? $etatActuel = "<img class='croixBlanche' src='../img/croixBlanche.png'>" : $etatActuel = "<img class='croixBlanche' src='../img/validerBlanc.png'>";
+							echo "<td style='font-size:30px;'>" . $etatActuel . "
 											<span style='font-size:30px'>". $unite ."
 											<a class='floatRight' href='action.php?action=supprimerCapteurPiece&id=".$capteur['id']."&maison=" . $_GET['maison'] . "&piece=" . $_GET['piece'] . "'><img src='../img/croix.png'
 											alt='Supprimer'  width=20px height=auto /></a>
@@ -304,13 +306,13 @@ session_start();
 
 		include_once("../analyticstracking.php"); ?>
 		<div class="spaceForNavBar noOverflow" style="overflow-y: hidden;">
-		<?php 
+		<?php
 		if($_SESSION['type'] <= 3)
 		{
 			echo "<div class='textbox fixed' onclick='display(\"formulaireAjoutMaison\")'>+</div>";
 		}
 		?>
-		
+
 
 		<div class='spaceForPlus' id='ScrollZone1'>
 			<div class='flecheGauche fixed' onmouseover="ScrollLeft(5, 1)" onmouseout="clearScroll(SL)"><</span>
@@ -338,12 +340,11 @@ session_start();
 						{
 							echo "<img class='logoReglageMaison' src='../img/reglage.png' onclick=display('formulaireModificationMaison')>";
 						}
-							
+
 						echo "</div>
 						</td>";
 					}
 				}
-
 
 				if(isset($_SESSION['comptePrincipal']))
 				{
@@ -382,7 +383,7 @@ session_start();
 			{
 				echo "<div class='textbox fixed' onclick=display('formulaireAjoutPiece')>+</div>";
 			}
-			
+
 						echo "<div class='spaceForPlus' id='ScrollZone2'><table class='listepiece'><tr>
 						<div class='flecheGauche fixed' onmouseover='ScrollLeft(5, 2)' onmouseout='clearScroll(SL)'><</div>";
 				$reponse = recupererLesPiecesDeLaMaison($_GET['maison'], $dbh);
@@ -415,7 +416,7 @@ session_start();
 						{
 							if($donnees4['etatActuel']==0)
 							{
-								echo "<li>X</li>";
+								echo "<li><img class='croixNoir' src='../img/croixNoir.png'></li>";
 							}
 							else {
 								echo "<li>✓</li>";
@@ -434,7 +435,7 @@ session_start();
 						{
 							if($donnees5['etatActuel']=="false")
 							{
-								echo "<li>X</li>";
+								echo "<li><img class='croixNoir' src='../img/croixNoir.png'></li>";
 							}
 							else {
 								echo "<li>✓</li>";
