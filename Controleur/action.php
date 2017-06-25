@@ -143,5 +143,9 @@ if(ISSET($_GET['action']))
     case "modifierCGU":
       include("modifier_cgu.php");
       break;
+
+    case"seDeconnecter";
+      include("logout.php");
+      break;
   }
 ?>
