@@ -298,10 +298,13 @@ input:focus
 {
 	cursor: pointer;
 	text-decoration: none;
+	color: black;
 }
-.lienML:visited
+
+.lienML:link
 {
-	color:black;
+	color: black;
+
 }
 
 .zoomAnimation

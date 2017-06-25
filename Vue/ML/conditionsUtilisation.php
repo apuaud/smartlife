@@ -30,7 +30,7 @@
 		</div>
 
 		<div class="container" id="accueil" >
-			<p id="logoContainer"><a href="action.php?action=goToHome"><img align="middle"id="logo2" src="../img/logo_sansFond.png"></a></p>
+			<p id="logoContainer"><a href="action.php?action=goToHome&focus1=itemAccueil&focus2=&"><img align="middle"id="logo2" src="../img/logo_sansFond.png"></a></p>
 			<img class ="imgBackground"src="../img/ml.jpg" style="position:relative; z-index=4;">
 		</div>
 	</body>
