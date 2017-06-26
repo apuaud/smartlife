@@ -18,6 +18,11 @@ session_start();
 					<tr >
 						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='../img/whitecross.png' alt='Fermer'  /></td>
 					</tr>
+				<tr>
+                  <td>
+                    <div style="color:red">* Tous les champs sont obligatoires</div>
+                  </td>
+                </tr>
 					<tr>
 						<td class = "border-bottom">
 							<input required class="zonetexte" type="text" name="nom-maison" pattern=".{1,}" title="Doit contenir au moins un caractère" placeholder="Nom de la maison"  />
@@ -125,6 +130,11 @@ session_start();
 					<tr >
 						<td id='closeForm' onclick='hideFormulaire()'><img id='cross' src='../img/whitecross.png' alt='Fermer'  /></td>
 					</tr>
+				<tr>
+                  <td>
+                    <div style="color:red">* Tous les champs sont obligatoires</div>
+                  </td>
+                </tr>
 					<tr>
 						<td class = "border-bottom">
 							<input required class="zonetexte" type="text" name="nom-piece" placeholder="Nom de la pièce"/>

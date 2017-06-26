@@ -125,6 +125,8 @@
   		<div style="margin:0;padding:0;cursor:pointer;">
       	<p class = "slogan" onclick="displayDescriptionNum(this,6)"><b>Nous contacter</b></p>
   		</div>
+  		<div class = "manuel"><img src="../img/pdf.png" alt="PDF" class="imgpdf" />  <a class="lienmanuel" href="../files/manuel.pdf">Télécharger le manuel utilisateur</a></div>
+
       </body>
   		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
       <script type="text/javascript" src="../js/support.js"></script>
