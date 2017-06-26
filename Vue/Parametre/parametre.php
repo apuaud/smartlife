@@ -17,7 +17,7 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
     <body class=parametreBody onload="setFontSize();listenToSelect()" onresize="setFontSize()">
       <div class="sloganDescription overflowY">
 				<div class="sloganDescriptionInnerContainer overflowY">
-          <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
+          <p class="sloganDescriptionP" style="text-align:left">
             <form action="action.php?action=ajouterCompteSecondaire" method="post">
               <table class="tableForm" align="center" style="margin-top:100px;">
                 <?php
@@ -34,15 +34,14 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                   array_push($listeID, $donnees['id']);
                 }
                ?>
+               <tr>
+                 <td style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/></td>
+               </tr>
                 <tr>
                   <td>
                     <div style="color:red;font-size:12px;">* Tous les champs sont obligatoires</div>
                   </td>
                   <td></td>
-                </tr>
-                <tr>
-                  <td><input required  type="text" name="email" placeholder="Email"></td>
-                  <td><span>Comptes secondaires actuels :</span></td>
                 </tr>
                 <tr>
                   <td><input required  type="text" name="lastName" placeholder="Prénom"></td>
@@ -58,6 +57,10 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                   <td><input required  type="text" name="id" placeholder="Pseudo"></td>
                   <td><?php if(isset($listeCompte[2])){echo $listeCompte[2] . " (" . $listePrenom[2] . " " . $listeNom[2] . ")  " . "<a href='action.php?action=supprimerCompteSecondaire&id=".$listeID[2]."'><img src='../img/croix.png'
           alt='Supprimer' width=20px height=auto /></a>";} ?></td>
+                </tr>
+                <tr>
+                  <td><input required  type="text" name="email" placeholder="Email"></td>
+                  <td><span>Comptes secondaires actuels</span></td>
                 </tr>
                 <tr>
                   <td><input required  type="password" name="pw" placeholder="Mot de passe"></td>
