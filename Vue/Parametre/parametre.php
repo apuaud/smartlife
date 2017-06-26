@@ -35,6 +35,12 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
                 }
                ?>
                 <tr>
+                  <td>
+                    <div style="color:red;font-size:12px;">* Tous les champs sont obligatoires</div>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
                   <td><input required  type="text" name="email" placeholder="Email"></td>
                   <td><span>Comptes secondaires actuels :</span></td>
                 </tr>

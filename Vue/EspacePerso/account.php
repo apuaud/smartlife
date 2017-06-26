@@ -20,7 +20,7 @@ session_start();
 					</tr>
 				<tr>
                   <td>
-                    <div style="color:red">* Tous les champs sont obligatoires</div>
+                    <div style="color:red;font-size:12px;">* Tous les champs sont obligatoires</div>
                   </td>
                 </tr>
 					<tr>
