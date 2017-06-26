@@ -9,6 +9,14 @@
 	overflow: hidden;
 }
 
+.overflowY
+{
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
 select {
     -webkit-appearance: button;
     -moz-appearance: button;

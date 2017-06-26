@@ -15,8 +15,8 @@ if(!isset($_SESSION['id']) || $_SESSION['type']==0)
         <title>Paramètres</title>
     </head>
     <body class=parametreBody onload="setFontSize();listenToSelect()" onresize="setFontSize()">
-      <div class="sloganDescription">
-				<div class="sloganDescriptionInnerContainer">
+      <div class="sloganDescription overflowY">
+				<div class="sloganDescriptionInnerContainer overflowY">
           <p class="sloganDescriptionP" style="text-align:left"><img id="cross" src="../img/whitecross.png" alt="Fermer" width="15px" onclick="hideForms()"/>
             <form action="action.php?action=ajouterCompteSecondaire" method="post">
               <table class="tableForm" align="center" style="margin-top:100px;">
