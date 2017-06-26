@@ -12,7 +12,7 @@ session_start();
 
 		<body class="manonbody" onload="resizeLists()" onresize="resizeLists()">
 
-			<div class='formulaire' id='formulaireAjoutMaison'>
+			<div class='formulaire overflowY' id='formulaireAjoutMaison'>
 				<form action="action.php?action=validerAjoutMaison" method='post'>
 				<table id='login' align='center'>
 					<tr >
@@ -63,7 +63,7 @@ session_start();
 			</form>
 		</div>
 
-		<div class='formulaire' id='formulaireModificationMaison'>
+		<div class='formulaire overflowY' id='formulaireModificationMaison'>
 			<?php
 				$home = getHomeInformation($_GET['maison'], $dbh);
 			?>

@@ -55,6 +55,14 @@ select {
 	overflow-y: scroll;
 }
 
+.overflowY
+{
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
 select:focus
 {
 	outline: none;
@@ -415,8 +423,8 @@ input[type=checkbox]
 
 #closeForm
 {
-	text-align: right;
-	float: right;
+	text-align: left;
+	float: left;
 }
 #cross
 {
@@ -424,7 +432,6 @@ input[type=checkbox]
 	cursor: pointer;
 	width:30px;
 	position:relative;
-	margin-right: -385px;
 }
 .floatRight
 {
