@@ -184,5 +184,13 @@ if(ISSET($_GET['action']))
     case "reinitialiser":
       include("reinitialiser.php");
       break;
+
+    case "mdpoublie":
+      include("mdpoublie.php");
+      break;
+
+    case "changemdp":
+      include("changemdp.php");
+      break;
   }
 ?>

@@ -12,7 +12,7 @@ include('../db_connect.php');
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
-			<form action="changemdp.php" method="post" onsubmit="return verifyInputs();">
+			<form action="action.php?action=changemdp" method="post" onsubmit="return verifyInputs();">
 			<table id="login" align="center" >
 				<tr>
 					<td id="firstNameInputFalse"><p align="right" class="border-right"></p></td>

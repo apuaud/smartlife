@@ -11,7 +11,7 @@ session_start();
 	</head>
 	<body class="margin0" onload="onLoadFunction()">
 		<div id="formulaire">
-			<form action="mdpoublie.php" method="post" onsubmit="">
+			<form action="action.php?action=mdpoublie" method="post" onsubmit="">
 			<table id="login" align="center" >
 				<tr>
 					<td id="firstNameInputFalse"><p align="right" class="border-right"></p></td>

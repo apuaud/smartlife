@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+echo "<script>alert('yo')</script>";
 if(isset($_GET['log']) AND isset($_GET['cle']))
 {
 	$donnees = reinitialisationMDP($_GET['log'],$dbh);
